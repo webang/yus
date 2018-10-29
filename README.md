@@ -1,6 +1,6 @@
-# vue-ymu
+# yum
 
-> A Vue.js project
+mobile compoennts based on vue.js
 
 ## Build Setup
 
