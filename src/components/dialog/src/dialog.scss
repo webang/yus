@@ -1,0 +1,51 @@
+.wui-dialog {
+  overflow: hidden;
+  position: fixed;
+  z-index: 1000;
+  display: table;
+  width: 80%;
+  max-width: 300px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.wui-dialog__hd {
+  padding: 20px 25px 12px;
+}
+
+.wui-dialog__title {
+
+}
+
+.wui-dialog__bd {
+  padding: 0 24px 12px;
+  min-height: 40px;
+  font-size: 15px;
+  line-height: 1.3;
+  word-wrap: break-word;
+  word-break: break-all;
+  color: #999;
+}
+
+.wui-dialog__ft {
+  .wui-btn {
+    border-radius: 0;
+  }
+}
+
+.wui-dialog-enter,
+.wui-dialog-leave-to {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.wui-dialog-enter-active,
+.wui-dialog-leave-active {
+  transition: all 300ms;
+}

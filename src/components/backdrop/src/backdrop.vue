@@ -1,5 +1,5 @@
 <template>
-  <transition name="ymu-backdrop">
+  <transition :name="transition">
    <div
     class="ymu-backdrop"
     @click="handleClick"
@@ -11,7 +11,11 @@
 export default {
   name: 'ymu-backdrop',
   props: {
-    value: Boolean
+    value: Boolean,
+    transition: {
+      type: String,
+      default: 'ymu-backdrop'
+    }
   },
   methods: {
     handleClick () {

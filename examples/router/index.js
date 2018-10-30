@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Button from '../views/Button'
-import Actionsheet from '../views/Actionsheet'
+
+const Button = () => import('../views/Button')
+const Actionsheet = () => import('../views/Actionsheet')
+const Alert = () => import('../views/Alert')
 
 Vue.use(Router)
 
@@ -16,6 +18,11 @@ export default new Router({
       path: '/Actionsheet',
       name: 'Actionsheet',
       component: Actionsheet
+    },
+    {
+      path: '/Alert',
+      name: 'Alert',
+      component: Alert
     }
   ]
 })
