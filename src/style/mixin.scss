@@ -1,1 +1,23 @@
-mixin.scss
+@import "../theme/vars.scss";
+
+@mixin wui-border-bottom-1px () {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1PX;
+  transform: scaleY(0.5);
+  background-color: $border-color;
+}
+
+@mixin wui-border-top-1px () {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1PX;
+  transform: scaleY(0.5);
+  background-color: $border-color;
+}

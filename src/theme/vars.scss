@@ -1,1 +1,69 @@
-vars.scss
+/*************************** 颜色分类 ************************/
+// $color-blue: #26a2ff;
+// $color-white: #fff;
+// $color-grey: #d9d9d9;
+// $border-color: #c8c8cd;
+// $success-color: #4caf50;
+// $error-color: #f44336;
+// $warning-color: #ffc107;
+$colors: (
+  primary:    #488aff,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222
+);
+
+
+$color-primary: #108ee9;
+$color-secondary: #32db64;
+$color-danger: #e94f4f;
+$color-light:  #f4f4f4;
+$color-dark:  #222;
+
+
+/**
+ * 颜色值
+ **/
+$border-color: #e5e5e5; // 分割色, 通常和 body 底色相同
+
+
+/**
+ * Button
+ */
+$button_normal_height: 44px; // 常规高度
+$button_normal_font_size: 16px; // 常规字体高度
+$button_normal_border_radius: 3px; //  常规边框大小
+$button_normal_herizontal_padding: 15px; // 水平边距
+$button_normal_herizontal_round_radius: 64px; // 圆角大小
+$button_normal_herizontal_round_padding: 30px; // 圆角时的水平边距
+
+$button_small_height: 36px;
+$button_small_font_size: 14px;
+$button_small_border_radius: 2px;
+$button_small_herizontal_padding: 15px;
+$button_small_herizontal_round_radius: 40px;
+$button_small_herizontal_round_padding: 20px;
+
+$button_mini_height: 28px;
+$button_mini_font_size: 12px;
+$button_mini_border_radius: 2px;
+$button_mini_herizontal_padding: 12px;
+$button_mini_herizontal_round_radius: 30px;
+$button_mini_herizontal_round_padding: 15px;
+
+$button_light_bg_color: #f4f4f4; // light bg color
+$button_light_font_color: inherit; // light font color
+$button_light_border_color: #ddd; // light border color
+$button_light_active_font_color: inherit;
+$button_light_active_bg_color: #ddd;
+
+$button_primary_bg_color: #108ee9;
+$button_primary_font_color: #fff;
+$button_primary_active_font_color: hsla(0,0%,100%,.3);
+$button_primary_active_bg_color: #0e80d2;
+
+$button_danger_bg_color: #e94f4f;
+$button_danger_font_color: #fff;
+$button_danger_active_font_color: hsla(0,0%,100%,.3);
+$button_danger_active_bg_color: #d24747;

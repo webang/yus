@@ -1,1 +1,177 @@
-button.scss
+@import '../../../theme/vars.scss';
+@import '../../../style/mixin.scss';
+@import '../../../style/animate.scss';
+
+@mixin grayLoading {
+  width: 24px;
+  height: 24px;
+  background-image: url(../../../icons/loading_gray.svg);
+  background-size: 100%;
+  animation: ymuLoading 1s steps(12, end) infinite;
+}
+
+@mixin whiteLoading {
+  @include grayLoading;
+  background-image: url(../../../icons/loading_white.svg);
+}
+
+.ymu-button {
+  display: inline-block;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  white-space: nowrap;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.ymu-button--size-normal {
+  height: $button_normal_height;
+  font-size: $button_normal_font_size;
+  line-height: $button_normal_height;
+  padding-left: $button_normal_herizontal_padding;
+  padding-right: $button_normal_herizontal_padding;
+  &.ymu-button--radius {
+    border-radius: $button_normal_border_radius;
+  }
+  &.ymu-button--round {
+    padding-left: $button_normal_herizontal_round_padding;
+    padding-right: $button_normal_herizontal_round_padding;
+    border-radius: $button_normal_herizontal_round_radius;
+  }
+}
+
+.ymu-button--size-small {
+  height: $button_small_height;
+  font-size: $button_small_font_size;
+  line-height: $button_small_height;
+  padding-left: $button_small_herizontal_padding;
+  padding-right: $button_small_herizontal_padding;
+  &.ymu-button--radius {
+    border-radius: $button_small_border_radius;
+  }
+  &.ymu-button--round {
+    padding-left: $button_small_herizontal_round_padding;
+    padding-right: $button_small_herizontal_round_padding;
+    border-radius: $button_small_herizontal_round_radius;
+  }
+}
+
+.ymu-button--size-mini {
+  height: $button_mini_height;
+  font-size: $button_mini_font_size;
+  line-height: $button_mini_height;
+  padding-left: $button_mini_herizontal_padding;
+  padding-right: $button_mini_herizontal_padding;
+  &.ymu-button--radius {
+    border-radius: $button_mini_border_radius;
+  }
+  &.ymu-button--round {
+    padding-left: $button_mini_herizontal_round_padding;
+    padding-right: $button_mini_herizontal_round_padding;
+    border-radius: $button_mini_herizontal_round_radius;
+  }
+}
+
+.ymu-button--color-light {
+  background-color: $button_light_bg_color;
+  border-color: transparent;
+  &.ymu-button--plain {
+    color: $button_light_font_color;
+    background: transparent;
+    border: 1px solid $button_light_border_color;
+  }
+  &.ymu-button--clear {
+    color: $button_light_font_color;
+    background: transparent;
+    border: none;
+  }
+  &.ymu-button--active {
+    color: $button_light_active_font_color;
+    background-color: $button_light_active_bg_color;
+  }
+  .ymu-loading {
+    @include grayLoading;
+  }
+}
+
+.ymu-button--color-primary {
+  color: $button_primary_font_color;
+  background-color: $button_primary_bg_color;
+  border-color: transparent;
+  &.ymu-button--plain {
+    color: $button_primary_bg_color;
+    background: transparent;
+    border: 1px solid $button_primary_bg_color;
+  }
+  &.ymu-button--clear {
+    color: $button_primary_bg_color;
+    background: transparent;
+    border: none;
+  }
+  &.ymu-button--active {
+    color: $button_primary_active_font_color;
+    background-color: $button_primary_active_bg_color;
+  }
+  .ymu-loading {
+    @include whiteLoading;
+  }
+}
+
+.ymu-button--color-danger {
+  color: $button_danger_font_color;
+  background-color: $button_danger_bg_color;
+  border-color: transparent;
+  &.ymu-button--plain {
+    color: $button_danger_bg_color;
+    background: transparent;
+    border: 1px solid $button_danger_bg_color;
+  }
+  &.ymu-button--clear {
+    color: $button_danger_bg_color;
+    background: transparent;
+    border: none;
+  }
+  &.ymu-button--active {
+    color: $button_danger_active_font_color;
+    background-color: $button_danger_active_bg_color;
+  }
+  .ymu-loading {
+    @include whiteLoading;
+  }
+}
+
+// inline
+.ymu-button--inline {
+  display: inline-block;
+}
+
+// block
+.ymu-button--block {
+  display: block;
+  clear: both;
+  width: 100%;
+  contain: strict;
+}
+
+// disabled
+.ymu-button--disabled {
+  opacity: .6;
+}
+
+// 为了让icon总是居中
+.ymu-button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// icon
+.ymu-button__icon {
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+  .ymi-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
