@@ -14,7 +14,6 @@ $colors: (
   dark:       #222
 );
 
-
 $color-primary: #108ee9;
 $color-secondary: #32db64;
 $color-danger: #e94f4f;
@@ -25,11 +24,11 @@ $color-dark:  #222;
 /**
  * 颜色值
  **/
-$border-color: #e5e5e5; // 分割色, 通常和 body 底色相同
+$border-default-color: #e5e5e5; // 分割色, 通常和 body 底色相同
 
 
 /**
- * Button
+ * button
  */
 $button_normal_height: 44px; // 常规高度
 $button_normal_font_size: 16px; // 常规字体高度
@@ -67,3 +66,20 @@ $button_danger_bg_color: #e94f4f;
 $button_danger_font_color: #fff;
 $button_danger_active_font_color: hsla(0,0%,100%,.3);
 $button_danger_active_bg_color: #d24747;
+
+
+/**
+ * backdrop
+ */
+$backdrop-zindex: 900;
+$backdrop-bg: rgba(0, 0, 0, .6);
+
+
+/**
+ * actionsheet
+ */
+$actionsheet-content-bg: #efeff4;
+$actionsheet-disabled-menu-color: #ccc;
+$actionsheet-menu-font-size: 18px;
+$actionsheet-cell-vertical-padding: 10px;
+$actionsheet-cancel-margin-top: 6px;

@@ -166,7 +166,7 @@
 }
 
 // icon
-.ymu-button__icon {
+.ymu-button_icon {
   display: flex;
   align-items: center;
   margin-right: 4px;
@@ -174,4 +174,9 @@
     width: 24px;
     height: 24px;
   }
+}
+
+// text
+.yum-button_text {
+
 }

@@ -1,0 +1,23 @@
+@import '../../../theme/vars.scss';
+@import '../../../style/mixin.scss';
+@import '../../../style/animate.scss';
+
+.ymu-mask {
+  z-index: $mask-zindex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: $mask-bg;
+}
+
+.ymu-mask-enter,
+.ymu-mask-leave-active {
+  opacity: 0;
+}
+
+.ymu-mask-leave-active,
+.ymu-mask-enter-active {
+  transition: opacity 300ms;
+}

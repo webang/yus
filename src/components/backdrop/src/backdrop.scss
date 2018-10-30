@@ -1,0 +1,23 @@
+@import '../../../theme/vars.scss';
+@import '../../../style/mixin.scss';
+@import '../../../style/animate.scss';
+
+.ymu-backdrop {
+  z-index: $backdrop-zindex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: $backdrop-bg;
+}
+
+.ymu-backdrop-enter,
+.ymu-backdrop-leave-active {
+  opacity: 0;
+}
+
+.ymu-backdrop-leave-active,
+.ymu-backdrop-enter-active {
+  transition: opacity 300ms;
+}

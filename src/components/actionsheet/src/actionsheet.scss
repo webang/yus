@@ -1,0 +1,47 @@
+@import '../../../theme/vars.scss';
+@import '../../../style/mixin.scss';
+@import '../../../style/animate.scss';
+
+.ymu-actionsheet__content {
+  z-index: $backdrop-zindex + 1;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $actionsheet-content-bg;
+  transform: translateY(100%);
+  transition: transform .3s;
+}
+
+.ymu-actionsheet__cell {
+  position: relative;
+  padding-top: $actionsheet-cell-vertical-padding;
+  padding-bottom: $actionsheet-cell-vertical-padding;
+  font-size: $actionsheet-menu-font-size;
+  text-align: center;
+  background-color: #fff;
+  &::before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    color: $border-default-color;
+    border-top: 1px solid $border-default-color;
+    transform-origin: 0 0;
+    transform: scaleY(.5);
+  }
+}
+
+.ymu-actionsheet__cell--disabled {
+  color: $actionsheet-disabled-menu-color;
+}
+
+.ymu-actionsheet__cancel {
+  margin-top: $actionsheet-cancel-margin-top;
+}
+
+.ymu-actionsheet__content--show {
+  transform: translate(0);
+}

@@ -23,7 +23,7 @@
     <div class="ymu-button-content">
       <i class="ymu-loading" v-show="showLoading"></i>
       <slot>
-        <span class="yum-button__text">{{ text }}</span>
+        <span class="yum-button_text">{{ text }}</span>
       </slot>
     </div>
   </a>
