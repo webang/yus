@@ -40,13 +40,12 @@
  * @param { boolean } [disabled=false] - 禁用按钮
  * @param { boolean } [plain=false] - 幽灵按钮
  * @param { boolean } [round=false] - 圆角按钮
- * @param { slot } - 显示文本
- * @param { slot } [icon] 显示图标
+ * @param { string } 显示文本
+ * @param { slot } - 默认插槽
  */
 export default {
   name: 'ymu-button',
   props: {
-    icon: String,
     color: {
       type: String,
       default: 'light'
@@ -70,20 +69,20 @@ export default {
     }
   },
   methods: {
-    handleClick (evt) {
-      this.$emit('click', evt)
+    handleClick (event) {
+      this.$emit('click', event)
     },
-    triggerEvent (type, isActive, evt) {
+    triggerEvent (type, isActive, event) {
       if (isActive !== this.active) {
         this.active = isActive
       }
     },
-    onTouchStart (evt) {
+    onTouchStart (event) {
       if (this.disabled) { return }
-      this.triggerEvent('TouchStart', true, evt)
+      this.triggerEvent('TouchStart', true, event)
     },
-    onTouchEnd (evt) {
-      this.triggerEvent('TouchEnd', false, evt)
+    onTouchEnd (event) {
+      this.triggerEvent('TouchEnd', false, event)
     }
   }
 }

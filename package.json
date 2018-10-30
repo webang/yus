@@ -1,9 +1,9 @@
 {
   "name": "ymu",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
+  "version": "1.0.12",
+  "description": "Vue Mobile Components",
   "author": "gaollard@foxmail.com",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
@@ -13,6 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js"
   },
+  "main": "src/index.js",
   "dependencies": {
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
