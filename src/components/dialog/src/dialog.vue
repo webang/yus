@@ -1,9 +1,11 @@
 <template>
   <div>
-    <Backdrop @click="onBackdropClick"></Backdrop>
-    <div class="ymu-dialog">
-      <slot></slot>
-    </div>
+    <Backdrop :transition="backdropTransition" @click="onClickBackdrop" :value="value"></Backdrop>
+    <transition :name="dialogTransition">
+      <div class="ymu-dialog" v-show="value">
+        <slot></slot>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -15,7 +17,15 @@ export default {
     Backdrop
   },
   props: {
-    value: Boolean
+    value: Boolean,
+    backdropTransition: {
+      type: String,
+      default: 'ymu-backdrop'
+    },
+    dialogTransition: {
+      type: String,
+      default: 'ymu-dialog'
+    }
   },
   data () {
     return {
@@ -31,8 +41,11 @@ export default {
     }
   },
   methods: {
-    onBackdropClick () {
-      console.log(1)
+    onClickBackdrop () {
+      this.$emit('on-click-backdrop')
+    },
+    hide () {
+      this.visible = false
     }
   },
   created () {

@@ -5,10 +5,11 @@
       :menus="option1.menus"
       :title="option1.title"
       :showCancel="option1.showCancel"
-      :close-on-click-backdrop="false"
       :close-on-click-menu="false"
       @on-menu-click="onMenuClick"
-    ></Alert>
+    >
+      <p>真的要离开我吗?</p>
+    </Alert>
     <div>
       <button @click="option1.show=!option1.show">option1</button>
     </div>
