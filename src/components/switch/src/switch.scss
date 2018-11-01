@@ -1,0 +1,36 @@
+.wui-switch {
+  position: relative;
+  display: inline-block;
+  height: 1em;
+  width: 1.6em;
+  background: #fff;
+  font-size: 30px;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 1em;
+  box-sizing: content-box;
+}
+
+.wui-switch__node {
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 1em;
+  height: 1em;
+  -webkit-transition: .3s;
+  transition: .3s;
+  position: absolute;
+  border-radius: 100%;
+  background-color: #fff;
+  box-shadow: 0 3px 1px 0 rgba(0, 0, 0, .05), 0 2px 2px 0 rgba(0, 0, 0, .1), 0 3px 3px 0 rgba(0, 0, 0, .05);
+}
+
+.wui-switch--on {
+  background-color: red;
+  .wui-switch__node {
+    transform: translateX(.6em);
+  }
+}
+
+.wui-switch--disabled {
+  opacity: .6;
+}

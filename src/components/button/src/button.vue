@@ -2,8 +2,8 @@
   <a
     class="ymu-button"
     :class="[
-      'ymu-button--color-' + color,
-      'ymu-button--size-' + size,
+      'ymu-button--' + type,
+      'ymu-button--' + size,
       'ymu-button--radius',
       {
         'ymu-button--disabled': disabled,
@@ -11,7 +11,6 @@
         'ymu-button--block': block,
         'ymu-button--round': round,
         'ymu-button--clear': clear,
-        'ymu-button--icon': icon || $slots.icon,
         'ymu-button--active': active
       }
     ]"
@@ -33,7 +32,7 @@
 
 /**
  * @component ymu-button
- * @param { string } [color=light] - 表现为按钮的背景色
+ * @param { string } [type=light] - 表现为按钮的背景色
  * @param { string } [size=normal] - 尺寸 - normal, small, large
  * @param { boolean } [block=false] - 块按钮
  * @param { boolean } [clear=false] - 没有边框没有背景颜色
@@ -46,7 +45,7 @@
 export default {
   name: 'ymu-button',
   props: {
-    color: {
+    type: {
       type: String,
       default: 'light'
     },

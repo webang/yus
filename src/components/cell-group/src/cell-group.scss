@@ -1,0 +1,28 @@
+.ymu-cell-group {
+  position: relative;
+  &::after {
+    content: " ";
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: #ccc;
+  }
+  &::before {
+    content: " ";
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background: #ccc;
+  }
+  .ymu-cell:last-child {
+    &::after {
+      display: none;
+    }
+  }
+}

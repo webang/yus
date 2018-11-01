@@ -8,7 +8,11 @@ div, p, span, a, label, ul, li {
   margin: 0;
 }
 
-body {
-  color: #333;
-  background-color: #efeff4;
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ymu-ui-flex {
+  display: flex;
+  align-items: center;
 }

@@ -1,0 +1,63 @@
+@mixin full {
+  flex: 1;
+  height: 100%;
+}
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
+
+$navbar-herizontal-padding: 15px;
+$navbar-font-size: 14px;
+$navbar-title-font-size: 16px;
+$navbar-line-height: 46px;
+$navbar-left-button-active-bg-color: #e8e8e8;
+$navbar-left-arrow-color: #38f;
+
+.ymu-navbar {
+  position: relative;
+  display: flex;
+  height: $navbar-line-height;
+  line-height: $navbar-line-height;
+  background-color: #fff;
+}
+
+.ymu-navbar-left,
+.ymu-navbar-right {
+  @include flex;
+  @include full;
+}
+
+.ymu-navbar-title {
+  justify-content: center;
+  font-size: $navbar-title-font-size;
+  text-align: center;
+}
+
+.ymu-navbar-left {
+  padding-left: $navbar-herizontal-padding;
+  font-size: $navbar-font-size;
+  color: $navbar-left-arrow-color;
+}
+
+.ymu-navbar-right {
+  justify-content: flex-end;
+  font-size: $navbar-font-size;
+  padding-right: $navbar-herizontal-padding;
+}
+
+.icon-left {
+  font-size: 26px;
+  margin-left: -10px;
+}
+
+.ymu-navbar-button {
+  display: flex;
+  align-items: center;
+  padding: 0 $navbar-herizontal-padding;
+  margin: 0 -$navbar-herizontal-padding;
+  &:active {
+    background-color: $navbar-left-button-active-bg-color;
+  }
+}

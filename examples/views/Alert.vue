@@ -1,5 +1,15 @@
 <template>
-  <div class="page-actionsheet">
+  <div class="page-alert">
+    <div class="ymu-doc-block">
+      <div class="ymu-doc-block__title">基本用法</div>
+      <div class="ymu-doc-block__content list">
+        <CellGroup>
+          <Cell title="基本用法">
+            <button slot="value" @click="option1.show=!option1.show">切换</button>
+          </Cell>
+        </CellGroup>
+      </div>
+    </div>
     <Alert
       v-model="option1.show"
       :menus="option1.menus"
@@ -10,17 +20,18 @@
     >
       <p>真的要离开我吗?</p>
     </Alert>
-    <div>
-      <button @click="option1.show=!option1.show">option1</button>
-    </div>
   </div>
 </template>
 
 <script>
 import Alert from '@/components/alert'
+import Cell from '@/components/cell'
+import CellGroup from '@/components/cell-group'
 export default {
   components: {
-    Alert
+    Alert,
+    Cell,
+    CellGroup
   },
   data () {
     return {

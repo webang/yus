@@ -1,0 +1,54 @@
+@import '../../../theme/vars.scss';
+@import '../../../style/mixin.scss';
+@import '../../../style/animate.scss';
+
+.ymu-cell {
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 24px;
+  background-color: #fff;
+  &::after {
+    content: ' ';
+    position: absolute;
+    pointer-events: none;
+    box-sizing: border-box;
+    left: 15px;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    border-bottom: 1px solid $border-default-color;
+  }
+}
+
+.ymu-cell__media {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 5px;
+}
+
+.ymu-cell__title {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.ymu-cell__value {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.ymu-icon-arrow-right {
+  width: 12px;
+  height: 12px;
+  margin-left: 4px;
+  margin-right: -4px;
+}

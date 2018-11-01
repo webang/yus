@@ -1,5 +1,21 @@
 <template>
   <div class="page-actionsheet">
+    <div class="ymu-doc-block">
+      <div class="ymu-doc-block__title">基本用法</div>
+      <div class="ymu-doc-block__content list">
+        <CellGroup>
+          <Cell title="警用选项">
+            <button slot="value" @click="option2.show=!option2.show">切换</button>
+          </Cell>
+          <Cell title="自定义标题">
+            <button slot="value" @click="option3.show=!option3.show">切换</button>
+          </Cell>
+          <Cell title="点击幕布不关闭">
+            <button slot="value" @click="option1.show=!option1.show">切换</button>
+          </Cell>
+        </CellGroup>
+      </div>
+    </div>
     <Actionsheet
       v-model="option1.show"
       :menus="option1.menus"
@@ -30,22 +46,17 @@
         </div>
       </div>
     </Actionsheet>
-    <div>
-      <button @click="option1.show=!option1.show">option1</button>
-    </div>
-    <div>
-      <button @click="option2.show=!option2.show">option2</button>
-    </div>
-    <div>
-      <button @click="option3.show=!option3.show">option3</button>
-    </div>
   </div>
 </template>
 
 <script>
+import Cell from '@/components/cell'
+import CellGroup from '@/components/cell-group'
 import Actionsheet from '@/components/actionsheet'
 export default {
   components: {
+    Cell,
+    CellGroup,
     Actionsheet
   },
   data () {

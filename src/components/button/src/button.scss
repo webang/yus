@@ -24,7 +24,7 @@
   box-sizing: border-box;
 }
 
-.ymu-button--size-normal {
+.ymu-button--normal {
   height: $button_normal_height;
   font-size: $button_normal_font_size;
   line-height: $button_normal_height;
@@ -40,7 +40,7 @@
   }
 }
 
-.ymu-button--size-small {
+.ymu-button--small {
   height: $button_small_height;
   font-size: $button_small_font_size;
   line-height: $button_small_height;
@@ -56,7 +56,7 @@
   }
 }
 
-.ymu-button--size-mini {
+.ymu-button--mini {
   height: $button_mini_height;
   font-size: $button_mini_font_size;
   line-height: $button_mini_height;
@@ -72,7 +72,7 @@
   }
 }
 
-.ymu-button--color-light {
+.ymu-button--light {
   background-color: $button_light_bg_color;
   border-color: transparent;
   &.ymu-button--plain {
@@ -94,7 +94,7 @@
   }
 }
 
-.ymu-button--color-primary {
+.ymu-button--primary {
   color: $button_primary_font_color;
   background-color: $button_primary_bg_color;
   border-color: transparent;
@@ -117,7 +117,7 @@
   }
 }
 
-.ymu-button--color-danger {
+.ymu-button--danger {
   color: $button_danger_font_color;
   background-color: $button_danger_bg_color;
   border-color: transparent;
