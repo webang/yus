@@ -7,6 +7,8 @@
           <Cell title="Button 按钮" is-link to="/Button"></Cell>
           <Cell title="Navbar 导航" is-link to="/Navbar"></Cell>
           <Cell title="Cell 单元格" is-link to="/Cell"></Cell>
+          <Cell title="Progress 进度条" is-link to="/Progress"></Cell>
+          <Cell title="Step 步骤条" is-link to="/Step"></Cell>
         </CellGroup>
       </div>
     </div>

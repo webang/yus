@@ -4,7 +4,9 @@
       <slot name="media"></slot>
     </div>
     <div class="ymu-cell__title">
-      <slot name="title" v-if="title">{{ title }}</slot>
+      <slot name="title">
+        <span v-if="title">{{ title }}</span>
+      </slot>
     </div>
     <div class="ymu-cell__value">
       <slot name="value">{{ value }}</slot>

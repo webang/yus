@@ -8,6 +8,8 @@ const Alert = () => import('../views/Alert')
 const Navbar = () => import('../views/Navbar')
 const Cell = () => import('../views/Cell')
 const Switch = () => import('../views/Switch')
+const Progress = () => import('../views/Progress')
+const Step = () => import('../views/Step')
 
 Vue.use(Router)
 
@@ -19,6 +21,14 @@ export default new Router({
       component: Welcome,
       meta: {
         title: 'ymu'
+      }
+    },
+    {
+      path: '/Progress',
+      name: 'Progress',
+      component: Progress,
+      meta: {
+        title: 'Progress 进度条'
       }
     },
     {
@@ -67,6 +77,14 @@ export default new Router({
       component: Switch,
       meta: {
         title: 'Switch 开关'
+      }
+    },
+    {
+      path: '/Step',
+      name: 'Step',
+      component: Step,
+      meta: {
+        title: 'Step 步骤条'
       }
     }
   ]

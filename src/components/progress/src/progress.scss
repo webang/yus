@@ -1,0 +1,32 @@
+$progress-bar-bg-color: #EBEBEB;
+$progress-bar-hegiht: 30px;
+$progress-track-bg-color: #26a2ff;
+$progress-track-height: 4px;
+
+@mixin progressTransition {
+  transition: all 400ms;
+}
+
+.ymu-progress {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: $progress-bar-hegiht;
+  line-height: $progress-bar-hegiht;
+}
+
+.ymu-progress__bar {
+  overflow: hidden;
+  position: relative;
+  flex: 1;
+  height: $progress-track-height;
+  background-color: $progress-bar-bg-color;
+}
+
+.ymu-progress__track {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: $progress-track-bg-color;
+  @include progressTransition;
+}
