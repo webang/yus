@@ -10,6 +10,8 @@ const Cell = () => import('../views/Cell')
 const Switch = () => import('../views/Switch')
 const Progress = () => import('../views/Progress')
 const Step = () => import('../views/Step')
+const Flow = () => import('../views/Flow')
+const Tabbar = () => import('../views/tabbar')
 
 Vue.use(Router)
 
@@ -21,6 +23,22 @@ export default new Router({
       component: Welcome,
       meta: {
         title: 'ymu'
+      }
+    },
+    {
+      path: '/Tabbar',
+      name: 'Tabbar',
+      component: Tabbar,
+      meta: {
+        title: 'Tabbar 标签栏'
+      }
+    },
+    {
+      path: '/Flow',
+      name: 'Flow',
+      component: Flow,
+      meta: {
+        title: 'Flow 步骤条'
       }
     },
     {

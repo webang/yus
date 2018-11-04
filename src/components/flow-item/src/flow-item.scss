@@ -1,0 +1,99 @@
+.ymu-flow {
+  position: relative;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.ymu-flow__line {
+
+}
+
+.ymu-flow-main {
+  font-size: 12px;
+}
+
+.ymu-flow__icon {
+
+}
+
+.ymu-flow--horizontal {
+  flex: 1;
+  text-align: center;
+  .ymu-flow-head {
+    position: relative;
+    height: 24px;
+  }
+  .ymu-flow__icon {
+    z-index: 3;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    transform: translate(-50%, -50%);
+    background: #888;
+    border-radius: 50%;    
+  }
+  .ymu-flow__line {
+    position: absolute;
+    top: 27px;
+    left: 50%;
+    top: 50%;
+    width: 80%;
+    height: 1px;
+    margin-left: 10%;
+    transform: translateY(-50%);
+    background: #888;
+  }
+  &:last-child {
+    .ymu-flow__line {
+      display: none;
+    }
+  }
+}
+
+.ymu-flow--vertical {
+  display: flex;
+  .ymu-flow-head {
+    position: relative;
+    display: flex;
+    width: 24px;
+  }
+  .ymu-flow-main {
+    padding-bottom: 10px;
+  }
+  .ymu-flow__line {
+    position: absolute;
+    width: 1px;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-50%);
+    background: #888;
+  }
+  .ymu-flow__icon {
+    z-index: 3;
+    position: absolute;
+    left: 14px;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    transform: translateX(-50%);
+    background: #888;
+    border-radius: 50%;
+  }
+}
+
+.ymu-flow--process {
+  .ymu-flow__icon {
+    background: red;
+  }
+}
+
+.ymu-flow--finish {
+  .ymu-flow__icon {
+    width: 10px;
+    height: 10px;
+    background: red;
+  }
+}
