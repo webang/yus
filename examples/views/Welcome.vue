@@ -9,6 +9,7 @@
           <Cell title="Cell 单元格" is-link to="/Cell"></Cell>
           <Cell title="Progress 进度条" is-link to="/Progress"></Cell>
           <Cell title="Flow 步骤条" is-link to="/Flow"></Cell>
+          <Cell title="Marquee 跑马灯" is-link to="/Marquee"></Cell>
           <Cell title="Tabbar 标签栏" is-link to="/Tabbar"></Cell>
         </CellGroup>
       </div>

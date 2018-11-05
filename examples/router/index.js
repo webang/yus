@@ -12,6 +12,8 @@ const Progress = () => import('../views/Progress')
 const Flow = () => import('../views/Flow')
 const Tabbar = () => import('../views/tabbar')
 const Toast = () => import('../views/toast')
+const Marquee = () => import('../views/Marquee')
+const NoticeBar = () => import('../views/noticeBar')
 
 Vue.use(Router)
 
@@ -23,6 +25,22 @@ export default new Router({
       component: Welcome,
       meta: {
         title: 'ymu'
+      }
+    },
+    {
+      path: '/noticeBar',
+      name: 'noticeBar',
+      component: noticeBar,
+      meta: {
+        title: 'noticeBar 通告栏'
+      }
+    },
+    {
+      path: '/Marquee',
+      name: 'Marquee',
+      component: Marquee,
+      meta: {
+        title: 'Marquee 跑马灯'
       }
     },
     {
