@@ -1,1 +1,38 @@
-notice-bar.scss
+.ymu-notice-bar {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  font-size: 14px;
+  line-height: 36px;
+  color: #ed6a0c;
+  background-color: #fffbe8;
+}
+
+.ymu-notice-bar__left-icon {
+  height: 100%;
+  margin-left: 12px;
+  .icon-voice {
+    // 避免 mounted 获取元素尺寸不正确
+    display: block;
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+  }
+}
+
+.ymu-notice-bar__content {
+  overflow: hidden;
+  position: relative;
+  flex: 1;
+  height: 100%;
+  margin-left: 5px;
+  margin-right: 12px;
+}
+
+.ymu-notice-bar__marquee-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+}

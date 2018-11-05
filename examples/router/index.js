@@ -10,10 +10,10 @@ const Cell = () => import('../views/Cell')
 const Switch = () => import('../views/Switch')
 const Progress = () => import('../views/Progress')
 const Flow = () => import('../views/Flow')
-const Tabbar = () => import('../views/tabbar')
-const Toast = () => import('../views/toast')
+const Tabbar = () => import('../views/Tabbar')
+const Toast = () => import('../views/Toast')
 const Marquee = () => import('../views/Marquee')
-const NoticeBar = () => import('../views/noticeBar')
+const NoticeBar = () => import('../views/NoticeBar')
 
 Vue.use(Router)
 
@@ -28,11 +28,11 @@ export default new Router({
       }
     },
     {
-      path: '/noticeBar',
-      name: 'noticeBar',
-      component: noticeBar,
+      path: '/NoticeBar',
+      name: 'NoticeBar',
+      component: NoticeBar,
       meta: {
-        title: 'noticeBar 通告栏'
+        title: 'NoticeBar 通告栏'
       }
     },
     {
