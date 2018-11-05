@@ -8,7 +8,6 @@
           <Cell title="Navbar 导航" is-link to="/Navbar"></Cell>
           <Cell title="Cell 单元格" is-link to="/Cell"></Cell>
           <Cell title="Progress 进度条" is-link to="/Progress"></Cell>
-          <!-- <Cell title="Step 步骤条" is-link to="/Step"></Cell> -->
           <Cell title="Flow 步骤条" is-link to="/Flow"></Cell>
           <Cell title="Tabbar 标签栏" is-link to="/Tabbar"></Cell>
         </CellGroup>
@@ -28,6 +27,7 @@
         <CellGroup>
           <Cell title="Actionsheet 上拉菜单" is-link to="/Actionsheet"></Cell>
           <Cell title="Alert 提示窗" is-link to="/Alert"></Cell>
+          <Cell title="Toast 轻提示" is-link to="/Toast"></Cell>
         </CellGroup>
       </div>
     </div>

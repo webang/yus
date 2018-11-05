@@ -12,6 +12,7 @@ const Progress = () => import('../views/Progress')
 const Step = () => import('../views/Step')
 const Flow = () => import('../views/Flow')
 const Tabbar = () => import('../views/tabbar')
+const Toast = () => import('../views/toast')
 
 Vue.use(Router)
 
@@ -23,6 +24,14 @@ export default new Router({
       component: Welcome,
       meta: {
         title: 'ymu'
+      }
+    },
+    {
+      path: '/Toast',
+      name: 'Toast',
+      component: Toast,
+      meta: {
+        title: 'Toast 轻提示'
       }
     },
     {
