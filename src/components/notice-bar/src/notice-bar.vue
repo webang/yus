@@ -23,7 +23,6 @@ export default {
     return {
       offset: 0,
       currentOffset: 0,
-      loop: true,
       timeId: null
     }
   },
@@ -34,7 +33,11 @@ export default {
     },
     frequence: {
       type: Number,
-      default: 1000
+      default: 40
+    },
+    loop: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
@@ -53,32 +56,27 @@ export default {
       this.offset = pWidth - cWidth
     },
     play () {
-      console.log('play')
       this.currentOffset--
       if (this.currentOffset < this.offset) {
+        if (this.loop) {
+          this.timeId = setTimeout(() => {
+            this.currentOffset = 0
+            this.play()
+          }, this.wait)
+        }
+      } else {
         this.timeId = setTimeout(() => {
-          this.currentOffset = 0
           this.play()
-        }, this.wait)
-        return
+        }, this.frequence)
       }
-      this.timeId = setTimeout(() => {
-        this.play()
-      }, this.frequence)
     }
   },
   mounted () {
     this.caclSize()
     this.play()
-    this.time = setTimeout(() => {
-      console.log('time')
-    }, 2000)
   },
   beforeDestroy () {
-    console.log('beforeDestroy')
-    this.timeId = null
     clearTimeout(this.timeId)
-    this.time = null
   }
 }
 </script>

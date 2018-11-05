@@ -9,6 +9,15 @@
   background-color: #fffbe8;
 }
 
+.ymu-notice-bar__content {
+  overflow: hidden;
+  position: relative;
+  flex: 1;
+  height: 100%;
+  margin-left: 5px;
+  margin-right: 12px;
+}
+
 .ymu-notice-bar__left-icon {
   height: 100%;
   margin-left: 12px;
@@ -21,13 +30,8 @@
   }
 }
 
-.ymu-notice-bar__content {
-  overflow: hidden;
-  position: relative;
-  flex: 1;
-  height: 100%;
-  margin-left: 5px;
-  margin-right: 12px;
+.ymu-notice-bar__right-icon {
+
 }
 
 .ymu-notice-bar__marquee-wrap {
