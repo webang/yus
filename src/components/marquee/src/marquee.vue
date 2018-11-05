@@ -1,6 +1,6 @@
 <template>
   <div class="ymu-marquee">
-    <div class="ymu-marquee-box" ref="marqueeBox" :style="boxStyle">
+    <div class="ymu-marquee-box" ref="marqueeBox">
       <slot></slot>
     </div>
   </div>
@@ -12,7 +12,7 @@ export default {
   props: {
     interval: {
       type: Number,
-      default: 20000
+      default: 2000
     },
     duration: {
       type: Number,
@@ -33,42 +33,32 @@ export default {
       currentItemHeight: 0
     }
   },
-  computed: {
-    boxStyle () {
-      const currentDuration = this.currentDuration
-      let offset = -this.currentItemHeight * this.currentIndex
-      if (this.direction !== 'up') {
-        offset = this.currentItemHeight * this.currentIndex - this.currentItemHeight * this.len
-      }
-      return {
-        transform: `translate3d(0, ${offset}px, 0)`,
-        transition: `transform ${currentDuration}ms ease 0s`
-      }
-    }
-  },
   methods: {
     setTransition (duration) {
       const $marqueeBox = this.$refs.marqueeBox
-      $marqueeBox.style.transition = `transform ${duration}ms ease 0s`
+      $marqueeBox.style['transition-duration'] = `${duration}ms`
     },
-    playUp () {
-      this.currentDuration = this.duration
-      this.currentIndex++
-      if (this.currentIndex === this.len) {
-        this.currentDuration = 0
-        this.currentIndex = 0
+    setTransform () {
+      const $marqueeBox = this.$refs.marqueeBox
+      if (this.direction === 'up') {
+        const offset = -this.currentItemHeight * (this.currentIndex + 1)
+        $marqueeBox.style.transform = `translate3d(0, ${offset}px, 0)`
       }
-      if (this.currentIndex) {
+      if (this.direction === 'down') {
+        const offset = -this.currentItemHeight * (-this.currentIndex + 1 + this.len)
+        $marqueeBox.style.transform = `translate3d(0, ${offset}px, 0)`
       }
     },
-    playDown () {
-      this.currentDuration = this.duration
+    play () {
+      this.setTransition(300)
       this.currentIndex++
+      this.setTransform()
       if (this.currentIndex === this.len) {
-        this.currentDuration = 0
-        this.currentIndex = 0
-      }
-      if (this.currentIndex) {
+        setTimeout(() => {
+          this.setTransition(0)
+          this.currentIndex = 0
+          this.setTransform()
+        }, this.duration)
       }
     }
   },
@@ -77,20 +67,14 @@ export default {
     const $children = this.$refs.marqueeBox.children
     const $firstItem = $children[0]
     const $lastItem = $marqueeBox.lastChild
-
-    $marqueeBox.appendChild($firstItem.cloneNode(true))
-    $marqueeBox.insertBefore($lastItem.cloneNode(true), $firstItem)
-
+    this.len = $children.length
     this.currentHeight = $marqueeBox.offsetHeight
     this.currentItemHeight = $firstItem.offsetHeight
-    this.len = $children.length
-
+    this.setTransform()
+    $marqueeBox.appendChild($firstItem.cloneNode(true))
+    $marqueeBox.insertBefore($lastItem.cloneNode(true), $firstItem)
     this.timeId = setInterval(() => {
-      if (this.direction === 'up') {
-        this.playUp()
-      } else {
-        this.playDown()
-      }
+      this.play()
     }, this.interval)
   }
 }

@@ -43,7 +43,7 @@ export default {
     }
   },
   created () {
-    for (let index = 0; index < 10; index++) {
+    for (let index = 0; index < 4; index++) {
       this.list.push('基础用法基础用法基础用法基础用法')
     }
   }
