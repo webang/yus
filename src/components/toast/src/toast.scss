@@ -1,0 +1,72 @@
+.ymu-toast {
+  z-index: 10000;
+  position: fixed;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 3px;
+}
+
+.ymu-toast__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 50px;
+  .ymu-toast__icon {
+    font-size: 40px;
+  }
+}
+
+.ymu-toast-content {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.ymu-toast--middle {
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  &-enter-active,
+  &-leave-active {
+    transition: all 1s ease;
+  }
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+
+.ymu-toast--top {
+  top: 0;
+  transform: translate3d(-50%, 10px, 0);
+  &-enter-active,
+  &-leave-active {
+    transition: all .4s;
+  }
+  &-enter,
+  &-leave-to {
+    transform: translate3d(-50%, -110%, 0);
+  }
+}
+
+.ymu-toast--bottom {
+  bottom: 10px;
+  transform: translate3d(-50%, 0, 0);
+  &-enter-active,
+  &-leave-active {
+    transition: all .4s;
+  }
+  &-enter,
+  &-leave-to {
+    bottom: 0;
+    transform: translate3d(-50%, 100%, 0);
+  }
+}
