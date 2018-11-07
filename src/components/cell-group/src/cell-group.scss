@@ -1,5 +1,16 @@
 .ymu-cell-group {
   position: relative;
+  .ymu-cell:last-child,
+  .ymu-field:last-child {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.ymu-cell-group__bd {
+  position: relative;
+  background-color: #fff;
   &::after {
     content: " ";
     z-index: 2;
@@ -20,9 +31,10 @@
     height: 1px;
     background: #ccc;
   }
-  .ymu-cell:last-child {
-    &::after {
-      display: none;
-    }
-  }
+}
+
+.ymu-cell-group__title {
+  padding: 10px 15px;
+  color: #999999;
+  font-size: 14px;
 }

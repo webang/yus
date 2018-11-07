@@ -26,6 +26,7 @@
       <div class="ymu-doc-block__title">表单组件</div>
       <div class="ymu-doc-block__content">
         <CellGroup>
+          <Cell title="Field 输入框" is-link to="/Field"></Cell>
           <Cell title="Switch 开关" is-link to="/Switch"></Cell>
         </CellGroup>
       </div>

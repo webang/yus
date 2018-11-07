@@ -1,0 +1,52 @@
+.ymu-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 24px;
+  &::after {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    display: block;
+    left: 15px;
+    right: 0;
+    height: 1px;
+    background-color: #eee;
+  }
+  .ymu-icon-clear {
+    display: block;
+    width: 17px;
+    height: 17px;
+    color: #fff;
+    font-style: normal;
+    background-color: #ccc;
+    background-repeat: no-repeat;
+    background-image: url(../../../icons/icon_clear.svg);
+    background-position: 1.5px 1.5px;
+    // background-position: 100%;
+    border-radius: 50%;
+  }
+}
+
+.ymu-field__bd {
+  flex: 1;
+}
+
+.ymu-field__label {
+  padding-right: 10px;
+}
+
+.ymu-field__ft {
+  display: flex;
+}
+
+.ymu-field__input {
+  width: 100%;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  font-size: 14px;
+  line-height: 24px;
+}

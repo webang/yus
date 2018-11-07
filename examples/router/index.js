@@ -14,7 +14,7 @@ const Tabbar = () => import('../views/Tabbar')
 const Toast = () => import('../views/Toast')
 const Marquee = () => import('../views/Marquee')
 const NoticeBar = () => import('../views/NoticeBar')
-
+const Field = () => import('../views/Field')
 Vue.use(Router)
 
 export default new Router({
@@ -25,6 +25,14 @@ export default new Router({
       component: Welcome,
       meta: {
         title: 'ymu'
+      }
+    },
+    {
+      path: '/Field',
+      name: 'Field',
+      component: Field,
+      meta: {
+        title: 'Field 输入框'
       }
     },
     {
