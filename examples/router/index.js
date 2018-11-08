@@ -15,6 +15,8 @@ const Toast = () => import('../views/Toast')
 const Marquee = () => import('../views/Marquee')
 const NoticeBar = () => import('../views/NoticeBar')
 const Field = () => import('../views/Field')
+const Popup = () => import('../views/Popup')
+
 Vue.use(Router)
 
 export default new Router({
@@ -25,6 +27,14 @@ export default new Router({
       component: Welcome,
       meta: {
         title: 'ymu'
+      }
+    },
+    {
+      path: '/Popup',
+      name: 'Popup',
+      component: Popup,
+      meta: {
+        title: 'Popup 弹出层'
       }
     },
     {

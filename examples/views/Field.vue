@@ -38,7 +38,6 @@ import Cell from '@/components/cell'
 import CellGroup from '@/components/cell-group'
 import Button from '@/components/button'
 import Field from '@/components/field'
-
 export default {
   components: {
     Cell,

@@ -1,0 +1,77 @@
+.ymu-popup-content {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  background-color: #fff;
+}
+
+@mixin transition {
+  transition: transform 200ms ease-out;
+}
+
+//  bottom
+.ymu-popup--bottom {
+  bottom: 0;
+  left: 0;
+}
+
+.ymu-popup--bottom-enter-active,
+.ymu-popup--bottom-leave-active {
+  @include transition;
+}
+
+.ymu-popup--bottom-enter,
+.ymu-popup--bottom-leave-to {
+  transform: translate3d(0, 100%, 0);
+}
+
+
+//  top
+.ymu-popup--top {
+  top: 0;
+  left: 0;
+}
+
+.ymu-popup--top-enter-active,
+.ymu-popup--top-leave-active {
+  @include transition;
+}
+
+.ymu-popup--top-enter,
+.ymu-popup--top-leave-to {
+  transform: translate3d(0, -100%, 0);
+}
+
+
+//  right
+.ymu-popup--right {
+  top: 0;
+  left: 0;
+}
+
+.ymu-popup--right-enter-active,
+.ymu-popup--right-leave-active {
+  @include transition;
+}
+
+.ymu-popup--right-enter,
+.ymu-popup--right-leave-to {
+  transform: translate3d(100%, 0, 0);
+}
+
+
+//  left
+.ymu-popup--left {
+  top: 0;
+  left: 0;
+}
+
+.ymu-popup--left-enter-active,
+.ymu-popup--left-leave-active {
+  @include transition;
+}
+
+.ymu-popup--left-enter,
+.ymu-popup--left-leave-to {
+  transform: translate3d(-100%, 0, 0);
+}

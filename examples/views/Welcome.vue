@@ -5,10 +5,11 @@
       <div class="ymu-doc-block__content">
         <CellGroup>
           <Cell title="Button 按钮" is-link to="/Button"></Cell>
-          <Cell title="Navbar 导航" is-link to="/Navbar"></Cell>
           <Cell title="Cell 单元格" is-link to="/Cell"></Cell>
-          <Cell title="Progress 进度条" is-link to="/Progress"></Cell>
           <Cell title="Flow 步骤条" is-link to="/Flow"></Cell>
+          <Cell title="Progress 进度条" is-link to="/Progress"></Cell>
+          <Cell title="Popup 弹出层" is-link to="/Popup"></Cell>
+          <Cell title="Navbar 导航" is-link to="/Navbar"></Cell>
           <Cell title="Tabbar 标签栏" is-link to="/Tabbar"></Cell>
         </CellGroup>
       </div>
@@ -26,8 +27,11 @@
       <div class="ymu-doc-block__title">表单组件</div>
       <div class="ymu-doc-block__content">
         <CellGroup>
+          <Cell title="Checkbox 复选框" is-link to="/Checkbox"></Cell>
           <Cell title="Field 输入框" is-link to="/Field"></Cell>
+          <Cell title="Radio 单选框" is-link to="/Radio"></Cell>
           <Cell title="Switch 开关" is-link to="/Switch"></Cell>
+          <Cell title="Slider 滑块" is-link to="/Slider"></Cell>
         </CellGroup>
       </div>
     </div>
