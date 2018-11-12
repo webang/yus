@@ -16,6 +16,9 @@ const Marquee = () => import('../views/Marquee')
 const NoticeBar = () => import('../views/NoticeBar')
 const Field = () => import('../views/Field')
 const Popup = () => import('../views/Popup')
+const Checkbox = () => import('../views/Checkbox')
+const Slider = () => import('../views/Slider')
+const RegionSlider = () => import('../views/RegionSlider')
 
 Vue.use(Router)
 
@@ -30,11 +33,35 @@ export default new Router({
       }
     },
     {
+      path: '/Slider',
+      name: 'Slider',
+      component: Slider,
+      meta: {
+        title: 'Slider 滑块'
+      }
+    },
+    {
+      path: '/RegionSlider',
+      name: 'RegionSlider',
+      component: RegionSlider,
+      meta: {
+        title: 'RegionSlider 双向滑块'
+      }
+    },
+    {
       path: '/Popup',
       name: 'Popup',
       component: Popup,
       meta: {
         title: 'Popup 弹出层'
+      }
+    },
+    {
+      path: '/Checkbox',
+      name: 'Checkbox',
+      component: Checkbox,
+      meta: {
+        title: 'Checkbox 复选框'
       }
     },
     {

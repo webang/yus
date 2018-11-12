@@ -27,6 +27,7 @@
         label="手机号码"
         errorMessage="手机号码格式不正确"
         placeholder="请输入手机号码"
+        :rule="rule"
         type="number"></Field>
     </CellGroup>
   </div>
@@ -55,7 +56,11 @@ export default {
         v1: '',
         v2: '',
         v3: ''
-      }
+      },
+      rule: [{
+        rule: /\^1[0-9]{10}/,
+        error: '手机号码不正确'
+      }]
     }
   },
   methods: {

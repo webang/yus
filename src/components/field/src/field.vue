@@ -10,11 +10,11 @@
         class="ymu-field__input"
         :placeholder="placeholder"
         :type="type"
-        :value="value"
+        v-model="currentValue"
         :disabled="disabled"
         :readonly="readonly"
         maxlength="5"
-        v-on="listeners"
+        @blur="onBlur"
       >
       <div
         v-if="errorMessage"
@@ -46,6 +46,7 @@ export default {
       type: String,
       default: 'text'
     },
+    rule: [Array, Object],
     min: Number,
     max: Number
   },
@@ -65,7 +66,10 @@ export default {
   },
   data () {
     return {
-      currentValue: ''
+      currentValue: '',
+      currentRules: [],
+      currentError: '',
+      showErrorMsg: false
     }
   },
   watch: {
@@ -73,37 +77,55 @@ export default {
       this.currentValue = val
     },
     currentValue (val) {
-      this.$emit('input', val)
-    }
-  },
-  created () {
-    if (this.value) {
-      this.currentValue = this.value
+      const formatValue = this.format(val)
+      this.checkValue(formatValue)
+      this.$emit('input', formatValue)
     }
   },
   methods: {
     onClear () {
       this.currentValue = ''
     },
-    format (target) {
-      const { value } = target
+    format (value) {
       let formatValue = value
       if (this.max && this.max < value.length) {
-        target.value = formatValue = value.slice(0, this.max)
+        formatValue = value.slice(0, this.max)
       }
       return formatValue
     },
     onInput (event) {
-      this.$emit('input', this.format(event.target))
+      const formatValue = this.format(event.target)
+      this.currentValue = formatValue
+      this.$emit('input', formatValue)
     },
     onBlur (event) {
-      console.log(event)
+      console.log(111)
+      this.$emit('on-blur')
     },
     onKeypress (event) {
-      console.log(event)
+      this.$emit('on-keypress')
     },
     onFocus (event) {
-      console.log(event)
+      this.$emit('on-focus')
+    },
+    checkValue (value) {
+      let index = 0
+      let rules = this.currentRules
+      for (; index < rules.length; index++) {
+        console.log(rules[index].rule.test(value))
+      }
+    }
+  },
+  created () {
+    if (this.value) {
+      this.currentValue = this.value
+    }
+    if (this.rule) {
+      if (Array.isArray(this.rule)) {
+        this.currentRules = this.rule
+      } else if (typeof this.rule === 'object') {
+        this.currentRules = [this.rule]
+      }
     }
   }
 }

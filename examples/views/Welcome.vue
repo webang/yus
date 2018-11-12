@@ -32,6 +32,7 @@
           <Cell title="Radio 单选框" is-link to="/Radio"></Cell>
           <Cell title="Switch 开关" is-link to="/Switch"></Cell>
           <Cell title="Slider 滑块" is-link to="/Slider"></Cell>
+          <Cell title="RegionSlider 双向滑块" is-link to="/RegionSlider"></Cell>
         </CellGroup>
       </div>
     </div>
