@@ -1,12 +1,12 @@
 <template>
-  <div class="ymu-flows" :class="['ymu-flows--' + direction]">
+  <div class="ym-flows" :class="['ym-flows--' + direction]">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ymu-flow',
+  name: 'ym-flow',
   props: {
     direction: {
       type: String,

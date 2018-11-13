@@ -1,8 +1,8 @@
 <template>
   <div class="page-tabbar">
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">基础用法</div>
-      <div class="ymu-doc-block__content">
+    <div class="ym-doc-block">
+      <div class="ym-doc-block__title">基础用法</div>
+      <div class="ym-doc-block__content">
         <Tabbar v-model="activeIndex" @on-item-click="handleClick">
           <TabbarItem
             :icon="require('../assets/img/home.svg')"
@@ -36,9 +36,9 @@
         </Tabbar>
       </div>
     </div>
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">显示圆点</div>
-      <div class="ymu-doc-block__content">
+    <div class="ym-doc-block">
+      <div class="ym-doc-block__title">显示圆点</div>
+      <div class="ym-doc-block__content">
         <Tabbar v-model="activeIndex" @on-item-click="handleClick">
           <TabbarItem
             :icon="require('../assets/img/home.svg')"
@@ -68,9 +68,9 @@
         </Tabbar>
       </div>
     </div>
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">显示徽章</div>
-      <div class="ymu-doc-block__content">
+    <div class="ym-doc-block">
+      <div class="ym-doc-block__title">显示徽章</div>
+      <div class="ym-doc-block__content">
         <Tabbar v-model="activeIndex" @on-item-click="handleClick">
           <TabbarItem
             :icon="require('../assets/img/home.svg')"

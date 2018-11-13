@@ -1,12 +1,12 @@
 <template>
-  <div class="ymu-tabbar">
+  <div class="ym-tabbar">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ymu-tabbar',
+  name: 'ym-tabbar',
   props: {
     value: {
       type: Number,

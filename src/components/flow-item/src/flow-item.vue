@@ -1,18 +1,18 @@
 <template>
   <div
-    class="ymu-flow"
+    class="ym-flow"
     :class="[
-      'ymu-flow--'+direction,
+      'ym-flow--'+direction,
       {
-        ['ymu-flow--'+status]: status
+        ['ym-flow--'+status]: status
       }
     ]"
   >
-    <div class="ymu-flow-head">
-      <div class="ymu-flow__icon"></div>
-      <div class="ymu-flow__line"></div>
+    <div class="ym-flow-head">
+      <div class="ym-flow__icon"></div>
+      <div class="ym-flow__line"></div>
     </div>
-    <div class="ymu-flow-main">
+    <div class="ym-flow-main">
       <slot></slot>
     </div>
   </div>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'ymu-flow-item',
+  name: 'ym-flow-item',
   computed: {
     currentIndex () {
       return this.$parent.$children.indexOf(this)

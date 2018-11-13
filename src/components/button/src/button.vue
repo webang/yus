@@ -1,17 +1,17 @@
 <template>
   <a
-    class="ymu-button"
+    class="ym-button"
     :class="[
-      'ymu-button--' + type,
-      'ymu-button--' + size,
-      'ymu-button--radius',
+      'ym-button--' + type,
+      'ym-button--' + size,
+      'ym-button--radius',
       {
-        'ymu-button--disabled': disabled,
-        'ymu-button--plain': plain,
-        'ymu-button--block': block,
-        'ymu-button--round': round,
-        'ymu-button--clear': clear,
-        'ymu-button--active': active
+        'ym-button--disabled': disabled,
+        'ym-button--plain': plain,
+        'ym-button--block': block,
+        'ym-button--round': round,
+        'ym-button--clear': clear,
+        'ym-button--active': active
       }
     ]"
     :disabled="disabled"
@@ -19,8 +19,8 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
-    <div class="ymu-button-content">
-      <i class="ymu-loading" v-show="showLoading"></i>
+    <div class="ym-button-content">
+      <i class="ym-loading" v-show="showLoading"></i>
       <slot>
         <span class="yum-button_text">{{ text }}</span>
       </slot>
@@ -31,7 +31,7 @@
 <script type="text/javascript">
 
 /**
- * @component ymu-button
+ * @component ym-button
  * @param { string } [type=light] - 表现为按钮的背景色
  * @param { string } [size=normal] - 尺寸 - normal, small, large
  * @param { boolean } [block=false] - 块按钮
@@ -43,7 +43,7 @@
  * @param { slot } - 默认插槽
  */
 export default {
-  name: 'ymu-button',
+  name: 'ym-button',
   props: {
     type: {
       type: String,

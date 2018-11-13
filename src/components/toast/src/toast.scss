@@ -1,4 +1,4 @@
-.ymu-toast {
+.ym-toast {
   z-index: 10000;
   position: fixed;
   left: 50%;
@@ -10,18 +10,18 @@
   border-radius: 3px;
 }
 
-.ymu-toast__icon-wrap {
+.ym-toast__icon-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 60px;
   height: 50px;
-  .ymu-toast__icon {
+  .ym-toast__icon {
     font-size: 40px;
   }
 }
 
-.ymu-toast-content {
+.ym-toast-content {
   display: flex;
   flex-direction: column;
   padding: 8px 12px;
@@ -31,7 +31,7 @@
   text-align: center;
 }
 
-.ymu-toast--middle {
+.ym-toast--middle {
   top: 50%;
   transform: translate3d(-50%, -50%, 0);
   &-enter-active,
@@ -44,7 +44,7 @@
   }
 }
 
-.ymu-toast--top {
+.ym-toast--top {
   top: 0;
   transform: translate3d(-50%, 10px, 0);
   &-enter-active,
@@ -57,7 +57,7 @@
   }
 }
 
-.ymu-toast--bottom {
+.ym-toast--bottom {
   bottom: 10px;
   transform: translate3d(-50%, 0, 0);
   &-enter-active,

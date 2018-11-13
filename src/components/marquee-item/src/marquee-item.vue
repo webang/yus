@@ -1,12 +1,12 @@
 <template>
-  <div class="ymu-marquee-item">
+  <div class="ym-marquee-item">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ymu-marquee-item'
+  name: 'ym-marquee-item'
 }
 </script>
 

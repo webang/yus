@@ -15,7 +15,7 @@ $navbar-line-height: 46px;
 $navbar-left-button-active-bg-color: #e8e8e8;
 $navbar-left-arrow-color: #38f;
 
-.ymu-navbar {
+.ym-navbar {
   position: relative;
   display: flex;
   height: $navbar-line-height;
@@ -23,25 +23,25 @@ $navbar-left-arrow-color: #38f;
   background-color: #fff;
 }
 
-.ymu-navbar-left,
-.ymu-navbar-right {
+.ym-navbar-left,
+.ym-navbar-right {
   @include flex;
   @include full;
 }
 
-.ymu-navbar-title {
+.ym-navbar-title {
   justify-content: center;
   font-size: $navbar-title-font-size;
   text-align: center;
 }
 
-.ymu-navbar-left {
+.ym-navbar-left {
   padding-left: $navbar-herizontal-padding;
   font-size: $navbar-font-size;
   color: $navbar-left-arrow-color;
 }
 
-.ymu-navbar-right {
+.ym-navbar-right {
   justify-content: flex-end;
   font-size: $navbar-font-size;
   padding-right: $navbar-herizontal-padding;
@@ -52,7 +52,7 @@ $navbar-left-arrow-color: #38f;
   margin-left: -10px;
 }
 
-.ymu-navbar-button {
+.ym-navbar-button {
   display: flex;
   align-items: center;
   padding: 0 $navbar-herizontal-padding;

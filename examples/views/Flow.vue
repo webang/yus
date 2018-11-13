@@ -1,8 +1,8 @@
 <template>
   <div class="page page-switch">
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">竖向步骤条</div>
-      <div class="ymu-doc-block__content">
+    <div class="ym-doc-block">
+      <div class="ym-doc-block__title">竖向步骤条</div>
+      <div class="ym-doc-block__content">
         <div class="list">
           <Flow :active-index="0">
             <FlowItem>
@@ -37,9 +37,9 @@
         </div>
       </div>
     </div>
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">竖向步骤条</div>
-      <div class="ymu-doc-block__content">
+    <div class="ym-doc-block">
+      <div class="ym-doc-block__title">竖向步骤条</div>
+      <div class="ym-doc-block__content">
         <div class="list">
           <Flow direction="vertical" :active-index="0">
             <FlowItem>

@@ -1,4 +1,4 @@
-.ymu-field {
+.ym-field {
   position: relative;
   display: flex;
   padding: 10px 12px;
@@ -14,7 +14,7 @@
     height: 1px;
     background-color: #eee;
   }
-  .ymu-icon-clear {
+  .ym-icon-clear {
     display: block;
     width: 17px;
     height: 17px;
@@ -28,20 +28,20 @@
   }
 }
 
-.ymu-field__bd {
+.ym-field__bd {
   flex: 1;
 }
 
-.ymu-field__label {
+.ym-field__label {
   padding-right: 10px;
 }
 
-.ymu-field__ft {
+.ym-field__ft {
   display: flex;
   align-items: center;
 }
 
-.ymu-field__input {
+.ym-field__input {
   width: 100%;
   padding: 0;
   outline: 0;
@@ -55,7 +55,7 @@
   }
 }
 
-.ymu-field__error-message {
+.ym-field__error-message {
   font-size: 12px;
   color: #f44;
 }

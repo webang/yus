@@ -53,7 +53,7 @@ li {
   margin-top: 10px;
 }
 
-.ymu-navbar-button {
+.ym-navbar-button {
   padding: 0 15px;
   margin: 0 -15px;
 }

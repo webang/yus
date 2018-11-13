@@ -1,4 +1,4 @@
-.ymu-tabbar-item {
+.ym-tabbar-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,24 +7,24 @@
   text-align: center;
 }
 
-.ymu-tabbar-item__icon {
+.ym-tabbar-item__icon {
   position: relative;
 }
 
-.ymu-tabbar-item__text {
+.ym-tabbar-item__text {
   margin-top: 2px;
 }
 
-.ymu-tabbar-icon {
+.ym-tabbar-icon {
   width: 22px;
   height: 22px;
 }
 
-.ymu-tabbar-item__text {
+.ym-tabbar-item__text {
   line-height: 1;
 }
 
-.ymu-tabbar-item__icon--dot {
+.ym-tabbar-item__icon--dot {
   &::after {
     content: " ";
     position: absolute;
@@ -35,7 +35,7 @@
   }
 }
 
-.ymu-tabbar-item__badge {
+.ym-tabbar-item__badge {
   position: absolute;
   height: 18px;
   line-height: 18px;

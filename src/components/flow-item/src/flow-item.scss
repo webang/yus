@@ -1,29 +1,29 @@
-.ymu-flow {
+.ym-flow {
   position: relative;
   font-size: 14px;
   line-height: 18px;
 }
 
-.ymu-flow__line {
+.ym-flow__line {
 
 }
 
-.ymu-flow-main {
+.ym-flow-main {
   font-size: 12px;
 }
 
-.ymu-flow__icon {
+.ym-flow__icon {
 
 }
 
-.ymu-flow--horizontal {
+.ym-flow--horizontal {
   flex: 1;
   text-align: center;
-  .ymu-flow-head {
+  .ym-flow-head {
     position: relative;
     height: 24px;
   }
-  .ymu-flow__icon {
+  .ym-flow__icon {
     z-index: 3;
     position: absolute;
     left: 50%;
@@ -32,9 +32,9 @@
     height: 7px;
     transform: translate(-50%, -50%);
     background: #888;
-    border-radius: 50%;    
+    border-radius: 50%;
   }
-  .ymu-flow__line {
+  .ym-flow__line {
     position: absolute;
     top: 27px;
     left: 50%;
@@ -46,23 +46,23 @@
     background: #888;
   }
   &:last-child {
-    .ymu-flow__line {
+    .ym-flow__line {
       display: none;
     }
   }
 }
 
-.ymu-flow--vertical {
+.ym-flow--vertical {
   display: flex;
-  .ymu-flow-head {
+  .ym-flow-head {
     position: relative;
     display: flex;
     width: 24px;
   }
-  .ymu-flow-main {
+  .ym-flow-main {
     padding-bottom: 10px;
   }
-  .ymu-flow__line {
+  .ym-flow__line {
     position: absolute;
     width: 1px;
     left: 50%;
@@ -71,7 +71,7 @@
     transform: translateX(-50%);
     background: #888;
   }
-  .ymu-flow__icon {
+  .ym-flow__icon {
     z-index: 3;
     position: absolute;
     left: 14px;
@@ -84,14 +84,14 @@
   }
 }
 
-.ymu-flow--process {
-  .ymu-flow__icon {
+.ym-flow--process {
+  .ym-flow__icon {
     background: red;
   }
 }
 
-.ymu-flow--finish {
-  .ymu-flow__icon {
+.ym-flow--finish {
+  .ym-flow__icon {
     width: 10px;
     height: 10px;
     background: red;

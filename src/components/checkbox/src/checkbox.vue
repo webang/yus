@@ -1,12 +1,16 @@
 <template>
-  <div class="ym-checkbox" :class="[{ 'ym-checkbox--disabled': disabled }]">
+  <div
+    class="ym-checkbox"
+    :class="[{
+      'ym-checkbox--checked': isChecked,
+      'ym-checkbox--disabled': disabled
+    }]"
+    @click="toggleValue"
+  >
     <div class="ym-checkbox__icon">
       <slot name="icon">
-        <i :class="[{'iconfont icon-radio_checked':value,'ym-icon-checkbox': !value}]"></i>
+        <i :class="[{'iconfont icon-radio_checked':isChecked, 'ym-icon-checkbox': !isChecked}]"></i>
       </slot>
-    </div>
-    <div class="ym-checkbox__input">
-      <input class="ym-checkbox__original" type="checkbox" :value="name" v-model="label">
     </div>
     <div class="ym-checkbox__label">
       <slot>
@@ -20,35 +24,39 @@
 export default {
   name: 'ym-checkbox',
   props: {
-    label: Array,
     name: String,
-    value: Boolean,
     disabled: Boolean,
     title: String,
+    value: Array,
     'checked-color': {
       type: String,
       default: ''
     }
   },
-  watch: {
-    label (val) {
-      this.currentLabel = val
+  computed: {
+    isChecked: {
+      get () {
+        return this.value.indexOf(this.name) !== -1
+      },
+      set (val) {
+        this.updateParentNodeValue(val)
+      }
     }
   },
   methods: {
-    handleClick () {
+    toggleValue () {
       if (this.disabled) return
-      this.$emit('input', !this.value)
-    }
-  },
-  data () {
-    return {
-      currentLabel: []
-    }
-  },
-  created () {
-    if (this.label) {
-      this.currentLabel = this.label
+      this.isChecked = !this.isChecked
+    },
+    updateParentNodeValue (val) {
+      const copyValue = this.value.slice()
+      if (val) {
+        copyValue.push(this.name)
+      } else {
+        const index = copyValue.indexOf(this.name)
+        copyValue.splice(index, 1)
+      }
+      this.$emit('input', copyValue)
     }
   }
 }
@@ -73,13 +81,9 @@ export default {
   }
 }
 
-input:checked {
-  display: none;
-  background-color: red;
-}
-
 .ym-checkbox__label {
   margin-left: 10px;
+  font-size: 14px;
   color: inherit;
 }
 

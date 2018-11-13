@@ -1,16 +1,16 @@
 <template>
-  <div class="ymu-alert">
-    <Xdialog class="ymu-alert__content" v-model="visible" @on-click-backdrop="OnClickBackdrop">
-      <div class="ymu-dialog__hd" v-if="title">
-        <strong class="ymu-dialog__title">{{ title }}</strong>
+  <div class="ym-alert">
+    <Xdialog class="ym-alert__content" v-model="visible" @on-click-backdrop="OnClickBackdrop">
+      <div class="ym-dialog__hd" v-if="title">
+        <strong class="ym-dialog__title">{{ title }}</strong>
       </div>
-      <div class="ymu-dialog__bd">
+      <div class="ym-dialog__bd">
         <slot>
           <div v-html="content"></div>
         </slot>
       </div>
-      <div class="ymu-dialog__ft">
-        <a class="ymu-dialog__btn ymu-dialog__btn_primary" @click="hide">{{ buttonText }}</a>
+      <div class="ym-dialog__ft">
+        <a class="ym-dialog__btn ym-dialog__btn_primary" @click="hide">{{ buttonText }}</a>
       </div>
     </Xdialog>
   </div>
@@ -21,7 +21,7 @@ import Backdrop from '../../backdrop'
 import Xdialog from '../../dialog'
 
 export default {
-  name: 'ymu-alert',
+  name: 'ym-alert',
   components: {
     Xdialog,
     Backdrop

@@ -2,7 +2,7 @@
   <div>
     <Backdrop :transition="backdropTransition" @click="onClickBackdrop" :value="value"></Backdrop>
     <transition :name="dialogTransition">
-      <div class="ymu-dialog" v-show="value">
+      <div class="ym-dialog" v-show="value">
         <slot></slot>
       </div>
     </transition>
@@ -12,7 +12,7 @@
 <script>
 import Backdrop from '../../backdrop'
 export default {
-  name: 'ymu-dialog',
+  name: 'ym-dialog',
   components: {
     Backdrop
   },
@@ -20,11 +20,11 @@ export default {
     value: Boolean,
     backdropTransition: {
       type: String,
-      default: 'ymu-backdrop'
+      default: 'ym-backdrop'
     },
     dialogTransition: {
       type: String,
-      default: 'ymu-dialog'
+      default: 'ym-dialog'
     }
   },
   data () {

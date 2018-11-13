@@ -2,7 +2,7 @@
 @import '../../../style/mixin.scss';
 @import '../../../style/animate.scss';
 
-.ymu-backdrop {
+.ym-backdrop {
   z-index: $backdrop-zindex;
   position: fixed;
   top: 0;
@@ -12,12 +12,12 @@
   background: $backdrop-bg;
 }
 
-.ymu-backdrop-enter,
-.ymu-backdrop-leave-active {
+.ym-backdrop-enter,
+.ym-backdrop-leave-active {
   opacity: 0;
 }
 
-.ymu-backdrop-leave-active,
-.ymu-backdrop-enter-active {
+.ym-backdrop-leave-active,
+.ym-backdrop-enter-active {
   transition: opacity 300ms;
 }

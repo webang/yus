@@ -1,11 +1,11 @@
 <template>
-  <div class="ymu-popup">
+  <div class="ym-popup">
     <Backdrop v-model="value" @click="handleClickBackdrop"></Backdrop>
     <transition :name="transition">
       <div
-        class="ymu-popup-content"
+        class="ym-popup-content"
         v-show="value"
-        :class="['ymu-popup--' + position]"
+        :class="['ym-popup--' + position]"
       >
         <slot></slot>
       </div>
@@ -16,7 +16,7 @@
 <script>
 import Backdrop from '../../backdrop'
 export default {
-  name: 'ymu-popup',
+  name: 'ym-popup',
   components: {
     Backdrop
   },
@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     transition () {
-      return 'ymu-popup--' + this.position
+      return 'ym-popup--' + this.position
     }
   },
   methods: {

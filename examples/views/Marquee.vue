@@ -1,8 +1,8 @@
 <template>
   <div class="page-marquee">
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">基础用法</div>
-      <div class="ymu-doc-block__content">
+    <div class="ym-doc-block">
+      <div class="ym-doc-block__title">基础用法</div>
+      <div class="ym-doc-block__content">
         <div class="marquee-wrap">
           <i class="iconfont icon-voice"></i>
           <Marquee>
@@ -13,9 +13,9 @@
         </div>
       </div>
     </div>
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">基础用法</div>
-      <div class="ymu-doc-block__content">
+    <div class="ym-doc-block">
+      <div class="ym-doc-block__title">基础用法</div>
+      <div class="ym-doc-block__content">
         <div class="marquee-wrap">
           <i class="iconfont icon-voice"></i>
           <Marquee direction="down">

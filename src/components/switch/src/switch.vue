@@ -1,19 +1,19 @@
 <template>
   <div
-    class="ymu-switch"
+    class="ym-switch"
     :class="[
-      { 'ymu-switch--on': value },
-      { 'ymu-switch--disabled': disabled }
+      { 'ym-switch--on': value },
+      { 'ym-switch--disabled': disabled }
     ]"
     @click="handleClick"
   >
-    <div class="ymu-switch__node"></div>
+    <div class="ym-switch__node"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ymu-switch',
+  name: 'ym-switch',
   props: {
     value: Boolean,
     disabled: Boolean

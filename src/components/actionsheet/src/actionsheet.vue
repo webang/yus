@@ -1,23 +1,23 @@
 <template>
-  <div class="ymu-actionsheet">
+  <div class="ym-actionsheet">
     <Backdrop :value="value" @click="onBackdropClick"></Backdrop>
-    <div class="ymu-actionsheet__content" :class="{'ymu-actionsheet__content--show': value}" ref="menuWrapper">
+    <div class="ym-actionsheet__content" :class="{'ym-actionsheet__content--show': value}" ref="menuWrapper">
       <div
-        class="ymu-actionsheet__head ymu-actionsheet__cell"
+        class="ym-actionsheet__head ym-actionsheet__cell"
         v-if="!hasHeaderSlot && title"
       >
         <span>{{ title }}</span>
       </div>
       <div
-        class="ymu-actionsheet__head ymu-actionsheet__cell"
+        class="ym-actionsheet__head ym-actionsheet__cell"
         v-if="hasHeaderSlot"
       >
         <slot name="header"></slot>
       </div>
-      <div class="ymu-actionsheet__menu">
+      <div class="ym-actionsheet__menu">
         <div
-          class="ymu-actionsheet__cell"
-          :class="{'ymu-actionsheet__cell--disabled': item.disabled}"
+          class="ym-actionsheet__cell"
+          :class="{'ym-actionsheet__cell--disabled': item.disabled}"
           v-for="(item, key) in menus"
           :key="key"
           @click="onMenuItemClick(item, key)"
@@ -25,7 +25,7 @@
           <span>{{ item.text }}</span>
         </div>
         <div
-          class="ymu-actionsheet__cell ymu-actionsheet__cancel"
+          class="ym-actionsheet__cell ym-actionsheet__cancel"
           @click="onCancelClick"
           v-if="showCancel"
         >
@@ -39,7 +39,7 @@
 <script>
 import Backdrop from '../../backdrop'
 export default {
-  name: 'ymu-actionsheet',
+  name: 'ym-actionsheet',
   components: {
     Backdrop
   },
