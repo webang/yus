@@ -1,6 +1,6 @@
 # yum
 
-mobile compoennts based on vue.js
+mobile components based on vue.js
 
 ## Installation
 
