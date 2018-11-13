@@ -19,6 +19,7 @@ const Popup = () => import('../views/Popup')
 const Checkbox = () => import('../views/Checkbox')
 const Slider = () => import('../views/Slider')
 const RegionSlider = () => import('../views/RegionSlider')
+const Radio = () => import('../views/radio')
 
 Vue.use(Router)
 
@@ -30,6 +31,14 @@ export default new Router({
       component: Welcome,
       meta: {
         title: 'ym'
+      }
+    },
+    {
+      path: '/Radio',
+      name: 'Radio',
+      component: Radio,
+      meta: {
+        title: 'Radio 单选框'
       }
     },
     {
