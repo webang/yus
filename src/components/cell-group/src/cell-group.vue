@@ -1,11 +1,11 @@
 <template>
-  <div class="ymu-cell-group">
-    <div class="ymu-cell-group__hd">
+  <div class="ym-cell-group">
+    <div class="ym-cell-group__hd">
       <slot name="title">
-        <div class="ymu-cell-group__title" v-if="title">{{ title }}</div>
+        <div class="ym-cell-group__title" v-if="title">{{ title }}</div>
       </slot>
     </div>
-    <div class="ymu-cell-group__bd">
+    <div class="ym-cell-group__bd">
       <slot></slot>
     </div>
   </div>
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'ymu-cell-group',
+  name: 'ym-cell-group',
   props: {
     title: String
   }

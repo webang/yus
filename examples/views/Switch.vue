@@ -1,23 +1,23 @@
 <template>
   <div class="page page-switch">
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">基础用法</div>
-      <div class="ymu-doc-block__content">
+    <div class="ym-doc-block">
+      <div class="ym-doc-block__title">基础用法</div>
+      <div class="ym-doc-block__content">
         <CellGroup>
           <Cell title="简单用法">
-            <div slot="value" class="ymu-ui-flex">
+            <div slot="value" class="ym-ui-flex">
               <span>{{ s1 }}</span>
               <wSwitch v-model="s1"></wSwitch>
             </div>
           </Cell>
           <Cell title="禁用选项">
-            <div slot="value" class="ymu-ui-flex">
+            <div slot="value" class="ym-ui-flex">
               <span>{{ s3 }}</span>
               <wSwitch slot="value" v-model="s3" :disabled="d3"></wSwitch>
             </div>
           </Cell>
           <Cell title="禁用选项">
-            <div slot="value" class="ymu-ui-flex">
+            <div slot="value" class="ym-ui-flex">
               <span>{{ s2 }}</span>
               <wSwitch slot="value" v-model="s2" :disabled="d2"></wSwitch>
             </div>

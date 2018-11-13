@@ -29,7 +29,7 @@ export default new Router({
       name: 'Welcome',
       component: Welcome,
       meta: {
-        title: 'ymu'
+        title: 'ym'
       }
     },
     {

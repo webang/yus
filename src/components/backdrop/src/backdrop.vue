@@ -1,7 +1,7 @@
 <template>
   <transition :name="transition">
    <div
-    class="ymu-backdrop"
+    class="ym-backdrop"
     @click="handleClick"
     v-show="value"></div>
  </transition>
@@ -9,12 +9,12 @@
 
 <script>
 export default {
-  name: 'ymu-backdrop',
+  name: 'ym-backdrop',
   props: {
     value: Boolean,
     transition: {
       type: String,
-      default: 'ymu-backdrop'
+      default: 'ym-backdrop'
     }
   },
   methods: {

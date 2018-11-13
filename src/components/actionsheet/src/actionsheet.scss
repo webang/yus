@@ -2,7 +2,7 @@
 @import '../../../style/mixin.scss';
 @import '../../../style/animate.scss';
 
-.ymu-actionsheet__content {
+.ym-actionsheet__content {
   z-index: $backdrop-zindex + 1;
   position: fixed;
   left: 0;
@@ -13,7 +13,7 @@
   transition: transform .3s;
 }
 
-.ymu-actionsheet__cell {
+.ym-actionsheet__cell {
   position: relative;
   padding-top: $actionsheet-cell-vertical-padding;
   padding-bottom: $actionsheet-cell-vertical-padding;
@@ -34,14 +34,14 @@
   }
 }
 
-.ymu-actionsheet__cell--disabled {
+.ym-actionsheet__cell--disabled {
   color: $actionsheet-disabled-menu-color;
 }
 
-.ymu-actionsheet__cancel {
+.ym-actionsheet__cancel {
   margin-top: $actionsheet-cancel-margin-top;
 }
 
-.ymu-actionsheet__content--show {
+.ym-actionsheet__content--show {
   transform: translate(0);
 }

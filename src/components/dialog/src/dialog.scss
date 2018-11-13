@@ -2,18 +2,18 @@
 @import '../../../style/mixin.scss';
 @import '../../../style/animate.scss';
 
-.ymu-dialog-enter,
-.ymu-dialog-leave-to {
+.ym-dialog-enter,
+.ym-dialog-leave-to {
   opacity: 0;
   transform: scale(0.4);
 }
 
-.ymu-dialog-enter-active,
-.ymu-dialog-leave-active {
+.ym-dialog-enter-active,
+.ym-dialog-leave-active {
   transition: all 300ms;
 }
 
-.ymu-dialog {
+.ym-dialog {
   overflow: hidden;
   z-index: $backdrop-zindex + 100;
   position: fixed;
@@ -30,12 +30,12 @@
   border-radius: 3px;
 }
 
-.ymu-dialog__hd {
+.ym-dialog__hd {
   padding: 15px 15px 15px;
   font-size: 16px;
 }
 
-.ymu-dialog__bd {
+.ym-dialog__bd {
   padding: 0 24px 12px;
   min-height: 40px;
   font-size: 15px;
@@ -45,7 +45,7 @@
   color: #999;
 }
 
-.ymu-dialog__ft {
+.ym-dialog__ft {
   position: relative;
   display: flex;
   line-height: 48px;
@@ -63,7 +63,7 @@
   }
 }
 
-.ymu-dialog__btn {
+.ym-dialog__btn {
   position: relative;
   display: block;
   flex: 1;
@@ -86,10 +86,10 @@
   }
 }
 
-.ymu-dialog__btn_default {
+.ym-dialog__btn_default {
   color: #353535;
 }
 
-.ymu-dialog__btn_primary {
+.ym-dialog__btn_primary {
   color: #f90;
 }

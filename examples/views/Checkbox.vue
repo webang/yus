@@ -1,26 +1,24 @@
 <template>
   <div class="page-checkbox">
-    <div class="ym-doc-title">基础用法</div>
-    <Checkbox class="item" v-model="demo1.v1" :label="demo1.k1" name="深圳">深圳</Checkbox>
-    <Checkbox class="item" v-model="demo1.v2" :label="demo1.k1" name="珠海">珠海</Checkbox>
 
-    {{ demo1.k1 }}
+    <div class="ym-doc-title">基础用法</div>
+    <Checkbox class="item" name="深圳" v-model="checkboxGroupValue1">深圳</Checkbox>
+    <Checkbox class="item" name="珠海" v-model="checkboxGroupValue1">珠海</Checkbox>
 
     <div class="ym-doc-title">禁用状态</div>
-    <Checkbox class="item" v-model="demo2.v1" :disabled="demo2.disabled">深圳</Checkbox>
-    <Checkbox class="item" v-model="demo2.v2" :disabled="demo2.disabled">珠海</Checkbox>
+    <CheckboxGroup v-model="checkboxGroupValue2">
+      <Checkbox class="item" name="深圳" :disabled="true" v-model="checkboxGroupValue2">深圳</Checkbox>
+      <Checkbox class="item" name="珠海" :disabled="true" v-model="checkboxGroupValue2">珠海</Checkbox>
+    </CheckboxGroup>
 
-    <div id='example-3'>
-      <input type="checkbox" value="Jack" v-model="checkedNames">
-      <label for="jack">Jack</label>
-      <input type="checkbox" value="John" v-model="checkedNames">
-      <label for="john">John</label>
-      <input type="checkbox" value="Mike" v-model="checkedNames">
-      <label for="mike">Mike</label>
-      <br>
-      <span>Checked names: {{ checkedNames }}</span>
-    </div>
-
+    <CellGroup title="Cell搭配使用">
+      <Cell title="深圳">
+        <Checkbox slot="value" name="深圳" :disabled="false" v-model="checkboxGroupValue3"></Checkbox>
+      </Cell>
+      <Cell title="珠海">
+        <Checkbox slot="value" name="珠海" :disabled="false" v-model="checkboxGroupValue3"></Checkbox>
+      </Cell>
+    </CellGroup>
   </div>
 </template>
 
@@ -31,6 +29,7 @@ import CellGroup from '@/components/cell-group'
 import Button from '@/components/button'
 import Field from '@/components/field'
 import Checkbox from '@/components/Checkbox'
+import CheckboxGroup from '@/components/checkbox-group'
 
 export default {
   components: {
@@ -38,32 +37,19 @@ export default {
     Field,
     Button,
     Checkbox,
-    CellGroup
+    CellGroup,
+    CheckboxGroup
   },
   data () {
     return {
-      checkedNames: ['Jack'],
-      demo1: {
-        v1: false,
-        v2: true,
-        k1: ['深圳']
-      },
-      demo2: {
-        v1: false,
-        v2: true,
-        disabled: true
-      },
-      rule: [{
-        rule: /\^1[0-9]{10}/,
-        error: '手机号码不正确'
-      }]
+      checkboxGroupValue1: ['深圳'],
+      checkboxGroupValue2: ['珠海'],
+      checkboxGroupValue3: ['深圳'],
     }
   },
-  methods: {
-    show () {
-      Toast({
-        message: '请勿重复提交订单'
-      })
+  watch: {
+    checkboxGroupValue (val) {
+      console.log(val)
     }
   }
 }

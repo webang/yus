@@ -2,14 +2,14 @@
 @import '../../../style/mixin.scss';
 @import '../../../style/animate.scss';
 
-.ymu-cell {
+.ym-cell {
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 10px 15px;
+  padding: 10px 12px;
   font-size: 14px;
   line-height: 24px;
   background-color: #fff;
@@ -27,26 +27,26 @@
   }
 }
 
-.ymu-cell__media {
+.ym-cell__media {
   display: flex;
   align-items: center;
   height: 100%;
   margin-right: 5px;
 }
 
-.ymu-cell__title {
+.ym-cell__title {
   display: flex;
   align-items: center;
   flex: 1;
 }
 
-.ymu-cell__value {
+.ym-cell__value {
   display: flex;
   align-items: center;
   margin-left: 5px;
 }
 
-.ymu-icon-arrow-right {
+.ym-icon-arrow-right {
   width: 12px;
   height: 12px;
   margin-left: 4px;

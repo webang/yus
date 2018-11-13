@@ -1,23 +1,23 @@
 <template>
-  <div class="ymu-cell" @click="handleClick">
-    <div class="ymu-cell__media" v-if="$slots.media">
+  <div class="ym-cell" @click="handleClick">
+    <div class="ym-cell__media" v-if="$slots.media">
       <slot name="media"></slot>
     </div>
-    <div class="ymu-cell__title">
+    <div class="ym-cell__title">
       <slot name="title">
         <span v-if="title">{{ title }}</span>
       </slot>
     </div>
-    <div class="ymu-cell__value">
+    <div class="ym-cell__value">
       <slot name="value">{{ value }}</slot>
     </div>
-    <img v-if="isLink" class="ymu-icon-arrow-right" src="../../../icons/icon_arrow_right.svg">
+    <img v-if="isLink" class="ym-icon-arrow-right" src="../../../icons/icon_arrow_right.svg">
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ymu-cell',
+  name: 'ym-cell',
   props: {
     'is-link': Boolean,
     'title': String,

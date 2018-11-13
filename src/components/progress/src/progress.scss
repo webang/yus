@@ -7,7 +7,7 @@ $progress-track-height: 4px;
   transition: all 400ms;
 }
 
-.ymu-progress {
+.ym-progress {
   position: relative;
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@ $progress-track-height: 4px;
   line-height: $progress-bar-hegiht;
 }
 
-.ymu-progress__bar {
+.ym-progress__bar {
   overflow: hidden;
   position: relative;
   flex: 1;
@@ -23,7 +23,7 @@ $progress-track-height: 4px;
   background-color: $progress-bar-bg-color;
 }
 
-.ymu-progress__track {
+.ym-progress__track {
   position: absolute;
   top: 0;
   height: 100%;

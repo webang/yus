@@ -7,7 +7,7 @@
   height: 24px;
   background-image: url(../../../icons/loading_gray.svg);
   background-size: 100%;
-  animation: ymuLoading 1s steps(12, end) infinite;
+  animation: ymLoading 1s steps(12, end) infinite;
 }
 
 @mixin whiteLoading {
@@ -15,7 +15,7 @@
   background-image: url(../../../icons/loading_white.svg);
 }
 
-.ymu-button {
+.ym-button {
   display: inline-block;
   text-overflow: ellipsis;
   word-break: break-word;
@@ -24,129 +24,129 @@
   box-sizing: border-box;
 }
 
-.ymu-button--normal {
+.ym-button--normal {
   height: $button_normal_height;
   font-size: $button_normal_font_size;
   line-height: $button_normal_height;
   padding-left: $button_normal_herizontal_padding;
   padding-right: $button_normal_herizontal_padding;
-  &.ymu-button--radius {
+  &.ym-button--radius {
     border-radius: $button_normal_border_radius;
   }
-  &.ymu-button--round {
+  &.ym-button--round {
     padding-left: $button_normal_herizontal_round_padding;
     padding-right: $button_normal_herizontal_round_padding;
     border-radius: $button_normal_herizontal_round_radius;
   }
 }
 
-.ymu-button--small {
+.ym-button--small {
   height: $button_small_height;
   font-size: $button_small_font_size;
   line-height: $button_small_height;
   padding-left: $button_small_herizontal_padding;
   padding-right: $button_small_herizontal_padding;
-  &.ymu-button--radius {
+  &.ym-button--radius {
     border-radius: $button_small_border_radius;
   }
-  &.ymu-button--round {
+  &.ym-button--round {
     padding-left: $button_small_herizontal_round_padding;
     padding-right: $button_small_herizontal_round_padding;
     border-radius: $button_small_herizontal_round_radius;
   }
 }
 
-.ymu-button--mini {
+.ym-button--mini {
   height: $button_mini_height;
   font-size: $button_mini_font_size;
   line-height: $button_mini_height;
   padding-left: $button_mini_herizontal_padding;
   padding-right: $button_mini_herizontal_padding;
-  &.ymu-button--radius {
+  &.ym-button--radius {
     border-radius: $button_mini_border_radius;
   }
-  &.ymu-button--round {
+  &.ym-button--round {
     padding-left: $button_mini_herizontal_round_padding;
     padding-right: $button_mini_herizontal_round_padding;
     border-radius: $button_mini_herizontal_round_radius;
   }
 }
 
-.ymu-button--light {
+.ym-button--light {
   background-color: $button_light_bg_color;
   border-color: transparent;
-  &.ymu-button--plain {
+  &.ym-button--plain {
     color: $button_light_font_color;
     background: transparent;
     border: 1px solid $button_light_border_color;
   }
-  &.ymu-button--clear {
+  &.ym-button--clear {
     color: $button_light_font_color;
     background: transparent;
     border: none;
   }
-  &.ymu-button--active {
+  &.ym-button--active {
     color: $button_light_active_font_color;
     background-color: $button_light_active_bg_color;
   }
-  .ymu-loading {
+  .ym-loading {
     @include grayLoading;
   }
 }
 
-.ymu-button--primary {
+.ym-button--primary {
   color: $button_primary_font_color;
   background-color: $button_primary_bg_color;
   border-color: transparent;
-  &.ymu-button--plain {
+  &.ym-button--plain {
     color: $button_primary_bg_color;
     background: transparent;
     border: 1px solid $button_primary_bg_color;
   }
-  &.ymu-button--clear {
+  &.ym-button--clear {
     color: $button_primary_bg_color;
     background: transparent;
     border: none;
   }
-  &.ymu-button--active {
+  &.ym-button--active {
     color: $button_primary_active_font_color;
     background-color: $button_primary_active_bg_color;
   }
-  .ymu-loading {
+  .ym-loading {
     @include whiteLoading;
   }
 }
 
-.ymu-button--danger {
+.ym-button--danger {
   color: $button_danger_font_color;
   background-color: $button_danger_bg_color;
   border-color: transparent;
-  &.ymu-button--plain {
+  &.ym-button--plain {
     color: $button_danger_bg_color;
     background: transparent;
     border: 1px solid $button_danger_bg_color;
   }
-  &.ymu-button--clear {
+  &.ym-button--clear {
     color: $button_danger_bg_color;
     background: transparent;
     border: none;
   }
-  &.ymu-button--active {
+  &.ym-button--active {
     color: $button_danger_active_font_color;
     background-color: $button_danger_active_bg_color;
   }
-  .ymu-loading {
+  .ym-loading {
     @include whiteLoading;
   }
 }
 
 // inline
-.ymu-button--inline {
+.ym-button--inline {
   display: inline-block;
 }
 
 // block
-.ymu-button--block {
+.ym-button--block {
   display: block;
   clear: both;
   width: 100%;
@@ -154,19 +154,19 @@
 }
 
 // disabled
-.ymu-button--disabled {
+.ym-button--disabled {
   opacity: .6;
 }
 
 // 为了让icon总是居中
-.ymu-button-content {
+.ym-button-content {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 // icon
-.ymu-button_icon {
+.ym-button_icon {
   display: flex;
   align-items: center;
   margin-right: 4px;

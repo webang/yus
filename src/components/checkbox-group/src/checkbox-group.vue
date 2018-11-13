@@ -6,6 +6,9 @@
 
 <script>
 export default {
-  name: 'ym-checkbox-group'
+  name: 'ym-checkbox-group',
+  props: {
+    value: [Array]
+  }
 }
 </script>

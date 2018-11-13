@@ -1,25 +1,25 @@
 <template>
   <div
-    class="ymu-tabbar-item"
-    :class="{'ymu-tabbar-item--active': isActive}"
+    class="ym-tabbar-item"
+    :class="{'ym-tabbar-item--active': isActive}"
     @click="handleClick"
     :style="itemStyle"
   >
     <slot>
       <div
-        class="ymu-tabbar-item__icon"
-        :class="{'ymu-tabbar-item__icon--dot': dot}"
+        class="ym-tabbar-item__icon"
+        :class="{'ym-tabbar-item__icon--dot': dot}"
         v-if="$slots.icon || icon"
       >
-        <span class="ymu-tabbar-item__badge" v-if="badge">
+        <span class="ym-tabbar-item__badge" v-if="badge">
           <slot name="badge">{{ badge }}</slot>
         </span>
         <slot name="icon">
-          <img class="ymu-tabbar-icon" v-if="isActive" :src="selectedIcon">
-          <img class="ymu-tabbar-icon" v-else :src="icon">
+          <img class="ym-tabbar-icon" v-if="isActive" :src="selectedIcon">
+          <img class="ym-tabbar-icon" v-else :src="icon">
         </slot>
       </div>
-      <div class="ymu-tabbar-item__text">{{ title }}</div>
+      <div class="ym-tabbar-item__text">{{ title }}</div>
     </slot>
   </div>
 </template>
@@ -32,7 +32,7 @@
  * @prop badge
  */
 export default {
-  name: 'ymu-tabbar-item',
+  name: 'ym-tabbar-item',
   props: {
     title: String,
     icon: String,

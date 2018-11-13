@@ -1,16 +1,16 @@
 <template>
-  <div class="ymu-notice-bar">
-    <div class="ymu-notice-bar__left-icon">
+  <div class="ym-notice-bar">
+    <div class="ym-notice-bar__left-icon">
       <slot name="icon-left">
         <i class="iconfont icon-voice"></i>
       </slot>
     </div>
-    <div class="ymu-notice-bar__content" ref="barContent">
-      <div class="ymu-notice-bar__marquee-wrap" ref="marqueeWrap" :style="style">
+    <div class="ym-notice-bar__content" ref="barContent">
+      <div class="ym-notice-bar__marquee-wrap" ref="marqueeWrap" :style="style">
         <slot></slot>
       </div>
     </div>
-    <div class="ymu-notice-bar__right-icon">
+    <div class="ym-notice-bar__right-icon">
       <slot name="icon-right"></slot>
     </div>
   </div>
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'ymu-notice-bar',
+  name: 'ym-notice-bar',
   data () {
     return {
       offset: 0,

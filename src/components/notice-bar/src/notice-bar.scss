@@ -1,4 +1,4 @@
-.ymu-notice-bar {
+.ym-notice-bar {
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -9,7 +9,7 @@
   background-color: #fffbe8;
 }
 
-.ymu-notice-bar__content {
+.ym-notice-bar__content {
   overflow: hidden;
   position: relative;
   flex: 1;
@@ -18,7 +18,7 @@
   margin-right: 12px;
 }
 
-.ymu-notice-bar__left-icon {
+.ym-notice-bar__left-icon {
   height: 100%;
   margin-left: 12px;
   .icon-voice {
@@ -30,11 +30,11 @@
   }
 }
 
-.ymu-notice-bar__right-icon {
+.ym-notice-bar__right-icon {
 
 }
 
-.ymu-notice-bar__marquee-wrap {
+.ym-notice-bar__marquee-wrap {
   position: absolute;
   top: 0;
   left: 0;

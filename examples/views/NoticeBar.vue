@@ -1,32 +1,32 @@
 <template>
   <div class="page-notice-bar">
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">基础用法</div>
-      <div class="ymu-doc-block__content">
+    <div class="ym-doc-block">
+      <div class="ym-doc-block__title">基础用法</div>
+      <div class="ym-doc-block__content">
         <NoticeBar>
           <p>Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day.</p>
         </NoticeBar>
       </div>
     </div>
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">设置frequency(100)</div>
-      <div class="ymu-doc-block__content">
+    <div class="ym-doc-block">
+      <div class="ym-doc-block__title">设置frequency(100)</div>
+      <div class="ym-doc-block__content">
         <NoticeBar :frequence="100">
           <p>Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day.</p>
         </NoticeBar>
       </div>
     </div>
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">设置loop(false)</div>
-      <div class="ymu-doc-block__content">
+    <div class="ym-doc-block">
+      <div class="ym-doc-block__title">设置loop(false)</div>
+      <div class="ym-doc-block__content">
         <NoticeBar :frequence="100" :loop="false">
           <p>Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day.</p>
         </NoticeBar>
       </div>
     </div>
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">设置右边icon</div>
-      <div class="ymu-doc-block__content">
+    <div class="ym-doc-block">
+      <div class="ym-doc-block__title">设置右边icon</div>
+      <div class="ym-doc-block__content">
         <NoticeBar :frequence="100" :loop="false">
           <span slot="icon-right">
             <i class="iconfont icon-voice"></i>

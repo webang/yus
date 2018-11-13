@@ -2,20 +2,20 @@
   <transition :name="transition">
     <div
       v-show="visible"
-      class="ymu-toast"
+      class="ym-toast"
       :class="[
-        'ymu-toast--'+type,
-        'ymu-toast--'+position
+        'ym-toast--'+type,
+        'ym-toast--'+position
       ]"
     >
-      <div class="ymu-toast-content">
+      <div class="ym-toast-content">
         <slot>
           <slot name="icon">
-            <div class="ymu-toast__icon-wrap" v-if="hasIcon">
-              <i class="iconfont ymu-toast__icon" :class="['icon-'+type]"></i>
+            <div class="ym-toast__icon-wrap" v-if="hasIcon">
+              <i class="iconfont ym-toast__icon" :class="['icon-'+type]"></i>
             </div>
           </slot>
-          <span class="ymu-toast__text">{{ message }}</span>
+          <span class="ym-toast__text">{{ message }}</span>
         </slot>
       </div>
     </div>
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'ymu-toast',
+  name: 'ym-toast',
   props: {
     value: Boolean,
     message: String,
@@ -56,7 +56,7 @@ export default {
   },
   computed: {
     transition () {
-      return 'ymu-toast--' + this.position
+      return 'ym-toast--' + this.position
     },
     hasIcon () {
       return this.type !== 'text'

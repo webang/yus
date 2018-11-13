@@ -1,19 +1,19 @@
 <template>
-  <div class="ymu-navbar">
-    <div class="ymu-navbar-left">
+  <div class="ym-navbar">
+    <div class="ym-navbar-left">
       <slot name="left">
-        <div class="ymu-navbar-button" @click="handleClickLeft">
-          <i class="ymu-navbar-button__icon iconfont icon-left" v-if="leftArrow"></i>
-          <span class="ymu-navbar-button__text" v-text="leftText"></span>
+        <div class="ym-navbar-button" @click="handleClickLeft">
+          <i class="ym-navbar-button__icon iconfont icon-left" v-if="leftArrow"></i>
+          <span class="ym-navbar-button__text" v-text="leftText"></span>
         </div>
       </slot>
     </div>
-    <div class="ymu-navbar-title">
+    <div class="ym-navbar-title">
       <slot>{{ title }}</slot>
     </div>
-    <div class="ymu-navbar-right">
+    <div class="ym-navbar-right">
       <slot name="right">
-        <div class="ymu-navbar__right-button" @click="handleClickRight">{{ rightText }}</div>
+        <div class="ym-navbar__right-button" @click="handleClickRight">{{ rightText }}</div>
       </slot>
     </div>
   </div>
@@ -22,7 +22,7 @@
 <script>
 import Button from '../../button'
 export default {
-  name: 'ymu-navbar',
+  name: 'ym-navbar',
   components: {
     Button
   },
