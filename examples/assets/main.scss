@@ -1,7 +1,7 @@
 body {
   color: #333;
   font-family: 'PingFang SC', Helvetica, 'STHeiti STXihei', 'Microsoft YaHei', Tohoma, Arial, sans-serif;
-  background-color: #efeff4;
+  background-color: #f5f5f9;
 }
 
 #app {
@@ -13,5 +13,12 @@ body {
   font-size: 16px;
   font-weight: 600;
   color: #666;
-  background-color: #efeff4;
+  background-color: #f5f5f9;
+}
+
+.ym-doc-title {
+  padding: 10px 12px;
+  color: #999999;
+  font-size: 14px;
+  // padding-top: 30px;
 }

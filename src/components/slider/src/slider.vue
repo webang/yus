@@ -1,17 +1,21 @@
 <template>
-  <div class="wui-range">
-    <slot name="start"></slot>
-    <div class="wui-range-content" ref="content" :style="{ height: thick + 'px'}">
-      <div class="wui-range__runway" ref="runway"></div>
-      <div class="wui-range__track" ref="track" :style="{ width: ratio }"></div>
+  <div class="ym-slider" :class="[{'ym-slider--disabled': disabled}]">
+    <div class="ym-slider__hd" v-if="$slots.start">
+      <slot name="start"></slot>
+    </div>
+    <div class="ym-slider__bd" ref="content" :style="contentStyle">
+      <div class="ym-slider__runway" ref="runway"></div>
+      <div class="ym-slider__track" ref="track" :style="{ width: ratio }"></div>
       <div
-        class="wui-range__thumb"
+        class="ym-slider__thumb"
         :style="{ left: ratio }"
         @touchstart="onTouchStart"
         @touchmove="onTouchMove"
         @touchend="onTouchEnd"></div>
     </div>
-    <slot name="end"></slot>
+    <div class="ym-slider__ft" v-if="$slots.end">
+      <slot name="end"></slot>
+    </div>
   </div>
 </template>
 
@@ -31,7 +35,7 @@ export default {
       type: Number,
       default: 100
     },
-    thick: {
+    'track-height': {
       type: Number,
       default: 2
     },
@@ -58,6 +62,11 @@ export default {
       value = value > this.max ? this.max : value
       value = value < this.min ? this.min : value
       return (value - this.min) / (this.max - this.min) * 100 + '%'
+    },
+    contentStyle () {
+      return {
+        height: this.trackHeight + 'px'
+      }
     }
   },
   methods: {
@@ -66,13 +75,18 @@ export default {
     },
     onTouchStart (event) {
       const touch = event.changedTouches[0]
+      if (this.disabled) {
+        return
+      }
       this.startPoint = touch
       this.trackRect = this.getRect(this.$refs.track)
       this.contentRect = this.getRect(this.$refs.content)
     },
     onTouchMove (event) {
       const touch = event.changedTouches[0]
-
+      if (this.disabled) {
+        return
+      }
       let deltaX = touch.pageX - this.startPoint.pageX
       let newWidth = this.trackRect.width + deltaX
       let progress = newWidth / this.contentRect.width
@@ -86,6 +100,9 @@ export default {
       this.$emit('input', Math.round(nextVal))
     },
     onTouchEnd (event) {
+      if (this.disabled) {
+        return
+      }
       this.startPoint = null
     }
   }

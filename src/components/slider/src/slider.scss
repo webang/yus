@@ -1,26 +1,26 @@
-$range-default-bg-color: #EBEBEB;
-$range-active-bg-color: #26a2ff;
-$range-height: 30px;
-$range-thumb-width: 30px;
-$range-thumb-height: 30px;
+$slider-default-bg-color: #EBEBEB;
+$slider-active-bg-color: #26a2ff;
+$slider-height: 24px;
+$slider-thumb-width: 24px;
+$slider-thumb-height: 24px;
 
-@mixin range-box-shadow {
+@mixin slider-box-shadow {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.wui-range {
+.ym-slider {
 
   position: relative;
   display: flex;
   align-items: center;
-  height: $range-height;
-  line-height: $range-height;
+  height: $slider-height;
+  line-height: $slider-height;
 
-  &-content {
+  &__bd {
     position: relative;
     height: 100%;
     flex: 1;
-    margin-right: $range-thumb-width;
+    margin-right: $slider-thumb-width;
   }
 
   &__runway {
@@ -28,8 +28,8 @@ $range-thumb-height: 30px;
     top: 0;
     height: 100%;
     left: 0;
-    right: -$range-thumb-width;
-    background-color: $range-default-bg-color;
+    right: -$slider-thumb-width;
+    background-color: $slider-default-bg-color;
   }
 
   &__track {
@@ -37,18 +37,22 @@ $range-thumb-height: 30px;
     top: 0;
     height: 100%;
     max-width: 100%;
-    background-color: $range-active-bg-color;
+    background-color: $slider-active-bg-color;
   }
 
   &__thumb {
     position: absolute;
-    width: $range-thumb-width;
-    height: $range-thumb-height;
+    width: $slider-thumb-width;
+    height: $slider-thumb-height;
     top: 50%;
     cursor: move;
     background-color: #fff;
     border-radius: 50%;
     transform: translate3d(0, -50%, 0);
-    @include range-box-shadow;
+    @include slider-box-shadow;
+  }
+
+  &--disabled .ym-slider__bd {
+    opacity: .6;
   }
 }

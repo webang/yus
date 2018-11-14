@@ -1,7 +1,12 @@
+.ym-radio {
+  display: flex;
+  align-items: center;
+}
+
 .ym-radio__input {
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
 }
 
 .ym-radio__control {
@@ -12,4 +17,14 @@
   height: 100%;
   opacity: 0;
   margin: 0;
+}
+
+.ym-radio__label {
+  margin-left: 5px;
+}
+
+.ym-radio--disabled {
+  .ym-radio__input {
+    color: #ccc;
+  }
 }

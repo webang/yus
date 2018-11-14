@@ -1,14 +1,17 @@
 <template>
   <div
     class="ym-radio"
-    :class="{'ym-radio--checked': value}"
+    :class="[{
+      'ym-radio--checked': value,
+      'ym-radio--disabled': disabled
+    }]"
     @click="toggleValue"
   >
     <span class="ym-radio__input">
       <input class="ym-radio__control" type="radio" :checked="value">
       <i class="ym-icon" :class="iconClass"></i>
     </span>
-    <span class="ym-radio__label">
+    <span class="ym-radio__label" v-if="$slots.default">
       <slot></slot>
     </span>
   </div>
@@ -18,7 +21,8 @@
 export default {
   name: 'ym-radio',
   props: {
-    value: Boolean
+    value: Boolean,
+    disabled: Boolean
   },
   computed: {
     iconClass () {
