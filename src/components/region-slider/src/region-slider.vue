@@ -1,31 +1,35 @@
 <template>
-  <div class="wui-range">
-    <slot name="start"></slot>
-    <div class="wui-range-content" ref="content" :style="{ height: thick + 'px'}">
-      <div class="wui-range__runway" ref="runway"></div>
-      <div class="wui-range__track" ref="track" :style="trackStyle"></div>
+  <div class="ym-slider">
+    <div class="ym-slider__hd">
+      <slot name="start"></slot>
+    </div>
+    <div class="ym-slider__bd" ref="content" :style="{ height: trackHeight + 'px'}">
+      <div class="ym-slider__runway" ref="runway"></div>
+      <div class="ym-slider__track" ref="track" :style="trackStyle"></div>
       <div
-        class="wui-range__thumb"
+        class="ym-slider__thumb"
         :class="[{ 'is-active': direction === 'from' }]"
         :style="{ left: left + '%' }"
         @touchstart="onTouchStart('from', $event)"
         @touchmove="onTouchMove('from', $event)"
         @touchend="onTouchEnd('from', $event)"></div>
       <div
-        class="wui-range__thumb"
+        class="ym-slider__thumb"
         :class="[{ 'is-active': direction === 'top' }]"
         :style="{ left: (100 - right) + '%' }"
         @touchstart="onTouchStart('to', $event)"
         @touchmove="onTouchMove('to', $event)"
         @touchend="onTouchEnd('to', $event)"></div>
     </div>
-    <slot name="end"></slot>
+    <div class="ym-slider__ft">
+      <slot name="end"></slot>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'wui-range',
+  name: 'ym-slider',
   props: {
     value: Array,
     min: {
@@ -36,7 +40,7 @@ export default {
       type: Number,
       default: 100
     },
-    thick: {
+    trackHeight: {
       type: Number,
       default: 2
     },

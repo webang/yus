@@ -53,7 +53,6 @@
 
 <script type="text/javascript">
 import Slider from '@/components/slider'
-
 export default {
   components: {
     Slider

@@ -7,20 +7,20 @@
           <i class="iconfont icon-voice"></i>
           <Marquee>
             <MarqueeItem v-for="(item, index) in list" :key="index">
-              <p>{{ index+'_'+item }}</p>
+              <p>{{ index + 1}}.{{ item }}</p>
             </MarqueeItem>
           </Marquee>
         </div>
       </div>
     </div>
     <div class="ym-doc-block">
-      <div class="ym-doc-block__title">基础用法</div>
+      <div class="ym-doc-block__title">设置方向</div>
       <div class="ym-doc-block__content">
         <div class="marquee-wrap">
           <i class="iconfont icon-voice"></i>
           <Marquee direction="down">
             <MarqueeItem v-for="(item, index) in list" :key="index">
-              <p>{{ index+'_'+item }}</p>
+              <p>{{ index + 1}}.{{ item }}</p>
             </MarqueeItem>
           </Marquee>
         </div>
