@@ -42,6 +42,7 @@
         <CellGroup>
           <Cell title="Actionsheet 上拉菜单" is-link to="/Actionsheet"></Cell>
           <Cell title="Alert 提示窗" is-link to="/Alert"></Cell>
+          <Cell title="Confirm 确认框" is-link to="/Confirm"></Cell>
           <Cell title="Toast 轻提示" is-link to="/Toast"></Cell>
         </CellGroup>
       </div>

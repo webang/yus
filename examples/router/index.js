@@ -20,6 +20,7 @@ const Checkbox = () => import('../views/Checkbox')
 const Slider = () => import('../views/Slider')
 const RegionSlider = () => import('../views/RegionSlider')
 const Radio = () => import('../views/radio')
+const Confirm = () => import('../views/confirm')
 
 Vue.use(Router)
 
@@ -31,6 +32,14 @@ export default new Router({
       component: Welcome,
       meta: {
         title: 'ym'
+      }
+    },
+    {
+      path: '/Confirm',
+      name: 'Confirm',
+      component: Confirm,
+      meta: {
+        title: 'Confirm 确认框'
       }
     },
     {
