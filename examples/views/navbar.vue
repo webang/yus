@@ -39,7 +39,6 @@ export default {
   methods: {
     handleClickLeft () {
       console.log('handleClickLeft')
-      // this.$router.go(-1)
     },
     handleClickRight () {
       console.log('handleClickRight')

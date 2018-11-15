@@ -1,1 +1,8 @@
-backtop.scss
+.ym-backtop {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  width: 45px;
+  height: 45px;
+  background-color: red;
+}

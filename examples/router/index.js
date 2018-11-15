@@ -21,6 +21,7 @@ const Slider = () => import('../views/Slider')
 const RegionSlider = () => import('../views/RegionSlider')
 const Radio = () => import('../views/radio')
 const Confirm = () => import('../views/confirm')
+const Backtop = () => import('../views/backtop')
 
 Vue.use(Router)
 
@@ -32,6 +33,14 @@ export default new Router({
       component: Welcome,
       meta: {
         title: 'ym'
+      }
+    },
+    {
+      path: '/Backtop',
+      name: 'Backtop',
+      component: Backtop,
+      meta: {
+        title: 'Backtop 返回顶部'
       }
     },
     {
