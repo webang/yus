@@ -19,9 +19,9 @@ const Popup = () => import('../views/Popup')
 const Checkbox = () => import('../views/Checkbox')
 const Slider = () => import('../views/Slider')
 const RegionSlider = () => import('../views/RegionSlider')
-const Radio = () => import('../views/radio')
-const Confirm = () => import('../views/confirm')
-const Backtop = () => import('../views/backtop')
+const Radio = () => import('../views/Radio')
+const Confirm = () => import('../views/Confirm')
+const Backtop = () => import('../views/Backtop')
 
 Vue.use(Router)
 

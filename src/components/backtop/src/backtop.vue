@@ -12,11 +12,11 @@
  * c: change in value（变化量）；
  * d: duration（持续时间
 */
-const moveJS = {
-  linear: function (t, b, c, d) {
-    return c * t / d + b
-  }
-}
+// const moveJS = {
+//   linear: function (t, b, c, d) {
+//     return c * t / d + b
+//   }
+// }
 
 export default {
   name: 'ym-backtop',

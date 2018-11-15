@@ -27,3 +27,15 @@ export default {
   }
 }
 </script>
+
+<style lang="postcss" scoped>
+ul {
+  padding: 0 12px;
+}
+
+li {
+  line-height: 40px;
+  font-size: 14px;
+  color: #666;
+}
+</style>
