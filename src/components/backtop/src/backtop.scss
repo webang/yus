@@ -1,8 +1,25 @@
 .ym-backtop {
   position: fixed;
-  bottom: 12px;
+  bottom: 24px;
   right: 12px;
-  width: 45px;
-  height: 45px;
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #616365;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: #fff;
+  .icon-backtop {
+    font-size: 24px;
+    color: #616365;
+    font-weight: 400;
+  }
+}
+
+.ym-backtop__text {
+  font-size: 10px;
+  font-size: 0;
 }
