@@ -1,7 +1,7 @@
 body {
   color: #333;
   font-family: 'PingFang SC', Helvetica, 'STHeiti STXihei', 'Microsoft YaHei', Tohoma, Arial, sans-serif;
-  background-color: #f5f5f9;
+  background-color: #fafafa;
 }
 
 #app {
@@ -9,16 +9,14 @@ body {
 }
 
 .ym-doc-block__title {
-  padding: 25px 15px 15px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #666;
-  background-color: #f5f5f9;
+  font-size: 14px;
+  padding: 20px 12px 15px;
+  color: rgba(69,90,100,.6);
+  background-color: #fafafa;
 }
 
 .ym-doc-title {
   padding: 10px 12px;
   color: #999999;
   font-size: 14px;
-  // padding-top: 30px;
 }

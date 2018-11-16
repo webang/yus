@@ -18,6 +18,7 @@
       <div class="ym-doc-block__title">数据展示</div>
       <div class="ym-doc-block__content">
         <CellGroup>
+          <Cell title="Collapse 折叠面板" is-link to="/Collapse"></Cell>
           <Cell title="Marquee 跑马灯" is-link to="/Marquee"></Cell>
           <Cell title="NoticeBar 通告栏" is-link to="/NoticeBar"></Cell>
         </CellGroup>

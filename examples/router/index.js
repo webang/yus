@@ -22,6 +22,7 @@ const RegionSlider = () => import('../views/RegionSlider')
 const Radio = () => import('../views/Radio')
 const Confirm = () => import('../views/Confirm')
 const Backtop = () => import('../views/Backtop')
+const Collapse = () => import('../views/collapse')
 
 Vue.use(Router)
 
@@ -33,6 +34,14 @@ export default new Router({
       component: Welcome,
       meta: {
         title: 'ym'
+      }
+    },
+    {
+      path: '/Collapse',
+      name: 'Collapse',
+      component: Collapse,
+      meta: {
+        title: 'Collapse 折叠面板'
       }
     },
     {
