@@ -26,7 +26,6 @@ import Cell from '@/components/cell'
 import CellGroup from '@/components/cell-group'
 import Button from '@/components/button'
 import Field from '@/components/field'
-import Checkbox from '@/components/Checkbox'
 import CheckboxGroup from '@/components/checkbox-group'
 import Radio from '@/components/radio'
 
@@ -37,7 +36,6 @@ export default {
     Button,
     Checkbox,
     CellGroup,
-    CheckboxGroup,
     Radio
   },
   data () {
