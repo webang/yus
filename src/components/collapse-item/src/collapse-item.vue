@@ -1,7 +1,10 @@
 <template>
   <div
     class="ym-collapse-item"
-    :class="{'ym-collapse-item--active': isActive}"
+    :class="{
+      'ym-collapse-item--active': currentValue,
+      'ym-collapse-item--without-border': !border
+    }"
     @click="handleClick"
   >
     <div class="ym-collapse-item__hd">
@@ -14,10 +17,10 @@
     </div>
     <div
       class="ym-collapse-item__bd"
-      style="height: 0px"
-      :class="{'ym-collapse-item__bd--active': isActive}"
-      v-show="isActive"
-      ref="content"
+      :class="{'ym-collapse-item__bd--active': currentValue}"
+      ref="wrapper"
+      v-show="currentValue"
+      @transitionend="handleTransitionend"
     >
       <slot></slot>
     </div>
@@ -28,32 +31,66 @@
 export default {
   name: 'ym-collapse-item',
   props: {
-    accordion: Boolean,
+    value: Boolean,
     title: String,
-    name: String
+    border: {
+      type: Boolean,
+      default: true
+    }
   },
   data () {
     return {
-      isActive: false
-    }
-  },
-  watch: {
-    isActive (val) {
-      if (val) {
-        setTimeout(() => {
-          this.$refs.content.style.height = `44px`
-        })
-      } else {
-        this.$refs.content.style.height = `0px`
-      }
+      currentValue: true,
+      currentHeight: 0,
+      height: 0
     }
   },
   methods: {
     handleClick () {
-      this.$parent.$children.forEach(item => {
-        item.isActive = false
-      })
-      this.isActive = !this.isActive
+      if (this.disabled) {
+        return
+      }
+      const nextValue = !this.currentValue
+      if (this.$parent.accordion) {
+        this.$parent.$children.forEach((child) => {
+          if (child !== this) {
+            child.toggleValue(false)
+          }
+        })
+      }
+      this.toggleValue(nextValue)
+    },
+    toggleValue (nextValue) {
+      if (nextValue) {
+        this.currentValue = nextValue
+        this.$nextTick(() => {
+          this.updateWrapperHeight(this.height)
+        })
+      } else {
+        this.updateWrapperHeight(0)
+      }
+    },
+    handleTransitionend (event) {
+      const currentHeight = this.$refs.wrapper.clientHeight
+      if (currentHeight !== 0) {
+        this.currentValue = true
+      } else {
+        this.currentValue = false
+      }
+    },
+    updateWrapperHeight (height) {
+      this.$refs.wrapper.style.height = `${height}px`
+    }
+  },
+  mounted () {
+    const height = this.$refs.wrapper.clientHeight
+    this.height = height
+    if (this.value) {
+      this.updateWrapperHeight(height)
+      this.currentValue = true
+    } else {
+      this.updateWrapperHeight(0)
+      this.currentValue = false
     }
   }
 }

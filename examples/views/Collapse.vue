@@ -8,10 +8,33 @@
       <CollapseItem title="操作系统">
         <p>amazing fuck hello world</p>
       </CollapseItem>
-      <CollapseItem title="计算机基础">
+      <CollapseItem title="计算机基础" :border="false">
         <p>amazing fuck hello world</p>
       </CollapseItem>
-      <CollapseItem title="数据结构与算法">
+    </Collapse>
+
+    <div class="ym-doc-block__title">手风琴</div>
+    <Collapse accordion>
+      <CollapseItem title="编译原理">
+        <p>amazing fuck hello world</p>
+      </CollapseItem>
+      <CollapseItem title="操作系统">
+        <p>amazing fuck hello world</p>
+      </CollapseItem>
+      <CollapseItem title="计算机基础" :border="false">
+        <p>amazing fuck hello world</p>
+      </CollapseItem>
+    </Collapse>
+
+    <div class="ym-doc-block__title">默认展开</div>
+    <Collapse accordion>
+      <CollapseItem title="编译原理" :value="true">
+        <p>amazing fuck hello world</p>
+      </CollapseItem>
+      <CollapseItem title="操作系统">
+        <p>amazing fuck hello world</p>
+      </CollapseItem>
+      <CollapseItem title="计算机基础" :border="false">
         <p>amazing fuck hello world</p>
       </CollapseItem>
     </Collapse>
