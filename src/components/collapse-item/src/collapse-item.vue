@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import { raf } from '../../../utils/utils'
 export default {
   name: 'ym-collapse-item',
   props: {
@@ -63,7 +64,7 @@ export default {
     toggleValue (nextValue) {
       if (nextValue) {
         this.currentValue = nextValue
-        this.$nextTick(() => {
+        raf(() => {
           this.updateWrapperHeight(this.height)
         })
       } else {
