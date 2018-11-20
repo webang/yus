@@ -10,22 +10,29 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 12px;
+  }
 
-    &__title {
-      flex: 1;
-    }
+  &__title {
+    flex: 1;
+  }
 
-    &__right-icon {
-      transition: transform 300ms;
+  &__right-icon {
+    transition: transform 300ms;
+    transform: rotate(90deg);
+    &.is-active {
       transform: rotate(180deg);
     }
   }
 
-  &__bd {
+  &__wrap {
     padding-left: 12px;
     padding-right: 12px;
     box-sizing: border-box;
-    transition: height 400ms;
+    transition: height 300ms;
+  }
+
+  &__content {
+    padding-bottom: 16px;
   }
 
   &::after {
@@ -38,12 +45,6 @@
     bottom: 0;
     transform: scaleY(0.5);
     border-bottom: 1px solid #ddd;
-  }
-}
-
-.ym-collapse-item--active {
-  .ym-collapse-item__hd__right-icon {
-    transform: rotate(0deg);
   }
 }
 

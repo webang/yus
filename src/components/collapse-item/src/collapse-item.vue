@@ -8,27 +8,27 @@
     @click="handleClick"
   >
     <div class="ym-collapse-item__hd">
-      <div class="ym-collapse-item__hd__title">
+      <div class="ym-collapse-item__title">
         <slot name="title">
           <p v-text="title"></p>
         </slot>
       </div>
-      <i class="ym-collapse-item__hd__right-icon ym-icon icon-arrow_up"></i>
+      <i class="ym-collapse-item__right-icon ym-icon icon-arrow_up" :class="{'is-active': currentValue}"></i>
     </div>
     <div
-      class="ym-collapse-item__bd"
-      :class="{'ym-collapse-item__bd--active': currentValue}"
+      class="ym-collapse-item__wrap"
       ref="wrapper"
       v-show="currentValue"
       @transitionend="handleTransitionend"
     >
-      <slot></slot>
+      <div class="ym-collapse-item__content">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { raf } from '../../../utils/utils'
 export default {
   name: 'ym-collapse-item',
   props: {
@@ -48,15 +48,11 @@ export default {
   },
   methods: {
     handleClick () {
-      if (this.disabled) {
-        return
-      }
+      if (this.disabled) return
       const nextValue = !this.currentValue
       if (this.$parent.accordion) {
         this.$parent.$children.forEach((child) => {
-          if (child !== this) {
-            child.toggleValue(false)
-          }
+          if (child !== this) child.toggleValue(false)
         })
       }
       this.toggleValue(nextValue)
@@ -64,9 +60,9 @@ export default {
     toggleValue (nextValue) {
       if (nextValue) {
         this.currentValue = nextValue
-        raf(() => {
+        setTimeout(() => {
           this.updateWrapperHeight(this.height)
-        })
+        }, 17)
       } else {
         this.updateWrapperHeight(0)
       }
