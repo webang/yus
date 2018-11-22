@@ -3,8 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import './assets/global.scss'
-import './assets/main.scss'
+// import './assets/global.scss'
+// import './assets/main.scss'
+import './assets/test.less';
 
 Vue.config.productionTip = false
 

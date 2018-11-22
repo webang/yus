@@ -109,6 +109,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
+<style lang="less">
+@import "../theme/custom.less";
+div {
+  
+}
 </style>
