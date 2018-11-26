@@ -1,4 +1,4 @@
-# yum
+# ymu
 
 mobile components based on vue.js
 

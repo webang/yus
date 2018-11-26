@@ -3,3 +3,7 @@ const rafMock = (fn) => {
 }
 
 export const raf = window.requestAnimationFrame || rafMock
+
+export const trim = (string) => {
+  return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '')
+}

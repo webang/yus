@@ -4,7 +4,6 @@ const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
 const getLessVars = require('./gel-less-vars')
-const beforeRenderSass = require('./beforeRenderSass');
 
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
@@ -48,7 +47,7 @@ exports.cssLoaders = function (options) {
     loaders.push( {
       loader: path.resolve(__dirname, '../../rewrite-sass-loader'),
       options: {
-        matchFile: "@import '../../../theme/vars.scss';\n",
+        matchFile: "@import '../../../styles/variable.scss';\n",
         appendVariables: path.resolve(__dirname, '../examples/theme/custome.scss')
       }
     })
