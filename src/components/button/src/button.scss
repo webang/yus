@@ -1,6 +1,6 @@
-@import '../../../style/mixin.scss';
-@import '../../../style/animate.scss';
-@import '../../../theme/vars.scss';
+@import '../../../styles/variable.scss';
+@import '../../../styles/mixin.scss';
+@import '../../../styles/animate.scss';
 
 @mixin grayLoading {
   width: 24px;
