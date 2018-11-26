@@ -4,6 +4,7 @@ const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
 const getLessVars = require('./gel-less-vars')
+const beforeRenderSass = require('./beforeRenderSass');
 
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
@@ -45,9 +46,10 @@ exports.cssLoaders = function (options) {
 
     if (loader === 'sass')
     loaders.push( {
-      loader: path.resolve(__dirname, '../recover-sass-loader'),
+      loader: path.resolve(__dirname, '../../rewrite-sass-loader'),
       options: {
-        appendVars: path.resolve(__dirname, '../examples/theme/custome.scss')
+        matchFile: "@import '../../../theme/vars.scss';\n",
+        appendVariables: path.resolve(__dirname, '../examples/theme/custome.scss')
       }
     })
 
@@ -70,7 +72,9 @@ exports.cssLoaders = function (options) {
     less: generateLoaders('less', {
       modifyVars: getLessVars(path.resolve(__dirname, '../examples/theme/custom.less'))
     }),
-    sass: generateLoaders('sass', { indentedSyntax: true }),
+    sass: generateLoaders('sass', {
+      indentedSyntax: true
+    }),
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')

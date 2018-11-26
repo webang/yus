@@ -1,5 +1,4 @@
-@import "../theme/vars.scss";
-
+// @import "../theme/vars.scss";
 @mixin wui-border-bottom-1px () {
   content: " ";
   position: absolute;
@@ -8,7 +7,7 @@
   right: 0;
   height: 1PX;
   transform: scaleY(0.5);
-  background-color: $border-color;
+  background-color: #eee;
 }
 
 @mixin wui-border-top-1px () {
@@ -19,5 +18,5 @@
   right: 0;
   height: 1PX;
   transform: scaleY(0.5);
-  background-color: $border-color;
+  background-color: #eee;
 }

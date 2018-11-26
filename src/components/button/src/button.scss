@@ -1,6 +1,6 @@
-@import '../../../theme/vars.scss';
 @import '../../../style/mixin.scss';
 @import '../../../style/animate.scss';
+@import '../../../theme/vars.scss';
 
 @mixin grayLoading {
   width: 24px;
@@ -23,6 +23,8 @@
   text-align: center;
   box-sizing: border-box;
 }
+
+// $button_normal_height : 100px;
 
 .ym-button--normal {
   height: $button_normal_height;
@@ -174,9 +176,4 @@
     width: 24px;
     height: 24px;
   }
-}
-
-// text
-.yum-button_text {
-
 }

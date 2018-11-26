@@ -20,12 +20,10 @@ $color-danger: #e94f4f;
 $color-light:  #f4f4f4;
 $color-dark:  #222;
 
-
 /**
  * 颜色值
  **/
 $border-default-color: #e5e5e5; // 分割色, 通常和 body 底色相同
-
 
 /**
  * button
@@ -67,13 +65,11 @@ $button_danger_font_color: #fff;
 $button_danger_active_font_color: hsla(0,0%,100%,.3);
 $button_danger_active_bg_color: #d24747;
 
-
 /**
  * backdrop
  */
 $backdrop-zindex: 900;
 $backdrop-bg: rgba(0, 0, 0, .6);
-
 
 /**
  * actionsheet
@@ -83,7 +79,6 @@ $actionsheet-disabled-menu-color: #ccc;
 $actionsheet-menu-font-size: 18px;
 $actionsheet-cell-vertical-padding: 10px;
 $actionsheet-cancel-margin-top: 6px;
-
 
 /**
  * dialog
