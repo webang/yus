@@ -8,7 +8,7 @@ import router from './router'
 import './assets/main.scss'
 import './assets/global.scss'
 
-// Vue.config.productionTip = false
+Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({

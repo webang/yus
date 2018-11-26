@@ -70,7 +70,7 @@ exports.cssLoaders = function (options) {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less', {
-      modifyVars: getLessVars(path.resolve(__dirname, '../examples/theme/custom.less'))
+      // modifyVars: getLessVars(path.resolve(__dirname, '../examples/theme/custom.less'))
     }),
     sass: generateLoaders('sass', {
       indentedSyntax: true
