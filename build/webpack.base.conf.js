@@ -3,8 +3,6 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-const rewriteSassLoader = require('../recover-sass-loader')
-const beforeRenderSass = require('./beforeRenderSass');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
