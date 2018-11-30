@@ -28,9 +28,16 @@ $border-default-color: #e5e5e5; // 分割色, 通常和 body 底色相同
 /**
  * button
  */
+$button_large_height: 50px; // 常规高度
+$button_large_font_size: 14px; // 常规字体高度
+$button_large_border_radius: 2px; //  常规边框大小
+$button_large_herizontal_padding: 18px; // 水平边距
+$button_large_herizontal_round_radius: 64px; // 圆角大小
+$button_large_herizontal_round_padding: 30px; // 圆角时的水平边距
+
 $button_normal_height: 44px; // 常规高度
-$button_normal_font_size: 16px; // 常规字体高度
-$button_normal_border_radius: 3px; //  常规边框大小
+$button_normal_font_size: 14px; // 常规字体高度
+$button_normal_border_radius: 2px; //  常规边框大小
 $button_normal_herizontal_padding: 15px; // 水平边距
 $button_normal_herizontal_round_radius: 64px; // 圆角大小
 $button_normal_herizontal_round_padding: 30px; // 圆角时的水平边距
@@ -49,21 +56,22 @@ $button_mini_herizontal_padding: 12px;
 $button_mini_herizontal_round_radius: 30px;
 $button_mini_herizontal_round_padding: 15px;
 
-$button_light_bg_color: #f4f4f4; // light bg color
-$button_light_font_color: inherit; // light font color
-$button_light_border_color: #ddd; // light border color
-$button_light_active_font_color: inherit;
-$button_light_active_bg_color: #ddd;
-
+// 按钮类型维度
 $button_primary_bg_color: #108ee9;
 $button_primary_font_color: #fff;
-$button_primary_active_font_color: hsla(0,0%,100%,.3);
-$button_primary_active_bg_color: #0e80d2;
 
-$button_danger_bg_color: #e94f4f;
+$button_light_bg_color: #fff;
+$button_light_font_color: inherit;
+$button_light_border_color: #ddd;
+
+$button_danger_bg_color: #f44;
 $button_danger_font_color: #fff;
-$button_danger_active_font_color: hsla(0,0%,100%,.3);
-$button_danger_active_bg_color: #d24747;
+
+$button_warn_bg_color: #ff976a;
+$button_warn_font_color: #fff;
+
+// 按钮块级维度
+$button_block_font_size: 16px;
 
 /**
  * backdrop

@@ -1,36 +1,48 @@
 <template>
   <div class="page-button">
     <div class="ym-doc-block">
-      <div class="ym-doc-block__title">type</div>
+      <div class="ym-doc-block__title">按钮类型</div>
       <div class="ym-doc-block__content">
-        <Button type="light" text="plain"></Button>
-        <Button type="primary" text="primary"></Button>
-        <Button type="danger" text="warning"></Button>
+        <div>
+          <Button type="light" text="默认按钮"></Button>
+          <Button type="primary" text="主要按钮"></Button>
+        </div>
+        <div>
+          <Button type="warn" text="警告按钮"></Button>
+          <Button type="danger" text="危险按钮"></Button>
+        </div>
       </div>
     </div>
 
     <div class="ym-doc-block">
-      <div class="ym-doc-block__title">size</div>
+      <div class="ym-doc-block__title">按钮大小</div>
       <div class="ym-doc-block__content">
-        <Button class="btn" type="primary" size="mini" text="mini"></Button>
-        <Button class="btn" type="primary" size="small" text="small"></Button>
-        <Button class="btn" type="primary" size="normal" text="normal"></Button>
+        <Button class="btn" type="primary" size="mini" text="迷你按钮"></Button>
+        <Button class="btn" type="primary" size="small" text="小号按钮"></Button>
+        <Button class="btn" type="primary" size="normal" text="普通按钮"></Button>
+        <Button class="btn" type="primary" size="large" text="大号按钮"></Button>
       </div>
     </div>
 
     <div class="ym-doc-block">
-      <div class="ym-doc-block__title">block</div>
+      <div class="ym-doc-block__title">按钮块级</div>
       <div class="ym-doc-block__content">
-        <Button class="btn" type="primary" block text="primary + block"></Button>
+        <Button class="btn" type="primary" block text="块级按钮"></Button>
+        <Button class="btn" type="primary" inline text="内联按钮"></Button>
       </div>
     </div>
 
     <div class="ym-doc-block">
-      <div class="ym-doc-block__title">disabled</div>
+      <div class="ym-doc-block__title">禁用按钮</div>
       <div class="ym-doc-block__content">
-        <Button class="btn" disabled text="default"></Button>
-        <Button class="btn" type="primary" disabled text="primary"></Button>
-        <Button class="btn" type="danger" disabled text="danger"></Button>
+        <div>
+          <Button class="btn" disabled text="默认按钮"></Button>
+          <Button class="btn" type="primary" disabled text="主要按钮"></Button>
+        </div>
+        <div>
+          <Button class="btn" type="warn" disabled text="警告按钮"></Button>
+          <Button class="btn" type="danger" disabled text="危险按钮"></Button>
+        </div>
       </div>
     </div>
 
@@ -58,17 +70,22 @@
     </div>
 
     <div class="ym-doc-block">
-      <div class="ym-doc-block__title">loading</div>
+      <div class="ym-doc-block__title">加载状态</div>
       <div class="ym-doc-block__content">
-        <Button class="btn" type="light" :showLoading="true">
+        <Button class="btn" type="light" :showLoading="disabledOption.value1">
           <span>提交</span>
         </Button>
-        <Button class="btn" type="primary" :showLoading="true">
+        <Button class="btn" type="primary" :showLoading="disabledOption.value1">
           <span>提交</span>
         </Button>
-        <Button class="btn" type="danger" :showLoading="true">
+        <Button class="btn" type="danger" :showLoading="disabledOption.value1">
           <span>提交</span>
         </Button>
+        <div>
+          <Button class="btn" type="light" @click="disabledOption.value1=!disabledOption.value1">
+            <span>切换状态</span>
+          </Button>
+        </div>
       </div>
     </div>
 
@@ -84,9 +101,9 @@
     <div class="ym-doc-block">
       <div class="ym-doc-block__title">clear</div>
       <div class="ym-doc-block__content">
-        <Button class="btn" type="primary" clear text="primary"></Button>
-        <Button class="btn" type="danger" clear text="danger"></Button>
-        <Button class="btn" type="light" clear text="light"></Button>
+        <Button class="btn" type="primary" clear text="取消订单"></Button>
+        <Button class="btn" type="danger" clear text="取消订单"></Button>
+        <Button class="btn" type="light" clear text="取消订单"></Button>
       </div>
     </div>
 
@@ -124,6 +141,14 @@ import Button from '@/components/button'
 export default {
   components: {
     Button
+  },
+  data () {
+    return {
+      disabledOption: {
+        value1: true,
+        value2: true
+      }
+    }
   }
 }
 </script>
@@ -132,8 +157,15 @@ export default {
 .list /deep/ .ym-button {
   margin-bottom: 10px;
 }
+
 .ym-doc-block__content {
   padding: 10px 15px;
-  background: #fff;
+}
+
+.page-button {
+  /deep/ .ym-button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
 }
 </style>

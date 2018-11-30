@@ -43,14 +43,14 @@ exports.cssLoaders = function (options) {
       })
     }
 
-    if (loader === 'sass')
-    loaders.push( {
-      loader: path.resolve(__dirname, '../../rewrite-sass-loader'),
-      options: {
-        matchFile: "@import '../../../styles/variable.scss';\n",
-        appendVariables: path.resolve(__dirname, '../examples/theme/custome.scss')
-      }
-    })
+    // if (loader === 'sass')
+    // loaders.push( {
+    //   loader: path.resolve(__dirname, '../../rewrite-sass-loader'),
+    //   options: {
+    //     matchFile: "@import '../../../styles/variable.scss';\n",
+    //     appendVariables: path.resolve(__dirname, '../examples/theme/vars.scss')
+    //   }
+    // })
 
     // Extract CSS when that option is specified
     // (which is the case during production build)
