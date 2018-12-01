@@ -12,11 +12,11 @@ Vue.use(Button);
 | text | 显示文本 | String | - | - |
 | type | 按钮类型 | String | `light` / `primary` / `danger` / `warn` | `light` |
 | size | 大小 | String | `normal` /  `large` / `small` / `mini` |  `normal` |
-| block | 块级按钮 | Boolean | - | false |
-| disabled | 禁用按钮 | Boolean | - | false |
-| plain | 幽灵按钮 | Boolean | - | false |
-| clear | 无背景颜色和边框 | Boolean | - | false |
-| round | 圆角按钮 | Boolean | - | false |
+| block | 块级按钮 | Boolean | - | - |
+| disabled | 禁用按钮 | Boolean | - | - |
+| plain | 幽灵按钮 | Boolean | - | - |
+| clear | 无背景颜色和边框 | Boolean | - | - |
+| round | 圆角按钮 | Boolean | - | - |
 | clickEffect | 显示反馈 | Boolean | - | true |
 
 ## Slots
