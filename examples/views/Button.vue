@@ -25,10 +25,10 @@
     </div>
 
     <div class="ym-doc-block">
-      <div class="ym-doc-block__title">按钮块级</div>
+      <div class="ym-doc-block__title">块级按钮</div>
       <div class="ym-doc-block__content">
-        <Button class="btn" type="primary" block text="块级按钮"></Button>
         <Button class="btn" type="primary" inline text="内联按钮"></Button>
+        <Button class="btn" type="primary" block text="块级按钮"></Button>
       </div>
     </div>
 
@@ -113,6 +113,13 @@
         <Button class="btn" type="primary" plain round text="plain + round"></Button>
         <Button class="btn" type="primary" size="small" plain round text="small block plain round"></Button>
         <Button class="btn" type="primary" size="mini" plain round text="mini block plain round"></Button>
+      </div>
+    </div>
+
+    <div class="ym-doc-block">
+      <div class="ym-doc-block__title">clickEffect</div>
+      <div class="ym-doc-block__content list">
+        <Button class="btn" type="primary" plain text="点击无反馈" :click-effect="false"></Button>
       </div>
     </div>
 
