@@ -22,9 +22,11 @@ Vue.use(Button);
 ## Slots
 
 | 名称 | 描述 |
+| - | - |
 | default | - |
 
 ## Events
 
 | 名称 | 描述 |
+| :-: | - |
 | click | - |
