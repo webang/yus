@@ -7,18 +7,20 @@
           <Cell title="基本用法">
             <button slot="value" @click="option1.show=!option1.show">切换</button>
           </Cell>
+          <Cell title="基本用法">
+            <button slot="value" @click="option2.show=!option2.show">切换</button>
+          </Cell>
         </CellGroup>
       </div>
     </div>
-    <Alert
-      v-model="option1.show"
-      :menus="option1.menus"
-      :title="option1.title"
-      :showCancel="option1.showCancel"
-      :close-on-click-menu="false"
-      @on-menu-click="onMenuClick"
-    >
-      <p>真的要离开我吗?</p>
+    <Alert v-model="option1.show" :title="option1.title">
+      <p slot="content">真的要离开我吗?</p>
+    </Alert>
+
+    <Alert v-model="option2.show" :title="option2.title">
+      <div slot="title">自定义 title</div>
+      <p slot="content">自定义 content</p>
+      <div slot="footer" style="flex: 1" @click="option2.show=false">自定义 footer</div>
     </Alert>
   </div>
 </template>

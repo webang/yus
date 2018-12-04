@@ -50,6 +50,7 @@
   display: flex;
   line-height: 48px;
   font-size: 18px;
+  text-align: center;
   &::after {
     content: " ";
     position: absolute;
@@ -84,12 +85,10 @@
       display: none;
     }
   }
-}
-
-.ym-dialog__btn_default {
-  color: #353535;
-}
-
-.ym-dialog__btn_primary {
-  color: #f90;
+  &--default {
+    color: #353535;
+  }
+  &--primary {
+    color: #f90;
+  }
 }

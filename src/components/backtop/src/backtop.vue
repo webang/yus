@@ -1,6 +1,6 @@
 <template>
   <div class="ym-backtop" @click="handleClick">
-    <i class="ym-icon ym-icon-backtop"></i>
+    <i class="ym-icon ym-icon-backtop icon-backtop"></i>
     <span class="ym-backtop__text" v-text="text"></span>
   </div>
 </template>
@@ -12,6 +12,8 @@
  * c: change in value（变化量）；
  * d: duration（持续时间
 */
+
+// 此处还缺一些动画的算法
 // const moveJS = {
 //   linear: function (t, b, c, d) {
 //     return c * t / d + b
@@ -28,7 +30,8 @@ export default {
   },
   methods: {
     handleClick () {
-      // 此处还缺一些动画的算法
+      // 兼容写法
+      document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
       this.$emit('click')
     }

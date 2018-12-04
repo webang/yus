@@ -1,29 +1,33 @@
 <template>
   <div class="ym-alert">
-    <Xdialog class="ym-alert__content" v-model="visible" @on-click-backdrop="OnClickBackdrop">
-      <div class="ym-dialog__hd" v-if="title">
-        <strong class="ym-dialog__title">{{ title }}</strong>
+    <Ydialog class="ym-alert__content" v-model="visible" @on-click-backdrop="OnClickBackdrop">
+      <div class="ym-dialog__hd" v-if="title || $slots.title">
+        <slot name="title">
+          <strong class="ym-dialog__title">{{ title }}</strong>
+        </slot>
       </div>
       <div class="ym-dialog__bd">
-        <slot>
+        <slot name="content">
           <div v-html="content"></div>
         </slot>
       </div>
       <div class="ym-dialog__ft">
-        <a class="ym-dialog__btn ym-dialog__btn_primary" @click="hide">{{ buttonText }}</a>
+        <slot name="footer">
+          <a class="ym-dialog__btn ym-dialog__btn--primary" @click="hide">{{ buttonText }}</a>
+        </slot>
       </div>
-    </Xdialog>
+    </Ydialog>
   </div>
 </template>
 
 <script>
 import Backdrop from '../../backdrop'
-import Xdialog from '../../dialog'
+import Ydialog from '../../dialog'
 
 export default {
   name: 'ym-alert',
   components: {
-    Xdialog,
+    Ydialog,
     Backdrop
   },
   props: {
