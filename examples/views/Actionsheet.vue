@@ -23,12 +23,15 @@
       :showCancel="option1.showCancel"
       :close-on-click-backdrop="false"
       :close-on-click-menu="false"
-      @on-menu-click="onMenuClick"
+      @on-click-menu="onMenuClick"
+      @on-after-show="onAfterShow"
+      @on-after-hide="onAfterHide"
     ></Actionsheet>
     <Actionsheet
       v-model="option2.show"
       :menus="option2.menus"
       :title="option2.title"
+      @on-click-menu="onMenuClick"
       :showCancel="option2.showCancel"
     ></Actionsheet>
     <Actionsheet
@@ -36,8 +39,7 @@
       :menus="option3.menus"
       :title="option3.title"
       :showCancel="option3.showCancel"
-      @on-after-show="handleAfterShow"
-      @on-after-hide="handleAfterHide"
+      @on-click-menu="onMenuClick"
     >
       <div slot="header">
         <div>
@@ -99,11 +101,11 @@ export default {
     onMenuClick (item, index) {
       console.log(item, index)
     },
-    handleAfterShow () {
-      console.log('handleAfterShow')
+    onAfterShow () {
+      console.log('onAfterShow')
     },
-    handleAfterHide () {
-      console.log('handleAfterHide')
+    onAfterHide () {
+      console.log('onAfterHide')
     }
   }
 }

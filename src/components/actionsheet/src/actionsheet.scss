@@ -45,3 +45,10 @@
 .ym-actionsheet__content--show {
   transform: translate(0);
 }
+
+.ym-actionsheet__cell--clickable {
+  user-select: none;
+  &:active {
+    background-color: $click-active-bg-color;
+  }
+}

@@ -1,23 +1,23 @@
 <template>
   <div class="ym-actionsheet">
     <Backdrop :value="value" @click="onBackdropClick"></Backdrop>
-    <div class="ym-actionsheet__content" :class="{'ym-actionsheet__content--show': value}" ref="menuWrapper">
-      <div
-        class="ym-actionsheet__head ym-actionsheet__cell"
-        v-if="!hasHeaderSlot && title"
-      >
-        <span>{{ title }}</span>
-      </div>
-      <div
-        class="ym-actionsheet__head ym-actionsheet__cell"
-        v-if="hasHeaderSlot"
-      >
-        <slot name="header"></slot>
+    <div
+      class="ym-actionsheet__content"
+      :class="{'ym-actionsheet__content--show': value}"
+      ref="menuWrapper"
+    >
+      <div class="ym-actionsheet__head ym-actionsheet__cell" v-if="hasHeaderSlot || title">
+        <slot name="header">
+          <span>{{ title }}</span>
+        </slot>
       </div>
       <div class="ym-actionsheet__menu">
         <div
           class="ym-actionsheet__cell"
-          :class="{'ym-actionsheet__cell--disabled': item.disabled}"
+          :class="[{
+            'ym-actionsheet__cell--disabled': item.disabled,
+            'ym-actionsheet__cell--clickable': !item.disabled && buttonClickable
+          }]"
           v-for="(item, key) in menus"
           :key="key"
           @click="onMenuItemClick(item, key)"
@@ -25,11 +25,14 @@
           <span>{{ item.text }}</span>
         </div>
         <div
-          class="ym-actionsheet__cell ym-actionsheet__cancel"
+          class="ym-actionsheet__cancel ym-actionsheet__cell"
+          :class="[{
+            'ym-actionsheet__cell--clickable': buttonClickable
+          }]"
           @click="onCancelClick"
           v-if="showCancel"
         >
-          <span>{{ cancelText || '取消' }}</span>
+          <span>{{ cancelText }}</span>
         </div>
       </div>
     </div>
@@ -46,17 +49,27 @@ export default {
   props: {
     value: Boolean,
     title: String,
-    cancelText: String,
-    showCancel: Boolean,
+    cancelText: {
+      type: String,
+      default: '取消'
+    },
+    showCancel: {
+      type: Boolean,
+      default: true
+    },
     menus: {
       type: [Object, Array],
-      default: () => ({})
+      default: () => []
     },
     closeOnClickMenu: {
       type: Boolean,
       default: true
     },
     closeOnClickBackdrop: {
+      type: Boolean,
+      default: true
+    },
+    buttonClickable: {
       type: Boolean,
       default: true
     }
@@ -68,9 +81,6 @@ export default {
     }
   },
   watch: {
-    show (val) {
-      console.log(val)
-    },
     value: {
       handler: function (val) {
         this.show = val
@@ -92,7 +102,7 @@ export default {
     },
     onMenuItemClick (item, key) {
       if (item.disabled) return
-      this.$emit('on-menu-click', item, key)
+      this.$emit('on-click-menu', item, key)
       if (this.closeOnClickMenu) {
         this.$emit('input', false)
       }
