@@ -4,7 +4,7 @@
       <div class="ym-doc-block__title">基本用法</div>
       <div class="ym-doc-block__content list">
         <CellGroup>
-          <Cell title="基本用法">
+          <Cell label="基本用法">
             <button slot="value" @click="demo1.show=!demo1.show">切换</button>
           </Cell>
         </CellGroup>

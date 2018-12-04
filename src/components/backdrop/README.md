@@ -30,3 +30,11 @@ Vue.use(Backdrop);
 | :-: | :-: |
 | click | - |
 | touchmove | - |
+
+
+## Sass vars
+
+```sass
+$backdrop-zindex: 900;
+$backdrop-bg: rgba(0, 0, 0, .6);
+```

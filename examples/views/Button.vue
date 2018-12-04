@@ -117,9 +117,9 @@
     </div>
 
     <div class="ym-doc-block">
-      <div class="ym-doc-block__title">clickEffect</div>
+      <div class="ym-doc-block__title">clickable</div>
       <div class="ym-doc-block__content list">
-        <Button class="btn" type="primary" plain text="点击无反馈" :click-effect="false"></Button>
+        <Button class="btn" type="primary" plain text="点击无反馈" :clickable="false"></Button>
       </div>
     </div>
 

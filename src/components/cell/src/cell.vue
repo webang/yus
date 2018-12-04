@@ -1,11 +1,11 @@
 <template>
-  <div class="ym-cell" @click="handleClick">
+  <div class="ym-cell" @click="handleClick" :class="{'ym-cell--clickable': clickable || to || url}">
     <div class="ym-cell__media" v-if="$slots.media">
       <slot name="media"></slot>
     </div>
-    <div class="ym-cell__title">
-      <slot name="title">
-        <span v-if="title">{{ title }}</span>
+    <div class="ym-cell__label">
+      <slot name="label">
+        <span v-if="label">{{ label }}</span>
       </slot>
     </div>
     <div class="ym-cell__value">
@@ -19,18 +19,20 @@
 export default {
   name: 'ym-cell',
   props: {
-    'is-link': Boolean,
-    'title': String,
-    'value': String,
-    'to': {
-      type: String,
-      default: ''
-    }
+    isLink: Boolean,
+    label: String,
+    value: String,
+    to: String,
+    url: String,
+    clickable: Boolean
   },
   methods: {
     handleClick () {
+      this.$emit('click')
       if (this.to) {
         this.$router.push(this.to)
+      } else if (this.url) {
+        window.location.href = this.url
       }
     }
   }

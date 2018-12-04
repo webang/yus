@@ -15,11 +15,11 @@
       </div>
       <div class="ym-dialog__ft">
         <a
-          class="ym-dialog__btn"
+          class="ym-dialog__btn ym-dialog__btn--clickable"
           @click="onCancleClick"
           v-text="cancleButtonText"></a>
         <a
-          class="ym-dialog__btn ym-dialog__btn_primary"
+          class="ym-dialog__btn ym-dialog__btn--primary ym-dialog__btn--clickable"
           @click="onConfirmClick"
           v-text="confirmButtonText"></a>
       </div>

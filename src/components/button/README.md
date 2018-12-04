@@ -17,7 +17,7 @@ Vue.use(Button);
 | plain | 幽灵按钮 | Boolean | - | - |
 | clear | 无背景颜色和边框 | Boolean | - | - |
 | round | 圆角按钮 | Boolean | - | - |
-| clickEffect | 显示反馈 | Boolean | - | true |
+| clickable | 显示反馈 | Boolean | - | true |
 
 
 ## Slots
@@ -32,3 +32,8 @@ Vue.use(Button);
 | 名称 | 描述 |
 | :-: | :-: |
 | click | - |
+
+
+## Sass vars
+
+请直接看源码

@@ -31,3 +31,8 @@ Vue.use(Alert);
 | 名称 | 描述 |
 | :-: | :-: |
 | on-click-backdrop | 点击幕布 |
+
+
+## Sass vars
+
+无

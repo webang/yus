@@ -4,13 +4,13 @@
       <div class="ym-doc-block__title">基本用法</div>
       <div class="ym-doc-block__content list">
         <CellGroup>
-          <Cell title="警用选项">
+          <Cell label="警用选项">
             <button slot="value" @click="option2.show=!option2.show">切换</button>
           </Cell>
-          <Cell title="自定义标题">
+          <Cell label="自定义标题">
             <button slot="value" @click="option3.show=!option3.show">切换</button>
           </Cell>
-          <Cell title="点击幕布不关闭">
+          <Cell label="点击幕布不关闭">
             <button slot="value" @click="option1.show=!option1.show">切换</button>
           </Cell>
         </CellGroup>

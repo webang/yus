@@ -13,7 +13,7 @@
       </div>
       <div class="ym-dialog__ft">
         <slot name="footer">
-          <a class="ym-dialog__btn ym-dialog__btn--primary" @click="hide">{{ buttonText }}</a>
+          <a class="ym-dialog__btn ym-dialog__btn--primary ym-dialog__btn--clickable" @click="hide">{{ buttonText }}</a>
         </slot>
       </div>
     </Ydialog>

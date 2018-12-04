@@ -4,13 +4,13 @@
       <div class="ym-doc-block__title">基础用法-position</div>
       <div class="ym-doc-block__content">
         <CellGroup>
-          <Cell title="middle">
+          <Cell label="middle">
             <span slot="value" @click="show">显示</span>
           </Cell>
-          <Cell title="top">
+          <Cell label="top">
             <span slot="value" @click="show2">显示</span>
           </Cell>
-          <Cell title="bottom">
+          <Cell label="bottom">
             <span slot="value" @click="show3">显示</span>
           </Cell>
         </CellGroup>
@@ -20,16 +20,16 @@
       <div class="ym-doc-block__title">设置-type</div>
       <div class="ym-doc-block__content">
         <CellGroup>
-          <Cell title="success">
+          <Cell label="success">
             <span slot="value" @click="show4">显示</span>
           </Cell>
-          <Cell title="fail">
+          <Cell label="fail">
             <span slot="value" @click="show5">显示</span>
           </Cell>
-          <Cell title="warn">
+          <Cell label="warn">
             <span slot="value" @click="show6">显示</span>
           </Cell>
-          <Cell title="error">
+          <Cell label="error">
             <span slot="value" @click="show7">显示</span>
           </Cell>
         </CellGroup>
@@ -39,7 +39,7 @@
       <div class="ym-doc-block__title">不自己关闭-autoClose</div>
       <div class="ym-doc-block__content">
         <CellGroup>
-          <Cell title="false">
+          <Cell label="false">
             <Button slot="value" size="mini" type="primary" plain @click="show8">切换</Button>
           </Cell>
         </CellGroup>

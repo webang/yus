@@ -12,7 +12,8 @@
         'ym-button--inline': !block && inline,
         'ym-button--round': round,
         'ym-button--clear': clear,
-        'ym-button--unfeedback': !clickEffect
+        'ym-button--unfeedback': !clickEffect,
+        'ym-button--clickable': !disabled && clickable
       }
     ]"
     :disabled="disabled"
@@ -59,6 +60,10 @@ export default {
       default: true
     },
     'click-effect': {
+      type: Boolean,
+      default: true
+    },
+    clickable: {
       type: Boolean,
       default: true
     },

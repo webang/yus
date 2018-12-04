@@ -1,18 +1,19 @@
-// Colors -------------------------------------------
+// Colors -----------------------------------------------------------------------
 $color-primary: #108ee9;
 $color-secondary: #32db64;
 $color-danger: #e94f4f;
 $color-light:  #f4f4f4;
 $color-dark:  #222;
 
-// Active State
+// Common vars -------------------------------------------------------------------
+// active State
 $click-active-bg-color: #e8e8e8;
+// layout herizontal padding
+$layout-herizontal-padding: 12px;
+// border color
+$border-color: #ebedf0;
 
-// Border -------------------------------------------
-$border-default-color: #e5e5e5;
-$border-color: #eee;
-
-// Button -------------------------------------------
+// Button ------------------------------------------------------------------------
 $button-large-height: 50px;
 $button-large-font-size: 14px;
 $button-large-border-radius: 2px;
@@ -55,14 +56,17 @@ $button-warn-bg-color: #ff976a;
 $button-warn-font-color: #fff;
 // block state
 $button-block-font-size: 16px;
+// disabled state
+$button-disabled-opacity: 0.5;
+// active state
+$button-active-opacity: 0.2;
 
-
-// Backdrop -------------------------------------------
+// Backdrop -------------------------------------------------------------------------
 $backdrop-zindex: 900;
 $backdrop-bg: rgba(0, 0, 0, .6);
 
 
-// Actionsheet ----------------------------------------
+// Actionsheet ----------------------------------------------------------------------
 $actionsheet-content-bg: #efeff4;
 $actionsheet-menu-font-size: 18px;
 $actionsheet-menu-disabled-color: #ccc;
@@ -70,8 +74,18 @@ $actionsheet-cell-vertical-padding: 10px;
 $actionsheet-cancel-margin-top: 6px;
 
 
-// Dialog ---------------------------------------------
+// Dialog ---------------------------------------------------------------------------
 $dialog-button-text-primary-color: #f90;
 $dialog-button-text-default-color: #353535;
 $dialog-button-text-warn-color: #E64340;
 $dialog-button-text-error-color: #E64340;
+
+
+// Cell ------------------------------------------------------------------------------
+$cell-media-margin-right: 8px;
+$cell-label-color: inherit;
+$cell-value-color: inherit;
+$cell-placeholder-color: inherit;
+$cell-font-size: 14px;
+$cell-herizontal-padding: $layout-herizontal-padding;
+$cell-line-height: 24px;

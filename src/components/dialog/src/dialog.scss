@@ -91,4 +91,10 @@
   &--primary {
     color: $dialog-button-text-primary-color;
   }
+  &--clickable {
+    user-select: none;
+    &:active {
+      background-color: $click-active-bg-color;
+    }
+  }
 }
