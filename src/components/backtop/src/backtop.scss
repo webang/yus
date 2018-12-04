@@ -12,14 +12,13 @@
   border-radius: 50%;
   box-sizing: border-box;
   background-color: #fff;
-  .icon-backtop {
+  .ym-icon-backtop {
     font-size: 24px;
     color: #616365;
     font-weight: 400;
   }
-}
-
-.ym-backtop__text {
-  font-size: 10px;
-  font-size: 0;
+  &__text {
+    font-size: 10px;
+    font-size: 0;
+  }
 }

@@ -19,11 +19,13 @@ Vue.use(Button);
 | round | 圆角按钮 | Boolean | - | - |
 | clickEffect | 显示反馈 | Boolean | - | true |
 
+
 ## Slots
 
 | 名称 | 描述 |
 | :-: | :-: |
 | default | - |
+
 
 ## Events
 

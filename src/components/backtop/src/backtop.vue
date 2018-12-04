@@ -1,7 +1,7 @@
 <template>
   <div class="ym-backtop" @click="handleClick">
-    <i class="ym-icon icon-backtop"></i>
-    <span class="ym-backtop__text">顶部</span>
+    <i class="ym-icon ym-icon-backtop"></i>
+    <span class="ym-backtop__text" v-text="text"></span>
   </div>
 </template>
 
@@ -20,10 +20,17 @@
 
 export default {
   name: 'ym-backtop',
+  props: {
+    text: {
+      type: String,
+      default: '顶部'
+    }
+  },
   methods: {
     handleClick () {
-      // 此处还缺算法哦，要先去复习动画相关的算法了
+      // 此处还缺一些动画的算法
       document.documentElement.scrollTop = 0
+      this.$emit('click')
     }
   }
 }
