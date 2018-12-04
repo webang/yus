@@ -9,7 +9,10 @@
   >
     <div class="ym-checkbox__icon">
       <slot name="icon">
-        <i :class="[{'iconfont icon-radio_checked':isChecked, 'ym-icon-checkbox': !isChecked}]"></i>
+        <i class="ym-icon" :class="[{
+          'ym-icon-checkbox': !isChecked,
+          'icon-radio_checked': isChecked
+        }]"></i>
       </slot>
     </div>
     <div class="ym-checkbox__label">
@@ -25,9 +28,9 @@ export default {
   name: 'ym-checkbox',
   props: {
     name: String,
-    disabled: Boolean,
     title: String,
     value: Array,
+    disabled: Boolean,
     'checked-color': {
       type: String,
       default: ''
@@ -47,6 +50,7 @@ export default {
     toggleValue () {
       if (this.disabled) return
       this.isChecked = !this.isChecked
+      this.$emit('click')
     },
     updateParentNodeValue (val) {
       const copyValue = this.value.slice()
@@ -62,43 +66,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.ym-checkbox {
-  display: flex;
-  align-items: center;
-  line-height: 24px;
-  .ym-icon-checkbox {
-    display: block;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #e5e5e5;
-    border-radius: 50%;
-    box-sizing: border-box;
-  }
-  .icon-radio_checked {
-    font-size: 20px;
-    color: #38f;
-  }
-}
-
-.ym-checkbox__label {
-  margin-left: 10px;
-  font-size: 14px;
-  color: inherit;
-}
-
-.ym-checkbox__icon {
-  display: flex;
-  align-items: center;
-}
-
-.ym-checkbox--disabled {
-  color: #ccc;
-  .ym-icon-checkbox {
-    border-color: #ccc;
-  }
-  .icon-radio_checked {
-    color: #ccc;
-  }
-}
-</style>
+<style lang="scss" src="./checkbox.scss"></style>

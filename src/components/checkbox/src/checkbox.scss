@@ -1,1 +1,44 @@
-checkbox.scss
+@import '../../../styles/variable.scss';
+@import '../../../styles/mixin.scss';
+@import '../../../styles/animate.scss';
+
+.ym-checkbox {
+  display: flex;
+  align-items: center;
+  line-height: 24px;
+
+	&__label {
+	  margin-left: 10px;
+	  font-size: 14px;
+	  color: inherit;
+	}
+
+	&__icon {
+	  display: flex;
+	  align-items: center;
+	}
+
+	.ym-icon-checkbox {
+	  display: block;
+	  width: 20px;
+	  height: 20px;
+	  border: 1px solid #e5e5e5;
+	  border-radius: 50%;
+	  box-sizing: border-box;
+	}
+
+	.icon-radio_checked {
+	  font-size: 20px;
+	  color: #38f;
+	}
+
+	&--disabled {
+	  color: #ccc;
+	  .ym-icon-checkbox {
+	    border-color: #ccc;
+	  }
+	  .icon-radio_checked {
+	    color: $border-color;
+	  }
+	}
+}

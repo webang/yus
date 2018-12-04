@@ -4,19 +4,22 @@
     <div class="ym-doc-title">基础用法</div>
     <Checkbox class="item" name="深圳" v-model="checkboxGroupValue1">深圳</Checkbox>
     <Checkbox class="item" name="珠海" v-model="checkboxGroupValue1">珠海</Checkbox>
+    <div class="ym-doc-content">{{ checkboxGroupValue1 }}</div>
 
     <div class="ym-doc-title">禁用状态</div>
     <Checkbox class="item" name="深圳" :disabled="true" v-model="checkboxGroupValue2">深圳</Checkbox>
     <Checkbox class="item" name="珠海" :disabled="true" v-model="checkboxGroupValue2">珠海</Checkbox>
+    <div class="ym-doc-content">{{ checkboxGroupValue2 }}</div>
 
     <CellGroup title="Cell搭配使用">
-      <Cell title="深圳">
+      <Cell label="深圳">
         <Checkbox slot="value" name="深圳" :disabled="false" v-model="checkboxGroupValue3"></Checkbox>
       </Cell>
-      <Cell title="珠海">
+      <Cell label="珠海">
         <Checkbox slot="value" name="珠海" :disabled="false" v-model="checkboxGroupValue3"></Checkbox>
       </Cell>
     </CellGroup>
+    <div class="ym-doc-content">{{ checkboxGroupValue3 }}</div>
   </div>
 </template>
 
@@ -59,11 +62,10 @@ export default {
   font-size: 14px;
 }
 
-.page-checkbox {
-  /deep/ .ym-icon-checkbox {
-    /*border-color: #333;*/
-  }
+.ym-doc-content {
+  padding: 10px 12px;
 }
+
 .item {
   padding-left: 12px;
   padding-right: 12px;
