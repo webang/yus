@@ -46,3 +46,14 @@ Vue.use(ActionSheet);
 | on-click-menu | 点击某个选项 | `(element, index)`; index: 选项索引从0开始, element===menus[index] |
 | on-after-show | 显示之后 | `()` |
 | on-after-hide | 关闭之后 | `()` |
+
+
+## Sass vars
+
+```sass
+$actionsheet-content-bg: #efeff4;
+$actionsheet-menu-font-size: 18px;
+$actionsheet-menu-disabled-color: #ccc;
+$actionsheet-cell-vertical-padding: 10px;
+$actionsheet-cancel-margin-top: 6px;
+```
