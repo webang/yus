@@ -86,9 +86,9 @@
     }
   }
   &--default {
-    color: #353535;
+    color: $dialog-button-text-default-color;
   }
   &--primary {
-    color: #f90;
+    color: $dialog-button-text-primary-color;
   }
 }

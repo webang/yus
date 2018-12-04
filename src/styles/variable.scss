@@ -53,20 +53,22 @@ $button-warn-font-color: #fff;
 // block state
 $button-block-font-size: 16px;
 
+
 // Backdrop -------------------------------------------
 $backdrop-zindex: 900;
 $backdrop-bg: rgba(0, 0, 0, .6);
 
-// Actionsheet
+
+// Actionsheet ----------------------------------------
 $actionsheet-content-bg: #efeff4;
 $actionsheet-disabled-menu-color: #ccc;
 $actionsheet-menu-font-size: 18px;
 $actionsheet-cell-vertical-padding: 10px;
 $actionsheet-cancel-margin-top: 6px;
 
-/**
- * dialog
- */
-$dialog-button-text-primary-color: #0BB20C;
+
+// Dialog ---------------------------------------------
+$dialog-button-text-primary-color: #f90;
 $dialog-button-text-default-color: #353535;
 $dialog-button-text-warn-color: #E64340;
+$dialog-button-text-error-color: #E64340;
