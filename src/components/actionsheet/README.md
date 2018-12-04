@@ -40,9 +40,9 @@ Vue.use(ActionSheet);
 ## Events
 
 | 名称 | 描述 | 参数 |
-| :-: | :-: |
-| input | 用于 v-model | boolean |
-| on-click-backdrop | 点击幕布 | 无 |
+| :-: | :-: | :-: |
+| input | 用于 v-model | `(inputValue)` |
+| on-click-backdrop | 点击幕布 | `()` |
 | on-click-menu | 点击某个选项 | `(element, index)`; index: 选项索引从0开始, element===menus[index] |
-| on-after-show | 显示之后 | - |
-| on-after-hide | 关闭之后 | - |
+| on-after-show | 显示之后 | `()` |
+| on-after-hide | 关闭之后 | `()` |
