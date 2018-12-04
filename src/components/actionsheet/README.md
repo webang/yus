@@ -44,5 +44,5 @@ Vue.use(ActionSheet);
 | input | 用于 v-model | boolean |
 | on-click-backdrop | 点击幕布 | 无 |
 | on-click-menu | 点击某个选项 | `(element, index)`; index: 选项索引从0开始, element===menus[index] |
-| on-after-show | 显示之后 |
-| on-after-hide | 关闭之后 |
+| on-after-show | 显示之后 | - |
+| on-after-hide | 关闭之后 | - |
