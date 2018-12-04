@@ -1,4 +1,4 @@
-# Button
+# Button 按钮
 
 ```JS
 import { Button } from 'yum';
@@ -7,7 +7,7 @@ Vue.use(Button);
 
 ## Props
 
-| 属性 | 描述 | 类型 | 可选值 | 默认值 | 
+| 属性 | 描述 | 类型 | 可选值 | 默认值 |
 | - | :-: | :- | :-: | :-: |
 | text | 显示文本 | String | - | - |
 | type | 按钮类型 | String | `light` / `primary` / `danger` / `warn` | `light` |

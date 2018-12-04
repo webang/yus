@@ -58,7 +58,7 @@ export default {
       type: Boolean,
       default: true
     },
-    'click-effect':  {
+    'click-effect': {
       type: Boolean,
       default: true
     },

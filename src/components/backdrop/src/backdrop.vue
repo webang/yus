@@ -1,10 +1,13 @@
 <template>
   <transition :name="transition">
-   <div
-    class="ym-backdrop"
-    @click="handleClick"
-    @touchmove="onTouchMove"
-    v-show="value"></div>
+    <div
+      class="ym-backdrop"
+      @click="handleClick"
+      @touchmove="onTouchMove"
+      v-show="value"
+    >
+      <slot></slot>
+    </div>
  </transition>
 </template>
 
@@ -30,6 +33,7 @@ export default {
       if (this.preventOnTouchmove) {
         event.preventDefault()
       }
+      this.$emit('touchmove')
     }
   }
 }
