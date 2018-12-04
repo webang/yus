@@ -1,3 +1,7 @@
+@import '../../../styles/variable.scss';
+@import '../../../styles/mixin.scss';
+@import '../../../styles/animate.scss';
+
 .ym-cell-group {
   position: relative;
   .ym-cell:last-child,
@@ -11,30 +15,28 @@
 .ym-cell-group__bd {
   position: relative;
   background-color: #fff;
-  &::after {
-    content: " ";
-    z-index: 2;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 1px;
-    background: #ccc;
-  }
+  &::after,
   &::before {
     content: " ";
     z-index: 2;
     position: absolute;
     left: 0;
     right: 0;
+    height: 0;
+    border-top: 1px solid $border-color;
+    transform: translateY(0.5);
+    transform-origin: 0 0;
+  }
+  &::after {
+    bottom: 0;
+  }
+  &::before {
     top: 0;
-    height: 1px;
-    background: #ccc;
   }
 }
 
 .ym-cell-group__title {
-  padding: 10px 12px;
-  color: #999999;
-  font-size: 14px;
+  padding: 10px $cell-group-herizontal-padding;
+  color: $cell-group-title-color;
+  font-size: $cell-group-title-font-size;
 }
