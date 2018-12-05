@@ -10,7 +10,7 @@ Vue.use(Radio);
 | 属性 | 描述 | 类型 | 可选值 | 默认值 |
 | - | :-: | :- | :-: | :-: |
 | label | value值 | String, Number, Boolean | - | - |
-| value | 右侧文字，复杂布局请使用slot | String |- | - |
+| value | 绑定 v-model | String |- | - |
 | name | 右侧显示的文字 | String | - | - |
 | disabled | 是否为禁用状态 | Boolean | - | - |
 
