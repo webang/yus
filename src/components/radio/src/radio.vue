@@ -1,39 +1,64 @@
 <template>
-  <div
+  <label
     class="ym-radio"
     :class="[{
-      'ym-radio--checked': value,
+      'ym-radio--checked': checked,
       'ym-radio--disabled': disabled
     }]"
-    @click="toggleValue"
+    @click="$emit('click')"
   >
     <span class="ym-radio__input">
-      <input class="ym-radio__control" type="radio" :checked="value">
-      <i class="ym-icon" :class="iconClass"></i>
+      <input
+        class="ym-radio__control"
+        type="radio"
+        v-model="vModel"
+        :value="label"
+        :disabled="disabled"
+      >
+      <slot name="icon">
+        <i class="ym-icon" :class="iconClass"></i>
+      </slot>
     </span>
-    <span class="ym-radio__label" v-if="$slots.default">
+    <span class="ym-radio__label" v-if="$slots.default || name">
       <slot></slot>
+      <template v-if="!$slots.default">{{ label }}</template>
     </span>
-  </div>
+  </label>
 </template>
 
 <script>
 export default {
   name: 'ym-radio',
   props: {
-    value: Boolean,
+    label: [String, Number, Boolean],
+    value: null,
+    name: String,
     disabled: Boolean
+  },
+  data () {
+    return {
+      currentValue: this.value
+    }
   },
   computed: {
     iconClass () {
-      return this.value ? 'icon-radio_checked' : 'icon-radio'
+      return this.checked ? 'icon-radio-fill' : 'icon-radio-outline'
+    },
+    vModel: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
+      }
+    },
+    checked () {
+      return this.value === this.label
     }
   },
-  methods: {
-    toggleValue () {
-      if (!this.disabled) {
-        this.$emit('input', !this.value)
-      }
+  watch: {
+    value (val) {
+      this.currentValue = val
     }
   }
 }

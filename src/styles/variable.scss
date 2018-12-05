@@ -95,4 +95,11 @@ $cell-group-herizontal-padding: $layout-herizontal-padding;
 $cell-group-title-font-size: 16px;
 $cell-group-title-color: inherit;
 
-// Checkbox
+// Radio
+$radio-default-color: #969799;
+$radio-checked-color: $color-primary;
+$radio-disabled-opacity: 0.5;
+$radio-label-font-size: 16px;
+$radio-label-line-height: 24px;
+$radio-label-margin-left: 8px;
+$radio-icon-font-size: 22px;
