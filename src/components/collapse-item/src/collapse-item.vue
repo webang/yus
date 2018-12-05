@@ -3,7 +3,7 @@
     class="ym-collapse-item"
     :class="{
       'ym-collapse-item--active': currentValue,
-      'ym-collapse-item--without-border': !border
+      'ym-collapse-item--border': border
     }"
     @click="handleClick"
   >
@@ -22,7 +22,9 @@
       @transitionend="handleTransitionend"
     >
       <div class="ym-collapse-item__content">
-        <slot></slot>
+        <slot>
+          <p v-if="content" v-text="content"></p>
+        </slot>
       </div>
     </div>
   </div>
@@ -34,10 +36,11 @@ export default {
   props: {
     value: Boolean,
     title: String,
+    content: String,
     border: {
       type: Boolean,
       default: true
-    }
+    },
   },
   data () {
     return {
