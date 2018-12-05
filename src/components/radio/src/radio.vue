@@ -11,6 +11,7 @@
       <input
         class="ym-radio__control"
         type="radio"
+        :name="name"
         v-model="vModel"
         :value="label"
         :disabled="disabled"
@@ -19,26 +20,24 @@
         <i class="ym-icon" :class="iconClass"></i>
       </slot>
     </span>
-    <span class="ym-radio__label" v-if="$slots.default || name">
-      <slot></slot>
+    {{ !!$slots.default }}
+    <span class="ym-radio__label" v-if="$slots.default">
+      <slot :checked="checked"></slot>
       <template v-if="!$slots.default">{{ label }}</template>
     </span>
   </label>
 </template>
 
 <script>
+import findParentMixin from '../../../mixins/findParent'
 export default {
   name: 'ym-radio',
+  mixins: [findParentMixin],
   props: {
     label: [String, Number, Boolean],
-    value: null,
-    name: String,
-    disabled: Boolean
-  },
-  data () {
-    return {
-      currentValue: this.value
-    }
+    value: [String, Number, Boolean],
+    disabled: Boolean,
+    name: [String, Number, Boolean]
   },
   computed: {
     iconClass () {
@@ -46,20 +45,18 @@ export default {
     },
     vModel: {
       get () {
-        return this.value
+        return this.parent ? this.parent.value : this.value
       },
       set (val) {
-        this.$emit('input', val)
+        (this.parent || this).$emit('input', val)
       }
     },
     checked () {
-      return this.value === this.label
+      return (this.parent || this).value === this.label
     }
   },
-  watch: {
-    value (val) {
-      this.currentValue = val
-    }
+  mounted () {
+    this.findParent('ym-radio-group')
   }
 }
 </script>

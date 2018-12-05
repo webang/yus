@@ -3,7 +3,11 @@
     <div class="ym-doc-block__title">基础用法</div>
     <div class="ym-doc-block__bd">
       <Radio class="radio" v-model="radioValue1" label="深圳">深圳</Radio>
-      <Radio class="radio" v-model="radioValue1" label="珠海">珠海</Radio>
+      <Radio class="radio" v-model="radioValue1" label="珠海">
+        <template slot="default" slot-scope="prop">
+          <span>珠海</span>
+        </template>
+      </Radio>
       <span>{{ radioValue1 }}</span>
     </div>
 
@@ -14,22 +18,18 @@
       <p style="padding-top: 10px;">{{ radioValue2 }}</p>
     </div>
 
-    <CellGroup title="Cell搭配使用">
-      <Cell label="深圳">
-        <Radio slot="value" v-model="radioValue3" label="深圳"></Radio>
-      </Cell>
-      <Cell label="珠海">
-        <Radio slot="value" v-model="radioValue3" label="珠海"></Radio>
-      </Cell>
-    </CellGroup>
-
     <CellGroup title="RadioGroup搭配使用">
-      <Cell label="深圳" clickable>
-        <Radio slot="value" v-model="radioValue3" label="深圳"></Radio>
-      </Cell>
-      <Cell label="珠海" clickable>
-        <Radio slot="value" v-model="radioValue3" label="珠海"></Radio>
-      </Cell>
+      <RadioGroup v-model="radioValue3">
+        <Cell label="深圳" clickable @click="radioValue3='深圳'">
+          <Radio slot="value" label="深圳"></Radio>
+        </Cell>
+        <Cell label="珠海" clickable @click="radioValue3='珠海'">
+          <Radio slot="value" label="珠海"></Radio>
+        </Cell>
+        <Cell label="广州" clickable>
+          <Radio slot="value" label="广州" :disabled="true"></Radio>
+        </Cell>
+      </RadioGroup>
     </CellGroup>
     <div class="ym-doc-block__bd">
       <p style="margin-top: 10px;">{{ radioValue3 }}</p>
@@ -45,6 +45,7 @@ import Button from '@/components/button'
 import Field from '@/components/field'
 import CheckboxGroup from '@/components/checkbox-group'
 import Radio from '@/components/radio'
+import RadioGroup from '@/components/radio-group'
 
 export default {
   components: {
@@ -52,7 +53,8 @@ export default {
     Field,
     Button,
     CellGroup,
-    Radio
+    Radio,
+    RadioGroup
   },
   data () {
     return {
@@ -69,6 +71,9 @@ export default {
       console.log(val)
     },
     radioValue1 (val) {
+      console.log(val)
+    },
+    radioValue3 (val) {
       console.log(val)
     }
   }

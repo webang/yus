@@ -11,7 +11,7 @@ Vue.use(Radio);
 | - | :-: | :- | :-: | :-: |
 | label | value值 | String, Number, Boolean | - | - |
 | value | 绑定 v-model | String |- | - |
-| name | 右侧显示的文字 | String | - | - |
+| name | input原生name | String | - | - |
 | disabled | 是否为禁用状态 | Boolean | - | - |
 
 
@@ -19,7 +19,7 @@ Vue.use(Radio);
 
 | 名字 | 说明 |
 | :-: | :-: |
-| default | name 插槽 |
+| default | 选项文字 |
 | icon | icon 插槽，方便自定义icon |
 
 

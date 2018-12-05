@@ -40,7 +40,7 @@ export default {
     border: {
       type: Boolean,
       default: true
-    },
+    }
   },
   data () {
     return {
