@@ -11,6 +11,8 @@
     position: relative;
     display: inline-block;
     line-height: 1;
+    font-size: $radio-icon-font-size;
+    color:  $radio-default-icon-color;
   }
 
   &__control {
@@ -28,19 +30,11 @@
     margin-left: $radio-label-margin-left;
     font-size: $radio-label-font-size;
   }
+}
 
-  .icon-radio-outline,
-  .icon-radio-fill {
-    font-size: $radio-icon-font-size;
-    line-height: 1;
-  }
-
-  .icon-radio-outline {
-    color: $radio-default-color;
-  }
-
-  .icon-radio-fill {
-    color: $radio-checked-color;
+.ym-radio--checked {
+  .ym-radio__input {
+    color: $radio-checked-icon-color;
   }
 }
 

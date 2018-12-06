@@ -13,7 +13,8 @@ Vue.use(Radio);
 | value | 绑定 v-model | String |- | - |
 | name | input原生name | String | - | - |
 | disabled | 是否为禁用状态 | Boolean | - | - |
-
+| checked-color | 选中状态icon颜色 | String | - | - |
+| checked-label-style | 选中状态label样式 | Object | - |
 
 ## Slots
 
@@ -33,8 +34,8 @@ Vue.use(Radio);
 ## Sass vars
 
 ```sass
-$radio-default-color: #969799;
-$radio-checked-color: $color-primary;
+$radio-default-icon-color: #969799;
+$radio-checked-icon-color: $color-primary;
 $radio-disabled-opacity: 0.5;
 $radio-label-font-size: 16px;
 $radio-label-line-height: 24px;

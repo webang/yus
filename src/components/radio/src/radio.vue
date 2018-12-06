@@ -7,23 +7,26 @@
     }]"
     @click="$emit('click')"
   >
-    <span class="ym-radio__input">
+    <span class="ym-radio__input" :style="inputStyle">
       <input
         class="ym-radio__control"
         type="radio"
         :name="name"
-        v-model="vModel"
         :value="label"
+        v-model="currentValue"
         :disabled="disabled"
       >
-      <slot name="icon">
+      <slot name="icon" :checked="checked">
         <i class="ym-icon" :class="iconClass"></i>
       </slot>
     </span>
-    {{ !!$slots.default }}
-    <span class="ym-radio__label" v-if="$slots.default">
+    <span
+      class="ym-radio__label"
+      v-if="$slots.default || $scopedSlots.default"
+      :style="lableStyle"
+    >
       <slot :checked="checked"></slot>
-      <template v-if="!$slots.default">{{ label }}</template>
+      <template v-if="!$slots.default && !$scopedSlots.default">{{ label }}</template>
     </span>
   </label>
 </template>
@@ -37,13 +40,15 @@ export default {
     label: [String, Number, Boolean],
     value: [String, Number, Boolean],
     disabled: Boolean,
-    name: [String, Number, Boolean]
+    name: [String, Number, Boolean],
+    checkedColor: String,
+    checkedLabelStyle: Object
   },
   computed: {
     iconClass () {
       return this.checked ? 'icon-radio-fill' : 'icon-radio-outline'
     },
-    vModel: {
+    currentValue: {
       get () {
         return this.parent ? this.parent.value : this.value
       },
@@ -53,6 +58,17 @@ export default {
     },
     checked () {
       return (this.parent || this).value === this.label
+    },
+    inputStyle () {
+      let style = {}
+      if (this.checked && this.checkedColor) {
+        style.color = this.checkedColor
+      }
+      return style
+    },
+    lableStyle () {
+      let style = this.checkedLabelStyle || {}
+      return style
     }
   },
   mounted () {

@@ -4,9 +4,9 @@
     <div class="ym-doc-block__bd">
       <Radio class="radio" v-model="radioValue1" label="深圳">深圳</Radio>
       <Radio class="radio" v-model="radioValue1" label="珠海">
-        <template slot="default" slot-scope="prop">
+        <span slot-scope="labelProps">
           <span>珠海</span>
-        </template>
+        </span>
       </Radio>
       <span>{{ radioValue1 }}</span>
     </div>
@@ -33,6 +33,28 @@
     </CellGroup>
     <div class="ym-doc-block__bd">
       <p style="margin-top: 10px;">{{ radioValue3 }}</p>
+    </div>
+
+    <CellGroup title="自定义选中图标">
+      <RadioGroup v-model="radioValue4">
+        <Cell label="香港" clickable @click="radioValue4='香港'">
+          <Radio slot="value" label="香港">
+            <span slot-scope="labelProps" slot="icon">
+              <i class="ym-icon" :class="{'icon-checkmark': labelProps.checked}"></i>
+            </span>
+          </Radio>
+        </Cell>
+        <Cell label="澳门" clickable @click="radioValue4='澳门'">
+          <Radio slot="value" label="澳门" checked-color="red">
+            <span slot-scope="labelProps" slot="icon">
+              <i class="ym-icon" :class="{'icon-checkmark': labelProps.checked}"></i>
+            </span>
+          </Radio>
+        </Cell>
+      </RadioGroup>
+    </CellGroup>
+    <div class="ym-doc-block__bd">
+      <p style="margin-top: 10px;">{{ radioValue4 }}</p>
     </div>
   </div>
 </template>
@@ -63,7 +85,8 @@ export default {
       checkboxGroupValue3: ['深圳'],
       radioValue1: '珠海',
       radioValue2: '深圳',
-      radioValue3: ''
+      radioValue3: '',
+      radioValue4: ''
     }
   },
   watch: {
@@ -76,6 +99,8 @@ export default {
     radioValue3 (val) {
       console.log(val)
     }
+  },
+  created () {
   }
 }
 </script>
