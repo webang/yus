@@ -17,7 +17,8 @@
         :disabled="disabled"
       >
       <slot name="icon" :checked="checked">
-        <i class="ym-icon" :class="iconClass"></i>
+        <i class="ymuicon" :class="iconClass"></i>
+        <!-- <i class="ym-icon" :class="iconClass"></i> -->
       </slot>
     </span>
     <span
@@ -46,7 +47,8 @@ export default {
   },
   computed: {
     iconClass () {
-      return this.checked ? 'icon-radio-fill' : 'icon-radio-outline'
+      return this.checked ? 'ios-checkmark-circle' : 'ios-radio-button-off'
+      // return this.checked ? 'icon-radio-fill' : 'icon-radio-outline'
     },
     currentValue: {
       get () {
