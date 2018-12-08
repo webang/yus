@@ -3,42 +3,92 @@
 @import '../../../styles/animate.scss';
 
 .ym-checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.ym-checkbox__input {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.ym-checkbox__control {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+}
+
+.ym-checkbox__icon {
   display: flex;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: $radio-icon-font-size;
+  color:  $radio-default-icon-color;
+}
+
+.ym-checkbox__label {
+  display: inline-block;
+  margin-left: $radio-label-margin-left;
+  font-size: $radio-label-font-size;
+}
+
+.ym-checkbox--disabled {
+  opacity: .5;
+}
+
+.ym-checkbox--checked {
+  .ym-checkbox__icon {
+    color: $radio-checked-icon-color;
+  }
+}
+
+.ym-radio--disabled {
+  .icon-radio-outline,
+  .icon-radio-fill {
+    opacity: $radio-disabled-opacity;
+  }
+}
+
+.ym-checkbox--label-left {
+  flex-direction: row-reverse;
+  .ym-checkbox__label {
+    margin-left: 0;
+  }
+  .ym-checkbox__input {
+    margin-left: $radio-label-margin-left;
+  }
+}
+
+.ym-checkbox--cell {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
   line-height: 24px;
+  background: #fff;
+  &::after {
+    content: ' ';
+    position: absolute;
+    pointer-events: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    left: 12px;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    border-bottom: 1px solid $border-color;
+  }
+}
 
-	&__label {
-	  margin-left: 10px;
-	  font-size: 14px;
-	  color: inherit;
-	}
-
-	&__icon {
-	  display: flex;
-	  align-items: center;
-	}
-
-	.ym-icon-checkbox {
-	  display: block;
-	  width: 20px;
-	  height: 20px;
-	  border: 1px solid #e5e5e5;
-	  border-radius: 50%;
-	  box-sizing: border-box;
-	}
-
-	.icon-radio_checked {
-	  font-size: 20px;
-	  color: #38f;
-	}
-
-	&--disabled {
-	  color: #ccc;
-	  .ym-icon-checkbox {
-	    border-color: #ccc;
-	  }
-	  .icon-radio_checked {
-	    color: $border-color;
-	  }
-	}
+.ym-checkbox--clickable:active {
+  background: $click-active-bg-color;
 }

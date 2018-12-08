@@ -1,9 +1,9 @@
 <template>
-  <div class="page-checkbox">
+  <div class="page-radio">
     <div class="ym-doc-block__title">基础用法</div>
     <div class="ym-doc-block__bd">
-      <Radio class="radio" v-model="radioValue1" label="深圳">深圳</Radio>
-      <Radio class="radio" v-model="radioValue1" label="珠海">
+      <Radio v-model="radioValue1" label="深圳">深圳</Radio>
+      <Radio v-model="radioValue1" label="珠海">
         <span slot-scope="labelProps">
           <span>珠海</span>
         </span>
@@ -13,9 +13,9 @@
 
     <div class="ym-doc-block__title">禁用状态</div>
     <div class="ym-doc-block__bd">
-      <Radio class="radio" v-model="radioValue2" label="深圳" :disabled="true">深圳</Radio>
-      <Radio class="radio" v-model="radioValue2" label="珠海" :disabled="true">深圳</Radio>
-      <p style="padding-top: 10px;">{{ radioValue2 }}</p>
+      <Radio v-model="radioValue2" label="深圳" :disabled="true">深圳</Radio>
+      <Radio v-model="radioValue2" label="珠海" :disabled="true">深圳</Radio>
+      <p>{{ radioValue2 }}</p>
     </div>
 
     <CellGroup title="RadioGroup搭配使用">
@@ -32,7 +32,7 @@
       </RadioGroup>
     </CellGroup>
     <div class="ym-doc-block__bd">
-      <p style="margin-top: 10px;">{{ radioValue3 }}</p>
+      <p style="margin-top: 10px">{{ radioValue3 }}</p>
     </div>
 
     <CellGroup title="自定义选中图标">
@@ -54,7 +54,7 @@
       </RadioGroup>
     </CellGroup>
     <div class="ym-doc-block__bd">
-      <p style="margin-top: 10px;">{{ radioValue4 }}</p>
+      <p style="margin-bottom: 10px; margin-top: 10px">{{ radioValue4 }}</p>
     </div>
   </div>
 </template>
@@ -107,15 +107,17 @@ export default {
 
 
 <style lang="scss" scoped>
-/deep/ .ym-cell-group__title {
-  font-size: 16px;
-  padding: 20px 12px 15px;
-  color: rgba(69, 90, 100, 0.6);
-  background-color: #fafafa;
-}
 
-.radio {
-  display: flex;
-  margin-bottom: 10px;
+.page-radio {
+  /deep/ .ym-cell-group__title {
+    font-size: 16px;
+    padding: 20px 12px 15px;
+    color: rgba(69, 90, 100, 0.6);
+    background-color: #fafafa;
+  }
+  /deep/ .ym-doc-block__bd .ym-radio {
+    display: flex;
+    margin-bottom: 10px;
+  }
 }
 </style>

@@ -8,7 +8,10 @@
 export default {
   name: 'ym-checkbox-group',
   props: {
-    value: [Array]
+    value: [Array],
+    min: Number,
+    max: Number,
+    useCell: Boolean
   }
 }
 </script>

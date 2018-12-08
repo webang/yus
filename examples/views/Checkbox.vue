@@ -1,25 +1,66 @@
 <template>
   <div class="page-checkbox">
 
-    <div class="ym-doc-title">基础用法</div>
-    <Checkbox class="item" name="深圳" v-model="checkboxGroupValue1">深圳</Checkbox>
-    <Checkbox class="item" name="珠海" v-model="checkboxGroupValue1">珠海</Checkbox>
-    <div class="ym-doc-content">{{ checkboxGroupValue1 }}</div>
+    <div class="checkbox-demo-01">
+      <div class="ym-doc-block__hd">基础用法</div>
+      <div class="ym-doc-block__bd">
+        <Checkbox label="深圳" v-model="checkboxGroupValue1"></Checkbox>
+      </div>
+    </div>
 
-    <div class="ym-doc-title">禁用状态</div>
-    <Checkbox class="item" name="深圳" :disabled="true" v-model="checkboxGroupValue2">深圳</Checkbox>
-    <Checkbox class="item" name="珠海" :disabled="true" v-model="checkboxGroupValue2">珠海</Checkbox>
-    <div class="ym-doc-content">{{ checkboxGroupValue2 }}</div>
+    <div class="checkbox-demo-02">
+      <div class="ym-doc-block__hd">文字在左边</div>
+      <div class="ym-doc-block__bd">
+        <Checkbox label="深圳" :label-left="true" v-model="checkboxGroupValue1"></Checkbox>
+      </div>
+    </div>
 
-    <CellGroup title="Cell搭配使用">
-      <Cell label="深圳">
-        <Checkbox slot="value" name="深圳" :disabled="false" v-model="checkboxGroupValue3"></Checkbox>
-      </Cell>
-      <Cell label="珠海">
-        <Checkbox slot="value" name="珠海" :disabled="false" v-model="checkboxGroupValue3"></Checkbox>
-      </Cell>
-    </CellGroup>
-    <div class="ym-doc-content">{{ checkboxGroupValue3 }}</div>
+    <div class="checkbox-demo-03">
+      <div class="ym-doc-block__hd">禁用状态</div>
+      <div class="ym-doc-block__bd">
+        <Checkbox label="深圳" :disabled="true" v-model="checkboxGroupValue4"></Checkbox>
+        <Checkbox label="深圳" :disabled="true" v-model="checkboxGroupValue5"></Checkbox>
+      </div>
+    </div>
+
+    <div class="checkbox-demo-04">
+      <div class="ym-doc-block__hd">复选框组(最多选2个，最少选1个)</div>
+      <div class="ym-doc-block__bd">
+        <CheckboxGroup v-model="groupValue1" :min="1" :max="2">
+          <Checkbox label="深圳"></Checkbox>
+          <Checkbox label="珠海"></Checkbox>
+        </CheckboxGroup>
+        <p>{{ groupValue1 }}</p>
+      </div>
+    </div>
+
+    <div class="checkbox-demo-05">
+      <div class="ym-doc-block__hd">使用useCell</div>
+      <div class="ym-doc-block__bd">
+        <CheckboxGroup v-model="groupValue5">
+          <Checkbox :use-cell="true" :label-left="true" label="香蕉" clickable></Checkbox>
+          <Checkbox :use-cell="true" :label-left="true" label="苹果" clickable></Checkbox>
+        </CheckboxGroup>
+      </div>
+    </div>
+
+    <div class="checkbox-demo-06" style="margin-bottom: 10px">
+      <div class="ym-doc-block__hd">更改Icon</div>
+      <div class="ym-doc-block__bd">
+        <CheckboxGroup v-model="groupValue5">
+          <Checkbox :use-cell="true" :label-left="true" label="香蕉" clickable>
+            <template slot="icon" slot-scope="{checked}">
+              <i class="ymuicon ios-checkmark" v-if="checked" style="font-size: 32px"></i>
+            </template>
+          </Checkbox>
+          <Checkbox :use-cell="true" :label-left="true" label="苹果" clickable>
+            <template slot="icon" slot-scope="{checked}">
+              <i class="ymuicon ios-checkmark" v-if="checked" style="font-size: 32px"></i>
+            </template>
+          </Checkbox>
+        </CheckboxGroup>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -30,6 +71,7 @@ import CellGroup from '@/components/cell-group'
 import Button from '@/components/button'
 import Field from '@/components/field'
 import Checkbox from '@/components/checkbox'
+import CheckboxGroup from '@/components/checkbox-group'
 
 export default {
   components: {
@@ -37,18 +79,19 @@ export default {
     Field,
     Button,
     Checkbox,
-    CellGroup
+    CellGroup,
+    CheckboxGroup
   },
   data () {
     return {
-      checkboxGroupValue1: ['深圳'],
-      checkboxGroupValue2: ['珠海'],
-      checkboxGroupValue3: ['深圳'],
-    }
-  },
-  watch: {
-    checkboxGroupValue (val) {
-      console.log(val)
+      checkboxGroupValue1: true,
+      checkboxGroupValue2: false,
+      checkboxGroupValue3: true,
+      checkboxGroupValue4: false,
+      checkboxGroupValue5: true,
+      groupValue1: ['深圳'],
+      groupValue2: ['香蕉'],
+      groupValue5: ['香蕉']
     }
   }
 }
@@ -56,19 +99,26 @@ export default {
 
 
 <style lang="scss" scoped>
-.ym-doc-title {
-  padding: 10px 12px;
-  color: #999999;
-  font-size: 14px;
-}
 
-.ym-doc-content {
-  padding: 10px 12px;
-}
-
-.item {
-  padding-left: 12px;
-  padding-right: 12px;
-  margin-bottom: 10px;
+.page-checkbox {
+  /deep/ .ym-checkbox {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  /deep/ .ym-cell-group__bd {
+    .ym-checkbox {
+      display: flex;
+      flex: 1;
+      margin-bottom: 0;
+      justify-content: space-between;
+    }
+  }
+  /deep/ .ym-checkbox--cell {
+    margin-bottom: 0;
+  }
+  .checkbox-demo-02 /deep/ .ym-checkbox {
+    display: inline-flex;
+    margin-bottom: 0;
+  }
 }
 </style>
