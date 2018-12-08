@@ -1,11 +1,13 @@
 # CheckboxGroup 复选框组
 
+
 ## Usage
 
 ```JS
 import { CheckboxGroup } from 'yum';
 Vue.use(CheckboxGroup);
 ```
+
 
 ## Props
 
@@ -15,15 +17,18 @@ Vue.use(CheckboxGroup);
 | min | 最少可选个数 | Number | - | - | - |
 | max | 最多可选个数 | Number | - | - | - |
 
+
 ## Slots
 
 | 名字 | 说明 |
 | - | - |
 | default | Checkbox 组件列表 |
 
+
 ## Events
 
 无
+
 
 ## Sass vars
 

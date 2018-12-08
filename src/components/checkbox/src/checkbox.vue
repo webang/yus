@@ -36,7 +36,7 @@ export default {
   name: 'ym-checkbox',
   mixins: [parentMixin],
   props: {
-    label: null,
+    label: [String, Object, Number],
     value: Boolean,
     disabled: Boolean,
     checkedColor: String,
@@ -107,6 +107,7 @@ export default {
     toggleValue () {
       if (!this.disabled) {
         this.currentValue = !this.currentValue
+        this.$emit('click')
       }
     }
   },
