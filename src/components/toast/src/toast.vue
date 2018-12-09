@@ -8,21 +8,26 @@
         'ym-toast--'+position
       ]"
     >
-      <div class="ym-toast-content">
-        <slot>
-          <slot name="icon">
-            <div class="ym-toast__icon-wrap" v-if="hasIcon">
-              <i class="iconfont ym-toast__icon" :class="['icon-'+type]"></i>
-            </div>
-          </slot>
-          <span class="ym-toast__text">{{ message }}</span>
-        </slot>
-      </div>
+      <slot name="icon">
+        <i class="ymuicon" :class="iconName" v-if="hasIcon"></i>
+      </slot>
+      <slot name="message">
+        <span class="ym-toast__text">{{ message }}</span>
+      </slot>
     </div>
   </transition>
 </template>
 
 <script>
+
+const iconTypeMap = {
+  success: 'ios-checkmark',
+  warn: 'ios-warning',
+  alert: 'ios-alert',
+  fail: 'ios-close',
+  error: 'ios-close'
+}
+
 export default {
   name: 'ym-toast',
   props: {
@@ -60,6 +65,9 @@ export default {
     },
     hasIcon () {
       return this.type !== 'text'
+    },
+    iconName () {
+      return iconTypeMap[this.type]
     }
   },
   watch: {

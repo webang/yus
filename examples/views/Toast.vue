@@ -5,13 +5,13 @@
       <div class="ym-doc-block__content">
         <CellGroup>
           <Cell label="middle">
-            <span slot="value" @click="show">显示</span>
+            <Button slot="value" @click="show" size="mini" plain type="primary">显示</Button>
           </Cell>
           <Cell label="top">
-            <span slot="value" @click="show2">显示</span>
+            <Button slot="value" @click="show2" size="mini" plain type="primary">显示</Button>
           </Cell>
           <Cell label="bottom">
-            <span slot="value" @click="show3">显示</span>
+            <Button slot="value" @click="show3" size="mini" plain type="primary">显示</Button>
           </Cell>
         </CellGroup>
       </div>
@@ -21,7 +21,7 @@
       <div class="ym-doc-block__content">
         <CellGroup>
           <Cell label="success">
-            <span slot="value" @click="show4">显示</span>
+            <Button slot="value" @click="show4" size="mini" plain type="primary">显示</Button>
           </Cell>
           <Cell label="fail">
             <span slot="value" @click="show5">显示</span>

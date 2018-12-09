@@ -6,29 +6,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 24px;
+  color: #fff;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 3px;
-}
 
-.ym-toast__icon-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 50px;
-  .ym-toast__icon {
-    font-size: 40px;
+  .ymuicon {
+    font-size: 45px;
   }
-}
-
-.ym-toast-content {
-  display: flex;
-  flex-direction: column;
-  padding: 8px 12px;
-  font-size: 12px;
-  line-height: 20px;
-  color: #fff;
-  text-align: center;
 }
 
 .ym-toast--middle {
