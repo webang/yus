@@ -74,13 +74,6 @@ $actionsheet-cell-vertical-padding: 10px;
 $actionsheet-cancel-margin-top: 6px;
 
 
-// Dialog ---------------------------------------------------------------------------
-$dialog-button-text-primary-color: #f90;
-$dialog-button-text-default-color: #353535;
-$dialog-button-text-warn-color: #E64340;
-$dialog-button-text-error-color: #E64340;
-
-
 // Cell -----------------------------------------------------------------------------
 $cell-media-margin-right: 8px;
 $cell-label-color: inherit;
@@ -124,3 +117,31 @@ $collapse-item-line-height: 24px;
 $collapse-item-content-padding-bottom: 16px;
 $collapse-item-transition-duration: 300ms;
 $collapse-item-bottom-border-color: $border-color;
+
+
+// Dialog ---------------------------------------------------------------------------
+$dialog-width: 80%;
+$dialog-max-width: 300px;
+$dialog-border-radius: 3px;
+
+$dialog-head-font-size: 16px;
+$dialog-head-font-weigth: 600;
+$dialog-head-vertical-padding: 15px;
+$dialog-head-horizontal-padding: 15px;
+
+$dialog-body-min-height: 40px;
+$dialog-body-padding-top: 0;
+$dialog-body-padding-bottom: 12px;
+$dialog-body-horizontal-padding: 24px;
+$dialog-body-font-size: 15px;
+$dialog-body-line-height: 1.5;
+$dialog-body-font-color: #999;
+
+$dialog-button-text-primary-color: #f90;
+$dialog-button-text-default-color: #353535;
+$dialog-button-text-warn-color: #E64340;
+$dialog-button-text-error-color: #E64340;
+$dialog-button-text-font-size: 16px;
+
+$dialog-foot-font-size: 16px;
+$dialog-foot-line-height: 48px;

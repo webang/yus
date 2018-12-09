@@ -18,38 +18,39 @@
   z-index: $backdrop-zindex + 100;
   position: fixed;
   display: table;
-  width: 80%;
-  max-width: 300px;
+  width: $dialog-width;
+  max-width: $dialog-max-width;
   top: 0;
+  left: 0;
   right: 0;
   bottom: 0;
-  left: 0;
   margin: auto;
-  background-color: #fff;
   text-align: center;
-  border-radius: 3px;
+  background-color: #fff;
+  border-radius: $dialog-border-radius;
 }
 
 .ym-dialog__hd {
-  padding: 15px 15px 15px;
-  font-size: 16px;
+  padding: $dialog-head-vertical-padding $dialog-head-horizontal-padding;
+  font-size: $dialog-head-font-size;
+  font-weight: $dialog-head-font-weigth;
 }
 
 .ym-dialog__bd {
-  padding: 0 24px 12px;
-  min-height: 40px;
-  font-size: 15px;
-  line-height: 1.5;
+  padding: $dialog-body-padding-top $dialog-body-horizontal-padding $dialog-body-padding-bottom;
+  min-height: $dialog-body-min-height;
+  font-size: $dialog-body-font-size;
+  line-height: $dialog-body-line-height;
   word-wrap: break-word;
   word-break: break-all;
-  color: #999;
+  color: $dialog-body-font-color;
 }
 
 .ym-dialog__ft {
   position: relative;
   display: flex;
-  line-height: 48px;
-  font-size: 18px;
+  line-height: $dialog-foot-line-height;
+  font-size: $dialog-foot-font-size;
   text-align: center;
   &::after {
     content: " ";
@@ -58,7 +59,7 @@
     top: 0;
     right: 0;
     height: 1px;
-    border-top: 1px solid #d5d5d6;
+    border-top: 1px solid $border-color;
     transform-origin: 0 0;
     transform: scaleY(.5);
   }
@@ -68,7 +69,7 @@
   position: relative;
   display: block;
   flex: 1;
-  font-size: 16px;
+  font-size: $dialog-button-text-font-size;
   &::before {
     content: " ";
     position: absolute;
@@ -76,7 +77,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    border-left: 1px solid #d5d5d6;
+    border-left: 1px solid $border-color;
     transform-origin: 0 0;
     transform: scaleX(.5);
   }

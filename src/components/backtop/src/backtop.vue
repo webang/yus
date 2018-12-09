@@ -1,6 +1,5 @@
 <template>
   <div class="ym-backtop" @click="handleClick">
-    <!-- <i class="ym-icon ym-icon-backtop icon-backtop"></i> -->
     <i class="ymuicon ios-backtop-outline ym-backtop__icon"></i>
     <span class="ym-backtop__text" v-text="text"></span>
   </div>
