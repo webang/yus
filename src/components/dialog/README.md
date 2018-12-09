@@ -20,7 +20,8 @@ Vue.use(Dialog)
 | 属性 | 描述 | 类型 | 可选值 | 默认值 | 版本说明 |
 | - | - | - | - | - | - |
 | v-model | 是否显示 | Boolean | - | ym-backdrop | - |
-| backdropTransition | 幕布动画效果 | String | - | ym-dialog | - |
+| dialogTransition | 弹窗动画效果 | String | - | ym-dialog | - |
+| backdropTransition | 幕布动画效果 | String | - | ym-backdrop | - |
 
 
 ## Slots
