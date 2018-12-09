@@ -7,6 +7,7 @@ import router from './router'
 
 import './assets/main.scss'
 import './assets/global.scss'
+require('ymuicon/dist/style.css')
 
 Vue.config.productionTip = false
 

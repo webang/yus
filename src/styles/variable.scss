@@ -81,7 +81,7 @@ $dialog-button-text-warn-color: #E64340;
 $dialog-button-text-error-color: #E64340;
 
 
-// Cell ------------------------------------------------------------------------------
+// Cell -----------------------------------------------------------------------------
 $cell-media-margin-right: 8px;
 $cell-label-color: inherit;
 $cell-value-color: inherit;
@@ -95,7 +95,20 @@ $cell-group-herizontal-padding: $layout-herizontal-padding;
 $cell-group-title-font-size: 16px;
 $cell-group-title-color: inherit;
 
-// Radio
+// Checkbox ---------------------------------------------------------------------------
+$checkbox-default-icon-color: #969799;
+$checkbox-checked-icon-color: $color-primary;
+$checkbox-disabled-opacity: 0.5;
+$checkbox-label-font-size: 16px;
+$checkbox-label-line-height: 24px;
+$checkbox-label-margin-left: 8px;
+$checkbox-icon-font-size: 22px;
+$checkbox-cell-bg-color: #fff;
+$checkbox-cell-line-height: 24px;
+$checkbox-cell-vertical-padding: 10px;
+$checkbox-cell-horizontal-padding: 12px;
+
+// Radio -------------------------------------------------------------------------------
 $radio-default-icon-color: #969799;
 $radio-checked-icon-color: $color-primary;
 $radio-disabled-opacity: 0.5;
@@ -104,16 +117,7 @@ $radio-label-line-height: 24px;
 $radio-label-margin-left: 8px;
 $radio-icon-font-size: 22px;
 
-// Checkbox
-$checkbox-default-icon-color: #969799;
-$checkbox-checked-icon-color: $color-primary;
-$checkbox-disabled-opacity: 0.5;
-$checkbox-label-font-size: 16px;
-$checkbox-label-line-height: 24px;
-$checkbox-label-margin-left: 8px;
-$checkbox-icon-font-size: 22px;
-
-// Collapse
+// Collapse ----------------------------------------------------------------------------
 $collapse-item-herizontal-padding: $layout-herizontal-padding;
 $collapse-item-vertical-padding: 10px;
 $collapse-item-line-height: 24px;

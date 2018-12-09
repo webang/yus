@@ -36,4 +36,16 @@ Vue.use(Checkbox);
 
 ## Sass vars
 
-无
+```sass
+$checkbox-default-icon-color: #969799;
+$checkbox-checked-icon-color: $color-primary;
+$checkbox-disabled-opacity: 0.5;
+$checkbox-label-font-size: 16px;
+$checkbox-label-line-height: 24px;
+$checkbox-label-margin-left: 8px;
+$checkbox-icon-font-size: 22px;
+$checkbox-cell-bg-color: #fff;
+$checkbox-cell-line-height: 24px;
+$checkbox-cell-vertical-padding: 10px;
+$checkbox-cell-horizontal-padding: 12px;
+```

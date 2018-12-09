@@ -6,19 +6,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
-  border: 1px solid #616365;
-  border-radius: 50%;
   box-sizing: border-box;
-  background-color: #fff;
-  .ym-icon-backtop {
-    font-size: 24px;
-    color: #616365;
-    font-weight: 400;
-  }
   &__text {
     font-size: 10px;
     font-size: 0;
+  }
+  &__icon {
+    font-size: 32px;
+    color: #999;
   }
 }
