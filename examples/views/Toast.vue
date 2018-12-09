@@ -24,13 +24,13 @@
             <Button slot="value" @click="show4" size="mini" plain type="primary">显示</Button>
           </Cell>
           <Cell label="fail">
-            <span slot="value" @click="show5">显示</span>
+            <Button slot="value" @click="show5" size="mini" plain type="primary">显示</Button>
           </Cell>
           <Cell label="warn">
-            <span slot="value" @click="show6">显示</span>
+            <Button slot="value" @click="show6" size="mini" plain type="primary">显示</Button>
           </Cell>
           <Cell label="error">
-            <span slot="value" @click="show7">显示</span>
+            <Button slot="value" @click="show7" size="mini" plain type="primary">显示</Button>
           </Cell>
         </CellGroup>
       </div>
