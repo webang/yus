@@ -1,12 +1,10 @@
 <template>
   <div class="ym-confirm">
-    <Xdialog
-      class="ym-confirm__content"
-      v-model="visible"
-      @on-click-backdrop="OnClickBackdrop"
-    >
-      <div class="ym-dialog__hd" v-if="title">
-        <strong class="ym-dialog__title">{{ title }}</strong>
+    <Ydialog v-model="visible" @on-click-backdrop="OnClickBackdrop">
+      <div class="ym-dialog__hd" v-if="title || $slots.title">
+        <slot name="title">
+          <span class="ym-dialog__title">{{ title }}</span>
+        </slot>
       </div>
       <div class="ym-dialog__bd">
         <slot>
@@ -14,44 +12,46 @@
         </slot>
       </div>
       <div class="ym-dialog__ft">
-        <a
-          class="ym-dialog__btn ym-dialog__btn--clickable"
-          @click="onCancleClick"
-          v-text="cancleButtonText"></a>
-        <a
-          class="ym-dialog__btn ym-dialog__btn--primary ym-dialog__btn--clickable"
-          @click="onConfirmClick"
-          v-text="confirmButtonText"></a>
+        <slot name="footer">
+          <a
+            class="ym-dialog__btn ym-dialog__btn--clickable"
+            @click="onCancleClick"
+            v-text="cancelText"></a>
+          <a
+            class="ym-dialog__btn ym-dialog__btn--primary ym-dialog__btn--clickable"
+            @click="onConfirmClick"
+            v-text="confirmText"></a>
+        </slot>
       </div>
-    </Xdialog>
+    </Ydialog>
   </div>
 </template>
 
 <script>
 import Backdrop from '../../backdrop'
-import Xdialog from '../../dialog'
+import Ydialog from '../../dialog'
 
 export default {
   name: 'ym-confirm',
   components: {
-    Xdialog,
+    Ydialog,
     Backdrop
   },
   props: {
     value: Boolean,
-    closeOnClickBackdrop: {
-      type: Boolean,
-      default: true
-    },
     title: String,
     content: String,
-    'confirm-button-text': {
+    confirmText: {
       type: String,
       default: '确定'
     },
-    'cancle-button-text': {
+    cancelText: {
       type: String,
       default: '取消'
+    },
+    closeOnClickBackdrop: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -76,7 +76,7 @@ export default {
       this.visible = false
     },
     onCancleClick () {
-      this.$emit('on-cancle')
+      this.$emit('on-cancel')
     },
     onConfirmClick () {
       this.$emit('on-confirm')

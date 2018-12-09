@@ -13,7 +13,7 @@
     <Confirm
       v-model="demo1.show"
       :title="demo1.title"
-      @on-cancle="onCancle"
+      @on-cancel="onCancel"
       @on-confirm="onConfirm"
     >
       <p>确认要退出登录吗？</p>
@@ -45,7 +45,7 @@ export default {
     }
   },
   methods: {
-    onCancle () {
+    onCancel () {
       Toast({
         message: '您选择了取消'
       })
