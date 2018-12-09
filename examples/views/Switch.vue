@@ -4,23 +4,14 @@
       <div class="ym-doc-block__title">基础用法</div>
       <div class="ym-doc-block__content">
         <CellGroup>
-          <Cell title="简单用法">
-            <div slot="value" class="ym-ui-flex">
-              <span>{{ s1 }}</span>
-              <wSwitch v-model="s1"></wSwitch>
-            </div>
+          <Cell label="简单用法">
+            <wSwitch v-model="s1" slot="value"></wSwitch>
           </Cell>
-          <Cell title="禁用选项">
-            <div slot="value" class="ym-ui-flex">
-              <span>{{ s3 }}</span>
-              <wSwitch slot="value" v-model="s3" :disabled="d3"></wSwitch>
-            </div>
+          <Cell label="禁用选项">
+            <wSwitch slot="value" v-model="s3" :disabled="true"></wSwitch>
           </Cell>
-          <Cell title="禁用选项">
-            <div slot="value" class="ym-ui-flex">
-              <span>{{ s2 }}</span>
-              <wSwitch slot="value" v-model="s2" :disabled="d2"></wSwitch>
-            </div>
+          <Cell label="禁用选项">
+            <wSwitch slot="value" v-model="s2" :disabled="true"></wSwitch>
           </Cell>
         </CellGroup>
       </div>

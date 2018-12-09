@@ -1,16 +1,16 @@
 <template>
   <div class="page-popup">
     <CellGroup title="基本用法">
-      <Cell title="从底部弹出">
+      <Cell label="从底部弹出">
         <XSwitch slot="value" v-model="demo1.value"></XSwitch>
       </Cell>
-      <Cell title="从顶部弹出">
+      <Cell label="从顶部弹出">
         <XSwitch slot="value" v-model="demo2.value"></XSwitch>
       </Cell>
-      <Cell title="从左边弹出">
+      <Cell label="从左边弹出">
         <XSwitch slot="value" v-model="demo3.value"></XSwitch>
       </Cell>
-      <Cell title="从右边弹出">
+      <Cell label="从右边弹出">
         <XSwitch slot="value" v-model="demo4.value"></XSwitch>
       </Cell>
     </CellGroup>

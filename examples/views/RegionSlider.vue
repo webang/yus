@@ -1,7 +1,7 @@
 <template>
   <div class="page page-progress">
-    <div class="ym-doc-title">基础用法-{{ d1.value }}</div>
-    <div class="ym-doc-content">
+    <div class="ym-doc-block__title">基础用法-{{ d1.value }}</div>
+    <div class="ym-doc-block__bd">
       <RegionSlider
         v-model="d1.value"
         :track-height="d1.trackHeight"
@@ -10,8 +10,8 @@
       />
     </div>
 
-    <div class="ym-doc-title">禁用状态-{{ d2.value }}</div>
-    <div class="ym-doc-content">
+    <div class="ym-doc-block__title">禁用状态-{{ d2.value }}</div>
+    <div class="ym-doc-block__bd">
       <RegionSlider
         v-model="d2.value"
         :track-height="d2.trackHeight"
@@ -21,8 +21,8 @@
       />
     </div>
 
-    <div class="ym-doc-title">设置start和end-{{ d3.value }}</div>
-    <div class="ym-doc-content">
+    <div class="ym-doc-block__title">设置start和end-{{ d3.value }}</div>
+    <div class="ym-doc-block__bd">
       <RegionSlider
         v-model="d3.value"
         :track-height="d3.trackHeight"
@@ -35,8 +35,8 @@
       </RegionSlider>
     </div>
 
-    <div class="ym-doc-title">设置区间-{{ d4.value }}</div>
-    <div class="ym-doc-content">
+    <div class="ym-doc-block__title">设置区间-{{ d4.value }}</div>
+    <div class="ym-doc-block__bd">
       <RegionSlider
         v-model="d4.value"
         :track-height="d4.trackHeight"
