@@ -1,7 +1,7 @@
 <template>
   <div class="ym-backtop" @click="handleClick">
     <i class="ymuicon ios-backtop-outline ym-backtop__icon"></i>
-    <span class="ym-backtop__text" v-text="text"></span>
+    <span class="ym-backtop__text" v-text="text" v-if="text"></span>
   </div>
 </template>
 
@@ -23,10 +23,7 @@
 export default {
   name: 'ym-backtop',
   props: {
-    text: {
-      type: String,
-      default: '顶部'
-    }
+    text: String
   },
   methods: {
     handleClick () {

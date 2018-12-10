@@ -1,16 +1,13 @@
 // Colors -----------------------------------------------------------------------
-$color-primary: #108ee9;
+$color-primary: #38f;
 $color-secondary: #32db64;
 $color-danger: #e94f4f;
 $color-light:  #f4f4f4;
 $color-dark:  #222;
 
 // Common vars -------------------------------------------------------------------
-// active State
 $click-active-bg-color: #e8e8e8;
-// layout herizontal padding
 $layout-herizontal-padding: 12px;
-// border color
 $border-color: #e8e8e8;
 
 // Button ------------------------------------------------------------------------
@@ -42,7 +39,7 @@ $button-mini-herizontal-padding: 12px;
 $button-mini-herizontal-round-radius: 30px;
 $button-mini-herizontal-round-padding: 15px;
 // type primary
-$button-primary-bg-color: #108ee9;
+$button-primary-bg-color: #38f;
 $button-primary-font-color: #fff;
 // type light
 $button-light-bg-color: #fff;
@@ -145,3 +142,35 @@ $dialog-button-text-font-size: 16px;
 
 $dialog-foot-font-size: 16px;
 $dialog-foot-line-height: 48px;
+
+
+// Toast ------------------------------------------------------------------------------
+$toast-border-radius: 3px;
+$toast-line-heigth: 24px;
+$toast-font-color: #fff;
+$toast-bg-color: rgba(0, 0, 0, .7);
+$toast-font-size: 13px;
+$toast-padding: 8px 12px;
+$toast-icon-font-size: 45px;
+$toast-speed: 350ms;
+$toast-middle-type-speed: 1000ms;
+
+
+// Backtop ----------------------------------------------------------------------------
+$backtop-position-bottom: 24px;
+$backtop-position-right: 12px;
+$backtop-icon-font-color: #666;
+$backtop-icon-font-size: 32px;
+$backtop-text-font-color: #666;
+$backtop-text-font-size: 10px;
+
+
+// Slider
+$slider-height: 24px;
+$slider-runway-height: 2px;
+$slider-runway-bg-color: #EBEBEB;
+$slider-track-bg-color: $color-primary;
+$slider-thumb-width: 24px;
+$slider-thumb-height: 24px;
+$slider-thumb-bg-color: #fff;
+$slider-disabled-opacity: .6;

@@ -4,11 +4,11 @@
       <slot name="start"></slot>
     </div>
     <div class="ym-slider__bd" ref="content" :style="contentStyle">
-      <div class="ym-slider__runway" ref="runway"></div>
-      <div class="ym-slider__track" ref="track" :style="{ width: ratio }"></div>
+      <div class="ym-slider__runway" ref="runway" :style="runwayStyle"></div>
+      <div class="ym-slider__track" ref="track" :style="trackStyle"></div>
       <div
         class="ym-slider__thumb"
-        :style="{ left: ratio }"
+        :style="{ left: ratio, backgroundColor: thumbColor}"
         @touchstart="onTouchStart"
         @touchmove="onTouchMove"
         @touchend="onTouchEnd"></div>
@@ -35,18 +35,18 @@ export default {
       type: Number,
       default: 100
     },
-    'track-height': {
+    runwayHeight: {
       type: Number,
       default: 2
     },
+    runwayColor: String,
+    trackColor: String,
+    thumbColor: String,
     step: {
       type: Number,
       default: 1
     },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
+    disabled: Boolean
   },
   data () {
     return {
@@ -65,7 +65,20 @@ export default {
     },
     contentStyle () {
       return {
-        height: this.trackHeight + 'px'
+        height: `${this.runwayHeight}px`
+      }
+    },
+    trackStyle () {
+      return {
+        width: this.ratio,
+        height: `${this.runwayHeight}px`,
+        backgroundColor: this.trackColor
+      }
+    },
+    runwayStyle () {
+      return {
+        height: `${this.runwayHeight}px`,
+        backgroundColor: this.runwayColor
       }
     }
   },

@@ -1,12 +1,6 @@
-$slider-default-bg-color: #EBEBEB;
-$slider-active-bg-color: #26a2ff;
-$slider-height: 24px;
-$slider-thumb-width: 24px;
-$slider-thumb-height: 24px;
-
-@mixin slider-box-shadow {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
+@import '../../../styles/variable.scss';
+@import '../../../styles/mixin.scss';
+@import '../../../styles/animate.scss';
 
 .ym-slider {
 
@@ -29,7 +23,7 @@ $slider-thumb-height: 24px;
     height: 100%;
     left: 0;
     right: -$slider-thumb-width;
-    background-color: $slider-default-bg-color;
+    background-color: $slider-runway-bg-color;
   }
 
   &__track {
@@ -37,7 +31,7 @@ $slider-thumb-height: 24px;
     top: 0;
     height: 100%;
     max-width: 100%;
-    background-color: $slider-active-bg-color;
+    background-color: $slider-track-bg-color;
   }
 
   &__thumb {
@@ -46,13 +40,13 @@ $slider-thumb-height: 24px;
     height: $slider-thumb-height;
     top: 50%;
     cursor: move;
-    background-color: #fff;
+    background-color: $slider-thumb-bg-color;
     border-radius: 50%;
     transform: translate3d(0, -50%, 0);
     @include slider-box-shadow;
   }
 
   &--disabled .ym-slider__bd {
-    opacity: .6;
+    opacity: $slider-disabled-opacity;
   }
 }

@@ -9,10 +9,10 @@
       ]"
     >
       <slot name="icon">
-        <i class="ymuicon" :class="iconName" v-if="hasIcon"></i>
+        <i class="ym-toast__icon ymuicon" :class="iconName" v-if="hasIcon"></i>
       </slot>
       <slot name="message">
-        <span class="ym-toast__text">{{ message }}</span>
+        <div class="ym-toast__text">{{ message }}</div>
       </slot>
     </div>
   </transition>
