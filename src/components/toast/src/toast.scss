@@ -1,3 +1,8 @@
+@import '../../../styles/variable.scss';
+@import '../../../styles/mixin.scss';
+@import '../../../styles/animate.scss';
+@import '../../../styles/extend.scss';
+
 .ym-toast {
   z-index: 10000;
   position: fixed;
@@ -6,16 +11,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 8px 12px;
-  font-size: 13px;
-  line-height: 24px;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 3px;
-
+  padding: $toast-padding;
+  font-size: $toast-font-size;
+  line-height: $toast-line-heigth;
+  color: $toast-font-color;
+  background-color: $toast-bg-color;
+  border-radius: $toast-border-radius;
   .ymuicon {
-    font-size: 45px;
+    font-size: $toast-icon-font-size;
   }
+  &__text {}
 }
 
 .ym-toast--middle {
@@ -23,7 +28,7 @@
   transform: translate3d(-50%, -50%, 0);
   &-enter-active,
   &-leave-active {
-    transition: all 1s ease;
+    transition: all $toast-middle-type-speed ease;
   }
   &-enter,
   &-leave-to {
@@ -36,7 +41,7 @@
   transform: translate3d(-50%, 10px, 0);
   &-enter-active,
   &-leave-active {
-    transition: all .4s;
+    transition: all $toast-speed;
   }
   &-enter,
   &-leave-to {
@@ -49,7 +54,7 @@
   transform: translate3d(-50%, 0, 0);
   &-enter-active,
   &-leave-active {
-    transition: all .4s;
+    transition: all $toast-speed;
   }
   &-enter,
   &-leave-to {

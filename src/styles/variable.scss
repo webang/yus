@@ -6,11 +6,8 @@ $color-light:  #f4f4f4;
 $color-dark:  #222;
 
 // Common vars -------------------------------------------------------------------
-// active State
 $click-active-bg-color: #e8e8e8;
-// layout herizontal padding
 $layout-herizontal-padding: 12px;
-// border color
 $border-color: #e8e8e8;
 
 // Button ------------------------------------------------------------------------
@@ -145,3 +142,24 @@ $dialog-button-text-font-size: 16px;
 
 $dialog-foot-font-size: 16px;
 $dialog-foot-line-height: 48px;
+
+
+// Toast ------------------------------------------------------------------------------
+$toast-border-radius: 3px;
+$toast-line-heigth: 24px;
+$toast-font-color: #fff;
+$toast-bg-color: rgba(0, 0, 0, .7);
+$toast-font-size: 13px;
+$toast-padding: 8px 12px;
+$toast-icon-font-size: 45px;
+$toast-speed: 350ms;
+$toast-middle-type-speed: 1000ms;
+
+
+// Backtop ----------------------------------------------------------------------------
+$backtop-position-bottom: 24px;
+$backtop-position-right: 12px;
+$backtop-icon-font-color: #666;
+$backtop-icon-font-size: 32px;
+$backtop-text-font-color: #666;
+$backtop-text-font-size: 10px;
