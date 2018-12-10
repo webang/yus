@@ -48,6 +48,23 @@
         <span class="number" slot="end">{{ d4.max }}</span>
       </Slider>
     </div>
+
+    <div class="ym-doc-block__title">设置背景颜色({{ d5.value }})</div>
+    <div class="ym-doc-block__bd">
+      <Slider
+        v-model="d5.value"
+        :track-height="d5.trackHeight"
+        :max="d5.max"
+        :min="d5.min"
+        :disabled="d5.disabled"
+        :trackColor="d5.trackColor"
+        :thumbColor="d5.thumbColor"
+        :runwayColor="d5.runwayColor"
+      >
+        <span class="number" slot="start">{{ d5.min }}</span>
+        <span class="number" slot="end">{{ d5.max }}</span>
+      </Slider>
+    </div>
   </div>
 </template>
 
@@ -86,6 +103,16 @@ export default {
         value: 160,
         trackHeight: 2,
         disabled: false
+      },
+      d5: {
+        min: 100,
+        max: 200,
+        value: 160,
+        trackHeight: 2,
+        disabled: false,
+        trackColor: '#9c27b0',
+        thumbColor: 'blue',
+        runwayColor: 'red'
       }
     }
   },
