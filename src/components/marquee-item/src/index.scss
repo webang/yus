@@ -2,11 +2,9 @@
 @import '../../../styles/mixin.scss';
 @import '../../../styles/animate.scss';
 
-.ym-flows {
-  position: relative;
+.ym-marquee-item {
   display: flex;
-}
-
-.ym-flows--vertical {
-  flex-direction: column;
+  align-items: center;
+  line-height: 30px;
+  font-size: 14px;
 }

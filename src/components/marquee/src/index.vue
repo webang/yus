@@ -33,6 +33,11 @@ export default {
       currentItemHeight: 0
     }
   },
+  watch: {
+    currentIndex (val) {
+      this.$emit('on-index-change', val)
+    }
+  },
   methods: {
     setTransition (duration) {
       const $marqueeBox = this.$refs.marqueeBox
@@ -50,7 +55,7 @@ export default {
       }
     },
     play () {
-      this.setTransition(300)
+      this.setTransition(this.duration)
       this.currentIndex++
       this.setTransform()
       if (this.currentIndex === this.len) {
@@ -80,4 +85,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./marquee.scss"></style>
+<style lang="scss" src="./index.scss"></style>

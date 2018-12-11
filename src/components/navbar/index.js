@@ -1,4 +1,4 @@
-import Navbar from './src/navbar.vue'
+import Navbar from './src/index'
 
 Navbar.install = (Vue) => {
   Vue.component(Navbar.name, Navbar)

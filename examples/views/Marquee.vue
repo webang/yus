@@ -55,9 +55,8 @@ export default {
   display: flex;
   height: 30px;
   padding: 0 12px;
-  line-height: 30px;
-  font-size: 14px;
   color: #ed6a0c;
+  line-height: 30px;
   background-color: #fffbe8;
 }
 

@@ -1,4 +1,4 @@
-import MarqueeItem from './src/marquee-item'
+import MarqueeItem from './src/index'
 
 MarqueeItem.install = (Vue) => {
   Vue.component(MarqueeItem.name, MarqueeItem)

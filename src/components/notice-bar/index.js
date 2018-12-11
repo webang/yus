@@ -1,4 +1,4 @@
-import NoticeBar from './src/notice-bar.vue'
+import NoticeBar from './src/index.vue'
 
 NoticeBar.install = (Vue) => {
   Vue.component(NoticeBar.name, NoticeBar)

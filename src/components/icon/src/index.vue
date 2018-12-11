@@ -1,5 +1,5 @@
 <template>
-  <i class="ymuicon" :class="name"></i>
+  <i class="ymuicon" :class="name" @click="$emit('click')"></i>
 </template>
 
 <script>
@@ -10,3 +10,5 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" src="./index.scss"></style>

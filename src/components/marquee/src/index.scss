@@ -2,11 +2,8 @@
 @import '../../../styles/mixin.scss';
 @import '../../../styles/animate.scss';
 
-.ym-flows {
-  position: relative;
-  display: flex;
-}
-
-.ym-flows--vertical {
-  flex-direction: column;
+.ym-marquee {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
