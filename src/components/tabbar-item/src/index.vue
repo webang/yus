@@ -34,18 +34,11 @@ export default {
   props: {
     title: String,
     icon: String,
-    selected: {
-      type: Boolean,
-      default: false
-    },
-    selectedIcon: String,
-    badge: [Number, String],
-    dot: {
-      type: Boolean,
-      default: false
-    },
+    dot: Boolean,
     color: String,
-    selectedColor: String
+    selectedIcon: String,
+    selectedColor: String,
+    badge: [Number, String]
   },
   computed: {
     activeIndex () {

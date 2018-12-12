@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: center;
   flex: 1;
-  font-size: 12px;
+  font-size: $tabbar-text-font-size;
   text-align: center;
 }
 
@@ -16,12 +16,12 @@
 }
 
 .ym-tabbar-item__text {
-  margin-top: 2px;
+  margin-top: $tabbar-icon-margin-top;
 }
 
 .ym-tabbar-icon {
-  width: 22px;
-  height: 22px;
+  width: $tabbar-icon-width;
+  height: $tabbar-icon-height;
 }
 
 .ym-tabbar-item__text {
@@ -32,23 +32,23 @@
   &::after {
     content: " ";
     position: absolute;
-    width: 6px;
-    height: 6px;
-    background-color: #ff5b05;
+    width: $tabbar-dot-width;
+    height: $tabbar-dot-height;
+    background-color: $tabbar-dot-bg-color;
     border-radius: 50%;
   }
 }
 
 .ym-tabbar-item__badge {
   position: absolute;
-  height: 18px;
-  line-height: 18px;
-  min-width: 9px;
-  padding: 0 5px;
-  margin-left: 6px;
-  font-size: 10px;
-  color: #fff;
-  background-color: #ff5b05;
-  border-radius: 12px;
+  height: $tabbar-badge-height;
+  line-height: $tabbar-badge-height;
+  min-width: $tabbar-badge-min-width;
+  padding: 0 $tabbar-badge-horizontal-padding;
+  margin-left: $tabbar-badge-margin-left;
+  font-size: $tabbar-badge-font-size;
+  color: $tabbar-badge-font-color;
+  background-color: $tabbar-badge-bg-color;
+  border-radius: $tabbar-badge-border-radius;
   transform: translateX(50%);
 }

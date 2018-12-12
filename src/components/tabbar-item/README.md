@@ -7,12 +7,11 @@
 | - | - | - | - | - | - |
 | title | 底部显示字符 | String | - | - | - |
 | icon | 顶部显示的icon | String | - | - | - |
-| selected | 是否选中 | Boolean | - | false | - |
-| selectedIcon | 选中状态时显示的icon | - | - | - | - |
 | badge | 违章 | Number, String | - | - | - |
 | dot | 小圆点 | Boolean | - | - | - |
-| color | 颜色 | String | - | true | - |
-| selectedColor | 选中状态的颜色 | String | - | true | - |
+| color | 颜色 | String | - | - | - |
+| selectedIcon | 选中状态时显示的icon | String | - | - | - |
+| selectedColor | 选中状态的颜色 | String | - | - | - |
 
 
 ## Slots
@@ -35,5 +34,21 @@
 ## Sass vars
 
 ```sass
-
+$tabbar-height: 46px;
+$tabbar-bg-color: #fff;
+$tabbar-text-font-size: 12px;
+$tabbar-icon-margin-top: 0;
+$tabbar-icon-width: 22px;
+$tabbar-icon-height: 22px;
+$tabbar-dot-width: 6px;
+$tabbar-dot-height: 6px;
+$tabbar-dot-bg-color: #ff5b05;
+$tabbar-badge-height: 18px;
+$tabbar-badge-min-width: 9px;
+$tabbar-badge-font-size: 10px;
+$tabbar-badge-margin-left: 6px;
+$tabbar-badge-horizontal-padding: 5px;
+$tabbar-badge-font-color: #fff;
+$tabbar-badge-border-radius: 12px;
+$tabbar-badge-bg-color: #ff5b05;
 ```

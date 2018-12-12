@@ -10,6 +10,7 @@
             title="首页"
             color="#888"
             selectedColor="red"
+            :index="0"
           >
           </TabbarItem>
           <TabbarItem
@@ -18,6 +19,7 @@
             title="商品"
             color="#888"
             selectedColor="red"
+            :index="1"
           ></TabbarItem>
           <TabbarItem
             :icon="require('../assets/img/cart.svg')"

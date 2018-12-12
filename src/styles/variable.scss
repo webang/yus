@@ -165,7 +165,7 @@ $backtop-text-font-color: #666;
 $backtop-text-font-size: 10px;
 
 
-// Slider
+// Slider -----------------------------------------------------------------------------
 $slider-height: 24px;
 $slider-runway-height: 2px;
 $slider-runway-bg-color: #EBEBEB;
@@ -174,3 +174,22 @@ $slider-thumb-width: 24px;
 $slider-thumb-height: 24px;
 $slider-thumb-bg-color: #fff;
 $slider-disabled-opacity: .6;
+
+// Tabbar ------------------------------------------------------------------------------
+$tabbar-height: 46px;
+$tabbar-bg-color: #fff;
+$tabbar-text-font-size: 12px;
+$tabbar-icon-margin-top: 0;
+$tabbar-icon-width: 22px;
+$tabbar-icon-height: 22px;
+$tabbar-dot-width: 6px;
+$tabbar-dot-height: 6px;
+$tabbar-dot-bg-color: #ff5b05;
+$tabbar-badge-height: 18px;
+$tabbar-badge-min-width: 9px;
+$tabbar-badge-font-size: 10px;
+$tabbar-badge-margin-left: 6px;
+$tabbar-badge-horizontal-padding: 5px;
+$tabbar-badge-font-color: #fff;
+$tabbar-badge-border-radius: 12px;
+$tabbar-badge-bg-color: #ff5b05;
