@@ -1,4 +1,4 @@
-import TabbarItem from './src/tabbar-item.vue'
+import TabbarItem from './src/index.vue'
 
 TabbarItem.install = (Vue) => {
   Vue.component(TabbarItem.name, TabbarItem)

@@ -19,20 +19,18 @@
           <img class="ym-tabbar-icon" v-else :src="icon">
         </slot>
       </div>
-      <div class="ym-tabbar-item__text">{{ title }}</div>
+      <div class="ym-tabbar-item__text">
+        <slot name="title">{{ title }}</slot>
+      </div>
     </slot>
   </div>
 </template>
 
 <script>
-/**
- * @prop icon
- * @prop title
- * @prop selectedIcon
- * @prop badge
- */
+import findParentMixin from '../../../mixins/findParent'
 export default {
   name: 'ym-tabbar-item',
+  mixins: [findParentMixin],
   props: {
     title: String,
     icon: String,
@@ -51,10 +49,10 @@ export default {
   },
   computed: {
     activeIndex () {
-      return this.$parent.value
+      return this.parent.value
     },
     currentIndex () {
-      return this.$parent.$children.indexOf(this)
+      return this.parent.$children.indexOf(this)
     },
     isActive () {
       return this.activeIndex === this.currentIndex
@@ -67,10 +65,14 @@ export default {
   },
   methods: {
     handleClick () {
-      this.$parent.$emit('on-item-click', this.currentIndex)
+      this.$emit('click')
+      this.$parent.$emit('on-click-item', this.currentIndex)
     }
+  },
+  created () {
+    this.findParent('ym-tabbar')
   }
 }
 </script>
 
-<style lang="scss" src="./tabbar-item.scss"></style>
+<style lang="scss" src="./index.scss"></style>

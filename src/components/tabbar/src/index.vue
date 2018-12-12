@@ -1,5 +1,5 @@
 <template>
-  <div class="ym-tabbar">
+  <div class="ym-tabbar" :class="{'ym-tabbar--fixed': fixed}">
     <slot></slot>
   </div>
 </template>
@@ -20,4 +20,4 @@ export default {
 }
 </script>
 
-<style src="./tabbar.scss" lang="scss"></style>
+<style src="./index.scss" lang="scss"></style>
