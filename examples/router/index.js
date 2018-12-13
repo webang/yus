@@ -22,7 +22,8 @@ const RegionSlider = () => import('../views/RegionSlider')
 const Radio = () => import('../views/Radio')
 const Confirm = () => import('../views/Confirm')
 const Backtop = () => import('../views/Backtop')
-const Collapse = () => import('../views/collapse')
+const Collapse = () => import('../views/Collapse')
+const Icon = () => import('../views/Icon')
 
 Vue.use(Router)
 
@@ -34,6 +35,14 @@ export default new Router({
       component: Welcome,
       meta: {
         title: 'ym'
+      }
+    },
+    {
+      path: '/Icon',
+      name: 'Icon',
+      component: Icon,
+      meta: {
+        title: 'Icon 内置图标'
       }
     },
     {

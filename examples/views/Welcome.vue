@@ -11,6 +11,7 @@
           <Cell label="Popup 弹出层" is-link to="/Popup"></Cell>
           <Cell label="Navbar 导航" is-link to="/Navbar"></Cell>
           <Cell label="Tabbar 标签栏" is-link to="/Tabbar"></Cell>
+          <Cell label="Icon 内置图标" is-link to="/Icon"></Cell>
         </CellGroup>
       </div>
     </div>
