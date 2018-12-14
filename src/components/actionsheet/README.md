@@ -1,7 +1,9 @@
 # ActionSheet 上拉菜单
 
 ```JS
+import Vue from 'vue'
 import { ActionSheet } from 'yum';
+
 Vue.use(ActionSheet);
 ```
 
