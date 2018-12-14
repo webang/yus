@@ -1,17 +1,17 @@
 <template>
-  <div class="ym-notice-bar">
-    <div class="ym-notice-bar__left-icon">
-      <slot name="icon-left">
+  <div class="ym-notice-bar" @click="emit('click')">
+    <div class="ym-notice-bar__hd">
+      <slot name="head">
         <i class="iconfont icon-voice"></i>
       </slot>
     </div>
-    <div class="ym-notice-bar__content" ref="barContent">
+    <div class="ym-notice-bar__bd" ref="barContent">
       <div class="ym-notice-bar__marquee-wrap" ref="marqueeWrap" :style="style">
         <slot></slot>
       </div>
     </div>
-    <div class="ym-notice-bar__right-icon">
-      <slot name="icon-right"></slot>
+    <div class="ym-notice-bar__ft">
+      <slot name="foot"></slot>
     </div>
   </div>
 </template>

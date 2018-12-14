@@ -1,3 +1,7 @@
+@import '../../../styles/variable.scss';
+@import '../../../styles/mixin.scss';
+@import '../../../styles/animate.scss';
+
 .ym-notice-bar {
   overflow: hidden;
   display: flex;
@@ -6,37 +10,32 @@
   font-size: 14px;
   line-height: 36px;
   color: #ed6a0c;
+  padding-left: 12px;
+  padding-right: 12px;
   background-color: #fffbe8;
-}
 
-.ym-notice-bar__content {
-  overflow: hidden;
-  position: relative;
-  flex: 1;
-  height: 100%;
-  margin-left: 5px;
-  margin-right: 12px;
-}
-
-.ym-notice-bar__left-icon {
-  height: 100%;
-  margin-left: 12px;
-  .icon-voice {
-    // 避免 mounted 获取元素尺寸不正确
-    display: block;
-    width: 18px;
-    height: 18px;
-    font-size: 18px;
+  &__hd {
+    height: 100%;
+    padding-right: 5px;
+    .icon-voice {
+      display: block;
+      width: 18px;
+      height: 18px;
+      font-size: 18px;
+    }
   }
-}
 
-.ym-notice-bar__right-icon {
+  &__bd {
+    overflow: hidden;
+    position: relative;
+    flex: 1;
+    height: 100%;
+  }
 
-}
-
-.ym-notice-bar__marquee-wrap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
+  &__marquee-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+  }
 }

@@ -28,8 +28,8 @@
       <div class="ym-doc-block__title">设置右边icon</div>
       <div class="ym-doc-block__content">
         <NoticeBar :frequence="100" :loop="false">
-          <span slot="icon-right">
-            <i class="iconfont icon-voice"></i>
+          <span slot="head">
+            <i class="ymuicon ios-voice"></i>
           </span>
           <p>Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day.</p>
         </NoticeBar>

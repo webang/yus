@@ -39,4 +39,11 @@ Marquee .use(MarqueeItem)
 
 ## Sass vars
 
-无
+```
+$navbar-herizontal-padding: 15px;
+$navbar-font-size: 14px;
+$navbar-title-font-size: 16px;
+$navbar-line-height: 46px;
+$navbar-left-button-active-bg-color: #e8e8e8;
+$navbar-left-arrow-color: #38f;
+```
