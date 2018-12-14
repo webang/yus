@@ -1,4 +1,4 @@
-import Progress from './src/progress.vue'
+import Progress from './src/index.vue'
 
 Progress.install = (Vue) => {
   Vue.component(Progress.name, Progress)

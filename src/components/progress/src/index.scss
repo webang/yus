@@ -1,7 +1,6 @@
-$progress-bar-bg-color: #EBEBEB;
-$progress-bar-hegiht: 30px;
-$progress-track-bg-color: #26a2ff;
-$progress-track-height: 4px;
+@import '../../../styles/variable.scss';
+@import '../../../styles/mixin.scss';
+@import '../../../styles/animate.scss';
 
 @mixin progressTransition {
   transition: all 400ms;

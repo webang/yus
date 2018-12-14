@@ -1,35 +1,34 @@
-# NoticeBar 通告栏
+# Popup 弹出层
 
 ```JS
 import Vue from 'vue'
-import NoticeBar from 'ymu'
+import Popup from 'ymu'
 
-Vue.use(NoticeBar)
+Vue.use(Popup)
 ```
 
 ## Props
 
 | 属性 | 描述 | 类型 | 可选值 | 默认值 | 版本说明 |
 | - | - | - | - | - | - |
-| wait | 循环间隔时间 | Number | - | 2000 | - |
-| frequence | 动画间隔时间 | Number | - | 40 | - |
-| loop | 是否循环 | Boolean | - | true | - |
+| value | 显示或隐藏 | Boolean | - | - | - |
+| position | 弹出的位置 | String | bottom top left right | bottom | - |
+| closeOnClickBackdrop | 点击幕布关闭popup | Boolean | - | true | - |
 
 
 ## Slots
 
 | 名称 | 描述 |
 | :-: | :-: |
-| defualt | title 插槽 |
-| head | head 插槽 |
-| foot | foot 插槽 |
+| defualt | defualt 插槽 |
 
 
 ## Events
 
 | 名称 | 描述 |
 | :-: | :-: |
-| click | - |
+| input | - |
+| on-click-backdrop| 点击幕布 |
 
 ## Sass vars
 

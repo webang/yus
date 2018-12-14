@@ -77,4 +77,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./radio.scss"></style>
+<style lang="scss" src="./index.scss"></style>
