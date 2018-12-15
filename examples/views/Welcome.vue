@@ -54,8 +54,8 @@
 </template>
 
 <script>
-import CellGroup from '@/components/cell-group'
-import Cell from '@/components/cell'
+import { Cell, CellGroup } from 'ymu'
+
 export default {
   components: {
     CellGroup,

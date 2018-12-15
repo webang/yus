@@ -60,14 +60,7 @@
 </template>
 
 <script>
-import Toast from '@/components/toast'
-import Cell from '@/components/cell'
-import CellGroup from '@/components/cell-group'
-import Button from '@/components/button'
-import Field from '@/components/field'
-import CheckboxGroup from '@/components/checkbox-group'
-import Radio from '@/components/radio'
-import RadioGroup from '@/components/radio-group'
+import { Toast, Cell, CellGroup, Button, Field, CheckboxGroup, Radio, RadioGroup } from 'ymu'
 
 export default {
   components: {

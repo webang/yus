@@ -20,9 +20,7 @@
 </template>
 
 <script type="text/javascript">
-import wSwitch from '@/components/switch'
-import Cell from '@/components/cell'
-import CellGroup from '@/components/cell-group'
+import { Cell, CellGroup, Switch as wSwitch } from 'ymu'
 
 export default {
   components: {

@@ -1,0 +1,41 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+
+.ym-notice-bar {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  font-size: 14px;
+  line-height: 36px;
+  color: #ed6a0c;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: #fffbe8;
+
+  &__hd {
+    height: 100%;
+    padding-right: 5px;
+    .icon-voice {
+      display: block;
+      width: 18px;
+      height: 18px;
+      font-size: 18px;
+    }
+  }
+
+  &__bd {
+    overflow: hidden;
+    position: relative;
+    flex: 1;
+    height: 100%;
+  }
+
+  &__marquee-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+  }
+}

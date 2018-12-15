@@ -2,27 +2,27 @@
   <div class="page-navbar">
     <ul>
       <li>
-        <navbar title="NavBar" leftText="返回" @on-click-left="handleClickLeft" @on-click-right="handleClickRight"></navbar>
+        <NavBar title="NavBar" leftText="返回" @on-click-left="handleClickLeft" @on-click-right="handleClickRight"></NavBar>
       </li>
       <li>
-        <navbar :left-text="''">NavBar</navbar>
+        <NavBar :left-text="''">NavBar</NavBar>
       </li>
       <li>
-        <navbar>
+        <NavBar>
           <span>NavBar</span>
           <div class="left-wrapper" slot="left">自定义内容</div>
           <div class="right-wrapper" slot="right">自定义内容</div>
-        </navbar>
+        </NavBar>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import navbar from '@/components/navbar'
+import { NavBar } from 'ymu'
 export default {
   components: {
-    navbar
+    NavBar
   },
   data () {
     return {

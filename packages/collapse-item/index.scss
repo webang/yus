@@ -1,0 +1,56 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+
+.ym-collapse-item {
+  overflow: hidden;
+  position: relative;
+  line-height: $collapse-item-line-height;
+  background-color: #fff;
+
+  &__hd {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $collapse-item-vertical-padding $collapse-item-herizontal-padding;
+  }
+
+  &__title {
+    flex: 1;
+  }
+
+  &__right-icon {
+    transition: transform $collapse-item-transition-duration;
+    transform: rotate(90deg);
+    margin-right: -4px;
+    &.is-active {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__wrap {
+    padding-left: $collapse-item-herizontal-padding;
+    padding-right: $collapse-item-herizontal-padding;
+    box-sizing: border-box;
+    transition: height $collapse-item-transition-duration;
+  }
+
+  &__content {
+    padding-bottom: $collapse-item-content-padding-bottom;
+  }
+}
+
+.ym-collapse-item--border {
+  &::after {
+    content: ' ';
+    position: absolute;
+    pointer-events: none;
+    box-sizing: border-box;
+    left: $collapse-item-herizontal-padding;
+    right: 0;
+    bottom: 0;
+    transform: scaleY(0.5);
+    border-bottom: 1px solid $collapse-item-bottom-border-color;
+  }
+}

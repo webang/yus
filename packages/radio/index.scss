@@ -1,0 +1,46 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+
+.ym-radio {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+
+  &__input {
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    font-size: $radio-icon-font-size;
+    color:  $radio-default-icon-color;
+  }
+
+  &__control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    margin: 0;
+  }
+
+  &__label {
+    display: inline-block;
+    margin-left: $radio-label-margin-left;
+    font-size: $radio-label-font-size;
+  }
+}
+
+.ym-radio--checked {
+  .ym-radio__input {
+    color: $radio-checked-icon-color;
+  }
+}
+
+.ym-radio--disabled {
+  .icon-radio-outline,
+  .icon-radio-fill {
+    opacity: $radio-disabled-opacity;
+  }
+}

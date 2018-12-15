@@ -106,21 +106,9 @@
 </template>
 
 <script type="text/javascript">
-import wSwitch from '@/components/switch'
-import Cell from '@/components/cell'
-import CellGroup from '@/components/cell-group'
-import Progress from '@/components/progress'
-import Button from '@/components/button'
-import Flow from '@/components/flow'
-import FlowItem from '@/components/flow-item'
-
+import { FlowItem, Flow } from 'ymu'
 export default {
   components: {
-    wSwitch,
-    Cell,
-    CellGroup,
-    Progress,
-    Button,
     Flow,
     FlowItem
   },

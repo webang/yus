@@ -1,0 +1,56 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+
+.ym-cell {
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px $cell-herizontal-padding;
+  font-size: $cell-font-size;
+  line-height:$cell-line-height;
+  background-color: #fff;
+  &::after {
+    content: ' ';
+    position: absolute;
+    pointer-events: none;
+    box-sizing: border-box;
+    left: $cell-herizontal-padding;
+    right: 0;
+    bottom: 0;
+    transform: scaleY(0.5);
+    border-bottom: 1px solid $border-color;
+  }
+  .ym-icon-arrow-right {
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+    margin-right: -4px;
+  }
+  &__media {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: $cell-media-margin-right;
+  }
+  &__label {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    color: $cell-label-color;
+  }
+  &__value {
+    display: flex;
+    align-items: center;
+    color: $cell-value-color;
+  }
+  &--clickable {
+    user-select: none;
+    &:active {
+      background-color: $click-active-bg-color;
+    }
+  }
+}

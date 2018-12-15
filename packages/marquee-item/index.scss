@@ -1,0 +1,10 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+
+.ym-marquee-item {
+  display: flex;
+  align-items: center;
+  line-height: 30px;
+  font-size: 14px;
+}

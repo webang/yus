@@ -7,14 +7,14 @@
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  background-image: url(../../../icons/loading-gray.svg);
+  background-image: url(../../src/icons/loading-gray.svg);
   background-size: 100%;
   animation: ymLoading 1s steps(12, end) infinite;
 }
 
 @mixin whiteLoading {
   @include grayLoading;
-  background-image: url(../../../icons/loading-white.svg);
+  background-image: url(../../src/icons/loading-white.svg);
 }
 
 .ym-button {

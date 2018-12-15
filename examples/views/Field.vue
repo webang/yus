@@ -34,11 +34,8 @@
 </template>
 
 <script>
-import Toast from '@/components/toast'
-import Cell from '@/components/cell'
-import CellGroup from '@/components/cell-group'
-import Button from '@/components/button'
-import Field from '@/components/field'
+import { Alert, Cell, CellGroup, Confirm, Field, Button } from 'ymu'
+
 export default {
   components: {
     Cell,

@@ -1,0 +1,17 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+
+.ym-tabbar {
+  position: relative;
+  display: flex;
+  height: 46px;
+  background-color: #fff;
+
+  &--fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}

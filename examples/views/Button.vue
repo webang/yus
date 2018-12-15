@@ -144,7 +144,7 @@
 </template>
 
 <script>
-import Button from '@/components/button'
+import { Button } from 'ymu'
 export default {
   components: {
     Button

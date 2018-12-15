@@ -1,0 +1,31 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+
+@mixin progressTransition {
+  transition: all 400ms;
+}
+
+.ym-progress {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: $progress-bar-hegiht;
+  line-height: $progress-bar-hegiht;
+}
+
+.ym-progress__bar {
+  overflow: hidden;
+  position: relative;
+  flex: 1;
+  height: $progress-track-height;
+  background-color: $progress-bar-bg-color;
+}
+
+.ym-progress__track {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: $progress-track-bg-color;
+  @include progressTransition;
+}

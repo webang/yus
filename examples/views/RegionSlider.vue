@@ -52,8 +52,7 @@
 </template>
 
 <script type="text/javascript">
-import RegionSlider from '@/components/region-slider'
-
+import { RegionSlider } from 'ymu'
 export default {
   components: {
     RegionSlider

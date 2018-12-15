@@ -1,0 +1,11 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+
+.ym-checkbox-group {
+  .ym-checkbox-cell:last-child {
+    &::after {
+      display: none;
+    }
+  }
+}

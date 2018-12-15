@@ -5,8 +5,7 @@
 </template>
 
 <script>
-import Icon from '@/components/icon'
-console.log(Icon)
+import { Icon } from 'ymu'
 
 export default {
   components: {

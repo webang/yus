@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import NoticeBar from '@/components/notice-bar'
+import { NoticeBar } from 'ymu'
 export default {
   components: {
     NoticeBar

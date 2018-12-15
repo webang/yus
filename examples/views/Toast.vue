@@ -49,10 +49,7 @@
 </template>
 
 <script>
-import Toast from '@/components/toast'
-import Cell from '@/components/cell'
-import CellGroup from '@/components/cell-group'
-import Button from '@/components/button'
+import { Toast, Cell, CellGroup, Button } from 'ymu'
 
 export default {
   components: {

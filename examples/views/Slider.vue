@@ -69,7 +69,7 @@
 </template>
 
 <script type="text/javascript">
-import Slider from '@/components/slider'
+import { Slider } from 'ymu'
 export default {
   components: {
     Slider

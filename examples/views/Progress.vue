@@ -48,11 +48,7 @@
 </template>
 
 <script type="text/javascript">
-import wSwitch from '@/components/switch'
-import Cell from '@/components/cell'
-import CellGroup from '@/components/cell-group'
-import Progress from '@/components/progress'
-import Button from '@/components/button'
+import { Progress, Cell, CellGroup, Button, Switch as wSwitch } from 'ymu'
 export default {
   components: {
     wSwitch,

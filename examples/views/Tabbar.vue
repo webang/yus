@@ -133,8 +133,7 @@
 </template>
 
 <script>
-import Tabbar from '@/components/tabbar'
-import TabbarItem from '@/components/tabbar-item'
+import { Tabbar, TabbarItem } from 'ymu'
 export default {
   components: {
     Tabbar,

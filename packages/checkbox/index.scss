@@ -1,0 +1,100 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+
+.ym-checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.ym-checkbox__input {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.ym-checkbox__control {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+}
+
+.ym-checkbox__icon {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: $checkbox-icon-font-size;
+  color:  $checkbox-default-icon-color;
+}
+
+.ym-checkbox__label {
+  display: inline-block;
+  margin-left: $checkbox-label-margin-left;
+  font-size: $checkbox-label-font-size;
+}
+
+.ym-checkbox--disabled {
+  opacity: .5;
+}
+
+.ym-checkbox--checked {
+  .ym-checkbox__icon {
+    color: $checkbox-checked-icon-color;
+  }
+}
+
+.ym-radio--disabled {
+  .icon-radio-outline,
+  .icon-radio-fill {
+    opacity: $checkbox-disabled-opacity;
+  }
+}
+
+.ym-checkbox--label-left {
+  flex-direction: row-reverse;
+  .ym-checkbox__label {
+    margin-left: 0;
+  }
+  .ym-checkbox__input {
+    margin-left: $checkbox-label-margin-left;
+  }
+}
+
+.ym-checkbox--cell {
+  display: flex;
+  justify-content: space-between;
+  padding: $checkbox-cell-vertical-padding $checkbox-cell-horizontal-padding;
+  line-height: $checkbox-cell-line-height;
+  background: $checkbox-cell-bg-color;
+  &::after {
+    content: ' ';
+    position: absolute;
+    pointer-events: none;
+    box-sizing: border-box;
+    left: 12px;
+    right: 0;
+    bottom: 0;
+    transform: scaleY(0.5);
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+.ym-checkbox--clickable:active {
+  background: $click-active-bg-color;
+}
+
+$checkbox-default-icon-color: #969799;
+$checkbox-checked-icon-color: $color-primary;
+$checkbox-disabled-opacity: 0.5;
+$checkbox-label-font-size: 16px;
+$checkbox-label-line-height: 24px;
+$checkbox-label-margin-left: 8px;
+$checkbox-icon-font-size: 22px;

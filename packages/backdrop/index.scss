@@ -1,0 +1,23 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+
+.ym-backdrop {
+  z-index: $backdrop-zindex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: $backdrop-bg;
+}
+
+.ym-backdrop-enter,
+.ym-backdrop-leave-active {
+  opacity: 0;
+}
+
+.ym-backdrop-leave-active,
+.ym-backdrop-enter-active {
+  transition: opacity 300ms;
+}

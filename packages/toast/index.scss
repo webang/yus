@@ -1,0 +1,62 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+
+.ym-toast {
+  z-index: 10000;
+  position: fixed;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: $toast-padding;
+  font-size: $toast-font-size;
+  line-height: $toast-line-heigth;
+  color: $toast-font-color;
+  background-color: $toast-bg-color;
+  border-radius: $toast-border-radius;
+  .ymuicon {
+    font-size: $toast-icon-font-size;
+  }
+}
+
+.ym-toast--middle {
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  &-enter-active,
+  &-leave-active {
+    transition: all $toast-middle-type-speed ease;
+  }
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+
+.ym-toast--top {
+  top: 0;
+  transform: translate3d(-50%, 10px, 0);
+  &-enter-active,
+  &-leave-active {
+    transition: all $toast-speed;
+  }
+  &-enter,
+  &-leave-to {
+    transform: translate3d(-50%, -110%, 0);
+  }
+}
+
+.ym-toast--bottom {
+  bottom: 10px;
+  transform: translate3d(-50%, 0, 0);
+  &-enter-active,
+  &-leave-active {
+    transition: all $toast-speed;
+  }
+  &-enter,
+  &-leave-to {
+    bottom: 0;
+    transform: translate3d(-50%, 100%, 0);
+  }
+}

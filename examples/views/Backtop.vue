@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Backtop from '@/components/backtop';
+import { Backtop } from 'ymu'
 export default {
   components: {
     Backtop

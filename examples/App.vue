@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <Navbar v-if="$route.path !== '/'">{{ $route.meta.title }}</Navbar>
+    <NavBar v-if="$route.path !== '/'">{{ $route.meta.title }}</NavBar>
     <router-view/>
   </div>
 </template>
 
 <script>
-import Navbar from '@/components/navbar'
+import { NavBar } from 'ymu'
 
 export default {
   name: 'App',
   components: {
-    Navbar
+    NavBar
   }
 }
 </script>

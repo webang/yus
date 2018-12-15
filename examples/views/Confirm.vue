@@ -22,12 +22,7 @@
 </template>
 
 <script>
-import Alert from '@/components/alert'
-import Cell from '@/components/cell'
-import CellGroup from '@/components/cell-group'
-import Confirm from '@/components/confirm'
-import Toast from '@/components/toast'
-
+import { Alert, Cell, CellGroup, Confirm, Toast } from 'ymu'
 export default {
   components: {
     Alert,

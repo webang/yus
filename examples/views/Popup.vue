@@ -58,10 +58,7 @@
 </template>
 
 <script>
-import Popup from '@/components/popup'
-import Cell from '@/components/cell'
-import CellGroup from '@/components/cell-group'
-import XSwitch from '@/components/switch'
+import { Popup, Cell, CellGroup, Switch as XSwitch } from 'ymu'
 export default {
   components: {
     Cell,

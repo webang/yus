@@ -1,0 +1,9 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+
+.ym-marquee {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}

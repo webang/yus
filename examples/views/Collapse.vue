@@ -42,22 +42,9 @@
 </template>
 
 <script>
-import Toast from '@/components/toast'
-import Cell from '@/components/cell'
-import CellGroup from '@/components/cell-group'
-import Button from '@/components/button'
-import Field from '@/components/field'
-import Checkbox from '@/components/checkbox'
-import Collapse from '@/components/collapse'
-import CollapseItem from '@/components/collapse-item'
-
+import { Collapse, CollapseItem } from 'ymu'
 export default {
   components: {
-    Cell,
-    Field,
-    Button,
-    Checkbox,
-    CellGroup,
     Collapse,
     CollapseItem
   },

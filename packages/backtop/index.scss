@@ -1,0 +1,22 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+
+.ym-backtop {
+  position: fixed;
+  bottom: $backtop-position-bottom;
+  right: $backtop-position-right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  &__text {
+    font-size: $backtop-text-font-size;
+    color: $backtop-text-font-color;
+  }
+  &__icon {
+    font-size: $backtop-icon-font-size;
+    color: $backtop-icon-font-color;
+  }
+}

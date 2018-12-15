@@ -1,0 +1,60 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+
+@mixin full {
+  flex: 1;
+  height: 100%;
+}
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
+
+.ym-navbar {
+  position: relative;
+  display: flex;
+  height: $navbar-line-height;
+  line-height: $navbar-line-height;
+  background-color: #fff;
+}
+
+.ym-navbar-left,
+.ym-navbar-right {
+  @include flex;
+  @include full;
+}
+
+.ym-navbar-title {
+  justify-content: center;
+  font-size: $navbar-title-font-size;
+  text-align: center;
+}
+
+.ym-navbar-left {
+  padding-left: $navbar-herizontal-padding;
+  font-size: $navbar-font-size;
+  color: $navbar-left-arrow-color;
+}
+
+.ym-navbar-right {
+  justify-content: flex-end;
+  font-size: $navbar-font-size;
+  padding-right: $navbar-herizontal-padding;
+}
+
+.icon-left {
+  font-size: 26px;
+  margin-left: -10px;
+}
+
+.ym-navbar-button {
+  display: flex;
+  align-items: center;
+  padding: 0 $navbar-herizontal-padding;
+  margin: 0 -$navbar-herizontal-padding;
+  &:active {
+    background-color: $navbar-left-button-active-bg-color;
+  }
+}

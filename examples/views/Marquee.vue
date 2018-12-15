@@ -30,8 +30,7 @@
 </template>
 
 <script>
-import Marquee from '@/components/marquee'
-import MarqueeItem from '@/components/marquee-item'
+import { Marquee, MarqueeItem } from 'ymu'
 export default {
   components: {
     Marquee,

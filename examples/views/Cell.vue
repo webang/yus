@@ -83,8 +83,7 @@
 </template>
 
 <script>
-import Cell from '@/components/cell'
-import CellGroup from '@/components/cell-group'
+import { Cell, CellGroup } from 'ymu'
 export default {
   components: {
     Cell,

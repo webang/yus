@@ -52,9 +52,8 @@
 </template>
 
 <script>
-import Cell from '@/components/cell'
-import CellGroup from '@/components/cell-group'
-import Actionsheet from '@/components/actionsheet'
+import { Cell, CellGroup, Actionsheet } from 'ymu'
+
 export default {
   components: {
     Cell,
