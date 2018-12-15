@@ -20,4 +20,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./cell-group.scss"></style>
+<style lang="scss" src="./index.scss"></style>

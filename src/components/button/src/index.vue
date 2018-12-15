@@ -85,4 +85,4 @@ export default {
 }
 </script>
 
-<style src="./button.scss" lang="scss"></style>
+<style src="./index.scss" lang="scss"></style>

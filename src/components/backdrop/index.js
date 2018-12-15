@@ -1,4 +1,4 @@
-import Backdrop from './src/backdrop.vue'
+import Backdrop from './src/index.vue'
 
 Backdrop.install = (Vue) => {
   Vue.component(Backdrop.name, Backdrop)

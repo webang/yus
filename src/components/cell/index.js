@@ -1,4 +1,4 @@
-import Cell from './src/cell.vue'
+import Cell from './src/index.vue'
 
 Cell.install = (Vue) => {
   Vue.component(Cell.name, Cell)

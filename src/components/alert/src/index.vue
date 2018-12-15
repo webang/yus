@@ -71,4 +71,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./alert.scss"></style>
+<style lang="scss" src="./index.scss"></style>

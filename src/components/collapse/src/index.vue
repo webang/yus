@@ -13,4 +13,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./collapse.scss"></style>
+<style lang="scss" src="./index.scss"></style>

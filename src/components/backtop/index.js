@@ -1,4 +1,4 @@
-import Backtop from './src/backtop.vue'
+import Backtop from './src/index.vue'
 
 Backtop.install = (Vue) => {
   Vue.component(Backtop.name, Backtop)

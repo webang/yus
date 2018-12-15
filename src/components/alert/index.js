@@ -1,4 +1,4 @@
-import Alert from './src/alert.vue'
+import Alert from './src/index.vue'
 
 Alert.install = (Vue) => {
   Vue.component(Alert.name, Alert)

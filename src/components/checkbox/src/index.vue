@@ -117,4 +117,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./checkbox.scss"></style>
+<style lang="scss" src="./index.scss"></style>
