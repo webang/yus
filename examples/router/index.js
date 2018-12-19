@@ -24,6 +24,7 @@ const Confirm = () => import('../views/Confirm')
 const Backtop = () => import('../views/Backtop')
 const Collapse = () => import('../views/Collapse')
 const Icon = () => import('../views/Icon')
+const Badge = () => import('../views/Badge')
 
 Vue.use(Router)
 
@@ -35,6 +36,14 @@ export default new Router({
       component: Welcome,
       meta: {
         title: 'ym'
+      }
+    },
+    {
+      path: '/Badge',
+      name: 'Badge',
+      component: Badge,
+      meta: {
+        title: 'Badge 徽章'
       }
     },
     {
@@ -214,4 +223,4 @@ export default new Router({
       }
     }
   ]
-})
+});

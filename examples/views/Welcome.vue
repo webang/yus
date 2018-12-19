@@ -5,6 +5,7 @@
       <div class="ym-doc-block__content">
         <CellGroup>
           <Cell label="Button 按钮" is-link to="/Button"></Cell>
+          <Cell label="Badge 徽章" is-link to="/Badge"></Cell>
           <Cell label="Cell 单元格" is-link to="/Cell"></Cell>
           <Cell label="Flow 步骤条" is-link to="/Flow"></Cell>
           <Cell label="Progress 进度条" is-link to="/Progress"></Cell>
