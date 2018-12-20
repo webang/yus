@@ -1,3 +1,15 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+
+.ym-confirm__input {
+  height: 36px;
+  padding: 4px 6px;
+  outline: 0;
+  font-size: 14px;
+  line-height: 20px;
+  appearance: none;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid $border-color;
+}

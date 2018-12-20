@@ -1,25 +1,32 @@
 <template>
   <div class="ym-confirm">
-    <Ydialog v-model="visible" @on-click-backdrop="OnClickBackdrop">
+    <Ydialog v-model="value" @on-click-backdrop="OnClickBackdrop">
       <div class="ym-dialog__hd" v-if="title || $slots.title">
         <slot name="title">
           <span class="ym-dialog__title">{{ title }}</span>
         </slot>
       </div>
       <div class="ym-dialog__bd">
-        <slot>
-          <div v-html="content"></div>
-        </slot>
+        <template v-if="showInput">
+          <input type="text" class="ym-confirm__input" :placeholder="placeholder" v-model="currentInputValue">
+        </template>
+        <template v-else>
+          <slot>
+            <div v-html="content"></div>
+          </slot>
+        </template>
       </div>
       <div class="ym-dialog__ft">
         <slot name="footer">
           <a
             class="ym-dialog__btn ym-dialog__btn--clickable"
             @click="onCancleClick"
+            v-if="showCancel"
             v-text="cancelText"></a>
           <a
             class="ym-dialog__btn ym-dialog__btn--primary ym-dialog__btn--clickable"
             @click="onConfirmClick"
+            v-if="showConfirm"
             v-text="confirmText"></a>
         </slot>
       </div>
@@ -41,6 +48,8 @@ export default {
     value: Boolean,
     title: String,
     content: String,
+    showInput: Boolean,
+    placeholder: String,
     confirmText: {
       type: String,
       default: '确定'
@@ -52,19 +61,31 @@ export default {
     closeOnClickBackdrop: {
       type: Boolean,
       default: true
+    },
+    showCancel: {
+      type: Boolean,
+      default: true
+    },
+    showConfirm: {
+      type: Boolean,
+      default: true      
+    },
+    inputValue: {
+      type: [String, Number],
+      default: ''
     }
   },
   data () {
     return {
-      visible: false
+      currentInputValue: ''
     }
   },
   watch: {
-    value (val) {
-      this.visible = val
+    inputValue (val) {
+      this.currentInputValue = val
     },
-    visible (val) {
-      this.$emit('input', val)
+    currentInputValue (val) {
+      this.$emit('on-input-change', val)
     }
   },
   methods: {
@@ -73,7 +94,7 @@ export default {
       this.$emit('on-click-backdrop')
     },
     hide () {
-      this.visible = false
+      this.$emit('input', false)
     },
     onCancleClick () {
       this.$emit('on-cancel')
@@ -83,7 +104,9 @@ export default {
     }
   },
   created () {
-    this.visible = !!this.value
+    if (typeof this.inputValue !== 'undefined') {
+      this.currentInputValue = this.inputValue
+    }
   }
 }
 </script>

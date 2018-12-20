@@ -25,6 +25,11 @@ Vue.use(Confirm)
 | closeOnClickBackdrop | 点击幕布时关闭弹窗 | Boolean | - | true | - |
 | dialogTransition | 弹窗动画效果 | String | - | ym-dialog | - |
 | backdropTransition | 幕布动画效果 | String | - | ym-backdrop | - |
+| showInput | 显示输入框 | Boolean | - | - | - |
+| placeholder | 输入框提示 | String | - | - | - |
+| showCancel | 显示取消按钮 | Boolean | - | true | - |
+| showConfirm | 显示确认按钮 | Boolean | - | true | - |
+| inputValue | 输入框绑定 | String, Number | - | - | - |
 
 
 ## Slots
