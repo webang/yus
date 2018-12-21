@@ -39,6 +39,14 @@ export default new Router({
       }
     },
     {
+      path: '/Canlender',
+      name: 'Canlender',
+      component: () => import('../views/Canlender.vue'),
+      meta: {
+        title: 'Canlender 日历'
+      }
+    },
+    {
       path: '/Badge',
       name: 'Badge',
       component: Badge,

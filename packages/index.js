@@ -30,6 +30,7 @@ import CollapseItem from './collapse-item'
 import RadioGroup from './radio-group'
 import CheckboxGroup from './checkbox-group'
 import Badge from './badge'
+import Canlender from './Canlender'
 
 // Plugins
 import Toast from './toast'
@@ -66,5 +67,6 @@ export {
   RadioGroup,
   CheckboxGroup,
   Badge,
+  Canlender,
   Toast
 }

@@ -30,6 +30,7 @@
       <div class="ym-doc-block__title">表单组件</div>
       <div class="ym-doc-block__content">
         <CellGroup>
+          <Cell label="Canlender 日历" is-link to="/Canlender"></Cell>
           <Cell label="Checkbox 复选框" is-link to="/Checkbox"></Cell>
           <Cell label="Field 输入框" is-link to="/Field"></Cell>
           <Cell label="Radio 单选框" is-link to="/Radio"></Cell>
