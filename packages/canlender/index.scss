@@ -10,3 +10,15 @@
     // text-align: center;
   }
 }
+
+.ym-canlender {
+  &__row {
+    display: flex;
+    align-items: center;
+  }
+  &__col {
+    flex: 1;
+    line-height: 30px;
+    text-align: center;
+  }
+}

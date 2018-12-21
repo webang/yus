@@ -1,9 +1,7 @@
 <template>
   <div class="page-canlender">
     <Backdrop v-model="backdropVisible"></Backdrop>
-    <div>
-      <Canlender class="ym-canlender"></Canlender>
-    </div>
+    <Canlender class="ym-canlender"></Canlender>
   </div>
 </template>
 

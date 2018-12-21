@@ -5,7 +5,7 @@
   "author": "gaollard@foxmail.com",
   "private": false,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --host 0.0.0.0",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --host 0.0.0.0 --watch",
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
@@ -55,7 +55,7 @@
     "jest-serializer-vue": "^0.3.0",
     "nightwatch": "^0.9.12",
     "node-notifier": "^5.1.2",
-    "node-sass": "^4.9.4",
+    "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
     "portfinder": "^1.0.13",
