@@ -1,24 +1,39 @@
 .ym-canlender__bd {
   font-size: 14px;
-  table {
-    width: 100%;
-    text-align: center;
-    border-collapse: collapse;
-  }
-  td {
-    line-height: 24px;
-    // text-align: center;
-  }
 }
 
 .ym-canlender {
+  &__hd {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 44px;
+    > div {
+      flex: 1;
+      text-align: center;
+    }
+  }
   &__row {
     display: flex;
     align-items: center;
   }
   &__col {
     flex: 1;
+    font-size: 12px;
     line-height: 30px;
     text-align: center;
+  }
+  .is-selected {
+    span {
+      display: block;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      border-radius: 50%;
+      margin: 0 auto;
+      background: #108ee9;
+      color: #fff;
+      font-size: 14px;
+    }
   }
 }

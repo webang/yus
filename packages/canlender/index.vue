@@ -1,103 +1,185 @@
 <template>
   <div class="ym-canlender">
     <div class="ym-canlender__hd">
-      <div class="ym-canlender__year"></div>
-      <div class="ym-canlender__month"></div>
+      <div class="ym-canlender__year">
+        <span @click="onClickPrevYear">&lt;</span>
+        <span v-text="showYear"></span>
+        <span @click="onClickNextYear">&gt;</span>
+      </div>
+      <div class="ym-canlender__month">
+        <span @click="onClickPrevMonth">&lt;</span>
+        <span v-text="showMonth"></span>
+        <span @click="onClickNextMonth">&gt;</span>
+      </div>
     </div>
     <div class="ym-canlender__bd">
       <div class="ym-canlender__row">
         <div class="ym-canlender__col" v-for="item in dayMaps" :key="item" v-text="item"></div>
       </div>
-      <div class="ym-canlender__row" v-for="item in dayRows" :key="item">
-        <div class="ym-canlender__col" v-for="(item, index) in dayMaps" :key="index" v-text="index"></div>
+      <div class="ym-canlender__row" v-for="(row, rowIndex) in dateRows" :key="rowIndex">
+        <div
+          class="ym-canlender__col"
+          v-for="(dateItem, dateIndex) in dayMaps"
+          :key="dateIndex"
+          :class="[{
+            'is-selected': isSelected(dateList[rowIndex*7+dateIndex])
+          }]"
+          @click="onClickDate(dateList[rowIndex*7+dateIndex])"
+        >
+          <template v-if="dateList[rowIndex*7+dateIndex] && dateList[rowIndex*7+dateIndex].type==='current'">
+            <span>{{ dateList[rowIndex*7+dateIndex].date }}</span>
+          </template>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { addZero2SingleNum } from '../../src/utils/utils'
 const dayMaps = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
-console.log(dayMaps)
+const dateReg = /^(\d{4})\-(\d{1,2})\-(\d{1,2})$/
+
 export default {
   data () {
     return {
       dayMaps: dayMaps,
-      currentDate: '', //当天的日期
-      currentvalue: '', // 当前选择的值
-      monthDays: 0, // 当月的天数
-      year: 0,
-      month: 0,
-      monthDateList: []
+      showYear: 0,
+      showMonth: 0,
+      curMonthShowDateList: [], // 当前选择的月份对应的日期列表
+      prevShowDateList: [] // 左补全
     }
   },
   props: {
     value: [String], // 字符串为标准时间(2018-12-12)
+    useFormatNum: {
+      type: Boolean,
+      default: true
+    }
     // date: [String, Number] // 字符串为标准时间(2018-12-12), Number为时间戳
   },
   computed: {
-    dayRows () {
-      return parseInt(this.currentMonthDays / 7)
-    },
-    currentDateObj () {
-      const dateObj = new Date()
+    curDateObj () {
+      const dateObj = new Date();
       return {
+        year: dateObj.getUTCFullYear(),
+        month: dateObj.getMonth() + 1,
+        date: dateObj.getDate()
       }
+    },
+    isToday (year, month, date) {
+      const curDateObj = this.curDateObj
+      return year === curDateObj.year && month === curDateObj.month & date === curDateObj.date
+    },
+    dateList () {
+      return this.prevShowDateList.concat(this.curMonthShowDateList)
+    },
+    dateRows () {
+      return Math.ceil(this.dateList.length / 7)
     }
   },
   methods: {
-    getCurrentClientDate () {
-      const dateObj = new Date()
-      const year = dateObj.getUTCFullYear()
-      const month = dateObj.getMonth()
-      const date = dateObj.getDate()
+    onClickNextMonth () {
+      let year = this.showYear
+      let month = this.showMonth + 1
+      if (month > 12) {
+        month = 1
+        year++
+      }
+      this.getShowDateList(year, month)
+    },
+    onClickPrevMonth () {
+      let year = this.showYear
+      let month = this.showMonth - 1
+      if (month < 1) {
+        month = 12
+        year--
+      }
+      this.getShowDateList(year, month)
+    },
+    onClickNextYear () {
+      let year = this.showYear + 1
+      this.getShowDateList(year, this.showMonth)
+    },
+    onClickPrevYear () {
+      let year = this.showYear - 1
+      this.getShowDateList(year, this.showMonth)
+    },
+    onClickDate (date) {
+      if (date) {
+        const formatDate = `${date.year}-${addZero2SingleNum(date.month)}-${addZero2SingleNum(date.date)}`
+        this.$emit('input', formatDate)
+      }
+    },
+    isSelected (date) {
+      if (!this.value) return false
+      if (date && date.type === 'current') {
+        const result = dateReg.exec(this.value)
+        return +result[1] === date.year && +result[2] === date.month && +result[3] === date.date
+        // return `${date.year}-${date.month}-${date.date}` === this.value
+      }
+    },
+    getShowDateList (year, month, date) {
+      /**
+       * 获取当前月份的天数
+       */
+      const stamp = new Date().setFullYear(year, month, 0)
+      const days = new Date(stamp).getDate()
 
-      this.year = year
-      this.month = month
-
-      const stamp = new Date().setFullYear(year, month + 1, 0) //当前月份最后一刻
-      const monthDays = new Date(stamp).getDate() // 当前月份的天数
-      
-      const currentMonthFirstDateObj = new Date(new Date().setFullYear(year, month, 1)) // 当前月份的第一天
-      const currentMonthFirstDateDay = currentMonthFirstDateObj.getDay() // 当前月份的第一天是星期几
-
-      const monthDateList = []
-      for (let index = 1; index++; index < monthDays) {
-        monthDateList.push({
-          name: index
+      /**
+       * 创建当前选择月份对应的日前列表
+       */
+      const curMonthShowDateList = []
+      for (let index = 1; index < days; index ++) {
+        curMonthShowDateList.push({
+          year: year,
+          month: month,
+          date: index,
+          type: 'current'
         })
       }
 
-      const prevMonthDateList = []
-      for (let index = 1; index < currentMonthFirstDateDay; index++) {
-        prevMonthDateList.push()
+      /**
+       * 1. 获取当前月份第一天是星期几
+       * 2. 左侧补全数据
+       */
+      const curMonthFirstDay = new Date(new Date().setFullYear(year, month - 1, 1)).getDay()
+      const prevShowDateList = []
+      for (let index = 0; index < curMonthFirstDay; index++) {
+        prevShowDateList.push({
+          type: 'prev'
+        })
       }
 
-      this.monthDays = monthDays
-      this.monthDateList = monthDateList
-      this.prevMonthDateList = prevMonthDateList
+      /**
+       * 右侧补全数据
+       */
+      console.log(prevShowDateList)
+
+      this.showYear = year
+      this.showMonth = month
+      this.prevShowDateList = prevShowDateList
+      this.curMonthShowDateList = curMonthShowDateList
     }
   },
   mounted () {
-    this.getCurrentClientDate()
+    if (this.value) {
+      /**
+       * @example 2018-12-12
+       * @note 这里的month为 1-12
+       */
+      const result = dateReg.exec(this.value)
+      if (!result) {
+        throw 'value is not a valid date format'
+      } else {
+        this.getShowDateList(+result[1], +result[2], +result[3])
+      }
+    } else {
+      const { year, month, date } = this.curDateObj
+      this.getShowDateList(year, month, date)
+    }
   }
 }
 </script>
 
-<style lang="scss">
-.ym-canlender__bd {
-  // font-size: 14px;
-}
-
-.ym-canlender {
-  &__row {
-    display: flex;
-    align-items: center;
-  }
-  &__col {
-    flex: 1;
-    font-size: 12px;
-    line-height: 30px;
-    text-align: center;
-  }
-}
-</style>
+<style lang="scss" src="./index.scss"></style>

@@ -1,27 +1,28 @@
 <template>
   <div class="page-canlender">
-    <Backdrop v-model="backdropVisible"></Backdrop>
-    <Canlender class="ym-canlender"></Canlender>
+    <Backdrop v-model="backdropVisible" @click="backdropVisible=false"></Backdrop>
+    <Cell label="选择日期" is-link>
+      <div slot="value" @click="backdropVisible=true">
+        <span v-if="dateValue" v-text="dateValue"></span>
+        <span v-else>选择日期</span>
+      </div>
+    </Cell>
+    <Canlender class="ym-canlender" v-if="backdropVisible" v-model="dateValue"></Canlender>
   </div>
 </template>
 
 <script>
-import { Canlender, Backdrop } from 'ymu'
-
+import { Canlender, Backdrop, Cell } from 'ymu'
 export default {
   components: {
+    Cell,
     Backdrop,
     Canlender
   },
   data () {
     return {
-      list: [],
-      backdropVisible: true
-    }
-  },
-  created () {
-    for (let index = 0; index < 50; index++) {
-      this.list.push(index);
+      dateValue: '2017-01-1',
+      backdropVisible: false
     }
   }
 }
