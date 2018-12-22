@@ -40,11 +40,11 @@ export default new Router({
       }
     },
     {
-      path: '/Canlender',
-      name: 'Canlender',
-      component: () => import('../views/Canlender.vue'),
+      path: '/Calender',
+      name: 'Calender',
+      component: () => import('../views/Calender.vue'),
       meta: {
-        title: 'Canlender 日历'
+        title: 'Calender 日历'
       }
     },
     {

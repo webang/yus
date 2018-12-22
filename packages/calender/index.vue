@@ -1,24 +1,24 @@
 <template>
-  <div class="ym-canlender">
-    <div class="ym-canlender__hd">
-      <div class="ym-canlender__year">
+  <div class="ym-calender">
+    <div class="ym-calender__hd">
+      <div class="ym-calender__year">
         <span @click="onClickPrevYear">&lt;</span>
         <span v-text="showYear"></span>
         <span @click="onClickNextYear">&gt;</span>
       </div>
-      <div class="ym-canlender__month">
+      <div class="ym-calender__month">
         <span @click="onClickPrevMonth">&lt;</span>
         <span v-text="showMonth"></span>
         <span @click="onClickNextMonth">&gt;</span>
       </div>
     </div>
-    <div class="ym-canlender__bd">
-      <div class="ym-canlender__row">
-        <div class="ym-canlender__col" v-for="item in dayMaps" :key="item" v-text="item"></div>
+    <div class="ym-calender__bd">
+      <div class="ym-calender__row">
+        <div class="ym-calender__col" v-for="item in dayMaps" :key="item" v-text="item"></div>
       </div>
-      <div class="ym-canlender__row" v-for="(row, rowIndex) in dateRows" :key="rowIndex">
+      <div class="ym-calender__row" v-for="(row, rowIndex) in dateRows" :key="rowIndex">
         <div
-          class="ym-canlender__col"
+          class="ym-calender__col"
           v-for="(dateItem, dateIndex) in dayMaps"
           :key="dateIndex"
           :class="[{
@@ -51,7 +51,7 @@ export default {
     }
   },
   props: {
-    value: [String], // 字符串为标准时间(2018-12-12)
+    value: [String, Array], // 字符串为标准时间(2018-12-12)
     useFormatNum: {
       type: Boolean,
       default: true
@@ -106,17 +106,39 @@ export default {
       this.getShowDateList(year, this.showMonth)
     },
     onClickDate (date) {
-      if (date) {
-        const formatDate = `${date.year}-${addZero2SingleNum(date.month)}-${addZero2SingleNum(date.date)}`
-        this.$emit('input', formatDate)
+      if (!date) return
+      const formatDate = `${date.year}-${addZero2SingleNum(date.month)}-${addZero2SingleNum(date.date)}`
+      console.log(formatDate)
+
+
+      if (typeof this.value === 'string') {
+        this.$emit('input', formatDate) 
+      } else {
+        const index = this.value.indexOf(formatDate)
+        if (index === -1) {
+          this.$emit('input', this.value.concat(formatDate))
+        } else {
+          const copyList = this.value.slice()
+          copyList.splice(index, 1)
+          this.$emit('input', copyList)
+        }
       }
     },
     isSelected (date) {
       if (!this.value) return false
       if (date && date.type === 'current') {
-        const result = dateReg.exec(this.value)
-        return +result[1] === date.year && +result[2] === date.month && +result[3] === date.date
-        // return `${date.year}-${date.month}-${date.date}` === this.value
+        if (typeof this.value === 'string') {
+          const result = dateReg.exec(this.value)
+          return +result[1] === date.year && +result[2] === date.month && +result[3] === date.date
+        } else if (Array.isArray(this.value)) {
+          for (let index = 0; index < this.value.length; index++) {
+            const result = dateReg.exec(this.value[index])
+            if (+result[1] === date.year && +result[2] === date.month && +result[3] === date.date) {
+              return true
+              break
+            }
+          }
+        }
       }
     },
     getShowDateList (year, month, date) {
@@ -169,6 +191,7 @@ export default {
        * @note 这里的month为 1-12
        */
       const result = dateReg.exec(this.value)
+      console.log(result)
       if (!result) {
         throw 'value is not a valid date format'
       } else {

@@ -1,5 +1,5 @@
 <template>
-  <div class="page-canlender">
+  <div class="page-calender">
     <Backdrop v-model="backdropVisible" @click="backdropVisible=false"></Backdrop>
     <Cell label="选择日期" is-link>
       <div slot="value" @click="backdropVisible=true">
@@ -7,22 +7,31 @@
         <span v-else>选择日期</span>
       </div>
     </Cell>
-    <Canlender class="ym-canlender" v-if="backdropVisible" v-model="dateValue"></Canlender>
+    <Cell label="选择日期" is-link>
+      <div slot="value" @click="backdropVisible2=true">
+        <span v-if="dateValue2.length" v-text="dateValue2"></span>
+        <span v-else>选择日期</span>
+      </div>
+    </Cell>
+    <calender class="ym-calender" v-if="backdropVisible" v-model="dateValue"></calender>
+    <calender class="ym-calender" v-if="backdropVisible2" v-model="dateValue2"></calender>
   </div>
 </template>
 
 <script>
-import { Canlender, Backdrop, Cell } from 'ymu'
+import { Calender, Backdrop, Cell } from 'ymu'
 export default {
   components: {
     Cell,
     Backdrop,
-    Canlender
+    Calender
   },
   data () {
     return {
       dateValue: '2017-01-1',
-      backdropVisible: false
+      backdropVisible: false,
+      dateValue2: ['2018-12-12'],
+      backdropVisible2: false
     }
   }
 }
@@ -39,7 +48,7 @@ li {
   color: #666;
 }
 
-.ym-canlender {
+.ym-calender {
   z-index: 1000;
   position: fixed;
   background: #fff;
