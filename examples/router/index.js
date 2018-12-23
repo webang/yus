@@ -48,6 +48,14 @@ export default new Router({
       }
     },
     {
+      path: '/Clocker',
+      name: 'Clocker',
+      component: () => import('../views/Clocker.vue'),
+      meta: {
+        title: 'Clocker 时钟'
+      }
+    },   
+    {
       path: '/Badge',
       name: 'Badge',
       component: Badge,

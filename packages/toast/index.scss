@@ -6,14 +6,12 @@
   z-index: 10000;
   position: fixed;
   left: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: table;
   padding: $toast-padding;
   font-size: $toast-font-size;
   line-height: $toast-line-heigth;
   color: $toast-font-color;
+  text-align: center;
   background-color: $toast-bg-color;
   border-radius: $toast-border-radius;
   .ymuicon {

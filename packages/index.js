@@ -31,6 +31,7 @@ import RadioGroup from './radio-group'
 import CheckboxGroup from './checkbox-group'
 import Badge from './badge'
 import Calender from './calender'
+import Clocker from './clocker'
 
 // Plugins
 import Toast from './toast'
@@ -68,5 +69,6 @@ export {
   CheckboxGroup,
   Badge,
   Calender,
+  Clocker,
   Toast
 }
