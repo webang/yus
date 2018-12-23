@@ -1,2 +1,0 @@
-webpackJsonp([4],{"88aH":function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var r={components:{Icon:t("gGbG").r}},s={render:function(){var e=this.$createElement,n=this._self._c||e;return n("div",{staticClass:"view-icon"},[n("Icon",{attrs:{name:"ios-alert"}})],1)},staticRenderFns:[]};var c=t("VU/8")(r,s,!1,function(e){t("dr7Q")},null,null);n.default=c.exports},dr7Q:function(e,n){}});
-//# sourceMappingURL=4.a9ed41096fae41600c92.js.map
