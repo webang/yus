@@ -10,7 +10,16 @@
     height: 44px;
     > div {
       flex: 1;
+      display: flex;
+      height: 100%;
+      padding: 0 12px;
+      justify-content: space-between;
+      align-items: center;
       text-align: center;
+    }
+    .ymuicon {
+      font-size: 24px;
+      color: #666;
     }
   }
   &__row {
@@ -35,5 +44,8 @@
       color: #fff;
       font-size: 14px;
     }
+  }
+  .is-disabled {
+    color: #ccc;
   }
 }

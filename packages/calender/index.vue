@@ -1,62 +1,93 @@
 <template>
-  <div class="ym-calender">
-    <div class="ym-calender__hd">
-      <div class="ym-calender__year">
-        <span @click="onClickPrevYear">&lt;</span>
-        <span v-text="showYear"></span>
-        <span @click="onClickNextYear">&gt;</span>
-      </div>
-      <div class="ym-calender__month">
-        <span @click="onClickPrevMonth">&lt;</span>
-        <span v-text="showMonth"></span>
-        <span @click="onClickNextMonth">&gt;</span>
-      </div>
-    </div>
-    <div class="ym-calender__bd">
-      <div class="ym-calender__row">
-        <div class="ym-calender__col" v-for="item in dayMaps" :key="item" v-text="item"></div>
-      </div>
-      <div class="ym-calender__row" v-for="(row, rowIndex) in dateRows" :key="rowIndex">
-        <div
-          class="ym-calender__col"
-          v-for="(dateItem, dateIndex) in dayMaps"
-          :key="dateIndex"
-          :class="[{
-            'is-selected': isSelected(dateList[rowIndex*7+dateIndex])
-          }]"
-          @click="onClickDate(dateList[rowIndex*7+dateIndex])"
-        >
-          <template v-if="dateList[rowIndex*7+dateIndex] && dateList[rowIndex*7+dateIndex].type==='current'">
-            <span>{{ dateList[rowIndex*7+dateIndex].date }}</span>
-          </template>
+  <div class="v-dom">
+    <Popup v-model="visible" :close-on-click-backdrop="false" @on-click-backdrop="onClickBackdrop">
+      <div class="ym-calender">
+        <div class="ym-calender__hd">
+          <div class="ym-calender__year">
+            <i @click="onClickPrevYear" class="ymuicon ios-arrow-back"></i>
+            <span v-text="showYear"></span>
+            <i @click="onClickNextYear" class="ymuicon ios-arrow-forward"></i>
+          </div>
+          <div class="ym-calender__month">
+            <i @click="onClickPrevMonth" class="ymuicon ios-arrow-back"></i>
+            <span>{{ addZero2SingleNum(showMonth) }}</span>
+            <i @click="onClickNextMonth" class="ymuicon ios-arrow-forward"></i>
+          </div>
+        </div>
+        <div class="ym-calender__bd">
+          <div class="ym-calender__row">
+            <div class="ym-calender__col" v-for="item in dayMaps" :key="item" v-text="item"></div>
+          </div>
+          <div class="ym-calender__row" v-for="(row, rowIndex) in dateRows" :key="rowIndex">
+            <div
+              class="ym-calender__col"
+              v-for="(dateItem, dateIndex) in dayMaps"
+              :key="dateIndex"
+              :class="[{
+                'is-selected': isSelected(dateList[rowIndex*7+dateIndex]),
+                'is-disabled': disabledFn(dateList[rowIndex*7+dateIndex])
+              }]"
+              @click="onClickDate(dateList[rowIndex*7+dateIndex])"
+            >
+              <template v-if="dateList[rowIndex*7+dateIndex] && dateList[rowIndex*7+dateIndex].type==='current'">
+                <span>{{ dateList[rowIndex*7+dateIndex].date }}</span>
+              </template>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </Popup>
   </div>
 </template>
 
 <script>
+import Popup from '../popup'
+import Backdrop from '../backdrop'
 import { addZero2SingleNum } from '../../src/utils/utils'
 const dayMaps = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
 const dateReg = /^(\d{4})\-(\d{1,2})\-(\d{1,2})$/
 
 export default {
+  components: {
+    Popup,
+    Backdrop
+  },
   data () {
     return {
       dayMaps: dayMaps,
       showYear: 0,
       showMonth: 0,
       curMonthShowDateList: [], // 当前选择的月份对应的日期列表
-      prevShowDateList: [] // 左补全
+      prevShowDateList: [], // 左补全
+      nextShowDateList: [] // 右补全
     }
   },
   props: {
+    visible: {
+      type: Boolean,
+      default: false
+    },
     value: [String, Array], // 字符串为标准时间(2018-12-12)
     useFormatNum: {
       type: Boolean,
       default: true
+    },
+    disabledFn: {
+      type: Function,
+      default: () => {}
+    },
+    closeOnClickBackdrop: {
+      type: Boolean,
+      default: true
+    },
+    currentDate: [String, Number] // 字符串为标准时间(2018-12-12), Number为时间戳
+  },
+  watch: {
+    visible (val) {
+      if (val) {
+        this.initData()
+      }
     }
-    // date: [String, Number] // 字符串为标准时间(2018-12-12), Number为时间戳
   },
   computed: {
     curDateObj () {
@@ -79,6 +110,13 @@ export default {
     }
   },
   methods: {
+    addZero2SingleNum,
+    onClickBackdrop () {
+      if (this.closeOnClickBackdrop) {
+        // this.
+      }
+      this.$emit('on-click-backdrop')
+    },
     onClickNextMonth () {
       let year = this.showYear
       let month = this.showMonth + 1
@@ -107,19 +145,20 @@ export default {
     },
     onClickDate (date) {
       if (!date) return
-      const formatDate = `${date.year}-${addZero2SingleNum(date.month)}-${addZero2SingleNum(date.date)}`
-      console.log(formatDate)
+      // 禁用选项
+      if (this.disabledFn && this.disabledFn(date)) return
 
+      const formatDate = `${date.year}-${addZero2SingleNum(date.month)}-${addZero2SingleNum(date.date)}`
 
       if (typeof this.value === 'string') {
         this.$emit('input', formatDate) 
       } else {
         const index = this.value.indexOf(formatDate)
         if (index === -1) {
-          this.$emit('input', this.value.concat(formatDate))
+          this.$emit('input', this.value.concat(formatDate).sort())
         } else {
-          const copyList = this.value.slice()
-          copyList.splice(index, 1)
+          let copyList = this.value.slice()
+          copyList.splice(index, 1).sort()
           this.$emit('input', copyList)
         }
       }
@@ -152,12 +191,13 @@ export default {
        * 创建当前选择月份对应的日前列表
        */
       const curMonthShowDateList = []
-      for (let index = 1; index < days; index ++) {
+      for (let index = 0; index < days; index ++) {
         curMonthShowDateList.push({
           year: year,
           month: month,
-          date: index,
-          type: 'current'
+          date: index + 1,
+          type: 'current',
+          timestamp: new Date(new Date().setFullYear(year, month - 1, index + 1)).setHours(0, 0, 0, 0) / 1000
         })
       }
 
@@ -176,30 +216,60 @@ export default {
       /**
        * 右侧补全数据
        */
-      console.log(prevShowDateList)
+      const remain = 42 - curMonthShowDateList.length - prevShowDateList.length
+      const nextShowDateList = []
+      {
+        let curMonthLastDate = curMonthShowDateList[curMonthShowDateList.length - 1]
+        let stamp = new Date().setFullYear(curMonthLastDate.year, curMonthLastDate.month - 1, curMonthLastDate.date)
+        stamp = new Date(stamp).setHours(0, 0, 0, 0)
+        stamp += 24 * 3600 * 1000
+
+        let dateObj = new Date(stamp)
+        
+        const year = dateObj.getFullYear()
+        const month = dateObj.getMonth()
+        const date = dateObj.getDate()
+
+        for (let index = 0; index < remain; index++) {
+          nextShowDateList.push({
+            year: year,
+            month: month + 1,
+            date: index + 1
+          })
+        }
+      }
 
       this.showYear = year
       this.showMonth = month
       this.prevShowDateList = prevShowDateList
+      this.nextShowDateList = nextShowDateList
       this.curMonthShowDateList = curMonthShowDateList
+    },
+    initData () {
+      if (this.value) {
+        /**
+         * @example 2018-12-12
+         * @note 这里的month为 1-12
+         * @note 如果this.value是一个数组，那么取第一个
+         */
+        const value = (Array.isArray(this.value) && this.value.length) 
+          ? this.value[0] : this.value
+        const result = dateReg.exec(value)
+
+        if (!result) {
+          throw 'value is not a valid date format'
+        } else {
+          this.getShowDateList(+result[1], +result[2], +result[3])
+        }
+      } else {
+        const { year, month, date } = this.curDateObj
+        this.getShowDateList(year, month, date)
+      }
     }
   },
   mounted () {
-    if (this.value) {
-      /**
-       * @example 2018-12-12
-       * @note 这里的month为 1-12
-       */
-      const result = dateReg.exec(this.value)
-      console.log(result)
-      if (!result) {
-        throw 'value is not a valid date format'
-      } else {
-        this.getShowDateList(+result[1], +result[2], +result[3])
-      }
-    } else {
-      const { year, month, date } = this.curDateObj
-      this.getShowDateList(year, month, date)
+    if (this.visible) {
+      this.initData()
     }
   }
 }
