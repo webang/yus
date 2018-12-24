@@ -10,7 +10,7 @@
           </div>
           <div class="ym-calender__month">
             <i @click="onClickPrevMonth" class="ymuicon ios-arrow-back"></i>
-            <span>{{ addZero2SingleNum(showMonth) }}</span>
+            <span>{{ addZero(showMonth) }}</span>
             <i @click="onClickNextMonth" class="ymuicon ios-arrow-forward"></i>
           </div>
         </div>
@@ -43,7 +43,7 @@
 <script>
 import Popup from '../popup'
 import Backdrop from '../backdrop'
-import { addZero2SingleNum } from '../../src/utils/utils'
+import { addZero } from '../../src/utils/utils'
 const dayMaps = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
 const dateReg = /^(\d{4})\-(\d{1,2})\-(\d{1,2})$/
 
@@ -110,7 +110,7 @@ export default {
     }
   },
   methods: {
-    addZero2SingleNum,
+    addZero,
     onClickBackdrop () {
       if (this.closeOnClickBackdrop) {
         // this.
@@ -148,7 +148,7 @@ export default {
       // 禁用选项
       if (this.disabledFn && this.disabledFn(date)) return
 
-      const formatDate = `${date.year}-${addZero2SingleNum(date.month)}-${addZero2SingleNum(date.date)}`
+      const formatDate = `${date.year}-${addZero(date.month)}-${addZero(date.date)}`
 
       if (typeof this.value === 'string') {
         this.$emit('input', formatDate) 
