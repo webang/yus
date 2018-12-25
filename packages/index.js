@@ -33,6 +33,8 @@ import Badge from './badge'
 import Calender from './calender'
 import Clocker from './clocker'
 import Countdown from './countdown'
+import CountdownNum from './countdown-num'
+import CountdownDate from './countdown-date'
 
 // Plugins
 import Toast from './toast'
@@ -72,5 +74,7 @@ export {
   Calender,
   Clocker,
   Countdown,
+  CountdownNum,
+  CountdownDate,
   Toast
 }

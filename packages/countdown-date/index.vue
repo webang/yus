@@ -1,32 +1,20 @@
 <template>
-  <div class="ym-clocker">
-    <template v-if="isDateMode">
-      <slot
-        :remain="delta"
-        :is-counting="isCounting"
-        :is-end="isEnd"
-        :isNotStart="isNotStart"
-      >
-      <!-- {{ $slots }}
-        <span class="value">{{ countDownData.day }}</span>
-        <span class="label">天</span>
-        <span class="value">{{ countDownData.hour }}</span>
-        <span class="label">时</span>
-        <span class="value">{{ countDownData.minute }}</span>
-        <span class="label">分</span>
-        <span class="value">{{ countDownData.second }}</span>
-        <span class="label">秒</span> -->
-      </slot>
-    </template>
-    <template v-if="isNumMode">
-      <slot
-        :remain="delta"
-        :is-counting="isCounting"
-        :is-end="isEnd"
-      >
-        <span>{{ delta }}</span>
-      </slot>
-    </template>
+  <div class="ym-countdown-date">
+    <slot
+      :remain="remain"
+      :isCounting="isCounting"
+      :isEnd="isEnd"
+      :isNotStart="isNotStart"
+    >
+      <span class="value">{{ countDownData.day }}</span>
+      <span class="label">天</span>
+      <span class="value">{{ countDownData.hour }}</span>
+      <span class="label">时</span>
+      <span class="value">{{ countDownData.minute }}</span>
+      <span class="label">分</span>
+      <span class="value">{{ countDownData.second }}</span>
+      <span class="label">秒</span>
+    </slot>
   </div>
 </template>
 
@@ -37,7 +25,6 @@ import { dateRegExp, parseTimeStamp, parseCountDown } from '../../src/utils/util
  * @prop: time 设置当前客户端的时间，当这个时间是从服务端获取，这将很有用
  * @prop: startTime 开始时间
  * @prop: endTime 结束时间
- * @prop: mode 倒计时模式，可选值为 number, date
  */
 export default {
   name: "ym-clocker",
@@ -45,12 +32,6 @@ export default {
     time: [String, Number],
     startTime: Number,
     endTime: Number,
-    count: Number,
-    delay: Number,
-    mode: {
-      type: String,
-      default: 'date'
-    }
   },
   data() {
     return {
@@ -59,12 +40,6 @@ export default {
     };
   },
   computed: {
-    isNumMode () {
-      return this.mode === 'number'
-    },
-    isDateMode () {
-      return this.mode === 'date'
-    },
     currentTime () {
       let currentTime = 0
       let timeType = typeof this.time
@@ -102,8 +77,7 @@ export default {
       }
     },
     second () {
-      if (this.isDateMode) return parseInt(this.currentTime / 1000)
-      if (this.isNumMode) return +this.count
+      return parseInt(this.currentTime / 1000)
     },
     countDownData() {
       return parseCountDown(this.endTime - this.second - this.calculator)
@@ -111,35 +85,19 @@ export default {
     currentDate() {
       return parseTimeStamp(this.currentTime + this.calculator * 1000)
     },
-    delta () {
+    remain () {
       return this.second - this.calculator
     },
     isEnd () {
-      if (this.isNumMode) return this.calculator >= this.second
-      if (this.isDateMode) return this.currentTime >= this.currentEndTime + this.calculator
+      return this.currentTime >= this.currentEndTime + this.calculator
     },
     isCounting () {
-      if (this.isNumMode) return this.calculator > 0 && this.calculator < this.second
-      if (this.isDateMode) {
-        const conditionOne = this.currentTime > this.currentStartTime + this.calculator
-        const conditionTwo = this.currentTime + this.calculator < this.currentEndTime
-        return conditionOne && conditionTwo
-      }
+      const conditionOne = this.currentTime > this.currentStartTime + this.calculator
+      const conditionTwo = this.currentTime + this.calculator < this.currentEndTime
+      return conditionOne && conditionTwo
     },
-
-    /**
-     * userful only when mode = date
-     */
     isNotStart () {
-      return this.currentTime + this.calculator < this.currentStartTime
-    },
-    mixedData () {
-      return {
-        delta: this.delta,
-        isNotStart: this.isNotStart,
-        isCounting: this.isCounting,
-        isEnd: this.isEnd
-      }
+      return (this.currentTime + this.calculator) < this.currentStartTime
     }
   },
   watch: {
@@ -154,10 +112,10 @@ export default {
     calculator (val) {
       if (val >= this.second) {
         this.clearTimeId()
-        this.$emit('on-change', this.delta)
+        this.$emit('on-change', this.remain)
         this.$emit('on-end')
       } else {
-        this.$emit('on-change', this.delta)
+        this.$emit('on-change', this.remain)
       }
     }
   },
@@ -182,9 +140,6 @@ export default {
     },
     initCount () {
       this.calculator = 0
-      if (this.isNotStart) {
-        return
-      }
       if (this.second <= 0) {
         this.$emit('on-end')
         return

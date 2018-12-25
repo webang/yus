@@ -3,39 +3,26 @@
     <div class="ym-doc-block">
       <div class="ym-doc-block__title">基本用法</div>
       <div class="ym-doc-block__content">
+        <div>
+          
+        </div>
         <CellGroup>
-          <Cell label="倒计时10s" clickable is-link>
-            <Countdown
-              slot="value"
-              :count="10"
-              mode="number"
-              @on-change="onChange1"
-              @on-end="onEnd1"/>
-          </Cell>
-          <Cell label="倒计时0s" clickable is-link>
-            <Countdown
-              slot="value"
-              :count="0"
-              mode="number"
-              @on-change="onChange2"
-              @on-end="onEnd2"
-            >
-              <template slot-scope="prop">{{ prop }}</template>
-            </Countdown>
+          <Cell label="" clickable is-link>
+            <CountdownDate slot="value" :startTime="startTime" :endTime="endTime"></CountdownDate>
           </Cell>
           <Cell label="倒计时模式: 已经开始" clickable is-link>
-            <Countdown slot="value" :startTime="startTime" :endTime="endTime">
+            <CountdownDate slot="value" :startTime="startTime" :endTime="endTime">
               <template slot-scope="prop">
                 {{ prop }}
               </template>
-            </Countdown>
+            </CountdownDate>
           </Cell>
           <Cell label="倒计时模式: 未开始" clickable is-link>
-            <Countdown slot="value" :startTime="beginTime" :endTime="endTime">
+            <CountdownDate slot="value" :startTime="beginTime" :endTime="endTime">
               <template slot-scope="prop">
                 {{ prop }}
               </template>
-            </Countdown>
+            </CountdownDate>
           </Cell>
         </CellGroup>
       </div>
@@ -44,13 +31,13 @@
 </template>
 
 <script>
-import { Badge, Cell, Clocker, Countdown, CellGroup } from "ymu";
+import { Badge, Cell, Clocker, CountdownDate, CellGroup } from "ymu";
 export default {
   components: {
     Cell,
     Badge,
     Clocker,
-    Countdown,
+    CountdownDate,
     CellGroup
   },
   data() {

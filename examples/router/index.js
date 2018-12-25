@@ -36,7 +36,7 @@ export default new Router({
       name: 'Welcome',
       component: Welcome,
       meta: {
-        title: 'ym'
+        title: 'ymu'
       }
     },
     {
@@ -61,6 +61,22 @@ export default new Router({
       component: () => import('../views/Countdown.vue'),
       meta: {
         title: 'Countdown 计时器'
+      }
+    },
+    {
+      path: '/CountdownNum',
+      name: 'CountdownNum',
+      component: () => import('../views/CountdownNum.vue'),
+      meta: {
+        title: 'CountdownNum 计时器'
+      }
+    },
+    {
+      path: '/CountdownDate',
+      name: 'CountdownDate',
+      component: () => import('../views/CountdownDate.vue'),
+      meta: {
+        title: 'CountdownDate 日期计时器'
       }
     },
     {
