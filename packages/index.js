@@ -32,6 +32,7 @@ import CheckboxGroup from './checkbox-group'
 import Badge from './badge'
 import Calender from './calender'
 import Clocker from './clocker'
+import Countdown from './countdown'
 
 // Plugins
 import Toast from './toast'
@@ -70,5 +71,6 @@ export {
   Badge,
   Calender,
   Clocker,
+  Countdown,
   Toast
 }

@@ -20,6 +20,6 @@ export const isArray = (argv) => {
   return objectPrototypeTostring.call(argv) === '[object Array]'
 }
 
-export const isFunction = () => {
+export const isFunction = (argv) => {
   return objectPrototypeTostring.call(argv) === '[object Function]'
 }

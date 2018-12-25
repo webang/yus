@@ -7,7 +7,8 @@
           <Cell label="Button 按钮" is-link to="/Button"></Cell>
           <Cell label="Badge 徽章" is-link to="/Badge"></Cell>
           <Cell label="Cell 单元格" is-link to="/Cell"></Cell>
-          <Cell label="Clocker 倒计时" is-link to="/Clocker"></Cell>
+          <Cell label="Clocker 始终" is-link to="/Clocker"></Cell>
+          <Cell label="Countdown 倒计时" is-link to="/Countdown"></Cell>
           <Cell label="Flow 步骤条" is-link to="/Flow"></Cell>
           <Cell label="Progress 进度条" is-link to="/Progress"></Cell>
           <Cell label="Popup 弹出层" is-link to="/Popup"></Cell>

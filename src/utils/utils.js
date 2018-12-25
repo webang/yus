@@ -23,10 +23,10 @@ export const addZero = num => {
 
 /**
  * 将毫秒级的时间戳格式话
- * @param {*} timeStamp 
+ * @param {*} timeStamp
  */
 export const parseTimeStamp = timeStamp => {
-  const date = new Date(timeStamp);
+  const date = new Date(timeStamp)
   return {
     year: date.getFullYear(),
     month: date.getMonth(),
@@ -40,11 +40,11 @@ export const parseTimeStamp = timeStamp => {
 /**
  * 标准日期格式正则匹配
  */
-export const dateRegExp = /^(\d{4})\-(\d{1,2})\-(\d{1,2})((\s)(\d{1,2}):(\d{1,2}):(\d{1,2}))?$/
+export const dateRegExp = /^(\d{4})-(\d{1,2})-(\d{1,2})((\s)(\d{1,2}):(\d{1,2}):(\d{1,2}))?$/
 
 /**
  * 将倒计时时间转换为：天数, 小时，分钟，秒钟
- * @param {*} number 
+ * @param {*} number
  */
 export const parseCountDown = (number) => {
   const day = parseInt(number / 24 / 3600)

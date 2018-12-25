@@ -54,7 +54,15 @@ export default new Router({
       meta: {
         title: 'Clocker 时钟'
       }
-    },   
+    },
+    {
+      path: '/Countdown',
+      name: 'Countdown',
+      component: () => import('../views/Countdown.vue'),
+      meta: {
+        title: 'Countdown 计时器'
+      }
+    },
     {
       path: '/Badge',
       name: 'Badge',
