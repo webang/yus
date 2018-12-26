@@ -5,11 +5,26 @@
       :isCounting="isCounting"
       :isEnd="isEnd"
       :isNotStart="isNotStart"
+      :second="second"
+      :beforeStart="remainDate"
+      :beforeEnd="countDownData"
+      :calculator="calculator"
     >
+    <!-- 未开始 -->
     <template v-if="isNotStart">
-      活动将在 {{ parseTimeStamp(currentStartTime * 1000 - (currentTime + calculator * 1000)) }}
+      <span>距离活动开始：</span>
+      <span class="value">{{ remainDate.day }}</span>
+      <span class="label">天</span>
+      <span class="value">{{ remainDate.hour }}</span>
+      <span class="label">时</span>
+      <span class="value">{{ remainDate.minute }}</span>
+      <span class="label">分</span>
+      <span class="value">{{ remainDate.second }}</span>
+      <span class="label">秒</span>
     </template>
-    <template v-else>
+    <!-- 进行中 -->
+    <template v-else-if="isCounting">
+      <span>距离活动结束：</span>
       <span class="value">{{ countDownData.day }}</span>
       <span class="label">天</span>
       <span class="value">{{ countDownData.hour }}</span>
@@ -18,6 +33,10 @@
       <span class="label">分</span>
       <span class="value">{{ countDownData.second }}</span>
       <span class="label">秒</span>
+    </template>
+    <!-- 已结束 -->
+    <template v-else>
+      <span>活动已结束</span>
     </template>
     </slot>
   </div>
@@ -35,8 +54,8 @@ export default {
   name: "ym-clocker",
   props: {
     time: [String, Number],
-    startTime: [Number, String],
     endTime: [Number, String],
+    startTime: [Number, String]
   },
   data() {
     return {
@@ -45,65 +64,76 @@ export default {
     };
   },
   computed: {
+    remainDate () {
+      return parseCountDown(this.currentStartTime - this.calculator - this.currentTime)
+    },
     currentTime () {
-      let currentTime = 0
-      let timeType = typeof this.time
-      switch (timeType) {
+      let result = 0
+      const type = typeof this.time
+      switch (type) {
         case 'undefined':
-          currentTime = parseInt(new Date().getTime())
+          result = parseInt(new Date().getTime() / 1000)
           break
         case 'number':
-          currentTime = this.time
+          result = this.time
           break
         case 'string':
-          currentTime = this.formatDate(this.time)
+          result = this.formatDate(this.time)
           break
         default:
           break
       }
-      return currentTime
+      return result
     },
     currentStartTime () {
-      let timeType = typeof this.startTime
-      if (timeType === 'string') {
-        return this.formatDate(this.startTime)
+      const type = typeof this.startTime
+      let result
+      if (type === 'string') {
+        result = this.formatDate(this.startTime)
       }
-      if (timeType === 'number') {
-        return this.startTime
+      if (type === 'number') {
+        result = this.startTime
       }
+      return result
     },
     currentEndTime () {
-      let timeType = typeof this.endTime
-      if (timeType === 'string') {
+      let type = typeof this.endTime
+      if (type === 'string') {
         return this.formatDate(this.endTime)
       }
-      if (timeType === 'number') {
+      if (type === 'number') {
         return this.endTime
       }
     },
     second () {
-      return parseInt(this.currentTime / 1000)
+      return parseInt(this.currentTime)
     },
     countDownData() {
       return parseCountDown(this.endTime - this.second - this.calculator)
     },
     currentDate() {
-      return parseTimeStamp(this.currentTime + this.calculator * 1000)
+      return parseTimeStamp(this.currentTime + this.calculator)
     },
     remain () {
       return this.second - this.calculator
     },
     isEnd () {
-      return this.currentTime >= this.currentEndTime + this.calculator
+      return this.currentTime + this.calculator >= this.currentEndTime
+    },
+    hasStarted () {
+      let hasStarted
+      if (isType(this.startTime, 'Undefined')) {
+        hasStarted = true
+      } else {
+        hasStarted = this.currentTime > (this.currentStartTime + this.calculator)
+      }
+      return hasStarted
     },
     isCounting () {
-      const conditionOne = this.currentTime > this.currentStartTime + this.calculator
-      const conditionTwo = this.currentTime + this.calculator < this.currentEndTime
-      return conditionOne && conditionTwo
+      return this.hasStarted && !this.isEnd
     },
     isNotStart () {
-      console.log(this.currentTime / 1000 + this.calculator < this.currentStartTime)
-      return (this.currentTime / 1000 + this.calculator) < this.currentStartTime
+      return (this.second + this.calculator) < this.currentStartTime
     }
   },
   watch: {
@@ -123,6 +153,12 @@ export default {
       } else {
         this.$emit('on-change', this.remain)
       }
+    },
+    isEnd (val) {
+      if (val) {
+        this.$emit('on-end')
+        this.clearTimeId()
+      }
     }
   },
   methods: {
@@ -141,7 +177,7 @@ export default {
       } else {
         throw new Error(`${dateStr} is not a valid date format`)
       }
-      return time
+      return time / 1000
     },
     beginCount() {
       this.calculator++

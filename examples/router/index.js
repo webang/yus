@@ -56,14 +56,6 @@ export default new Router({
       }
     },
     {
-      path: '/Countdown',
-      name: 'Countdown',
-      component: () => import('../views/Countdown.vue'),
-      meta: {
-        title: 'Countdown 计时器'
-      }
-    },
-    {
       path: '/CountdownNum',
       name: 'CountdownNum',
       component: () => import('../views/CountdownNum.vue'),
