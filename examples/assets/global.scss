@@ -8,6 +8,10 @@ div, p, span, a, label, ul, li {
   margin: 0;
 }
 
+ul, li {
+  list-style: none;
+}
+
 html {
   -webkit-tap-highlight-color: transparent;
 }
@@ -20,14 +24,3 @@ html {
     display: inline-block;
   }
 }
-
-
-
-// .ymuicon {
-//   font-family: "ymuicon" !important;
-//   font-size: inherit;
-//   font-style: normal;
-//   &::before {
-//     display: inline-block;
-//   }
-// }

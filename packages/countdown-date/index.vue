@@ -6,6 +6,10 @@
       :isEnd="isEnd"
       :isNotStart="isNotStart"
     >
+    <template v-if="isNotStart">
+      活动将在 {{ parseTimeStamp(currentStartTime * 1000 - (currentTime + calculator * 1000)) }}
+    </template>
+    <template v-else>
       <span class="value">{{ countDownData.day }}</span>
       <span class="label">天</span>
       <span class="value">{{ countDownData.hour }}</span>
@@ -14,6 +18,7 @@
       <span class="label">分</span>
       <span class="value">{{ countDownData.second }}</span>
       <span class="label">秒</span>
+    </template>
     </slot>
   </div>
 </template>
@@ -30,8 +35,8 @@ export default {
   name: "ym-clocker",
   props: {
     time: [String, Number],
-    startTime: Number,
-    endTime: Number,
+    startTime: [Number, String],
+    endTime: [Number, String],
   },
   data() {
     return {
@@ -97,7 +102,8 @@ export default {
       return conditionOne && conditionTwo
     },
     isNotStart () {
-      return (this.currentTime + this.calculator) < this.currentStartTime
+      console.log(this.currentTime / 1000 + this.calculator < this.currentStartTime)
+      return (this.currentTime / 1000 + this.calculator) < this.currentStartTime
     }
   },
   watch: {
@@ -120,6 +126,8 @@ export default {
     }
   },
   methods: {
+    parseTimeStamp,
+    parseCountDown,
     formatDate (dateStr) {
       const result = dateRegExp.exec(dateStr)
       let time
