@@ -5,13 +5,13 @@
       <div class="ym-doc-block__content list">
         <CellGroup>
           <Cell label="警用选项">
-            <button slot="value" @click="option2.show=!option2.show">切换</button>
+            <YSwitch slot="value" v-model="option2.show"/>
           </Cell>
           <Cell label="自定义标题">
-            <button slot="value" @click="option3.show=!option3.show">切换</button>
+            <YSwitch slot="value" v-model="option3.show"/>
           </Cell>
           <Cell label="点击幕布不关闭">
-            <button slot="value" @click="option1.show=!option1.show">切换</button>
+            <YSwitch slot="value" v-model="option1.show"/>
           </Cell>
         </CellGroup>
       </div>
@@ -52,13 +52,14 @@
 </template>
 
 <script>
-import { Cell, CellGroup, Actionsheet } from 'ymu'
+import { Cell, CellGroup, Actionsheet, Switch as YSwitch } from 'ymu'
 
 export default {
   components: {
     Cell,
     CellGroup,
-    Actionsheet
+    Actionsheet,
+    YSwitch
   },
   data () {
     return {

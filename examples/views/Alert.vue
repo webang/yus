@@ -5,10 +5,10 @@
       <div class="ym-doc-block__content list">
         <CellGroup>
           <Cell label="基本用法">
-            <button slot="value" @click="option1.show=!option1.show">切换</button>
+            <YSwitch slot="value" v-model="option1.show"/>
           </Cell>
           <Cell label="基本用法">
-            <button slot="value" @click="option2.show=!option2.show">切换</button>
+            <YSwitch slot="value" v-model="option2.show"/>
           </Cell>
         </CellGroup>
       </div>
@@ -16,7 +16,6 @@
     <Alert v-model="option1.show" :title="option1.title">
       <p slot="content">真的要离开我吗?</p>
     </Alert>
-
     <Alert v-model="option2.show" :title="option2.title">
       <div slot="title">自定义 title</div>
       <p slot="content">自定义 content</p>
@@ -26,12 +25,13 @@
 </template>
 
 <script>
-import { Alert, Cell, CellGroup } from 'ymu'
+import { Alert, Cell, CellGroup, Switch as YSwitch } from 'ymu'
 export default {
   components: {
     Alert,
     Cell,
-    CellGroup
+    CellGroup,
+    YSwitch
   },
   data () {
     return {

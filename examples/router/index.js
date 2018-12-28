@@ -40,6 +40,14 @@ export default new Router({
       }
     },
     {
+      path: '/ButtonTab',
+      name: 'ButtonTab',
+      component: () => import('../views/ButtonTab.vue'),
+      meta: {
+        title: 'ButtonTab'
+      }
+    },
+    {
       path: '/Calender',
       name: 'Calender',
       component: () => import('../views/Calender.vue'),
