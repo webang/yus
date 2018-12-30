@@ -1,7 +1,10 @@
 <template>
   <div
     class="vmu-button-tab-item"
-    :class="{'is-active': isActive}"
+    :class="{
+      'vmu-button-tab-item--active': isActive,
+      'vmu-button-tab-item--disabled': isDisabled
+    }"
     @click="onClick"
   >
     <slot></slot>
@@ -18,13 +21,16 @@ export default {
     isActive () {
       return this.$parent.value === this.index
     },
+    isDisabled () {
+      return !!this.disabled
+    },
     index () {
       return this.$parent.$children.indexOf(this)
     }
   },
   methods: {
     onClick () {
-      if (!this.disabled && (this.$parent.value !== this.index)) {
+      if (!this.isDisabled && (this.$parent.value !== this.index)) {
         this.$parent.$emit('input', this.index)
       }
     }

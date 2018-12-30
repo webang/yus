@@ -6,6 +6,14 @@
   background: #fff;
 }
 
+.vmu-button-tab-item--active {
+  background: red;
+}
+
+.vmu-button-tab-item--disabled {
+  background: #ccc;
+}
+
 .vmu-button-tab-item--first {
   border-top-left-radius: 32px;
   border-bottom-left-radius: 32px;
