@@ -2,20 +2,26 @@
   <div class="page-badge">
     <div class="ym-doc-block">
       <div class="ym-doc-block__title">基本用法</div>
-      <div class="ym-doc-block__content">
-        <ButtonTab></ButtonTab>
+      <div class="ym-doc-block__bd">
+        <ButtonTab>
+          <ButtonTabItem>我的积分</ButtonTabItem>
+          <ButtonTabItem>我的订单</ButtonTabItem>
+          <ButtonTabItem>我的邀请</ButtonTabItem>
+        </ButtonTab>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { Badge, Cell, ButtonTab } from 'ymu'
+import { Badge, Cell, ButtonTab, ButtonTabItem } from 'ymu'
+console.log(ButtonTabItem)
 export default {
   components: {
     Cell,
     Badge,
-    ButtonTab
+    ButtonTab,
+    ButtonTabItem
   }
 }
 </script>

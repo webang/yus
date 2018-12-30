@@ -1,1 +1,36 @@
-index.scss
+.vmu-button-tab {
+  // border: 1px solid #333;
+}
+
+.vmu-button-tab {
+  display: flex;
+  align-items: center;
+}
+
+.vmu-button-tab-item {
+  flex: 1;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: #fff;
+  &::after {
+    // content: " ";
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+    // width: 200%;
+    // color: #ccc;
+    // transform-origin: left top;
+    // transform: scale(.5);
+  }
+}
+
+.vmu-button-tab-item--first {
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
+}
+
+.vmu-button-tab-item--last {
+  border-top-right-radius: 32px;
+  border-bottom-right-radius: 32px;
+}
