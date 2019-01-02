@@ -1,17 +1,19 @@
 .vmu-button-tab-item {
   flex: 1;
   height: 40px;
+  font-size: 14px;
   line-height: 40px;
+  color: #666;
   text-align: center;
   background: #fff;
 }
 
 .vmu-button-tab-item--active {
-  background: red;
+  color: #333;
 }
 
 .vmu-button-tab-item--disabled {
-  background: #ccc;
+  opacity: .6;
 }
 
 .vmu-button-tab-item--first {
@@ -22,4 +24,15 @@
 .vmu-button-tab-item--last {
   border-top-right-radius: 32px;
   border-bottom-right-radius: 32px;
+}
+
+.vmu-button-tab-item--first::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  color: #ccc;
+  transform-origin: left top;
+  transform: scale(.5);
 }

@@ -1,0 +1,23 @@
+.ymu-card {
+  overflow: hidden;
+  font-size: 14px;
+  color: #303133;
+  background-color: #fff;
+  border: 1px solid #ebeef5;
+  border-radius: 4px;
+  transition: .3s;
+
+  &__hd {
+    padding: 12px 12px;
+    border-bottom: 1px solid #ebeef5;
+    box-sizing: border-box;
+  }
+
+  &__bd {
+    padding: 12px;
+  }
+
+  &--shadow {
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  }
+}

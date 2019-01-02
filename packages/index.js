@@ -36,6 +36,7 @@ import CountdownNum from './countdown-num'
 import CountdownDate from './countdown-date'
 import ButtonTab from './button-tab/index.vue'
 import ButtonTabItem from './button-tab-item/index.vue'
+import Card from './card'
 
 // Plugins
 import Toast from './toast'
@@ -78,5 +79,6 @@ export {
   CountdownDate,
   Toast,
   ButtonTab,
-  ButtonTabItem
+  ButtonTabItem,
+  Card
 }

@@ -40,6 +40,14 @@ export default new Router({
       }
     },
     {
+      path: '/Card',
+      name: 'Card',
+      component: () => import('../views/Card.vue'),
+      meta: {
+        title: 'Card'
+      }
+    },
+    {
       path: '/ButtonTab',
       name: 'ButtonTab',
       component: () => import('../views/ButtonTab.vue'),
