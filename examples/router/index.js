@@ -40,6 +40,14 @@ export default new Router({
       }
     },
     {
+      path: '/Tabs',
+      name: 'Tabs',
+      component: () => import('../views/Tabs.vue'),
+      meta: {
+        title: 'Tabs'
+      }
+    },
+    {
       path: '/Card',
       name: 'Card',
       component: () => import('../views/Card.vue'),
