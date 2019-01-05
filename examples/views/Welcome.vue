@@ -6,7 +6,7 @@
         <CellGroup>
           <Cell label="Button 按钮" is-link to="/Button"></Cell>
           <Cell label="Badge 徽章" is-link to="/Badge"></Cell>
-          <Cell label="ButtonTab" is-link to="/ButtonTab"></Cell>
+          <Cell label="ButtonTab 按钮组" is-link to="/ButtonTab"></Cell>
           <Cell label="Card 卡片" is-link to="/Card"></Cell>
           <Cell label="Cell 单元格" is-link to="/Cell"></Cell>
           <Cell label="Clocker 时钟" is-link to="/Clocker"></Cell>
@@ -14,7 +14,6 @@
           <Cell label="CountdownDate 日期倒计时" is-link to="/CountdownDate"></Cell>
           <Cell label="Flow 步骤条" is-link to="/Flow"></Cell>
           <Cell label="Progress 进度条" is-link to="/Progress"></Cell>
-          <Cell label="Popup 弹出层" is-link to="/Popup"></Cell>
           <Cell label="Navbar 导航" is-link to="/Navbar"></Cell>
           <Cell label="Tabs 标签页" is-link to="/Tabs"></Cell>
           <Cell label="Tabbar 标签栏" is-link to="/Tabbar"></Cell>
@@ -54,6 +53,7 @@
           <Cell label="Alert 提示窗" is-link to="/Alert"></Cell>
           <Cell label="Backtop 返回顶部" is-link to="/Backtop"></Cell>
           <Cell label="Confirm 确认框" is-link to="/Confirm"></Cell>
+          <Cell label="Popup 弹出层" is-link to="/Popup"></Cell>
           <Cell label="Toast 轻提示" is-link to="/Toast"></Cell>
         </CellGroup>
       </div>

@@ -60,7 +60,7 @@ export default new Router({
       name: 'ButtonTab',
       component: () => import('../views/ButtonTab.vue'),
       meta: {
-        title: 'ButtonTab'
+        title: 'ButtonTab 按钮组'
       }
     },
     {

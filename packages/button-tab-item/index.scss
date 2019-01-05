@@ -1,38 +1,24 @@
-.vmu-button-tab-item {
+.ymu-button-tab-item {
   flex: 1;
-  height: 40px;
-  font-size: 14px;
-  line-height: 40px;
-  color: #666;
+  height: 36px;
+  font-size: 12px;
+  line-height: 36px;
   text-align: center;
-  background: #fff;
+  background-color: #fff;
+  border-right: 1px solid #f5f5f5;
+  box-sizing: border-box;
 }
 
-.vmu-button-tab-item--active {
-  color: #333;
+.ymu-button-tab-item--active {
+  color: #fff;
+  font-weight: bold;
+  background-color: #38f;
 }
 
-.vmu-button-tab-item--disabled {
-  opacity: .6;
+.ymu-button-tab-item--disabled {
+  opacity: .4;
 }
 
-.vmu-button-tab-item--first {
-  border-top-left-radius: 32px;
-  border-bottom-left-radius: 32px;
-}
-
-.vmu-button-tab-item--last {
-  border-top-right-radius: 32px;
-  border-bottom-right-radius: 32px;
-}
-
-.vmu-button-tab-item--first::after {
-  content: " ";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 200%;
-  color: #ccc;
-  transform-origin: left top;
-  transform: scale(.5);
+.ymu-button-tab-item--last {
+  border-right: none;
 }

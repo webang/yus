@@ -1,17 +1,18 @@
 <template>
-	<div class="vmu-button-tab">
+	<div class="ymu-button-tab">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'vmu-button-tab',
+  name: 'ymu-button-tab',
   props: {
     value: Number
   },
   data () {
     return {
+      childList: [],
       currentIndex: this.value
     }
   },
@@ -19,6 +20,19 @@ export default {
     value (val) {
       this.currentIndex = val
     }
+  },
+  methods: {
+    findChildList () {
+      this.childList = this.$children.filter(VueComponent => {
+        return VueComponent.$vnode.componentOptions.Ctor.options.name === 'ymu-button-tab-item'
+      })
+    },
+    toggleValue (activeIndex) {
+      this.$emit('input', activeIndex)
+    }
+  },
+  mounted () {
+    this.findChildList()
   }
 }
 </script>

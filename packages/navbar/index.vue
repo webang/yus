@@ -2,8 +2,12 @@
   <div class="ym-navbar">
     <div class="ym-navbar-left">
       <slot name="left">
-        <div class="ym-navbar-button" @click="handleClickLeft">
-          <i class="ym-navbar-button__icon iconfont icon-left" v-if="leftArrow"></i>
+        <div
+          class="ym-navbar-button"
+          :class="{'ym-navbar-button--has-arrow': leftArrow}"
+          @click="handleClickLeft"
+        >
+          <Icon class="ym-navbar-button__icon" v-if="leftArrow" name="ios-arrow-back"></Icon>
           <span class="ym-navbar-button__text" v-text="leftText"></span>
         </div>
       </slot>
@@ -21,9 +25,12 @@
 
 <script>
 import Button from '../button'
+import Icon from '../icon'
+
 export default {
   name: 'ym-navbar',
   components: {
+    Icon,
     Button
   },
   props: {

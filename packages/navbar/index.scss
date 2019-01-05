@@ -52,9 +52,18 @@
 .ym-navbar-button {
   display: flex;
   align-items: center;
+  height: 100%;
   padding: 0 $navbar-herizontal-padding;
   margin: 0 -$navbar-herizontal-padding;
   &:active {
     background-color: $navbar-left-button-active-bg-color;
   }
+}
+
+.ym-navbar-button__icon {
+  font-size: 24px;
+}
+
+.ym-navbar-button--has-arrow {
+  padding-left: 8px;
 }

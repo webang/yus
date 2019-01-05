@@ -1,12 +1,12 @@
 <template>
   <div
-    class="vmu-button-tab-item"
+    class="ymu-button-tab-item"
     :class="{
-      'vmu-button-tab-item--first': isFirstChild,
-      'vmu-button-tab-item--last': isLastChild,
-      'vmu-button-tab-item--middle': isMiddleChild,
-      'vmu-button-tab-item--active': isActive,
-      'vmu-button-tab-item--disabled': isDisabled
+      'ymu-button-tab-item--first': isFirstChild,
+      'ymu-button-tab-item--last': isLastChild,
+      'ymu-button-tab-item--middle': isMiddleChild,
+      'ymu-button-tab-item--active': isActive,
+      'ymu-button-tab-item--disabled': isDisabled
     }"
     @click="onClick"
   >
@@ -16,9 +16,14 @@
 
 <script>
 export default {
-  name: 'vmu-button-tab-item',
+  name: 'ymu-button-tab-item',
   props: {
     disabled: Boolean
+  },
+  data () {
+    return {
+      parent: null
+    }
   },
   computed: {
     isActive () {
@@ -28,13 +33,13 @@ export default {
       return !!this.disabled
     },
     index () {
-      return this.$parent.$children.indexOf(this)
+      return this.$parent.childList.indexOf(this)
     },
     isFirstChild () {
       return this.index === 0
     },
     isLastChild () {
-      return this.index === (this.$parent.$children.length - 1)
+      return this.index === (this.$parent.childList.length - 1)
     },
     isMiddleChild () {
       return !this.isFirstChild && !this.isLastChild
@@ -43,12 +48,9 @@ export default {
   methods: {
     onClick () {
       if (!this.isDisabled && (this.$parent.value !== this.index)) {
-        this.$parent.$emit('input', this.index)
+        this.$parent.toggleValue(this.index)
       }
     }
-  },
-  mounted () {
-    console.log(this.$parent.$children)
   }
 }
 </script>

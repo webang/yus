@@ -1,7 +1,21 @@
 <template>
-  <div class="page-badge">
+  <div class="page-button-tab">
     <div class="ym-doc-block">
       <div class="ym-doc-block__title">基本用法</div>
+      <div class="ym-doc-block__bd">
+        <ButtonTab v-model="tabIndex02">
+          <ButtonTabItem>我的积分</ButtonTabItem>
+          <ButtonTabItem>我的订单</ButtonTabItem>
+          <ButtonTabItem>我的邀请</ButtonTabItem>
+        </ButtonTab>
+        <ButtonTab v-model="tabIndex03" style="margin-top: 20px">
+          <ButtonTabItem>我的积分</ButtonTabItem>
+          <ButtonTabItem>我的订单</ButtonTabItem>
+          <ButtonTabItem>我的积分</ButtonTabItem>
+          <ButtonTabItem>我的订单</ButtonTabItem>
+        </ButtonTab>
+      </div>
+      <div class="ym-doc-block__title">禁用项</div>
       <div class="ym-doc-block__bd">
         <ButtonTab v-model="tabIndex01">
           <ButtonTabItem>我的积分</ButtonTabItem>
@@ -14,30 +28,20 @@
 </template>
 
 <script>
-import { Badge, Cell, ButtonTab, ButtonTabItem } from 'ymu'
-console.log(ButtonTabItem)
+import { ButtonTab, ButtonTabItem } from 'ymu'
 export default {
   components: {
-    Cell,
-    Badge,
     ButtonTab,
     ButtonTabItem
   },
   data () {
     return {
-      tabIndex01: 1
+      tabIndex01: 1,
+      tabIndex02: 0,
+      tabIndex03: 1
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.page-badge {
-  /deep/ .ym-badge {
-    margin-left: 5px;
-  }
-  /deep/ .ym-cell__value {
-    color: #999;
-  }
-}
-</style>
+<style lang="scss" scoped></style>
