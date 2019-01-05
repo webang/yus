@@ -1,5 +1,5 @@
 <template>
-  <div class="ymu-tab">
+  <div class="ymu-tab" :class="tabCls" @click="onClick">
     <slot name="title">
       <span v-text="title"></span>
     </slot>
@@ -10,13 +10,34 @@
 export default {
   name: 'ymu-tab',
   props: {
-    title: String
+    title: String,
+    disabled: Boolean
   },
-  mounted () {
-    const { tabList } = this.$parent
-    const index = this.$parent.$slots.default.indexOf(this.$vnode)
-    tabList.splice(index === -1 ? tabList.length : index, 0, this);
-    console.log(tabList)
+  computed: {
+    parentValue () {
+      return this.$parent.value
+    },
+    index () {
+      return this.$parent.$children.indexOf(this)
+    },
+    isActive () {
+      return this.index === this.parentValue
+    },
+    tabCls () {
+      return {
+        'ymu-tab--active': this.isActive,
+        'ymu-tab--disabled': this.disabled
+      }
+    }
+  },
+  methods: {
+    onClick () {
+      if (!this.disabled) {
+        this.$parent.toggleValue(this.index)
+      }
+    }
   }
 }
 </script>
+
+<style lang="scss" src="./index.scss"></style>
