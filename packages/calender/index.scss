@@ -1,8 +1,13 @@
-.ym-calender__bd {
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
+
+.ymu-calender__bd {
   font-size: 14px;
 }
 
-.ym-calender {
+.ymu-calender {
   &__hd {
     display: flex;
     align-items: center;

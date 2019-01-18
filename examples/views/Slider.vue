@@ -1,7 +1,7 @@
 <template>
   <div class="page page-progress">
-    <div class="ym-doc-block__title">基础用法({{ d1.value }})</div>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__title">基础用法({{ d1.value }})</div>
+    <div class="ymu-doc-block__bd">
       <Slider
         v-model="d1.value"
         :track-height="d1.trackHeight"
@@ -10,8 +10,8 @@
       />
     </div>
 
-    <div class="ym-doc-block__title">禁用状态({{ d2.value }})</div>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__title">禁用状态({{ d2.value }})</div>
+    <div class="ymu-doc-block__bd">
       <Slider
         v-model="d2.value"
         :track-height="d2.trackHeight"
@@ -21,8 +21,8 @@
       />
     </div>
 
-    <div class="ym-doc-block__title">设置start和end({{ d3.value }})</div>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__title">设置start和end({{ d3.value }})</div>
+    <div class="ymu-doc-block__bd">
       <Slider
         v-model="d3.value"
         :track-height="d3.trackHeight"
@@ -35,8 +35,8 @@
       </Slider>
     </div>
 
-    <div class="ym-doc-block__title">设置区间({{ d4.value }})</div>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__title">设置区间({{ d4.value }})</div>
+    <div class="ymu-doc-block__bd">
       <Slider
         v-model="d4.value"
         :track-height="d4.trackHeight"
@@ -49,8 +49,8 @@
       </Slider>
     </div>
 
-    <div class="ym-doc-block__title">设置背景颜色({{ d5.value }})</div>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__title">设置背景颜色({{ d5.value }})</div>
+    <div class="ymu-doc-block__bd">
       <Slider
         v-model="d5.value"
         :track-height="d5.trackHeight"
@@ -135,7 +135,7 @@ export default {
   outline: none;
   border: 1px #222 solid;
 }
-.ym-doc-content {
+.ymu-doc-content {
   padding-left: 12px;
   padding-right: 12px;
 }

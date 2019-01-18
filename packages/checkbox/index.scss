@@ -1,21 +1,22 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-checkbox {
+.ymu-checkbox {
   position: relative;
   display: inline-flex;
   align-items: center;
   user-select: none;
 }
 
-.ym-checkbox__input {
+.ymu-checkbox__input {
   position: relative;
   width: 22px;
   height: 22px;
 }
 
-.ym-checkbox__control {
+.ymu-checkbox__control {
   position: absolute;
   left: 0;
   top: 0;
@@ -26,7 +27,7 @@
   opacity: 0;
 }
 
-.ym-checkbox__icon {
+.ymu-checkbox__icon {
   display: flex;
   align-items: center;
   width: 100%;
@@ -35,40 +36,40 @@
   color:  $checkbox-default-icon-color;
 }
 
-.ym-checkbox__label {
+.ymu-checkbox__label {
   display: inline-block;
   margin-left: $checkbox-label-margin-left;
   font-size: $checkbox-label-font-size;
 }
 
-.ym-checkbox--disabled {
+.ymu-checkbox--disabled {
   opacity: .5;
 }
 
-.ym-checkbox--checked {
-  .ym-checkbox__icon {
+.ymu-checkbox--checked {
+  .ymu-checkbox__icon {
     color: $checkbox-checked-icon-color;
   }
 }
 
-.ym-radio--disabled {
+.ymu-radio--disabled {
   .icon-radio-outline,
   .icon-radio-fill {
     opacity: $checkbox-disabled-opacity;
   }
 }
 
-.ym-checkbox--label-left {
+.ymu-checkbox--label-left {
   flex-direction: row-reverse;
-  .ym-checkbox__label {
+  .ymu-checkbox__label {
     margin-left: 0;
   }
-  .ym-checkbox__input {
+  .ymu-checkbox__input {
     margin-left: $checkbox-label-margin-left;
   }
 }
 
-.ym-checkbox--cell {
+.ymu-checkbox--cell {
   display: flex;
   justify-content: space-between;
   padding: $checkbox-cell-vertical-padding $checkbox-cell-horizontal-padding;
@@ -87,7 +88,7 @@
   }
 }
 
-.ym-checkbox--clickable:active {
+.ymu-checkbox--clickable:active {
   background: $click-active-bg-color;
 }
 

@@ -16,7 +16,7 @@ Vue.use(Icon)
 | 属性 | 描述 | 类型 | 可选值 | 默认值 | 版本说明 |
 | - | - | - | - | - | - |
 | name | 图标名称 | String | - | - | - |
-| useDevice | 适应Android和IOS | String | - | ym-dialog | - |
+| useDevice | 适应Android和IOS | String | - | ymu-dialog | - |
 
 
 ## Slots

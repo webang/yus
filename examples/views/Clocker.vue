@@ -1,8 +1,8 @@
 <template>
   <div class="view-clokcer">
-    <div class="ym-doc-block">
-      <div class="ym-doc-block__title">基本用法</div>
-      <div class="ym-doc-block__content">
+    <div class="ymu-doc-block">
+      <div class="ymu-doc-block__title">基本用法</div>
+      <div class="ymu-doc-block__content">
         <CellGroup>
           <Cell label="默认展示" clickable is-link>
             <Clocker slot="value"></Clocker>
@@ -82,10 +82,10 @@ export default {
 
 <style lang="scss" scoped>
 .page-badge {
-  /deep/ .ym-badge {
+  /deep/ .ymu-badge {
     margin-left: 5px;
   }
-  /deep/ .ym-cell__value {
+  /deep/ .ymu-cell__value {
     color: #999;
   }
 }

@@ -1,27 +1,27 @@
 <template>
   <div class="v-dom">
     <Popup v-model="visible" :close-on-click-backdrop="false" @on-click-backdrop="onClickBackdrop">
-      <div class="ym-calender">
-        <div class="ym-calender__hd">
-          <div class="ym-calender__year">
+      <div class="ymu-calender">
+        <div class="ymu-calender__hd">
+          <div class="ymu-calender__year">
             <i @click="onClickPrevYear" class="ymuicon ios-arrow-back"></i>
             <span v-text="showYear"></span>
             <i @click="onClickNextYear" class="ymuicon ios-arrow-forward"></i>
           </div>
-          <div class="ym-calender__month">
+          <div class="ymu-calender__month">
             <i @click="onClickPrevMonth" class="ymuicon ios-arrow-back"></i>
             <span>{{ addZero(showMonth) }}</span>
             <i @click="onClickNextMonth" class="ymuicon ios-arrow-forward"></i>
           </div>
         </div>
-        <div class="ym-calender__bd">
-          <div class="ym-calender__row">
-            <div class="ym-calender__col" v-for="item in dayMaps" :key="item" v-text="item"></div>
+        <div class="ymu-calender__bd">
+          <div class="ymu-calender__row">
+            <div class="ymu-calender__col" v-for="item in daymuaps" :key="item" v-text="item"></div>
           </div>
-          <div class="ym-calender__row" v-for="(row, rowIndex) in dateRows" :key="rowIndex">
+          <div class="ymu-calender__row" v-for="(row, rowIndex) in dateRows" :key="rowIndex">
             <div
-              class="ym-calender__col"
-              v-for="(dateItem, dateIndex) in dayMaps"
+              class="ymu-calender__col"
+              v-for="(dateItem, dateIndex) in daymuaps"
               :key="dateIndex"
               :class="[{
                 'is-selected': isSelected(dateList[rowIndex*7+dateIndex]),
@@ -44,7 +44,7 @@
 import Popup from '../popup'
 import Backdrop from '../backdrop'
 import { addZero } from '../../src/utils/utils'
-const dayMaps = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+const daymuaps = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
 const dateReg = /^(\d{4})\-(\d{1,2})\-(\d{1,2})$/
 
 export default {
@@ -54,7 +54,7 @@ export default {
   },
   data () {
     return {
-      dayMaps: dayMaps,
+      daymuaps: daymuaps,
       showYear: 0,
       showMonth: 0,
       curMonthShowDateList: [], // 当前选择的月份对应的日期列表
@@ -151,7 +151,7 @@ export default {
       const formatDate = `${date.year}-${addZero(date.month)}-${addZero(date.date)}`
 
       if (typeof this.value === 'string') {
-        this.$emit('input', formatDate) 
+        this.$emit('input', formatDate)
       } else {
         const index = this.value.indexOf(formatDate)
         if (index === -1) {
@@ -225,7 +225,7 @@ export default {
         stamp += 24 * 3600 * 1000
 
         let dateObj = new Date(stamp)
-        
+
         const year = dateObj.getFullYear()
         const month = dateObj.getMonth()
         const date = dateObj.getDate()
@@ -252,7 +252,7 @@ export default {
          * @note 这里的month为 1-12
          * @note 如果this.value是一个数组，那么取第一个
          */
-        const value = (Array.isArray(this.value) && this.value.length) 
+        const value = (Array.isArray(this.value) && this.value.length)
           ? this.value[0] : this.value
         const result = dateReg.exec(value)
 

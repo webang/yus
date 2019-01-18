@@ -1,8 +1,9 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-slider {
+.ymu-slider {
 
   position: relative;
   display: flex;
@@ -46,7 +47,7 @@
     @include slider-box-shadow;
   }
 
-  &--disabled .ym-slider__bd {
+  &--disabled .ymu-slider__bd {
     opacity: $slider-disabled-opacity;
   }
 }

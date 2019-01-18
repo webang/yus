@@ -1,4 +1,9 @@
-.ym-badge {
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
+
+.ymu-badge {
   display: inline-block;
   vertical-align: middle;
   height: 16px;

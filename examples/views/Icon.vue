@@ -1,7 +1,7 @@
 <template>
   <div class="view-icon">
-    <div class="ym-doc-block__title">点击复制</div>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__title">点击复制</div>
+    <div class="ymu-doc-block__bd">
       <div class="ymu-icon" v-for="(item, index) in iconList" :key="index" :data-clipboard-text="item">
         <Icon :name="item"></Icon>
         <!-- <p class="ymu-icon__name">{{ item }}</p> -->
@@ -46,7 +46,7 @@ export default {
 
 
 <style lang="scss">
-.ym-doc-block__content {
+.ymu-doc-block__content {
   overflow: hidden;
 }
 

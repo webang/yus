@@ -1,9 +1,10 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-checkbox-group {
-  .ym-checkbox-cell:last-child {
+.ymu-checkbox-group {
+  .ymu-checkbox-cell:last-child {
     &::after {
       display: none;
     }

@@ -1,13 +1,13 @@
 <template>
-  <div class="ym-field">
-    <div class="ym-field__hd">
+  <div class="ymu-field">
+    <div class="ymu-field__hd">
       <slot name="header">
-        <label class="ym-field__label" v-if="label" v-text="label"></label>
+        <label class="ymu-field__label" v-if="label" v-text="label"></label>
       </slot>
     </div>
-    <div class="ym-field__bd">
+    <div class="ymu-field__bd">
       <input
-        class="ym-field__input"
+        class="ymu-field__input"
         :placeholder="placeholder"
         :type="type"
         v-model="currentValue"
@@ -19,11 +19,11 @@
       <div
         v-if="errorMessage"
         v-text="errorMessage"
-        class="ym-field__error-message"></div>
+        class="ymu-field__error-message"></div>
     </div>
-    <div class="ym-field__ft">
+    <div class="ymu-field__ft">
       <i
-        class="ym-icon ym-icon-clear"
+        class="ymu-icon ymu-icon-clear"
         v-if="showClear"
         @click="onClear"></i>
       <slot name="footer"></slot>
@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: 'ym-field',
+  name: 'ymu-field',
   props: {
     label: String,
     placeholder: String,

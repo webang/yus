@@ -1,7 +1,7 @@
 <template>
   <div class="page-radio">
-    <div class="ym-doc-block__title">基础用法</div>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__title">基础用法</div>
+    <div class="ymu-doc-block__bd">
       <Radio v-model="radioValue1" label="深圳">深圳</Radio>
       <Radio v-model="radioValue1" label="珠海">
         <span slot-scope="labelProps">
@@ -11,8 +11,8 @@
       <span>{{ radioValue1 }}</span>
     </div>
 
-    <div class="ym-doc-block__title">禁用状态</div>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__title">禁用状态</div>
+    <div class="ymu-doc-block__bd">
       <Radio v-model="radioValue2" label="深圳" :disabled="true">深圳</Radio>
       <Radio v-model="radioValue2" label="珠海" :disabled="true">深圳</Radio>
       <p>{{ radioValue2 }}</p>
@@ -31,7 +31,7 @@
         </Cell>
       </RadioGroup>
     </CellGroup>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__bd">
       <p style="margin-top: 10px">{{ radioValue3 }}</p>
     </div>
 
@@ -40,20 +40,20 @@
         <Cell label="香港" clickable @click="radioValue4='香港'">
           <Radio slot="value" label="香港">
             <span slot-scope="labelProps" slot="icon">
-              <i class="ym-icon" :class="{'icon-checkmark': labelProps.checked}"></i>
+              <i class="ymu-icon" :class="{'icon-checkmark': labelProps.checked}"></i>
             </span>
           </Radio>
         </Cell>
         <Cell label="澳门" clickable @click="radioValue4='澳门'">
           <Radio slot="value" label="澳门" checked-color="red">
             <span slot-scope="labelProps" slot="icon">
-              <i class="ym-icon" :class="{'icon-checkmark': labelProps.checked}"></i>
+              <i class="ymu-icon" :class="{'icon-checkmark': labelProps.checked}"></i>
             </span>
           </Radio>
         </Cell>
       </RadioGroup>
     </CellGroup>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__bd">
       <p style="margin-bottom: 10px; margin-top: 10px">{{ radioValue4 }}</p>
     </div>
   </div>
@@ -102,13 +102,13 @@ export default {
 <style lang="scss" scoped>
 
 .page-radio {
-  /deep/ .ym-cell-group__title {
+  /deep/ .ymu-cell-group__title {
     font-size: 16px;
     padding: 20px 12px 15px;
     color: rgba(69, 90, 100, 0.6);
     background-color: #fafafa;
   }
-  /deep/ .ym-doc-block__bd .ym-radio {
+  /deep/ .ymu-doc-block__bd .ymu-radio {
     display: flex;
     margin-bottom: 10px;
   }

@@ -1,8 +1,8 @@
 <template>
   <div class="page-alert">
-    <div class="ym-doc-block">
-      <div class="ym-doc-block__title">基本用法</div>
-      <div class="ym-doc-block__content list">
+    <div class="ymu-doc-block">
+      <div class="ymu-doc-block__title">基本用法</div>
+      <div class="ymu-doc-block__content list">
         <CellGroup>
           <Cell label="基本用法">
             <YSwitch slot="value" v-model="option1.show"/>

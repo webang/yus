@@ -1,5 +1,5 @@
 <template>
-  <span class="ym-badge" :class="{'ym-badge--single': isSingle, 'ym-badge--dot': isDot }" v-text="text"></span>
+  <span class="ymu-badge" :class="{'ymu-badge--single': isSingle, 'ymu-badge--dot': isDot }" v-text="text"></span>
 </template>
 
 <script>

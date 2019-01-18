@@ -1,19 +1,19 @@
 <template>
-  <div class="ym-slider" :class="[{'ym-slider--disabled': disabled}]">
-    <div class="ym-slider__hd" v-if="$slots.start">
+  <div class="ymu-slider" :class="[{'ymu-slider--disabled': disabled}]">
+    <div class="ymu-slider__hd" v-if="$slots.start">
       <slot name="start"></slot>
     </div>
-    <div class="ym-slider__bd" ref="content" :style="contentStyle">
-      <div class="ym-slider__runway" ref="runway" :style="runwayStyle"></div>
-      <div class="ym-slider__track" ref="track" :style="trackStyle"></div>
+    <div class="ymu-slider__bd" ref="content" :style="contentStyle">
+      <div class="ymu-slider__runway" ref="runway" :style="runwayStyle"></div>
+      <div class="ymu-slider__track" ref="track" :style="trackStyle"></div>
       <div
-        class="ym-slider__thumb"
+        class="ymu-slider__thumb"
         :style="{ left: ratio, backgroundColor: thumbColor}"
         @touchstart="onTouchStart"
         @touchmove="onTouchMove"
         @touchend="onTouchEnd"></div>
     </div>
-    <div class="ym-slider__ft" v-if="$slots.end">
+    <div class="ymu-slider__ft" v-if="$slots.end">
       <slot name="end"></slot>
     </div>
   </div>
@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'ym-slider',
+  name: 'ymu-slider',
   props: {
     value: {
       type: Number,

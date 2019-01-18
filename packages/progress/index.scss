@@ -1,12 +1,13 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
 @mixin progressTransition {
   transition: all 400ms;
 }
 
-.ym-progress {
+.ymu-progress {
   position: relative;
   display: flex;
   align-items: center;
@@ -14,7 +15,7 @@
   line-height: $progress-bar-hegiht;
 }
 
-.ym-progress__bar {
+.ymu-progress__bar {
   overflow: hidden;
   position: relative;
   flex: 1;
@@ -22,7 +23,7 @@
   background-color: $progress-bar-bg-color;
 }
 
-.ym-progress__track {
+.ymu-progress__track {
   position: absolute;
   top: 0;
   height: 100%;

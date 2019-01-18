@@ -1,8 +1,9 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-radio {
+.ymu-radio {
   display: inline-flex;
   align-items: center;
   user-select: none;
@@ -32,13 +33,13 @@
   }
 }
 
-.ym-radio--checked {
-  .ym-radio__input {
+.ymu-radio--checked {
+  .ymu-radio__input {
     color: $radio-checked-icon-color;
   }
 }
 
-.ym-radio--disabled {
+.ymu-radio--disabled {
   .icon-radio-outline,
   .icon-radio-fill {
     opacity: $radio-disabled-opacity;

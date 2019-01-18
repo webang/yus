@@ -1,12 +1,13 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-flows {
+.ymu-flows {
   position: relative;
   display: flex;
 }
 
-.ym-flows--vertical {
+.ymu-flows--vertical {
   flex-direction: column;
 }

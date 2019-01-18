@@ -1,8 +1,8 @@
 <template>
   <div class="page-badge">
-    <div class="ym-doc-block">
-      <div class="ym-doc-block__title">基本用法</div>
-      <div class="ym-doc-block__content">
+    <div class="ymu-doc-block">
+      <div class="ymu-doc-block__title">基本用法</div>
+      <div class="ymu-doc-block__content">
         <Cell label="红点" clickable is-link>
           <div slot="value">
             <span>新消息</span>
@@ -38,10 +38,10 @@ export default {
 
 <style lang="scss" scoped>
 .page-badge {
-  /deep/ .ym-badge {
+  /deep/ .ymu-badge {
     margin-left: 5px;
   }
-  /deep/ .ym-cell__value {
+  /deep/ .ymu-cell__value {
     color: #999;
   }
 }

@@ -1,23 +1,23 @@
 <template>
-  <div class="ym-navbar">
-    <div class="ym-navbar-left">
+  <div class="ymu-navbar">
+    <div class="ymu-navbar-left">
       <slot name="left">
         <div
-          class="ym-navbar-button"
-          :class="{'ym-navbar-button--has-arrow': leftArrow}"
+          class="ymu-navbar-button"
+          :class="{'ymu-navbar-button--has-arrow': leftArrow}"
           @click="handleClickLeft"
         >
-          <Icon class="ym-navbar-button__icon" v-if="leftArrow" name="ios-arrow-back"></Icon>
-          <span class="ym-navbar-button__text" v-text="leftText"></span>
+          <Icon class="ymu-navbar-button__icon" v-if="leftArrow" name="ios-arrow-back"></Icon>
+          <span class="ymu-navbar-button__text" v-text="leftText"></span>
         </div>
       </slot>
     </div>
-    <div class="ym-navbar-title">
+    <div class="ymu-navbar-title">
       <slot>{{ title }}</slot>
     </div>
-    <div class="ym-navbar-right">
+    <div class="ymu-navbar-right">
       <slot name="right">
-        <div class="ym-navbar__right-button" @click="handleClickRight">{{ rightText }}</div>
+        <div class="ymu-navbar__right-button" @click="handleClickRight">{{ rightText }}</div>
       </slot>
     </div>
   </div>
@@ -28,7 +28,7 @@ import Button from '../button'
 import Icon from '../icon'
 
 export default {
-  name: 'ym-navbar',
+  name: 'ymu-navbar',
   components: {
     Icon,
     Button

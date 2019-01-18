@@ -1,27 +1,27 @@
 <template>
-  <div class="ym-clocker">
+  <div class="ymu-clocker">
     <slot :date="currentDate">
       <template v-if="!isCountDay">
         <div>
-          <span class="ym-clocker__year">{{ currentDate.year }}</span>
-          <span class="ym-clocker__divider">-</span>
-          <span class="ym-clocker__month">{{ currentDate.month + 1 }}</span>
-          <span class="ym-clocker__divider">-</span>
-          <span class="ym-clocker__date">{{ currentDate.date }}</span>
+          <span class="ymu-clocker__year">{{ currentDate.year }}</span>
+          <span class="ymu-clocker__divider">-</span>
+          <span class="ymu-clocker__month">{{ currentDate.month + 1 }}</span>
+          <span class="ymu-clocker__divider">-</span>
+          <span class="ymu-clocker__date">{{ currentDate.date }}</span>
         </div>
         <div>
-          <span class="ym-clocker__hour">{{ currentDate.hour }}</span>
-          <span class="ym-clocker__divider">:</span>
-          <span class="ym-clocker__minute">{{ currentDate.minute }}</span>
-          <span class="ym-clocker__divider">:</span>
-          <span class="ym-clocker__second">{{ currentDate.second }}</span>
+          <span class="ymu-clocker__hour">{{ currentDate.hour }}</span>
+          <span class="ymu-clocker__divider">:</span>
+          <span class="ymu-clocker__minute">{{ currentDate.minute }}</span>
+          <span class="ymu-clocker__divider">:</span>
+          <span class="ymu-clocker__second">{{ currentDate.second }}</span>
         </div>
       </template>
       <template v-else>
-        <span class="ym-clocker__hour">{{ countDownData.day }}</span>天
-        <span class="ym-clocker__hour">{{ countDownData.hour }}</span>时
-        <span class="ym-clocker__minute">{{ countDownData.minute }}</span>分
-        <span class="ym-clocker__second">{{ countDownData.second }}</span>秒
+        <span class="ymu-clocker__hour">{{ countDownData.day }}</span>天
+        <span class="ymu-clocker__hour">{{ countDownData.hour }}</span>时
+        <span class="ymu-clocker__minute">{{ countDownData.minute }}</span>分
+        <span class="ymu-clocker__second">{{ countDownData.second }}</span>秒
       </template>
     </slot>
   </div>
@@ -30,7 +30,7 @@
 <script>
 const dateReg = /^(\d{4})\-(\d{1,2})\-(\d{1,2})((\s)(\d{1,2}):(\d{1,2}):(\d{1,2}))?$/;
 export default {
-  name: "ym-clocker",
+  name: "ymu-clocker",
   props: {
     time: [String, Number],
     startTime: Number,
@@ -132,7 +132,7 @@ export default {
       this.beginCount();
       this.timeId = setInterval(() => {
         this.beginCount();
-      }, 1000);      
+      }, 1000);
     }
   },
   mounted() {

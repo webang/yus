@@ -1,8 +1,9 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-cell {
+.ymu-cell {
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
@@ -24,7 +25,7 @@
     transform: scaleY(0.5);
     border-bottom: 1px solid $border-color;
   }
-  .ym-icon-arrow-right {
+  .ymu-icon-arrow-right {
     width: 12px;
     height: 12px;
     margin-left: 4px;

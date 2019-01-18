@@ -1,8 +1,9 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-collapse-item {
+.ymu-collapse-item {
   overflow: hidden;
   position: relative;
   line-height: $collapse-item-line-height;
@@ -41,7 +42,7 @@
   }
 }
 
-.ym-collapse-item--border {
+.ymu-collapse-item--border {
   &::after {
     content: ' ';
     position: absolute;

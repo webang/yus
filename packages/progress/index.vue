@@ -1,8 +1,8 @@
 <template>
-  <div class="ym-progress">
+  <div class="ymu-progress">
     <slot name="start"></slot>
-    <div class="ym-progress__bar">
-      <div class="ym-progress__track" :style="{ width: percentage + '%'}"></div>
+    <div class="ymu-progress__bar">
+      <div class="ymu-progress__track" :style="{ width: percentage + '%'}"></div>
     </div>
     <slot name="end"></slot>
   </div>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'ym-progress',
+  name: 'ymu-progress',
   props: {
     percentage: {
       type: Number,

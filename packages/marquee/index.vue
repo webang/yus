@@ -1,6 +1,6 @@
 <template>
-  <div class="ym-marquee">
-    <div class="ym-marquee-box" ref="marqueeBox">
+  <div class="ymu-marquee">
+    <div class="ymu-marquee-box" ref="marqueeBox">
       <slot></slot>
     </div>
   </div>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'ym-marquee',
+  name: 'ymu-marquee',
   props: {
     interval: {
       type: Number,

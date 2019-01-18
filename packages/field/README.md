@@ -2,9 +2,9 @@
 
 Confirm 通常和 Dialog 搭配使用，Dialog 通常他包含了3个部分：
 
-- ym-dialog__hd
-- ym-dialog__bd
-- ym-dialog__ft
+- ymu-dialog__hd
+- ymu-dialog__bd
+- ymu-dialog__ft
 
 ```JS
 import Vue from 'vue'

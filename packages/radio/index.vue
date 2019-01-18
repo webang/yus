@@ -1,15 +1,15 @@
 <template>
   <label
-    class="ym-radio"
+    class="ymu-radio"
     :class="[{
-      'ym-radio--checked': checked,
-      'ym-radio--disabled': disabled
+      'ymu-radio--checked': checked,
+      'ymu-radio--disabled': disabled
     }]"
     @click="$emit('click')"
   >
-    <span class="ym-radio__input" :style="inputStyle">
+    <span class="ymu-radio__input" :style="inputStyle">
       <input
-        class="ym-radio__control"
+        class="ymu-radio__control"
         type="radio"
         :name="name"
         :value="label"
@@ -21,7 +21,7 @@
       </slot>
     </span>
     <span
-      class="ym-radio__label"
+      class="ymu-radio__label"
       v-if="$slots.default || $scopedSlots.default"
       :style="lableStyle"
     >
@@ -34,7 +34,7 @@
 <script>
 import findParentMixin from '../../src/mixins/findParent'
 export default {
-  name: 'ym-radio',
+  name: 'ymu-radio',
   mixins: [findParentMixin],
   props: {
     label: [String, Number, Boolean],
@@ -72,7 +72,7 @@ export default {
     }
   },
   mounted () {
-    this.findParent('ym-radio-group')
+    this.findParent('ymu-radio-group')
   }
 }
 </script>

@@ -1,4 +1,9 @@
-.ym-clocker {
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
+
+.ymu-clocker {
   display: flex;
   align-items: center;
   > div {

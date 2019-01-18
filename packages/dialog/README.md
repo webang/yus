@@ -2,9 +2,9 @@
 
 Dialog 组合了 Backdrop Component，通常他包含了3个部分：
 
-- ym-dialog__hd
-- ym-dialog__bd
-- ym-dialog__ft
+- ymu-dialog__hd
+- ymu-dialog__bd
+- ymu-dialog__ft
 
 当然你也可以不使用这个布局
 
@@ -20,8 +20,8 @@ Vue.use(Dialog)
 | 属性 | 描述 | 类型 | 可选值 | 默认值 | 版本说明 |
 | - | - | - | - | - | - |
 | v-model | 是否显示 | Boolean | - | - | - |
-| dialogTransition | 弹窗动画效果 | String | - | ym-dialog | - |
-| backdropTransition | 幕布动画效果 | String | - | ym-backdrop | - |
+| dialogTransition | 弹窗动画效果 | String | - | ymu-dialog | - |
+| backdropTransition | 幕布动画效果 | String | - | ymu-backdrop | - |
 
 
 ## Slots

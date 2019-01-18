@@ -1,16 +1,16 @@
 <template>
-  <div class="ym-notice-bar" @click="$emit('click')">
-    <div class="ym-notice-bar__hd">
+  <div class="ymu-notice-bar" @click="$emit('click')">
+    <div class="ymu-notice-bar__hd">
       <slot name="head">
         <i class="iconfont icon-voice"></i>
       </slot>
     </div>
-    <div class="ym-notice-bar__bd" ref="barContent">
-      <div class="ym-notice-bar__marquee-wrap" ref="marqueeWrap" :style="style">
+    <div class="ymu-notice-bar__bd" ref="barContent">
+      <div class="ymu-notice-bar__marquee-wrap" ref="marqueeWrap" :style="style">
         <slot></slot>
       </div>
     </div>
-    <div class="ym-notice-bar__ft">
+    <div class="ymu-notice-bar__ft">
       <slot name="foot"></slot>
     </div>
   </div>
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'ym-notice-bar',
+  name: 'ymu-notice-bar',
   data () {
     return {
       offset: 0,

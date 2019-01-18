@@ -1,7 +1,7 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
-// $YMU_CUSTOM_VARS
+// $ymu_CUSTOM_VARS
 
 @mixin grayLoading {
   display: inline-block;
@@ -10,7 +10,7 @@
   vertical-align: middle;
   background-image: url(../../src/icons/loading-gray.svg);
   background-size: 100%;
-  animation: ymLoading 1s steps(12, end) infinite;
+  animation: ymuLoading 1s steps(12, end) infinite;
 }
 
 @mixin whiteLoading {
@@ -18,7 +18,7 @@
   background-image: url(../../src/icons/loading-white.svg);
 }
 
-.ym-button {
+.ymu-button {
   position: relative;
   border: 0;
   padding: 0;
@@ -37,153 +37,153 @@
   }
 }
 
-.ym-button--large {
+.ymu-button--large {
   height: $button-large-height;
   font-size: $button-large-font-size;
   line-height: $button-large-height;
   padding-left: $button-large-herizontal-padding;
   padding-right: $button-large-herizontal-padding;
-  &.ym-button--radius {
+  &.ymu-button--radius {
     border-radius: $button-large-border-radius;
   }
-  &.ym-button--round {
+  &.ymu-button--round {
     padding-left: $button-large-herizontal-round-padding;
     padding-right: $button-large-herizontal-round-padding;
     border-radius: $button-large-herizontal-round-radius;
   }
-  &.ym-button--plain {
+  &.ymu-button--plain {
     line-height: $button-large-height - 2;
   }
 }
 
-.ym-button--normal {
+.ymu-button--normal {
   height: $button-normal-height;
   font-size: $button-normal-font-size;
   line-height: $button-normal-height;
   padding-left: $button-normal-herizontal-padding;
   padding-right: $button-normal-herizontal-padding;
-  &.ym-button--radius {
+  &.ymu-button--radius {
     border-radius: $button-normal-border-radius;
   }
-  &.ym-button--round {
+  &.ymu-button--round {
     padding-left: $button-normal-herizontal-round-padding;
     padding-right: $button-normal-herizontal-round-padding;
     border-radius: $button-normal-herizontal-round-radius;
   }
-  &.ym-button--plain {
+  &.ymu-button--plain {
     line-height: $button-normal-height - 2;
   }
 }
 
-.ym-button--small {
+.ymu-button--small {
   height: $button-small-height;
   font-size: $button-small-font-size;
   line-height: $button-small-height;
   padding-left: $button-small-herizontal-padding;
   padding-right: $button-small-herizontal-padding;
-  &.ym-button--radius {
+  &.ymu-button--radius {
     border-radius: $button-small-border-radius;
   }
-  &.ym-button--round {
+  &.ymu-button--round {
     padding-left: $button-small-herizontal-round-padding;
     padding-right: $button-small-herizontal-round-padding;
     border-radius: $button-small-herizontal-round-radius;
   }
-  &.ym-button--plain {
+  &.ymu-button--plain {
     line-height: $button-small-height - 2;
   }
 }
 
-.ym-button--mini {
+.ymu-button--mini {
   height: $button-mini-height;
   font-size: $button-mini-font-size;
   line-height: $button-mini-height;
   padding-left: $button-mini-herizontal-padding;
   padding-right: $button-mini-herizontal-padding;
-  &.ym-button--radius {
+  &.ymu-button--radius {
     border-radius: $button-mini-border-radius;
   }
-  &.ym-button--round {
+  &.ymu-button--round {
     padding-left: $button-mini-herizontal-round-padding;
     padding-right: $button-mini-herizontal-round-padding;
     border-radius: $button-mini-herizontal-round-radius;
   }
-  &.ym-button--plain {
+  &.ymu-button--plain {
     line-height: $button-mini-height - 2;
   }
 }
 
 // 按钮类型维度
-.ym-button--light {
+.ymu-button--light {
   background-color: $button-light-bg-color;
   border-color: transparent;
   border: 1px solid $button-light-border-color;
-  .ym-loading {
+  .ymu-loading {
     @include grayLoading;
   }
-  &.ym-button--plain {
+  &.ymu-button--plain {
     color: $button-light-font-color;
     background: transparent;
     border: 1px solid $button-light-border-color;
   }
-  &.ym-button--clear {
+  &.ymu-button--clear {
     color: $button-light-font-color;
     background: transparent;
     border: none;
   }
 }
 
-.ym-button--primary {
+.ymu-button--primary {
   color: $button-primary-font-color;
   background-color: $button-primary-bg-color;
   border-color: transparent;
-  .ym-loading {
+  .ymu-loading {
     @include whiteLoading;
   }
-  &.ym-button--plain {
+  &.ymu-button--plain {
     color: $button-primary-bg-color;
     background: transparent;
     border: 1px solid $button-primary-bg-color;
   }
-  &.ym-button--clear {
+  &.ymu-button--clear {
     color: $button-primary-bg-color;
     background: transparent;
     border: none;
   }
 }
 
-.ym-button--warn {
+.ymu-button--warn {
   color: $button-warn-font-color;
   background-color: $button-warn-bg-color;
   border-color: transparent;
-  .ym-loading {
+  .ymu-loading {
     @include whiteLoading;
   }
-  &.ym-button--plain {
+  &.ymu-button--plain {
     color: $button-warn-bg-color;
     background: transparent;
     border: 1px solid $button-warn-bg-color;
   }
-  &.ym-button--clear {
+  &.ymu-button--clear {
     color: $button-warn-bg-color;
     background: transparent;
     border: none;
   }
 }
 
-.ym-button--danger {
+.ymu-button--danger {
   color: $button-danger-font-color;
   background-color: $button-danger-bg-color;
   border-color: transparent;
-  .ym-loading {
+  .ymu-loading {
     @include whiteLoading;
   }
-  &.ym-button--plain {
+  &.ymu-button--plain {
     color: $button-danger-bg-color;
     background: transparent;
     border: 1px solid $button-danger-bg-color;
   }
-  &.ym-button--clear {
+  &.ymu-button--clear {
     color: $button-danger-bg-color;
     background: transparent;
     border: none;
@@ -191,24 +191,24 @@
 }
 
 // block state
-.ym-button--block {
+.ymu-button--block {
   display: block;
   width: 100%;
   font-size: $button-block-font-size;
 }
 
 // inline state
-.ym-button--inline {
+.ymu-button--inline {
   display: inline-block;
 }
 
 // disabled state
-.ym-button--disabled {
+.ymu-button--disabled {
   opacity: $button-disabled-opacity;
 }
 
 // 点击效果
-.ym-button--clickable {
+.ymu-button--clickable {
   &::before {
     content: " ";
     position: absolute;

@@ -1,8 +1,8 @@
 <template>
   <div class="page-button-tab">
-    <div class="ym-doc-block">
-      <div class="ym-doc-block__title">基本用法</div>
-      <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block">
+      <div class="ymu-doc-block__title">基本用法</div>
+      <div class="ymu-doc-block__bd">
         <ButtonTab v-model="tabIndex02">
           <ButtonTabItem>我的积分</ButtonTabItem>
           <ButtonTabItem>我的订单</ButtonTabItem>
@@ -15,8 +15,8 @@
           <ButtonTabItem>我的订单</ButtonTabItem>
         </ButtonTab>
       </div>
-      <div class="ym-doc-block__title">禁用项</div>
-      <div class="ym-doc-block__bd">
+      <div class="ymu-doc-block__title">禁用项</div>
+      <div class="ymu-doc-block__bd">
         <ButtonTab v-model="tabIndex01">
           <ButtonTabItem>我的积分</ButtonTabItem>
           <ButtonTabItem>我的订单</ButtonTabItem>

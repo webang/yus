@@ -1,8 +1,9 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-toast {
+.ymu-toast {
   z-index: 10000;
   position: fixed;
   left: 50%;
@@ -19,7 +20,7 @@
   }
 }
 
-.ym-toast--middle {
+.ymu-toast--middle {
   top: 50%;
   transform: translate3d(-50%, -50%, 0);
   &-enter-active,
@@ -32,7 +33,7 @@
   }
 }
 
-.ym-toast--top {
+.ymu-toast--top {
   top: 0;
   transform: translate3d(-50%, 10px, 0);
   &-enter-active,
@@ -45,7 +46,7 @@
   }
 }
 
-.ym-toast--bottom {
+.ymu-toast--bottom {
   bottom: 10px;
   transform: translate3d(-50%, 0, 0);
   &-enter-active,

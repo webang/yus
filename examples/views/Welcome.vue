@@ -1,8 +1,8 @@
 <template>
   <div page="page-welcome">
-    <div class="ym-doc-block">
-      <div class="ym-doc-block__title">基础组件</div>
-      <div class="ym-doc-block__content">
+    <div class="ymu-doc-block">
+      <div class="ymu-doc-block__title">基础组件</div>
+      <div class="ymu-doc-block__content">
         <CellGroup>
           <Cell label="Button 按钮" is-link to="/Button"></Cell>
           <Cell label="Badge 徽章" is-link to="/Badge"></Cell>
@@ -21,9 +21,9 @@
         </CellGroup>
       </div>
     </div>
-    <div class="ym-doc-block">
-      <div class="ym-doc-block__title">数据展示</div>
-      <div class="ym-doc-block__content">
+    <div class="ymu-doc-block">
+      <div class="ymu-doc-block__title">数据展示</div>
+      <div class="ymu-doc-block__content">
         <CellGroup>
           <Cell label="Collapse 折叠面板" is-link to="/Collapse"></Cell>
           <Cell label="Marquee 跑马灯" is-link to="/Marquee"></Cell>
@@ -31,9 +31,9 @@
         </CellGroup>
       </div>
     </div>
-    <div class="ym-doc-block">
-      <div class="ym-doc-block__title">表单组件</div>
-      <div class="ym-doc-block__content">
+    <div class="ymu-doc-block">
+      <div class="ymu-doc-block__title">表单组件</div>
+      <div class="ymu-doc-block__content">
         <CellGroup>
           <Cell label="Calender 日历" is-link to="/Calender"></Cell>
           <Cell label="Checkbox 复选框" is-link to="/Checkbox"></Cell>
@@ -45,9 +45,9 @@
         </CellGroup>
       </div>
     </div>
-    <div class="ym-doc-block">
-      <div class="ym-doc-block__title">操作反馈</div>
-      <div class="ym-doc-block__content">
+    <div class="ymu-doc-block">
+      <div class="ymu-doc-block__title">操作反馈</div>
+      <div class="ymu-doc-block__content">
         <CellGroup>
           <Cell label="Actionsheet 上拉菜单" is-link to="/Actionsheet"></Cell>
           <Cell label="Alert 提示窗" is-link to="/Alert"></Cell>

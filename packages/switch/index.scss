@@ -1,8 +1,9 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-switch {
+.ymu-switch {
   position: relative;
   display: inline-block;
   width: $switch-width;
@@ -14,7 +15,7 @@
   box-sizing: content-box;
 }
 
-.ym-switch__node {
+.ymu-switch__node {
   z-index: 1;
   position: absolute;
   top: 0;
@@ -27,13 +28,13 @@
   box-shadow: 0 3px 1px 0 rgba(0, 0, 0, .05), 0 2px 2px 0 rgba(0, 0, 0, .1), 0 3px 3px 0 rgba(0, 0, 0, .05);
 }
 
-.ym-switch--on {
+.ymu-switch--on {
   background-color: $switch-active-color;
-  .ym-switch__node {
+  .ymu-switch__node {
     transform: translateX($switch-width - $switch-node-width);
   }
 }
 
-.ym-switch--disabled {
+.ymu-switch--disabled {
   opacity: $switch-disabled-opacity;
 }

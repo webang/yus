@@ -1,25 +1,25 @@
 <template>
   <button
-    class="ym-button"
+    class="ymu-button"
     :class="[
-      'ym-button--' + type,
-      'ym-button--' + size,
+      'ymu-button--' + type,
+      'ymu-button--' + size,
       {
-        'ym-button--radius': radius,
-        'ym-button--disabled': disabled,
-        'ym-button--plain': plain,
-        'ym-button--block': block,
-        'ym-button--inline': !block && inline,
-        'ym-button--round': round,
-        'ym-button--clear': clear,
-        'ym-button--unfeedback': !clickEffect,
-        'ym-button--clickable': !disabled && clickable
+        'ymu-button--radius': radius,
+        'ymu-button--disabled': disabled,
+        'ymu-button--plain': plain,
+        'ymu-button--block': block,
+        'ymu-button--inline': !block && inline,
+        'ymu-button--round': round,
+        'ymu-button--clear': clear,
+        'ymu-button--unfeedback': !clickEffect,
+        'ymu-button--clickable': !disabled && clickable
       }
     ]"
     :disabled="disabled"
     @click="onClick"
   >
-    <i class="ym-loading" v-if="showLoading"></i>
+    <i class="ymu-loading" v-if="showLoading"></i>
     <slot>
       <span class="yum-button-text">{{ text }}</span>
     </slot>
@@ -29,7 +29,7 @@
 <script type="text/javascript">
 
 /**
- * @component ym-button
+ * @component ymu-button
  * @param { string } [type=light] - 表现为按钮的背景色 light primary danger
  * @param { string } [size=normal] - 尺寸 - large normal small mini
  * @param { boolean } [block=false] - 块按钮
@@ -41,7 +41,7 @@
  * @param { slot } - 默认插槽
  */
 export default {
-  name: 'ym-button',
+  name: 'ymu-button',
   props: {
     type: {
       type: String,

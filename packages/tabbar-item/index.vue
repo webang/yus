@@ -1,25 +1,25 @@
 <template>
   <div
-    class="ym-tabbar-item"
-    :class="{'ym-tabbar-item--active': isActive}"
+    class="ymu-tabbar-item"
+    :class="{'ymu-tabbar-item--active': isActive}"
     @click="handleClick"
     :style="itemStyle"
   >
     <slot>
       <div
-        class="ym-tabbar-item__icon"
-        :class="{'ym-tabbar-item__icon--dot': dot}"
+        class="ymu-tabbar-item__icon"
+        :class="{'ymu-tabbar-item__icon--dot': dot}"
         v-if="$slots.icon || icon"
       >
-        <span class="ym-tabbar-item__badge" v-if="badge">
+        <span class="ymu-tabbar-item__badge" v-if="badge">
           <slot name="badge">{{ badge }}</slot>
         </span>
         <slot name="icon">
-          <img class="ym-tabbar-icon" v-if="isActive" :src="selectedIcon">
-          <img class="ym-tabbar-icon" v-else :src="icon">
+          <img class="ymu-tabbar-icon" v-if="isActive" :src="selectedIcon">
+          <img class="ymu-tabbar-icon" v-else :src="icon">
         </slot>
       </div>
-      <div class="ym-tabbar-item__text">
+      <div class="ymu-tabbar-item__text">
         <slot name="title">{{ title }}</slot>
       </div>
     </slot>
@@ -29,7 +29,7 @@
 <script>
 import findParentMixin from '../../src/mixins/findParent'
 export default {
-  name: 'ym-tabbar-item',
+  name: 'ymu-tabbar-item',
   mixins: [findParentMixin],
   props: {
     title: String,
@@ -63,7 +63,7 @@ export default {
     }
   },
   created () {
-    this.findParent('ym-tabbar')
+    this.findParent('ymu-tabbar')
   }
 }
 </script>

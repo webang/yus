@@ -1,8 +1,8 @@
 <template>
   <div class="page-badge">
-    <div class="ym-doc-block">
-      <div class="ym-doc-block__title">基本用法</div>
-      <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block">
+      <div class="ymu-doc-block__title">基本用法</div>
+      <div class="ymu-doc-block__bd">
         <Card header="收货率报表">
           <ul>
             <li>订单收货率报表</li>
@@ -47,10 +47,10 @@ export default {
 
 <style lang="scss" scoped>
 .page-badge {
-  /deep/ .ym-badge {
+  /deep/ .ymu-badge {
     margin-left: 5px;
   }
-  /deep/ .ym-cell__value {
+  /deep/ .ymu-cell__value {
     color: #999;
   }
 }

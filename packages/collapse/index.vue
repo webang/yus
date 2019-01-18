@@ -1,12 +1,12 @@
 <template>
-  <div class="ym-collapse">
+  <div class="ymu-collapse">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ym-collapse',
+  name: 'ymu-collapse',
   props: {
     accordion: Boolean
   }

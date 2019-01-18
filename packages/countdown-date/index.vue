@@ -1,5 +1,5 @@
 <template>
-  <div class="ym-countdown-date">
+  <div class="ymu-countdown-date">
     <slot
       :remain="remain"
       :isCounting="isCounting"
@@ -51,7 +51,7 @@ import { dateRegExp, parseTimeStamp, parseCountDown } from '../../src/utils/util
  * @prop: endTime 结束时间
  */
 export default {
-  name: "ym-clocker",
+  name: "ymu-clocker",
   props: {
     time: [String, Number],
     endTime: [Number, String],

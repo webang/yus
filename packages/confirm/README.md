@@ -2,9 +2,9 @@
 
 Confirm 通常和 Dialog 搭配使用，Dialog 通常他包含了3个部分：
 
-- ym-dialog__hd
-- ym-dialog__bd
-- ym-dialog__ft
+- ymu-dialog__hd
+- ymu-dialog__bd
+- ymu-dialog__ft
 
 ```JS
 import Vue from 'vue'
@@ -23,8 +23,8 @@ Vue.use(Confirm)
 | confirmText | 确认按钮文字 | String | - | 确定 | - |
 | cancelText | 取消按钮文字 | String | - | 取消 | - |
 | closeOnClickBackdrop | 点击幕布时关闭弹窗 | Boolean | - | true | - |
-| dialogTransition | 弹窗动画效果 | String | - | ym-dialog | - |
-| backdropTransition | 幕布动画效果 | String | - | ym-backdrop | - |
+| dialogTransition | 弹窗动画效果 | String | - | ymu-dialog | - |
+| backdropTransition | 幕布动画效果 | String | - | ymu-backdrop | - |
 | showInput | 显示输入框 | Boolean | - | - | - |
 | placeholder | 输入框提示 | String | - | - | - |
 | showCancel | 显示取消按钮 | Boolean | - | true | - |
@@ -36,7 +36,7 @@ Vue.use(Confirm)
 
 | 名字 | 说明 |
 | - | - |
-| title | title 插槽 | 
+| title | title 插槽 |
 | default | content 插槽 |
 | footer | footer 插槽 |
 

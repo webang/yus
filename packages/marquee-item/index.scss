@@ -1,8 +1,9 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-marquee-item {
+.ymu-marquee-item {
   display: flex;
   align-items: center;
   line-height: 30px;

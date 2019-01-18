@@ -1,8 +1,9 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-backtop {
+.ymu-backtop {
   position: fixed;
   bottom: $backtop-position-bottom;
   right: $backtop-position-right;

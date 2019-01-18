@@ -1,7 +1,7 @@
 <template>
   <div class="page-countdown-date">
-    <div class="ym-doc-block__title">还未开始</div>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__title">还未开始</div>
+    <div class="ymu-doc-block__bd">
       <ul>
         <li>
           <p>开始时间：{{ convertToStr(getRelativeDay(2)) }}</p>
@@ -14,8 +14,8 @@
       </ul>
     </div>
 
-    <div class="ym-doc-block__title">已经开始</div>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__title">已经开始</div>
+    <div class="ymu-doc-block__bd">
       <ul>
         <li>
           <p>开始时间：{{ convertToStr(getRelativeDay(-1)) }}</p>
@@ -28,8 +28,8 @@
       </ul>
     </div>
 
-    <div class="ym-doc-block__title">马上结束</div>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__title">马上结束</div>
+    <div class="ymu-doc-block__bd">
       <ul>
         <li>
           <p>开始时间：{{ convertToStr(getRelativeDay(-1)) }}</p>
@@ -44,8 +44,8 @@
       </ul>
     </div>
 
-    <div class="ym-doc-block__title">已经结束</div>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__title">已经结束</div>
+    <div class="ymu-doc-block__bd">
       <ul>
         <li>
           <p>开始时间：{{ convertToStr(getRelativeDay(-2)) }}</p>
@@ -58,8 +58,8 @@
       </ul>
     </div>
 
-    <div class="ym-doc-block__title">马上结束</div>
-    <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block__title">马上结束</div>
+    <div class="ymu-doc-block__bd">
       <ul>
         <li>
           <p>开始时间：{{ convertToStr(getRelativeDay(-1)) }}</p>

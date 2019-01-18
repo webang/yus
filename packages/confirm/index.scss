@@ -1,8 +1,9 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-confirm__input {
+.ymu-confirm__input {
   height: 36px;
   padding: 4px 6px;
   outline: 0;

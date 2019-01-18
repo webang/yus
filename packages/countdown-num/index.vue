@@ -1,5 +1,5 @@
 <template>
-  <div class="ym-clocker">
+  <div class="ymu-clocker">
     <slot
       :calculator="calculator"
       :isCounting="isCounting"
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "ym-countdown-num",
+  name: "ymu-countdown-num",
   props: {
     count: Number,
     delay: {

@@ -1,8 +1,8 @@
 <template>
   <div class="page page-switch">
-    <div class="ym-doc-block">
-      <div class="ym-doc-block__title">基础用法</div>
-      <div class="ym-doc-block__content">
+    <div class="ymu-doc-block">
+      <div class="ymu-doc-block__title">基础用法</div>
+      <div class="ymu-doc-block__content">
         <CellGroup>
           <Cell label="简单用法">
             <wSwitch v-model="s1" slot="value"></wSwitch>

@@ -2,17 +2,17 @@
   <transition :name="transition">
     <div
       v-show="visible"
-      class="ym-toast"
+      class="ymu-toast"
       :class="[
-        'ym-toast--'+type,
-        'ym-toast--'+position
+        'ymu-toast--'+type,
+        'ymu-toast--'+position
       ]"
     >
       <slot name="icon">
-        <i class="ym-toast__icon ymuicon" :class="iconName" v-if="hasIcon"></i>
+        <i class="ymu-toast__icon ymuicon" :class="iconName" v-if="hasIcon"></i>
       </slot>
       <slot name="message">
-        <div class="ym-toast__text">{{ message }}</div>
+        <div class="ymu-toast__text">{{ message }}</div>
       </slot>
     </div>
   </transition>
@@ -29,7 +29,7 @@ const iconTypeMap = {
 }
 
 export default {
-  name: 'ym-toast',
+  name: 'ymu-toast',
   props: {
     value: Boolean,
     message: String,
@@ -61,7 +61,7 @@ export default {
   },
   computed: {
     transition () {
-      return 'ym-toast--' + this.position
+      return 'ymu-toast--' + this.position
     },
     hasIcon () {
       return this.type !== 'text'

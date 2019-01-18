@@ -1,27 +1,27 @@
 <template>
-  <div class="ym-slider">
-    <div class="ym-slider__hd">
+  <div class="ymu-slider">
+    <div class="ymu-slider__hd">
       <slot name="start"></slot>
     </div>
-    <div class="ym-slider__bd" ref="content" :style="{ height: trackHeight + 'px'}">
-      <div class="ym-slider__runway" ref="runway"></div>
-      <div class="ym-slider__track" ref="track" :style="trackStyle"></div>
+    <div class="ymu-slider__bd" ref="content" :style="{ height: trackHeight + 'px'}">
+      <div class="ymu-slider__runway" ref="runway"></div>
+      <div class="ymu-slider__track" ref="track" :style="trackStyle"></div>
       <div
-        class="ym-slider__thumb"
+        class="ymu-slider__thumb"
         :class="[{ 'is-active': direction === 'from' }]"
         :style="{ left: left + '%' }"
         @touchstart="onTouchStart('from', $event)"
         @touchmove="onTouchMove('from', $event)"
         @touchend="onTouchEnd('from', $event)"></div>
       <div
-        class="ym-slider__thumb"
+        class="ymu-slider__thumb"
         :class="[{ 'is-active': direction === 'top' }]"
         :style="{ left: (100 - right) + '%' }"
         @touchstart="onTouchStart('to', $event)"
         @touchmove="onTouchMove('to', $event)"
         @touchend="onTouchEnd('to', $event)"></div>
     </div>
-    <div class="ym-slider__ft">
+    <div class="ymu-slider__ft">
       <slot name="end"></slot>
     </div>
   </div>
@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: 'ym-slider',
+  name: 'ymu-slider',
   props: {
     value: Array,
     min: {

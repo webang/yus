@@ -1,8 +1,8 @@
 <template>
   <div class="page-tabs">
-    <div class="ym-doc-block">
-      <div class="ym-doc-block__hd">基本用法</div>
-      <div class="ym-doc-block__bd">
+    <div class="ymu-doc-block">
+      <div class="ymu-doc-block__hd">基本用法</div>
+      <div class="ymu-doc-block__bd">
         <Tabs class="menu" v-model="index1">
           <Tab title="数学分析">
             <div>1</div>

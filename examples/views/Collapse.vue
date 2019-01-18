@@ -1,6 +1,6 @@
 <template>
   <div class="page-collapse">
-    <div class="ym-doc-block__title">基本用法</div>
+    <div class="ymu-doc-block__title">基本用法</div>
     <Collapse>
       <CollapseItem title="编译原理">
         <p>amazing fuck hello world</p>
@@ -13,7 +13,7 @@
       </CollapseItem>
     </Collapse>
 
-    <div class="ym-doc-block__title">手风琴</div>
+    <div class="ymu-doc-block__title">手风琴</div>
     <Collapse accordion>
       <CollapseItem title="编译原理">
         <p>amazing fuck hello world</p>
@@ -26,7 +26,7 @@
       </CollapseItem>
     </Collapse>
 
-    <div class="ym-doc-block__title">默认展开</div>
+    <div class="ymu-doc-block__title">默认展开</div>
     <Collapse accordion>
       <CollapseItem title="编译原理" :value="true">
         <p>amazing fuck hello world</p>

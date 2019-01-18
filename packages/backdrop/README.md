@@ -11,7 +11,7 @@ Vue.use(Backdrop);
 | 属性 | 描述 | 类型 | 可选值 | 默认值 |
 | - | :-: | :- | :-: | :-: |
 | value | 控制幕布显示 | Boolean | - | - |
-| transition | 幕布过度效果 | String | - | `ym-backdrop` |
+| transition | 幕布过度效果 | String | - | `ymu-backdrop` |
 | prevent-on-touchmove | 在幕布上滑动时，是否阻止页面滚动 | Boolean | - | true |
 
 

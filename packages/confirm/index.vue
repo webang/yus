@@ -1,14 +1,14 @@
 <template>
-  <div class="ym-confirm">
+  <div class="ymu-confirm">
     <Ydialog v-model="value" @on-click-backdrop="OnClickBackdrop">
-      <div class="ym-dialog__hd" v-if="title || $slots.title">
+      <div class="ymu-dialog__hd" v-if="title || $slots.title">
         <slot name="title">
-          <span class="ym-dialog__title">{{ title }}</span>
+          <span class="ymu-dialog__title">{{ title }}</span>
         </slot>
       </div>
-      <div class="ym-dialog__bd">
+      <div class="ymu-dialog__bd">
         <template v-if="showInput">
-          <input type="text" class="ym-confirm__input" :placeholder="placeholder" v-model="currentInputValue">
+          <input type="text" class="ymu-confirm__input" :placeholder="placeholder" v-model="currentInputValue">
         </template>
         <template v-else>
           <slot>
@@ -16,15 +16,15 @@
           </slot>
         </template>
       </div>
-      <div class="ym-dialog__ft">
+      <div class="ymu-dialog__ft">
         <slot name="footer">
           <a
-            class="ym-dialog__btn ym-dialog__btn--clickable"
+            class="ymu-dialog__btn ymu-dialog__btn--clickable"
             @click="onCancleClick"
             v-if="showCancel"
             v-text="cancelText"></a>
           <a
-            class="ym-dialog__btn ym-dialog__btn--primary ym-dialog__btn--clickable"
+            class="ymu-dialog__btn ymu-dialog__btn--primary ymu-dialog__btn--clickable"
             @click="onConfirmClick"
             v-if="showConfirm"
             v-text="confirmText"></a>
@@ -39,7 +39,7 @@ import Backdrop from '../backdrop'
 import Ydialog from '../dialog'
 
 export default {
-  name: 'ym-confirm',
+  name: 'ymu-confirm',
   components: {
     Ydialog,
     Backdrop
@@ -68,7 +68,7 @@ export default {
     },
     showConfirm: {
       type: Boolean,
-      default: true      
+      default: true
     },
     inputValue: {
       type: [String, Number],

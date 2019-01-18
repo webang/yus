@@ -1,8 +1,9 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-backdrop {
+.ymu-backdrop {
   z-index: $backdrop-zindex;
   position: fixed;
   top: 0;
@@ -12,12 +13,12 @@
   background: $backdrop-bg;
 }
 
-.ym-backdrop-enter,
-.ym-backdrop-leave-active {
+.ymu-backdrop-enter,
+.ymu-backdrop-leave-active {
   opacity: 0;
 }
 
-.ym-backdrop-leave-active,
-.ym-backdrop-enter-active {
+.ymu-backdrop-leave-active,
+.ymu-backdrop-enter-active {
   transition: opacity 300ms;
 }

@@ -1,14 +1,13 @@
-$slider-default-bg-color: #EBEBEB;
-$slider-active-bg-color: #26a2ff;
-$slider-height: 30px;
-$slider-thumb-width: 30px;
-$slider-thumb-height: 30px;
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
 @mixin slider-box-shadow {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.ym-slider {
+.ymu-slider {
 
   position: relative;
   display: flex;
@@ -29,7 +28,7 @@ $slider-thumb-height: 30px;
     height: 100%;
     left: 0;
     right: -$slider-thumb-width;
-    background-color: $slider-default-bg-color;
+    background-color: $slider-runway-bg-color;
   }
 
   &__track {
@@ -37,7 +36,7 @@ $slider-thumb-height: 30px;
     top: 0;
     height: 100%;
     max-width: 100%;
-    background-color: $slider-active-bg-color;
+    background-color: $slider-track-bg-color;
   }
 
   &__thumb {

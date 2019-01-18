@@ -1,27 +1,27 @@
 <template>
   <div
-    class="ym-collapse-item"
+    class="ymu-collapse-item"
     :class="{
-      'ym-collapse-item--active': currentValue,
-      'ym-collapse-item--border': border
+      'ymu-collapse-item--active': currentValue,
+      'ymu-collapse-item--border': border
     }"
     @click="handleClick"
   >
-    <div class="ym-collapse-item__hd">
-      <div class="ym-collapse-item__title">
+    <div class="ymu-collapse-item__hd">
+      <div class="ymu-collapse-item__title">
         <slot name="title">
           <p v-text="title"></p>
         </slot>
       </div>
-      <i class="ym-collapse-item__right-icon ym-icon icon-arrow_up" :class="{'is-active': currentValue}"></i>
+      <i class="ymu-collapse-item__right-icon ymu-icon icon-arrow_up" :class="{'is-active': currentValue}"></i>
     </div>
     <div
-      class="ym-collapse-item__wrap"
+      class="ymu-collapse-item__wrap"
       ref="wrapper"
       v-show="currentValue"
       @transitionend="handleTransitionend"
     >
-      <div class="ym-collapse-item__content">
+      <div class="ymu-collapse-item__content">
         <slot>
           <p v-if="content" v-text="content"></p>
         </slot>
@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: 'ym-collapse-item',
+  name: 'ymu-collapse-item',
   props: {
     value: Boolean,
     title: String,

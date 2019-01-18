@@ -1,18 +1,19 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-cell-group {
+.ymu-cell-group {
   position: relative;
-  .ym-cell:last-child,
-  .ym-field:last-child {
+  .ymu-cell:last-child,
+  .ymu-field:last-child {
     &::after {
       display: none;
     }
   }
 }
 
-.ym-cell-group__bd {
+.ymu-cell-group__bd {
   position: relative;
   background-color: #fff;
   &::after,
@@ -35,7 +36,7 @@
   }
 }
 
-.ym-cell-group__title {
+.ymu-cell-group__title {
   padding: 10px $cell-group-herizontal-padding;
   color: $cell-group-title-color;
   font-size: $cell-group-title-font-size;

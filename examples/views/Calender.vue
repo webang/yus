@@ -19,18 +19,18 @@
       </div>
     </Cell>
     <calender
-      class="ym-calender"
+      class="ymu-calender"
       :visible="backdropVisible"
       v-model="dateValue"
       @on-click-backdrop="backdropVisible=false"></calender>
     <calender
-      class="ym-calender"
+      class="ymu-calender"
       :visible="backdropVisible2"
       v-model="dateValue2"
       @on-click-backdrop="backdropVisible2=false"
       ></calender>
     <calender
-      class="ym-calender"
+      class="ymu-calender"
       :visible="backdropVisible3"
       v-model="dateValue3"
       @on-click-backdrop="backdropVisible3=false"
@@ -80,7 +80,7 @@ li {
   color: #666;
 }
 
-.ym-calender {
+.ymu-calender {
   z-index: 1000;
   position: fixed;
   background: #fff;

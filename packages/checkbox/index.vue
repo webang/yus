@@ -1,30 +1,30 @@
 <template>
   <label
-    class="ym-checkbox"
+    class="ymu-checkbox"
     :class="[{
-      'ym-checkbox--cell': useCell,
-      'ym-checkbox--checked': currentValue,
-      'ym-checkbox--disabled': disabled,
-      'ym-checkbox--label-left': labelLeft,
-      'ym-checkbox--clickable': !disabled && clickable
+      'ymu-checkbox--cell': useCell,
+      'ymu-checkbox--checked': currentValue,
+      'ymu-checkbox--disabled': disabled,
+      'ymu-checkbox--label-left': labelLeft,
+      'ymu-checkbox--clickable': !disabled && clickable
     }]"
     @click="toggleValue"
   >
-    <div class="ym-checkbox__input" :style="inputStyle">
+    <div class="ymu-checkbox__input" :style="inputStyle">
       <input
-        class="ym-checkbox__control"
+        class="ymu-checkbox__control"
         type="checkbox"
         :value="label"
         v-model="currentValue"
         :disabled="disabled"
       >
       <slot name="icon" :checked="currentValue">
-        <i class="ym-checkbox__icon ymuicon" :class="iconClass"></i>
+        <i class="ymu-checkbox__icon ymuicon" :class="iconClass"></i>
       </slot>
     </div>
-    <div class="ym-checkbox__label" :style="lableStyle">
+    <div class="ymu-checkbox__label" :style="lableStyle">
       <slot>
-        <span class="ym-checkbox__text" v-text="label"></span>
+        <span class="ymu-checkbox__text" v-text="label"></span>
       </slot>
     </div>
   </label>
@@ -33,7 +33,7 @@
 <script>
 import parentMixin from '../../src/mixins/findParent'
 export default {
-  name: 'ym-checkbox',
+  name: 'ymu-checkbox',
   mixins: [parentMixin],
   props: {
     label: [String, Object, Number],
@@ -112,7 +112,7 @@ export default {
     }
   },
   mounted () {
-    this.findParent('ym-checkbox-group')
+    this.findParent('ymu-checkbox-group')
   }
 }
 </script>

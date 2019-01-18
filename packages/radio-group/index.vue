@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'ym-radio-group',
+  name: 'ymu-radio-group',
   props: {
     value: [String, Number, Boolean]
   }

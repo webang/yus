@@ -1,33 +1,34 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-flow {
+.ymu-flow {
   position: relative;
   font-size: 14px;
   line-height: 18px;
 }
 
-.ym-flow__line {
+.ymu-flow__line {
 
 }
 
-.ym-flow-main {
+.ymu-flow-main {
   font-size: 12px;
 }
 
-.ym-flow__icon {
+.ymu-flow__icon {
 
 }
 
-.ym-flow--horizontal {
+.ymu-flow--horizontal {
   flex: 1;
   text-align: center;
-  .ym-flow-head {
+  .ymu-flow-head {
     position: relative;
     height: 24px;
   }
-  .ym-flow__icon {
+  .ymu-flow__icon {
     z-index: 3;
     position: absolute;
     left: 50%;
@@ -38,7 +39,7 @@
     background: #888;
     border-radius: 50%;
   }
-  .ym-flow__line {
+  .ymu-flow__line {
     position: absolute;
     top: 27px;
     left: 50%;
@@ -50,23 +51,23 @@
     background: #888;
   }
   &:last-child {
-    .ym-flow__line {
+    .ymu-flow__line {
       display: none;
     }
   }
 }
 
-.ym-flow--vertical {
+.ymu-flow--vertical {
   display: flex;
-  .ym-flow-head {
+  .ymu-flow-head {
     position: relative;
     display: flex;
     width: 24px;
   }
-  .ym-flow-main {
+  .ymu-flow-main {
     padding-bottom: 10px;
   }
-  .ym-flow__line {
+  .ymu-flow__line {
     position: absolute;
     width: 1px;
     left: 50%;
@@ -75,7 +76,7 @@
     transform: translateX(-50%);
     background: #888;
   }
-  .ym-flow__icon {
+  .ymu-flow__icon {
     z-index: 3;
     position: absolute;
     left: 14px;
@@ -88,14 +89,14 @@
   }
 }
 
-.ym-flow--process {
-  .ym-flow__icon {
+.ymu-flow--process {
+  .ymu-flow__icon {
     background: red;
   }
 }
 
-.ym-flow--finish {
-  .ym-flow__icon {
+.ymu-flow--finish {
+  .ymu-flow__icon {
     width: 10px;
     height: 10px;
     background: red;

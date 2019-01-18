@@ -1,8 +1,9 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-field {
+.ymu-field {
   position: relative;
   display: flex;
   padding: 10px 12px;
@@ -18,7 +19,7 @@
     height: 1px;
     background-color: #eee;
   }
-  .ym-icon-clear {
+  .ymu-icon-clear {
     display: block;
     width: 17px;
     height: 17px;
@@ -32,20 +33,20 @@
   }
 }
 
-.ym-field__bd {
+.ymu-field__bd {
   flex: 1;
 }
 
-.ym-field__label {
+.ymu-field__label {
   padding-right: 10px;
 }
 
-.ym-field__ft {
+.ymu-field__ft {
   display: flex;
   align-items: center;
 }
 
-.ym-field__input {
+.ymu-field__input {
   width: 100%;
   padding: 0;
   outline: 0;
@@ -59,7 +60,7 @@
   }
 }
 
-.ym-field__error-message {
+.ymu-field__error-message {
   font-size: 12px;
   color: #f44;
 }

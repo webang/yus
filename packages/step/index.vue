@@ -1,5 +1,5 @@
 <template>
-  <div class="ym-step"></div>
+  <div class="ymu-step"></div>
 </template>
 
 <script>

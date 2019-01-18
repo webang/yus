@@ -1,8 +1,9 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-actionsheet__content {
+.ymu-actionsheet__content {
   z-index: $backdrop-zindex + 1;
   position: fixed;
   left: 0;
@@ -13,7 +14,7 @@
   transition: transform .3s;
 }
 
-.ym-actionsheet__cell {
+.ymu-actionsheet__cell {
   position: relative;
   padding-top: $actionsheet-cell-vertical-padding;
   padding-bottom: $actionsheet-cell-vertical-padding;
@@ -33,19 +34,19 @@
   }
 }
 
-.ym-actionsheet__cell--disabled {
+.ymu-actionsheet__cell--disabled {
   color: $actionsheet-menu-disabled-color;
 }
 
-.ym-actionsheet__cancel {
+.ymu-actionsheet__cancel {
   margin-top: $actionsheet-cancel-margin-top;
 }
 
-.ym-actionsheet__content--show {
+.ymu-actionsheet__content--show {
   transform: translate(0);
 }
 
-.ym-actionsheet__cell--clickable {
+.ymu-actionsheet__cell--clickable {
   user-select: none;
   &:active {
     background-color: $click-active-bg-color;

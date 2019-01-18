@@ -1,8 +1,9 @@
 @import '../../src/styles/variable.scss';
 @import '../../src/styles/mixin.scss';
 @import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
 
-.ym-tabbar-item {
+.ymu-tabbar-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,24 +12,24 @@
   text-align: center;
 }
 
-.ym-tabbar-item__icon {
+.ymu-tabbar-item__icon {
   position: relative;
 }
 
-.ym-tabbar-item__text {
+.ymu-tabbar-item__text {
   margin-top: $tabbar-icon-margin-top;
 }
 
-.ym-tabbar-icon {
+.ymu-tabbar-icon {
   width: $tabbar-icon-width;
   height: $tabbar-icon-height;
 }
 
-.ym-tabbar-item__text {
+.ymu-tabbar-item__text {
   line-height: 1;
 }
 
-.ym-tabbar-item__icon--dot {
+.ymu-tabbar-item__icon--dot {
   &::after {
     content: " ";
     position: absolute;
@@ -39,7 +40,7 @@
   }
 }
 
-.ym-tabbar-item__badge {
+.ymu-tabbar-item__badge {
   position: absolute;
   height: $tabbar-badge-height;
   line-height: $tabbar-badge-height;

@@ -5,10 +5,12 @@ $color-danger: #e94f4f;
 $color-light:  #f4f4f4;
 $color-dark:  #222;
 
+
 // Common vars -------------------------------------------------------------------
 $click-active-bg-color: #e8e8e8;
 $layout-herizontal-padding: 12px;
 $border-color: #e8e8e8;
+
 
 // Button ------------------------------------------------------------------------
 $button-large-height: 50px;
@@ -58,8 +60,9 @@ $button-disabled-opacity: 0.5;
 // active state
 $button-active-opacity: 0.2;
 
+
 // Backdrop -------------------------------------------------------------------------
-$backdrop-zindex: 900;
+$backdrop-zindex: 1000;
 $backdrop-bg: rgba(0, 0, 0, .6);
 
 
@@ -80,10 +83,12 @@ $cell-font-size: 14px;
 $cell-herizontal-padding: $layout-herizontal-padding;
 $cell-line-height: 24px;
 
+
 // CellGroup
 $cell-group-herizontal-padding: $layout-herizontal-padding;
 $cell-group-title-font-size: 16px;
 $cell-group-title-color: inherit;
+
 
 // Checkbox ---------------------------------------------------------------------------
 $checkbox-default-icon-color: #969799;
@@ -98,6 +103,7 @@ $checkbox-cell-line-height: 24px;
 $checkbox-cell-vertical-padding: 10px;
 $checkbox-cell-horizontal-padding: 12px;
 
+
 // Radio -------------------------------------------------------------------------------
 $radio-default-icon-color: #969799;
 $radio-checked-icon-color: $color-primary;
@@ -106,6 +112,7 @@ $radio-label-font-size: 16px;
 $radio-label-line-height: 24px;
 $radio-label-margin-left: 8px;
 $radio-icon-font-size: 22px;
+
 
 // Collapse ----------------------------------------------------------------------------
 $collapse-item-herizontal-padding: $layout-herizontal-padding;
@@ -183,11 +190,11 @@ $backtop-text-font-size: 10px;
 
 // Slider -----------------------------------------------------------------------------
 $slider-height: 24px;
+$slider-thumb-width: 24px;
+$slider-thumb-height: 24px;
 $slider-runway-height: 2px;
 $slider-runway-bg-color: #EBEBEB;
 $slider-track-bg-color: $color-primary;
-$slider-thumb-width: 24px;
-$slider-thumb-height: 24px;
 $slider-thumb-bg-color: #fff;
 $slider-disabled-opacity: .6;
 
@@ -224,3 +231,11 @@ $tabbar-badge-horizontal-padding: 5px;
 $tabbar-badge-font-color: #fff;
 $tabbar-badge-border-radius: 12px;
 $tabbar-badge-bg-color: #ff5b05;
+
+
+// Range ---------------------------------------------------------------------------------
+$range-default-bg-color: #EBEBEB;
+$range-active-bg-color: #26a2ff;
+$range-height: 30px;
+$range-thumb-width: 30px;
+$range-thumb-height: 30px;

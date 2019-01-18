@@ -1,12 +1,12 @@
 <template>
-  <div class="ym-checkbox-group">
+  <div class="ymu-checkbox-group">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ym-checkbox-group',
+  name: 'ymu-checkbox-group',
   props: {
     value: [Array],
     min: Number,
