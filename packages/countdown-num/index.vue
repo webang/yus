@@ -1,5 +1,5 @@
 <template>
-  <div class="ymu-clocker">
+  <div class="ymu-countdown-num">
     <slot
       :calculator="calculator"
       :isCounting="isCounting"
@@ -13,8 +13,10 @@
 </template>
 
 <script>
-export default {
-  name: "ymu-countdown-num",
+import use from '../../src/utils/use'
+const [useName, useBem] = use('countdown-num')
+
+export default useName({
   props: {
     count: Number,
     delay: {
@@ -79,7 +81,7 @@ export default {
   beforeDestroy() {
     this.clearTimeId()
   }
-};
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

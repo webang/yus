@@ -44,14 +44,12 @@
 
 <script>
 import { isType } from '../../src/utils/isType'
-import { dateRegExp, parseTimeStamp, parseCountDown } from '../../src/utils/utils'
-/**
- * @prop: time 设置当前客户端的时间，当这个时间是从服务端获取，这将很有用
- * @prop: startTime 开始时间
- * @prop: endTime 结束时间
- */
-export default {
-  name: "ymu-clocker",
+import { dateReg } from '../../src/utils/date'
+import { parseTimeStamp, parseCountDown } from '../../src/utils/utils'
+import use from '../../src/utils/use'
+const [useName, useBem] = use('countdown-date')
+
+export default useName({
   props: {
     time: [String, Number],
     endTime: [Number, String],
@@ -165,7 +163,7 @@ export default {
     parseTimeStamp,
     parseCountDown,
     formatDate (dateStr) {
-      const result = dateRegExp.exec(dateStr)
+      const result = dateReg.exec(dateStr)
       let time
       if (result) {
         const temp = new Date().setFullYear(+result[1], +result[2] - 1, +result[3])
@@ -200,7 +198,7 @@ export default {
   beforeDestroy() {
     this.clearTimeId()
   }
-};
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

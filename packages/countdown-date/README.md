@@ -3,6 +3,7 @@
 ```JS
 import Vue from 'vue'
 import CountdownDate from 'ymu'
+
 Vue.use(CountdownDate)
 ```
 
@@ -10,14 +11,23 @@ Vue.use(CountdownDate)
 
 | 属性 | 描述 | 类型 | 可选值 | 默认值 | 版本说明 |
 | - | - | - | - | - | - |
-| current-time | 非必选; 当前的时间(当需要从服务端获取数据时，这会很有用) | `String` / `Number` | - | 当前时间 | - |
-| start-time | 非必选; 开始时间; 不传表示已经开始 | 同上 | - | - | - |
-| end-time | 必选; 结束时间 | 同上 | - | - | - |
+| current-time | 当前的时间(从服务端获取数据会有用) | String, Number | - | 当前时间 | - |
+| start-time | 开始时间(不传表示已经开始) | String, Number | - | - | - |
+| start-time | 结束时间(必须) | String, Number | - | - | - |
 
-当时间为 String 类型时，需满足：
+## Slots
 
-```js
-const reg = /^(\d{4})-(\d{1,2})-(\d{1,2})((\s)(\d{1,2}):(\d{1,2}):(\d{1,2}))?$/
-```
+| 名字 | 说明 |
+| :- | :- |
+| - | - |
 
-##
+## Events
+
+| 名称 | 描述 |
+| :-: | :-: |
+| on-change | 时间发生变化 |
+| on-end | 时间已结束 |
+
+## Sass vars
+
+无

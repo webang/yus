@@ -11,8 +11,10 @@
 
 <script>
 import Backdrop from '../backdrop'
-export default {
-  name: 'ymu-dialog',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('dialog')
+
+export default useName({
   components: {
     Backdrop
   },
@@ -51,7 +53,7 @@ export default {
   created () {
     this.visible = !!this.value
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>
