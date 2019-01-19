@@ -30,9 +30,10 @@
 <script>
 import Backdrop from '../backdrop'
 import Ydialog from '../dialog'
+import use from '../../src/utils/use'
+const [useName, useBem] = use('alert')
 
-export default {
-  name: 'ymu-alert',
+export default useName({
   components: {
     Ydialog,
     Backdrop
@@ -75,7 +76,7 @@ export default {
   created () {
     this.visible = !!this.value
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

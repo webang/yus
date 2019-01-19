@@ -12,8 +12,10 @@
 </template>
 
 <script>
-export default {
-  name: 'ymu-backdrop',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('backdrop')
+
+export default useName({
   props: {
     value: Boolean,
     transition: {
@@ -36,7 +38,7 @@ export default {
       this.$emit('touchmove')
     }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

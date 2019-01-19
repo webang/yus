@@ -5,15 +5,17 @@
 </template>
 
 <script>
-export default {
-  name: 'ymu-checkbox-group',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('checkbox-group')
+
+export default useName({
   props: {
     value: [Array],
     min: Number,
     max: Number,
     useCell: Boolean
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

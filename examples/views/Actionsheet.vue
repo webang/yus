@@ -54,6 +54,8 @@
 <script>
 import { Cell, CellGroup, Actionsheet, Switch as YSwitch } from 'ymu'
 
+console.log(Actionsheet)
+
 export default {
   components: {
     Cell,

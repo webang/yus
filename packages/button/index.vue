@@ -40,8 +40,11 @@
  * @param { string } 显示文本
  * @param { slot } - 默认插槽
  */
-export default {
-  name: 'ymu-button',
+
+import use from '../../src/utils/use'
+const [useName, useBem] = use('button')
+
+export default useName({
   props: {
     type: {
       type: String,
@@ -82,7 +85,7 @@ export default {
       this.$emit('click', event)
     }
   }
-}
+})
 </script>
 
 <style src="./index.scss" lang="scss"></style>

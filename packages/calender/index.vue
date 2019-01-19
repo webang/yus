@@ -1,32 +1,40 @@
 <template>
   <div class="v-dom">
-    <Popup v-model="visible" :close-on-click-backdrop="false" @on-click-backdrop="onClickBackdrop">
+    <Popup v-model="visible"
+      :close-on-click-backdrop="false"
+      @on-click-backdrop="onClickBackdrop"
+    >
       <div class="ymu-calender">
         <div class="ymu-calender__hd">
           <div class="ymu-calender__year">
-            <i @click="onClickPrevYear" class="ymuicon ios-arrow-back"></i>
+            <Icon name="ios-arrow-back" @click="onClickPrevYear"/>
             <span v-text="showYear"></span>
-            <i @click="onClickNextYear" class="ymuicon ios-arrow-forward"></i>
+            <Icon name="ios-arrow-forward" @click="onClickNextYear"/>
           </div>
           <div class="ymu-calender__month">
-            <i @click="onClickPrevMonth" class="ymuicon ios-arrow-back"></i>
+            <Icon name="ios-arrow-back" @click="onClickPrevMonth"/>
             <span>{{ addZero(showMonth) }}</span>
-            <i @click="onClickNextMonth" class="ymuicon ios-arrow-forward"></i>
+            <Icon name="ios-arrow-forward" @click="onClickNextMonth"/>
           </div>
         </div>
         <div class="ymu-calender__bd">
           <div class="ymu-calender__row">
-            <div class="ymu-calender__col" v-for="item in daymuaps" :key="item" v-text="item"></div>
-          </div>
-          <div class="ymu-calender__row" v-for="(row, rowIndex) in dateRows" :key="rowIndex">
             <div
               class="ymu-calender__col"
-              v-for="(dateItem, dateIndex) in daymuaps"
+              v-for="item in dayMap"
+              :key="item"
+              v-text="item"></div>
+          </div>
+          <div
+            class="ymu-calender__row"
+            v-for="(row, rowIndex) in dateRows"
+            :key="rowIndex"
+          >
+            <div
+              class="ymu-calender__col"
+              v-for="(dateItem, dateIndex) in 7"
               :key="dateIndex"
-              :class="[{
-                'is-selected': isSelected(dateList[rowIndex*7+dateIndex]),
-                'is-disabled': disabledFn(dateList[rowIndex*7+dateIndex])
-              }]"
+              :class="dateCls(dateList[rowIndex*7+dateIndex])"
               @click="onClickDate(dateList[rowIndex*7+dateIndex])"
             >
               <template v-if="dateList[rowIndex*7+dateIndex] && dateList[rowIndex*7+dateIndex].type==='current'">
@@ -41,20 +49,24 @@
 </template>
 
 <script>
+import Icon from '../icon'
 import Popup from '../popup'
 import Backdrop from '../backdrop'
 import { addZero } from '../../src/utils/utils'
-const daymuaps = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
-const dateReg = /^(\d{4})\-(\d{1,2})\-(\d{1,2})$/
+import { dateReg, dayMap } from '../../src/utils/date'
+import use from '../../src/utils/use'
 
-export default {
+const [useName, useBem] = use('calender')
+
+export default useName({
   components: {
+    Icon,
     Popup,
     Backdrop
   },
   data () {
     return {
-      daymuaps: daymuaps,
+      dayMap: dayMap,
       showYear: 0,
       showMonth: 0,
       curMonthShowDateList: [], // 当前选择的月份对应的日期列表
@@ -73,8 +85,7 @@ export default {
       default: true
     },
     disabledFn: {
-      type: Function,
-      default: () => {}
+      type: Function
     },
     closeOnClickBackdrop: {
       type: Boolean,
@@ -111,10 +122,13 @@ export default {
   },
   methods: {
     addZero,
-    onClickBackdrop () {
-      if (this.closeOnClickBackdrop) {
-        // this.
+    dateCls (date) {
+      return {
+        'is-selected': this.isSelected(date),
+        'is-disabled': this.disabledFn ? this.disabledFn(date) : false
       }
+    },
+    onClickBackdrop () {
       this.$emit('on-click-backdrop')
     },
     onClickNextMonth () {
@@ -272,7 +286,7 @@ export default {
       this.initData()
     }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

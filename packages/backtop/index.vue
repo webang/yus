@@ -20,8 +20,10 @@
 //   }
 // }
 
-export default {
-  name: 'ymu-backtop',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('backdrop')
+
+export default useName({
   props: {
     text: String
   },
@@ -33,7 +35,7 @@ export default {
       this.$emit('click')
     }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

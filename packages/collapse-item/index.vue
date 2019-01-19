@@ -13,7 +13,11 @@
           <p v-text="title"></p>
         </slot>
       </div>
-      <i class="ymu-collapse-item__right-icon ymu-icon icon-arrow_up" :class="{'is-active': currentValue}"></i>
+      <Icon
+        name="ios-arrow-up"
+        class="ymu-collapse-item__right-icon"
+        :class="{'is-active': currentValue}"
+      />
     </div>
     <div
       class="ymu-collapse-item__wrap"
@@ -31,8 +35,14 @@
 </template>
 
 <script>
-export default {
-  name: 'ymu-collapse-item',
+import Icon from '../icon'
+import use from '../../src/utils/use'
+const [useName, useBem] = use('collapse-item')
+
+export default useName({
+  components: {
+    Icon
+  },
   props: {
     value: Boolean,
     title: String,
@@ -93,7 +103,7 @@ export default {
       this.currentValue = false
     }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

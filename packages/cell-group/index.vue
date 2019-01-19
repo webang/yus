@@ -12,12 +12,14 @@
 </template>
 
 <script>
-export default {
-  name: 'ymu-cell-group',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('cell-group')
+
+export default useName({
   props: {
     title: String
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

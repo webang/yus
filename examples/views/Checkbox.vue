@@ -66,6 +66,7 @@
 
 <script>
 import { Toast, Cell, CellGroup, Button, Field, Checkbox, CheckboxGroup } from 'ymu'
+
 export default {
   components: {
     Cell,

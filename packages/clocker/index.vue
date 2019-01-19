@@ -28,81 +28,79 @@
 </template>
 
 <script>
-const dateReg = /^(\d{4})\-(\d{1,2})\-(\d{1,2})((\s)(\d{1,2}):(\d{1,2}):(\d{1,2}))?$/;
-export default {
-  name: "ymu-clocker",
+import { dateReg } from '../../src/utils/date'
+import use from '../../src/utils/use'
+const [useName, useBem] = use('clocker')
+
+export default useName({
   props: {
     time: [String, Number],
     startTime: Number,
-    endTime: Number,
-    format: {
-      type: String,
-      default: "%D 天 %H 小时 %M 分 %S 秒"
-    }
+    endTime: Number
   },
   data() {
     return {
       timeId: null,
       calculator: 0
-    };
+    }
   },
   computed: {
     isCountDay() {
       return (
-        typeof this.startTime !== "undefined" &&
-        typeof this.endTime !== "undefined"
-      );
+        typeof this.startTime !== 'undefined' &&
+        typeof this.endTime !== 'undefined'
+      )
     },
     currentStamp() {
-      let curStamp = 0;
-      const typeResult = typeof this.time;
-      if (typeResult !== "undefined") {
-        if (typeResult === "number") {
-          curStamp = this.time;
+      let curStamp = 0
+      const typeResult = typeof this.time
+      if (typeResult !== 'undefined') {
+        if (typeResult === 'number') {
+          curStamp = this.time
         }
         if (typeResult === "string") {
-          const result = dateReg.exec(this.time);
+          const result = dateReg.exec(this.time)
           if (result) {
             if (!result[4]) {
               curStamp = new Date(
                 new Date().setFullYear(+result[1], +result[2] - 1, +result[3])
-              ).setHours(0, 0, 0, 0);
+              ).setHours(0, 0, 0, 0)
             } else {
               curStamp = new Date(
                 new Date().setFullYear(+result[1], +result[2] - 1, +result[3])
-              ).setHours(result[6], result[7], result[8], 0);
+              ).setHours(result[6], result[7], result[8], 0)
             }
           }
         }
       } else {
-        curStamp = parseInt(new Date().getTime());
+        curStamp = parseInt(new Date().getTime())
       }
-      return curStamp;
+      return curStamp
     },
     countDownData() {
       const diff =
-        this.endTime - parseInt(this.currentStamp / 1000) - this.calculator;
-      const day = parseInt(diff / 24 / 3600);
-      const hour = parseInt((diff - day * 24 * 3600) / 3600);
-      const minute = parseInt((diff - day * 24 * 3600 - hour * 3600) / 60);
+        this.endTime - parseInt(this.currentStamp / 1000) - this.calculator
+      const day = parseInt(diff / 24 / 3600)
+      const hour = parseInt((diff - day * 24 * 3600) / 3600)
+      const minute = parseInt((diff - day * 24 * 3600 - hour * 3600) / 60)
       const second = parseInt(
         diff - day * 24 * 3600 - hour * 3600 - minute * 60
-      );
+      )
       return {
         day,
         hour,
         minute,
         second
-      };
+      }
     },
     currentDate() {
-      const dateObj = new Date(this.currentStamp + this.calculator * 1000);
-      const year = dateObj.getFullYear();
-      const month = dateObj.getMonth();
-      const date = dateObj.getDate();
-      const hour = dateObj.getHours();
-      const minute = dateObj.getMinutes();
-      const second = dateObj.getSeconds();
+      const dateObj = new Date(this.currentStamp + this.calculator * 1000)
+      const year = dateObj.getFullYear()
+      const month = dateObj.getMonth()
+      const date = dateObj.getDate()
+      const hour = dateObj.getHours()
+      const minute = dateObj.getMinutes()
+      const second = dateObj.getSeconds()
       return {
         year,
         month,
@@ -110,38 +108,38 @@ export default {
         hour,
         minute,
         second
-      };
+      }
     }
   },
   watch: {
     startTime(val) {
-      clearInterval(this.timeId);
-      this.initCount();
+      clearInterval(this.timeId)
+      this.initCount()
     },
     endTime(val) {
-      clearInterval(this.timeId);
-      this.initCount();
+      clearInterval(this.timeId)
+      this.initCount()
     }
   },
   methods: {
     beginCount() {
-      this.calculator++;
+      this.calculator++
     },
     initCount () {
       this.calculator = 0
-      this.beginCount();
+      this.beginCount()
       this.timeId = setInterval(() => {
-        this.beginCount();
-      }, 1000);
+        this.beginCount()
+      }, 1000)
     }
   },
   mounted() {
     this.initCount()
   },
   beforeDestroy() {
-    clearInterval(this.timeId);
+    clearInterval(this.timeId)
   }
-};
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

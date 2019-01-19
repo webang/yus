@@ -1,0 +1,10 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+// $ymu_CUSTOM_VARS
+
+.ymu-button-tabs {
+  display: flex;
+  align-items: center;
+  border: 1px solid #f5f5f5;
+}

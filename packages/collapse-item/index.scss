@@ -22,6 +22,7 @@
   }
 
   &__right-icon {
+    font-size: 16px;
     transition: transform $collapse-item-transition-duration;
     transform: rotate(90deg);
     margin-right: -4px;

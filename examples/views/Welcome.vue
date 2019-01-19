@@ -4,8 +4,9 @@
       <div class="ymu-doc-block__title">基础组件</div>
       <div class="ymu-doc-block__content">
         <CellGroup>
-          <Cell label="Button 按钮" is-link to="/Button"></Cell>
           <Cell label="Badge 徽章" is-link to="/Badge"></Cell>
+          <Cell label="Backdrop 幕布" is-link to="/Backdrop"></Cell>
+          <Cell label="Button 按钮" is-link to="/Button"></Cell>
           <Cell label="ButtonTab 按钮组" is-link to="/ButtonTab"></Cell>
           <Cell label="Card 卡片" is-link to="/Card"></Cell>
           <Cell label="Cell 单元格" is-link to="/Cell"></Cell>

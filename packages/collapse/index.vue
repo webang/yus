@@ -5,12 +5,14 @@
 </template>
 
 <script>
-export default {
-  name: 'ymu-collapse',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('collapse')
+
+export default useName({
   props: {
     accordion: Boolean
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

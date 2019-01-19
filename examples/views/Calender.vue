@@ -1,23 +1,26 @@
 <template>
   <div class="page-calender">
-    <Cell label="单选" is-link>
-      <div slot="value" @click="backdropVisible=!backdropVisible">
-        <span v-if="dateValue" v-text="dateValue"></span>
-        <span v-else>选择日期</span>
-      </div>
-    </Cell>
-    <Cell label="多选" is-link>
-      <div slot="value" @click="backdropVisible2=!backdropVisible2">
-        <span v-if="dateValue2.length" v-text="dateValue2"></span>
-        <span v-else>选择日期</span>
-      </div>
-    </Cell>
-    <Cell label="禁用" is-link>
-      <div slot="value" @click="backdropVisible3=!backdropVisible3">
-        <span v-if="dateValue3.length" v-text="dateValue3"></span>
-        <span v-else>选择日期</span>
-      </div>
-    </Cell>
+    <div class="ymu-doc-block__title">基本用法</div>
+    <CellGroup>
+      <Cell label="单选" is-link>
+        <div slot="value" @click="backdropVisible=!backdropVisible">
+          <span v-if="dateValue" v-text="dateValue"></span>
+          <span v-else>选择日期</span>
+        </div>
+      </Cell>
+      <Cell label="多选" is-link>
+        <div slot="value" @click="backdropVisible2=!backdropVisible2">
+          <span v-if="dateValue2.length" v-text="dateValue2"></span>
+          <span v-else>选择日期</span>
+        </div>
+      </Cell>
+      <Cell label="禁用" is-link>
+        <div slot="value" @click="backdropVisible3=!backdropVisible3">
+          <span v-if="dateValue3.length" v-text="dateValue3"></span>
+          <span v-else>选择日期</span>
+        </div>
+      </Cell>
+    </CellGroup>
     <calender
       class="ymu-calender"
       :visible="backdropVisible"
@@ -39,10 +42,11 @@
 </template>
 
 <script>
-import { Calender, Backdrop, Cell } from 'ymu'
+import { Calender, Backdrop, Cell, CellGroup } from 'ymu'
 export default {
   components: {
     Cell,
+    CellGroup,
     Backdrop,
     Calender
   },

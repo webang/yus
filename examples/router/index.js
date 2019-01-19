@@ -278,6 +278,14 @@ export default new Router({
       meta: {
         title: 'Switch 开关'
       }
+    },
+    {
+      path: '/Backdrop',
+      name: 'Backdrop',
+      component: () => import('../views/Backdrop'),
+      meta: {
+        title: 'Backdrop 幕布'
+      }
     }
   ]
 });

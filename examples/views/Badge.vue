@@ -28,6 +28,7 @@
 
 <script>
 import { Badge, Cell } from 'ymu'
+
 export default {
   components: {
     Cell,

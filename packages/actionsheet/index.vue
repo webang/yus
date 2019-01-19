@@ -41,8 +41,10 @@
 
 <script>
 import Backdrop from '../backdrop'
-export default {
-  name: 'ymu-actionsheet',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('actionsheet')
+
+export default useName({
   components: {
     Backdrop
   },
@@ -89,6 +91,7 @@ export default {
     }
   },
   methods: {
+    useBem,
     onTransitionEnd (event) {
       if (this.$refs.menuWrapper === event.target) {
         this.$emit(this.show ? 'on-after-show' : 'on-after-hide')
@@ -120,7 +123,7 @@ export default {
   beforeDestroy () {
     this.$refs.menuWrapper.removeEventListener('transitionend', this.onTransitionEnd)
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

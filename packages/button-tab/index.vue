@@ -1,40 +1,62 @@
 <template>
-	<div class="ymu-button-tab">
+  <div
+    class="ymu-button-tab"
+    :class="{
+      'ymu-button-tab--first': isFirstChild,
+      'ymu-button-tab--last': isLastChild,
+      'ymu-button-tab--middle': isMiddleChild,
+      'ymu-button-tab--active': isActive,
+      'ymu-button-tab--disabled': isDisabled
+    }"
+    @click="onClick"
+  >
     <slot></slot>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'ymu-button-tab',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('button-tab')
+
+export default useName({
   props: {
-    value: Number
+    disabled: Boolean,
+    label: [Number, String]
   },
   data () {
     return {
-      childList: [],
-      currentIndex: this.value
+      parent: null
     }
   },
-  watch: {
-    value (val) {
-      this.currentIndex = val
+  computed: {
+    isActive () {
+      return this.$parent.value === this.index
+    },
+    isDisabled () {
+      return !!this.disabled
+    },
+    index () {
+      return this.$parent.childList.indexOf(this)
+    },
+    isFirstChild () {
+      return this.index === 0
+    },
+    isLastChild () {
+      return this.index === (this.$parent.childList.length - 1)
+    },
+    isMiddleChild () {
+      return !this.isFirstChild && !this.isLastChild
     }
   },
   methods: {
-    findChildList () {
-      this.childList = this.$children.filter(VueComponent => {
-        return VueComponent.$vnode.componentOptions.Ctor.options.name === 'ymu-button-tab-item'
-      })
-    },
-    toggleValue (activeIndex) {
-      this.$emit('input', activeIndex)
+    onClick () {
+      if (!this.isDisabled && (this.$parent.value !== this.index)) {
+        this.$parent.toggleValue(this.index)
+      }
+      this.$emit('on-click')
     }
-  },
-  mounted () {
-    this.findChildList()
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

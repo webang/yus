@@ -10,8 +10,10 @@
 </template>
 
 <script>
-export default {
-  name: 'card',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('card')
+
+export default useName({
   props: {
     header: String,
     shadow: {
@@ -19,7 +21,7 @@ export default {
       default: true
     }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

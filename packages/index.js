@@ -34,8 +34,8 @@ import Calender from './calender'
 import Clocker from './clocker'
 import CountdownNum from './countdown-num'
 import CountdownDate from './countdown-date'
-import ButtonTab from './button-tab/index.vue'
-import ButtonTabItem from './button-tab-item/index.vue'
+import ButtonTabs from './button-tabs/index'
+import ButtonTab from './button-tab/index'
 import Card from './card'
 import Tabs from './tabs'
 import Tab from './tab'
@@ -80,8 +80,8 @@ export {
   CountdownNum,
   CountdownDate,
   Toast,
+  ButtonTabs,
   ButtonTab,
-  ButtonTabItem,
   Card,
   Tabs,
   Tab

@@ -1,6 +1,9 @@
 <template>
   <div class="ymu-confirm">
-    <Ydialog v-model="value" @on-click-backdrop="OnClickBackdrop">
+    <Ydialog
+      v-model="value"
+      @on-click-backdrop="OnClickBackdrop"
+    >
       <div class="ymu-dialog__hd" v-if="title || $slots.title">
         <slot name="title">
           <span class="ymu-dialog__title">{{ title }}</span>
@@ -8,7 +11,12 @@
       </div>
       <div class="ymu-dialog__bd">
         <template v-if="showInput">
-          <input type="text" class="ymu-confirm__input" :placeholder="placeholder" v-model="currentInputValue">
+          <input
+            type="text"
+            class="ymu-confirm__input"
+            :placeholder="placeholder"
+            v-model="currentInputValue"
+          >
         </template>
         <template v-else>
           <slot>
@@ -37,9 +45,10 @@
 <script>
 import Backdrop from '../backdrop'
 import Ydialog from '../dialog'
+import use from '../../src/utils/use'
+const [useName, useBem] = use('confirm')
 
-export default {
-  name: 'ymu-confirm',
+export default useName({
   components: {
     Ydialog,
     Backdrop
@@ -108,7 +117,7 @@ export default {
       this.currentInputValue = this.inputValue
     }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

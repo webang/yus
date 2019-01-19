@@ -1,9 +1,18 @@
 <template>
-  <span class="ymu-badge" :class="{'ymu-badge--single': isSingle, 'ymu-badge--dot': isDot }" v-text="text"></span>
+  <span
+    class="ymu-badge"
+    :class="{
+      'ymu-badge--dot': isDot,
+      'ymu-badge--single': isSingle
+    }"
+    v-text="text"></span>
 </template>
 
 <script>
-export default {
+import use from '../../src/utils/use'
+const [useName, useBem] = use('badge')
+
+export default useName({
   props: {
     text: [String]
   },
@@ -15,7 +24,7 @@ export default {
       return (this.text && this.text.length === 0) || typeof this.text === 'undefined'
     }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

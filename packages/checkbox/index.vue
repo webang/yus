@@ -32,8 +32,11 @@
 
 <script>
 import parentMixin from '../../src/mixins/findParent'
-export default {
-  name: 'ymu-checkbox',
+import CheckboxGroup from '../checkbox-group'
+import use from '../../src/utils/use'
+const [useName, useBem] = use('checkbox')
+
+export default useName({
   mixins: [parentMixin],
   props: {
     label: [String, Object, Number],
@@ -112,9 +115,9 @@ export default {
     }
   },
   mounted () {
-    this.findParent('ymu-checkbox-group')
+    this.findParent(CheckboxGroup.name)
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>
