@@ -5,51 +5,49 @@
 
 .ymu-flow {
   position: relative;
-  font-size: 14px;
-  line-height: 18px;
-}
-
-.ymu-flow__line {
-
-}
-
-.ymu-flow-main {
   font-size: 12px;
+  line-height: 18px;
+  color: #969799;
 }
 
 .ymu-flow__icon {
-
+  position: relative;
+  width: 1em;
+  height: 1em;
+  font-size: 16px;
+  line-height: 16px;
 }
 
 .ymu-flow--horizontal {
   flex: 1;
   text-align: center;
+
   .ymu-flow-head {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 24px;
   }
-  .ymu-flow__icon {
-    z-index: 3;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 7px;
-    height: 7px;
-    transform: translate(-50%, -50%);
-    background: #888;
-    border-radius: 50%;
-  }
+
   .ymu-flow__line {
     position: absolute;
     top: 27px;
     left: 50%;
     top: 50%;
-    width: 80%;
+    right: -50%;
     height: 1px;
-    margin-left: 10%;
+    margin-left: 7px;
+    margin-right: 7px;
     transform: translateY(-50%);
-    background: #888;
+    background: $border-color;
   }
+
+  .ymu-flow__icon {
+    z-index: 2;
+    position: absolute;
+  }
+
   &:last-child {
     .ymu-flow__line {
       display: none;
@@ -59,46 +57,63 @@
 
 .ymu-flow--vertical {
   display: flex;
+
   .ymu-flow-head {
     position: relative;
     display: flex;
-    width: 24px;
+    justify-content: center;
+    width: 40px;
   }
+
   .ymu-flow-main {
-    padding-bottom: 10px;
+    flex: 1;
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid $border-color;
   }
+
   .ymu-flow__line {
+    z-index: 2;
     position: absolute;
     width: 1px;
     left: 50%;
-    top: 0;
-    bottom: 0;
+    top: 18px;
+    bottom: 2px;
     transform: translateX(-50%);
-    background: #888;
+    background: $border-color;
   }
+
   .ymu-flow__icon {
     z-index: 3;
     position: absolute;
-    left: 14px;
-    left: 50%;
-    width: 7px;
-    height: 7px;
-    transform: translateX(-50%);
-    background: #888;
-    border-radius: 50%;
+  }
+
+  &:last-child {
+    .ymu-flow__line {
+      display: none;
+    }
   }
 }
 
 .ymu-flow--process {
   .ymu-flow__icon {
-    background: red;
+    width: 14px;
+    height: 14px;
+    color: $color-primary;
+    border-radius: 50%;
+    background-color: $color-primary;
+    .ymuicon {
+      display: none;
+    }
   }
 }
 
 .ymu-flow--finish {
   .ymu-flow__icon {
-    width: 10px;
-    height: 10px;
-    background: red;
+    font-size: 18px;
+    color: $color-primary;
+  }
+  .ymu-flow__line {
+    background-color: $color-primary;
   }
 }

@@ -1,23 +1,32 @@
 <template>
-  <div class="ymu-flows" :class="['ymu-flows--' + direction]">
+  <div class="ymu-flows" :class="flowCls">
     <slot></slot>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'ymu-flow',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('flows')
+
+export default useName({
   props: {
     direction: {
       type: String,
       default: 'horizontal'
     },
-    'active-index': {
+    activeIndex: {
       type: Number,
       default: 0
     }
+  },
+  computed: {
+    flowCls () {
+      return [
+        'ymu-flows--' + this.direction
+      ]
+    }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>
