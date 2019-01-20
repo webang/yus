@@ -40,13 +40,21 @@
       />
     </CellGroup>
 
-    <CellGroup title="设置错误提示">
+    <CellGroup title="autosize">
       <Field
-        label="手机号码"
-        errorMessage="手机号码格式不正确"
-        placeholder="请输入手机号码"
-        :rule="rule"
-        type="number"></Field>
+        label="autosize=true"
+        :autosize="true"
+        placeholder="个人简介"
+        v-model="demo7.v1"
+        type="textarea"
+      />
+      <Field
+        label="autosize=false"
+        :autosize="false"
+        placeholder="个人简介"
+        v-model="demo7.v2"
+        type="textarea"
+      />
     </CellGroup>
   </div>
 </template>
@@ -85,6 +93,10 @@ export default {
       },
       demo6: {
         v1: ''
+      },
+      demo7: {
+        v1: '',
+        v2: ''
       },
       rule: [{
         rule: /\^1[0-9]{10}/,

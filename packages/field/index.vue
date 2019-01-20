@@ -10,6 +10,7 @@
     <div class="ymu-field__bd" slot="label">
       <template v-if="!isTextArea">
         <input
+          ref="input"
           class="ymu-field__input"
           :placeholder="placeholder"
           :type="type"
@@ -23,6 +24,7 @@
       </template>
       <template v-else>
         <textarea
+          ref="input"
           class="ymu-field__input"
           rows="1"
           :placeholder="placeholder"
@@ -51,9 +53,11 @@
 <script>
 import Cell from '../cell'
 import Icon from '../icon'
+import { isPlainObject } from '../../src/utils/isType'
+import use from '../../src/utils/use'
+const [useName, useBem] = use('field')
 
-export default {
-  name: 'ymu-field',
+export default useName({
   components: {
     Cell,
     Icon
@@ -64,8 +68,7 @@ export default {
     value: [Number, String],
     disabled: Boolean,
     readonly: Boolean,
-    errorMessage: String,
-    rule: [Array, Object],
+    errMsg: String,
     max: Number,
     isLink: Boolean,
     type: {
@@ -75,7 +78,8 @@ export default {
     clearable: {
       type: Boolean,
       default: true
-    }
+    },
+    autosize: [Boolean, Object]
   },
   computed: {
     showClear () {
@@ -87,10 +91,7 @@ export default {
   },
   data () {
     return {
-      currentValue: '',
-      currentRules: [],
-      currentError: '',
-      showErrorMsg: false
+      currentValue: ''
     }
   },
   watch: {
@@ -98,7 +99,16 @@ export default {
       this.currentValue = val
     },
     currentValue (val) {
+      this.$nextTick(this.adjustSize)
       this.$emit('input', val)
+    }
+  },
+  mounted () {
+    this.$nextTick(this.adjustSize)
+  },
+  created () {
+    if (this.value) {
+      this.currentValue = this.value
     }
   },
   methods: {
@@ -128,27 +138,26 @@ export default {
     handleFocus (event) {
       this.$emit('on-focus')
     },
-    checkValue (value) {
-      let index = 0
-      let rules = this.currentRules
-      for (; index < rules.length; index++) {
-        console.log(rules[index].rule.test(value))
+    adjustSize() {
+      const { input } = this.$refs;
+
+      if (!this.isTextArea || !this.autosize || !input) {
+        return
       }
-    }
-  },
-  created () {
-    if (this.value) {
-      this.currentValue = this.value
-    }
-    if (this.rule) {
-      if (Array.isArray(this.rule)) {
-        this.currentRules = this.rule
-      } else if (typeof this.rule === 'object') {
-        this.currentRules = [this.rule]
+
+      input.style.height = 'auto'
+
+      let height = input.scrollHeight
+
+      if (isPlainObject(this.autosize)) {
+        const { maxHeight, minHeight } = this.autosize
+        if (maxHeight) height = Math.min(height, maxHeight)
+        if (minHeight) height = Math.max(height, minHeight)
       }
+      if (height) input.style.height = height + 'px'
     }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>
