@@ -4,9 +4,11 @@
     @click="handleClick"
     :class="{'ymu-cell--clickable': clickable || to || url}"
   >
-    <div class="ymu-cell__media" v-if="$slots.media">
-      <slot name="media"></slot>
-    </div>
+    <template v-if="$slots.media">
+      <div class="ymu-cell__media">
+        <slot name="media"></slot>
+      </div>
+    </template>
     <div class="ymu-cell__label">
       <slot name="label">
         <span v-if="label">{{ label }}</span>
@@ -15,18 +17,19 @@
     <div class="ymu-cell__value">
       <slot name="value">{{ value }}</slot>
     </div>
-    <img
-      v-if="isLink"
-      class="ymu-icon-arrow-right"
-      src="../../src/icons/icon_arrow_right.svg"/>
+    <Icon class="icon" v-if="isLink" name="ios-arrow-forward"></Icon>
   </div>
 </template>
 
 <script>
+import Icon from '../icon'
 import use from '../../src/utils/use'
 const [useName, useBem] = use('cell')
 
 export default useName({
+  components: {
+    Icon
+  },
   props: {
     isLink: Boolean,
     label: String,

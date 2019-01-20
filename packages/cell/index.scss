@@ -8,7 +8,6 @@
   position: relative;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
   width: 100%;
   padding: 10px $cell-herizontal-padding;
   font-size: $cell-font-size;
@@ -53,5 +52,13 @@
     &:active {
       background-color: $click-active-bg-color;
     }
+  }
+  .icon {
+    font-size: 18px;
+    height: 24px;
+    line-height: 24px;
+    margin-right: -5px;
+    margin-left: 4px;
+    color: #969799;
   }
 }

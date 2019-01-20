@@ -1,67 +1,88 @@
 <template>
-  <div class="ymu-field">
-    <div class="ymu-field__hd">
-      <slot name="header">
-        <label class="ymu-field__label" v-if="label" v-text="label"></label>
-      </slot>
+  <Cell class="ymu-field" :isLink="isLink">
+    <template v-if="label || $slots.label" slot="media">
+      <div class="ymu-field__hd">
+        <slot name="label">
+          <label class="ymu-field__label">{{ label }}</label>
+        </slot>
+      </div>
+    </template>
+    <div class="ymu-field__bd" slot="label">
+      <template v-if="!isTextArea">
+        <input
+          class="ymu-field__input"
+          :placeholder="placeholder"
+          :type="type"
+          :value="currentValue"
+          :disabled="disabled"
+          :readonly="readonly"
+          @blur="handleBlur"
+          @input="handleInput"
+          @focus="handleFocus"
+        />
+      </template>
+      <template v-else>
+        <textarea
+          class="ymu-field__input"
+          rows="1"
+          :placeholder="placeholder"
+          :type="type"
+          :value="currentValue"
+          :disabled="disabled"
+          :readonly="readonly"
+          @blur="handleBlur"
+          @input="handleInput"
+          @focus="handleFocus"
+        />
+      </template>
     </div>
-    <div class="ymu-field__bd">
-      <input
-        class="ymu-field__input"
-        :placeholder="placeholder"
-        :type="type"
-        v-model="currentValue"
-        :disabled="disabled"
-        :readonly="readonly"
-        maxlength="5"
-        @blur="onBlur"
-      >
-      <div
-        v-if="errorMessage"
-        v-text="errorMessage"
-        class="ymu-field__error-message"></div>
-    </div>
-    <div class="ymu-field__ft">
-      <i
-        class="ymu-icon ymu-icon-clear"
+    <div class="ymu-field__ft" slot="value">
+      <Icon
+        class="icon"
+        name="ios-close-circle"
         v-if="showClear"
-        @click="onClear"></i>
+        @click="onClear"
+      />
       <slot name="footer"></slot>
     </div>
-  </div>
+  </Cell>
 </template>
 
 <script>
+import Cell from '../cell'
+import Icon from '../icon'
+
 export default {
   name: 'ymu-field',
+  components: {
+    Cell,
+    Icon
+  },
   props: {
     label: String,
     placeholder: String,
     value: [Number, String],
-    clearable: Boolean,
     disabled: Boolean,
     readonly: Boolean,
     errorMessage: String,
+    rule: [Array, Object],
+    max: Number,
+    isLink: Boolean,
     type: {
-      type: String,
+      type: [String, Number],
       default: 'text'
     },
-    rule: [Array, Object],
-    min: Number,
-    max: Number
+    clearable: {
+      type: Boolean,
+      default: true
+    }
   },
   computed: {
     showClear () {
-      return this.clearable && this.value !== '' && !this.readonly
+      return this.clearable && this.value && !this.readonly
     },
-    listeners () {
-      return {
-        ...this.$listeners,
-        input: this.onInput,
-        keypress: this.onKeypress,
-        focus: this.onFocus,
-        blur: this.onBlur
-      }
+    isTextArea () {
+      return this.type === 'textarea'
     }
   },
   data () {
@@ -77,9 +98,7 @@ export default {
       this.currentValue = val
     },
     currentValue (val) {
-      const formatValue = this.format(val)
-      this.checkValue(formatValue)
-      this.$emit('input', formatValue)
+      this.$emit('input', val)
     }
   },
   methods: {
@@ -88,24 +107,25 @@ export default {
     },
     format (value) {
       let formatValue = value
-      if (this.max && this.max < value.length) {
+      if (this.max && (this.max < value.length)) {
         formatValue = value.slice(0, this.max)
       }
       return formatValue
     },
-    onInput (event) {
-      const formatValue = this.format(event.target)
+    handleInput (event) {
+      const formatValue = this.format(event.target.value)
+      // 需要手动更改 event.target 值
+      event.target.value = formatValue
       this.currentValue = formatValue
-      this.$emit('input', formatValue)
+      this.$emit('on-change')
     },
-    onBlur (event) {
-      console.log(111)
+    handleBlur (event) {
       this.$emit('on-blur')
     },
     onKeypress (event) {
       this.$emit('on-keypress')
     },
-    onFocus (event) {
+    handleFocus (event) {
       this.$emit('on-focus')
     },
     checkValue (value) {

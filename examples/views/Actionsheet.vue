@@ -4,13 +4,13 @@
       <div class="ymu-doc-block__title">基本用法</div>
       <div class="ymu-doc-block__content list">
         <CellGroup>
-          <Cell label="警用选项">
+          <Cell header="警用选项">
             <YSwitch slot="value" v-model="option2.show"/>
           </Cell>
-          <Cell label="自定义标题">
+          <Cell header="自定义标题">
             <YSwitch slot="value" v-model="option3.show"/>
           </Cell>
-          <Cell label="点击幕布不关闭">
+          <Cell header="点击幕布不关闭">
             <YSwitch slot="value" v-model="option1.show"/>
           </Cell>
         </CellGroup>
