@@ -1,10 +1,10 @@
 # Calender 日期选择器
 
 ```JS
-import Vue from 'vue';
-import { Calender } from 'yum';
+import Vue from 'vue'
+import { Calender } from 'yum'
 
-Vue.use(Calender);
+Vue.use(Calender)
 ```
 
 ## Props

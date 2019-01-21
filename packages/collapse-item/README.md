@@ -1,8 +1,10 @@
 # CollapseItem
 
 ```JS
-import { CollapseItem } from 'yum';
-Vue.use(CollapseItem);
+import Vue from 'vue'
+import { CollapseItem } from 'yum'
+
+Vue.use(CollapseItem)
 ```
 
 ## Props

@@ -1,8 +1,10 @@
 # CellGroup
 
 ```JS
-import { CellGroup } from 'yum';
-Vue.use(CellGroup);
+import Vue from 'vue'
+import { CellGroup } from 'yum'
+
+Vue.use(CellGroup)
 ```
 
 ## Props
@@ -10,7 +12,6 @@ Vue.use(CellGroup);
 | 属性 | 描述 | 类型 | 可选值 | 默认值 |
 | - | :-: | :- | :-: | :-: |
 | title | 顶部文字，复杂布局请使用slot | String | - | - |
-
 
 ## Slots
 
@@ -22,7 +23,6 @@ Vue.use(CellGroup);
 ## Events
 
 无
-
 
 ## Sass vars
 

@@ -1,8 +1,10 @@
 # Button 按钮
 
 ```JS
-import { Cell } from 'yum';
-Vue.use(Cell);
+import Vue from 'vue'
+import { Cell } from 'yum'
+
+Vue.use(Cell)
 ```
 
 ## Props

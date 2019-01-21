@@ -1,8 +1,10 @@
 # Backdrop 幕布
 
 ```JS
-import { Backdrop } from 'yum';
-Vue.use(Backdrop);
+import Vue from 'vue'
+import { Backdrop } from 'yum'
+
+Vue.use(Backdrop)
 ```
 
 

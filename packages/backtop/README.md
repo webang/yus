@@ -1,8 +1,10 @@
 # Backtop 回到顶部
 
 ```JS
-import { Backtop } from 'yum';
-Vue.use(Backtop);
+import Vue from 'vue'
+import { Backtop } from 'yum'
+
+Vue.use(Backtop)
 ```
 
 

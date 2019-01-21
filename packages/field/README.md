@@ -2,7 +2,7 @@
 
 ```JS
 import Vue from 'vue'
-import Field from 'ymu'
+import { Field } from 'ymu'
 
 Vue.use(Field)
 ```

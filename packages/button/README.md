@@ -1,8 +1,10 @@
 # Button 按钮
 
 ```JS
-import { Button } from 'yum';
-Vue.use(Button);
+import Vue from 'vue'
+import { Button } from 'yum'
+
+Vue.use(Button)
 ```
 
 ## Props

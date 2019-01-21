@@ -2,9 +2,9 @@
 
 ```JS
 import Vue from 'vue'
-import { ActionSheet } from 'yum';
+import { ActionSheet } from 'yum'
 
-Vue.use(ActionSheet);
+Vue.use(ActionSheet)
 ```
 
 ## Props

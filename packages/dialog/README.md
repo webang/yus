@@ -10,7 +10,7 @@ Dialog 组合了 Backdrop Component，通常他包含了3个部分：
 
 ```JS
 import Vue from 'vue'
-import Dialog from 'ymu'
+import { Dialog } from 'ymu'
 
 Vue.use(Dialog)
 ```

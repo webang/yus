@@ -1,8 +1,10 @@
 # ButtonTab 按钮组
 
 ```JS
-import { ButtonTab } from 'yum';
-Vue.use(ButtonTab);
+import Vue from 'vue'
+import { ButtonTab } from 'yum'
+
+Vue.use(ButtonTab)
 ```
 
 ## Props

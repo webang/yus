@@ -1,8 +1,10 @@
 # ButtonTabs 按钮组
 
 ```JS
-import { ButtonTabs } from 'yum';
-Vue.use(ButtonTabs);
+import Vue from 'vue'
+import { ButtonTabs } from 'yum'
+
+Vue.use(ButtonTabs)
 ```
 
 ## Props
@@ -11,20 +13,17 @@ Vue.use(ButtonTabs);
 | - | :-: | :- | :-: | :-: |
 | v-model | 值(子项索引) | Number | - | - |
 
-
 ## Slots
 
 | 名称 | 描述 |
 | :-: | :-: |
 | default | - |
 
-
 ## Events
 
 | 名称 | 描述 |
 | :-: | :-: |
 | input | - |
-
 
 ## Sass vars
 

@@ -4,7 +4,7 @@
 import Vue from 'vue'
 import { Clocker } from 'yum'
 
-Vue.use(Clocker);
+Vue.use(Clocker)
 ```
 
 ## Props

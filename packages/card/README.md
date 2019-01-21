@@ -1,10 +1,10 @@
 # Card 卡片
 
 ```JS
-import Vue from 'vue';
-import { Card } from 'yum';
+import Vue from 'vue'
+import { Card } from 'yum'
 
-Vue.use(Card);
+Vue.use(Card)
 ```
 
 ## Props

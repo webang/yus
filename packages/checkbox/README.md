@@ -1,8 +1,10 @@
 # Checkbox 复选框
 
 ```JS
-import { Checkbox } from 'yum';
-Vue.use(Checkbox);
+import Vue from 'vue'
+import { Checkbox } from 'yum'
+
+Vue.use(Checkbox)
 ```
 
 ## Props

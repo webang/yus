@@ -1,8 +1,10 @@
 # Alert 弹窗
 
 ```JS
-import { Alert } from 'yum';
-Vue.use(Alert);
+import Vue from 'vue'
+import { Alert } from 'yum'
+
+Vue.use(Alert)
 ```
 
 

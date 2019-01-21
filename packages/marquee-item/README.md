@@ -7,7 +7,6 @@ import MarqueeItem from 'ymu'
 Marquee .use(MarqueeItem)
 ```
 
-
 ## Props
 
 无

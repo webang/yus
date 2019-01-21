@@ -17,6 +17,7 @@
   "dependencies": {
     "clipboard": "^2.0.4",
     "vue": "^2.5.2",
+    "vue-lazyload": "^1.2.6",
     "vue-router": "^3.0.1",
     "ymuicon": "^2.0.2"
   },
