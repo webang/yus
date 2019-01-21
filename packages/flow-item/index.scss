@@ -3,26 +3,30 @@
 @import '../../src/styles/animate.scss';
 // $YMU_CUSTOM_VARS
 
-.ymu-flow {
+.ymu-flow-item {
   position: relative;
   font-size: 12px;
   line-height: 18px;
   color: #969799;
 }
 
-.ymu-flow__icon {
+.ymu-flow-item__icon {
   position: relative;
   width: 1em;
   height: 1em;
   font-size: 16px;
   line-height: 16px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.ymu-flow--horizontal {
+.ymu-flow-item--horizontal {
   flex: 1;
   text-align: center;
 
-  .ymu-flow-head {
+  .ymu-flow-item-head {
     position: relative;
     display: flex;
     align-items: center;
@@ -30,7 +34,7 @@
     height: 24px;
   }
 
-  .ymu-flow__line {
+  .ymu-flow-item__line {
     position: absolute;
     top: 27px;
     left: 50%;
@@ -43,36 +47,36 @@
     background: $border-color;
   }
 
-  .ymu-flow__icon {
+  .ymu-flow-item__icon {
     z-index: 2;
     position: absolute;
   }
 
   &:last-child {
-    .ymu-flow__line {
+    .ymu-flow-item__line {
       display: none;
     }
   }
 }
 
-.ymu-flow--vertical {
+.ymu-flow-item--vertical {
   display: flex;
 
-  .ymu-flow-head {
+  .ymu-flow-item-head {
     position: relative;
     display: flex;
     justify-content: center;
     width: 40px;
   }
 
-  .ymu-flow-main {
+  .ymu-flow-item-main {
     flex: 1;
     padding-bottom: 6px;
     margin-bottom: 6px;
     border-bottom: 1px solid $border-color;
   }
 
-  .ymu-flow__line {
+  .ymu-flow-item__line {
     z-index: 2;
     position: absolute;
     width: 1px;
@@ -83,20 +87,20 @@
     background: $border-color;
   }
 
-  .ymu-flow__icon {
+  .ymu-flow-item__icon {
     z-index: 3;
     position: absolute;
   }
 
   &:last-child {
-    .ymu-flow__line {
+    .ymu-flow-item__line {
       display: none;
     }
   }
 }
 
-.ymu-flow--process {
-  .ymu-flow__icon {
+.ymu-flow-item--process {
+  .ymu-flow-item__icon {
     width: 14px;
     height: 14px;
     color: $color-primary;
@@ -108,12 +112,12 @@
   }
 }
 
-.ymu-flow--finish {
-  .ymu-flow__icon {
+.ymu-flow-item--finish {
+  .ymu-flow-item__icon {
     font-size: 18px;
     color: $color-primary;
   }
-  .ymu-flow__line {
+  .ymu-flow-item__line {
     background-color: $color-primary;
   }
 }

@@ -1,18 +1,28 @@
 <template>
   <div
-    class="ymu-flow"
+    class="ymu-flow-item"
     :class="flowCls"
   >
-    <div class="ymu-flow-head">
-      <div class="ymu-flow__icon">
+    <div class="ymu-flow-item-head">
+      <div class="ymu-flow-item__icon">
         <slot name="icon">
-          <Icon v-if="isFinish" name="ios-checkmark-circle"/>
-          <Icon v-else="isProcess" name="ios-radio-button-off"/>
+          <template v-if="isFinish">
+            <img v-if="finishIconProp" :src="finishIconProp">
+            <Icon v-else name="ios-checkmark-circle"/>
+          </template>
+          <template v-else-if="isProcess">
+            <img v-if="processIconProp" :src="processIconProp">
+            <Icon v-else name="ios-checkmark-circle"/>
+          </template>
+          <template v-else>
+            <img v-if="waitingIconProp" :src="waitingIconProp">
+            <Icon v-else name="ios-radio-button-off"/>
+          </template>
         </slot>
       </div>
-      <div class="ymu-flow__line"></div>
+      <div class="ymu-flow-item__line"></div>
     </div>
-    <div class="ymu-flow-main">
+    <div class="ymu-flow-item-main">
       <slot></slot>
     </div>
   </div>
@@ -57,9 +67,18 @@ export default useName({
     },
     flowCls () {
       return [
-        'ymu-flow--' + this.direction,
-        'ymu-flow--' + this.status
+        'ymu-flow-item--' + this.direction,
+        'ymu-flow-item--' + this.status
       ]
+    },
+    finishIconProp () {
+      return this.$parent.finishIcon
+    },
+    processIconProp () {
+      return this.$parent.processIcon
+    },
+    waitingIconProp () {
+      return this.$parent.waitingIcon
     }
   }
 })

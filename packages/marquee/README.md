@@ -2,11 +2,10 @@
 
 ```JS
 import Vue from 'vue'
-import Marquee from 'ymu'
+import { Marquee } from 'ymu'
 
-Marquee .use(Icon)
+Vue.use(Marquee)
 ```
-
 
 ## Props
 
@@ -16,18 +15,15 @@ Marquee .use(Icon)
 | duration | 动画持续时间 | Number | - | 300 | - |
 | direction | 方向 | String | - | `up` / `down` | - |
 
-
 ## Slots
 
 无
-
 
 ## Events
 
 | 名称 | 描述 |
 | :-: | :-: |
 | on-index-change | 轮播索引变化 |
-
 
 ## Sass vars
 

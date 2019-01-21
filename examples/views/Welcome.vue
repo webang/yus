@@ -8,12 +8,10 @@
           <Cell label="Backdrop 幕布" is-link to="/Backdrop"></Cell>
           <Cell label="Button 按钮" is-link to="/Button"></Cell>
           <Cell label="ButtonTab 按钮组" is-link to="/ButtonTab"></Cell>
-          <Cell label="Card 卡片" is-link to="/Card"></Cell>
           <Cell label="Cell 单元格" is-link to="/Cell"></Cell>
           <Cell label="Clocker 时钟" is-link to="/Clocker"></Cell>
           <Cell label="CountdownNum 数字倒计时" is-link to="/CountdownNum"></Cell>
           <Cell label="CountdownDate 日期倒计时" is-link to="/CountdownDate"></Cell>
-          <Cell label="Flow 步骤条" is-link to="/Flow"></Cell>
           <Cell label="Progress 进度条" is-link to="/Progress"></Cell>
           <Cell label="Navbar 导航" is-link to="/Navbar"></Cell>
           <Cell label="Tabs 标签页" is-link to="/Tabs"></Cell>
@@ -26,7 +24,9 @@
       <div class="ymu-doc-block__title">数据展示</div>
       <div class="ymu-doc-block__content">
         <CellGroup>
+          <Cell label="Card 卡片" is-link to="/Card"></Cell>
           <Cell label="Collapse 折叠面板" is-link to="/Collapse"></Cell>
+          <Cell label="Flow 步骤条" is-link to="/Flow"></Cell>
           <Cell label="Marquee 跑马灯" is-link to="/Marquee"></Cell>
           <Cell label="NoticeBar 通告栏" is-link to="/NoticeBar"></Cell>
         </CellGroup>

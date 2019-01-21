@@ -3,11 +3,11 @@
 @import '../../src/styles/animate.scss';
 // $YMU_CUSTOM_VARS
 
-.ymu-flows {
+.ymu-flow {
   position: relative;
   display: flex;
 }
 
-.ymu-flows--vertical {
+.ymu-flow--vertical {
   flex-direction: column;
 }

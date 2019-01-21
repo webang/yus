@@ -7,8 +7,10 @@
 </template>
 
 <script>
-export default {
-  name: 'ymu-marquee',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('marquee')
+
+export default useName({
   props: {
     interval: {
       type: Number,
@@ -85,7 +87,7 @@ export default {
   beforeDestroy () {
     clearInterval(this.timeId)
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

@@ -3,12 +3,15 @@
 </template>
 
 <script>
-export default {
+import use from '../../src/utils/use'
+const [useName, useBem] = use('icon')
+
+export default useName({
   props: {
     name: String,
-    useDevice: Boolean
+    useDevice: false // todo
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

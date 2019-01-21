@@ -1,12 +1,12 @@
 <template>
-  <div class="ymu-flows" :class="flowCls">
+  <div :class="flowCls">
     <slot></slot>
   </div>
 </template>
 
 <script>
 import use from '../../src/utils/use'
-const [useName, useBem] = use('flows')
+const [useName, useBem] = use('flow')
 
 export default useName({
   props: {
@@ -17,12 +17,16 @@ export default useName({
     activeIndex: {
       type: Number,
       default: 0
-    }
+    },
+    finishIcon: String,
+    processIcon: String,
+    waitingIcon: String
   },
   computed: {
     flowCls () {
       return [
-        'ymu-flows--' + this.direction
+        'ymu-flow',
+        'ymu-flow--' + this.direction
       ]
     }
   }

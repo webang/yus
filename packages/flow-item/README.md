@@ -1,30 +1,30 @@
-# 图标 Icon
-
-
-使用默认 `ymucion` 字体图标
+# 步骤条项 FlowItem
 
 ```JS
 import Vue from 'vue'
-import { Icon } from 'ymu'
+import { FlowItem } from 'ymu'
 
-Vue.use(Icon)
+Vue.use(FlowItem)
 ```
 
 ## Props
 
 | 属性 | 描述 | 类型 | 可选值 | 默认值 | 版本说明 |
 | - | - | - | - | - | - |
-| name | 图标名称 | String | - | - | - |
+| - | - | - | - | - | - |
 
 ## Slots
 
-无
+| 名字 | 说明 |
+| - | - |
+| default | - |
+| icon | - |
 
 ## Events
 
 | 名称 | 描述 |
 | :-: | :-: |
-| click | 点击图标 |
+| - | - |
 
 ## Sass vars
 
