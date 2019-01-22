@@ -1,13 +1,22 @@
 <template>
-  <div class="ymu-marquee-item">
+  <div class="ymu-marquee-item" :style="itemStyle">
     <slot></slot>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'ymu-marquee-item'
-}
+import use from '../../src/utils/use'
+const [useName, useBem] = use('marquee-item')
+
+export default useName({
+  computed: {
+    itemStyle () {
+      return {
+        height: this.$parent.height
+      }
+    }
+  }
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

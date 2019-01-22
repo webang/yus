@@ -1,6 +1,6 @@
 <template>
-  <div class="ymu-marquee">
-    <div class="ymu-marquee-box" ref="marqueeBox">
+  <div class="ymu-marquee" :style="{height: height + 'px'}">
+    <div class="ymu-marquee-box" ref="box" :style="boxStyle">
       <slot></slot>
     </div>
   </div>
@@ -14,7 +14,7 @@ export default useName({
   props: {
     interval: {
       type: Number,
-      default: 2000
+      default: 1000
     },
     duration: {
       type: Number,
@@ -23,16 +23,25 @@ export default useName({
     direction: {
       type: String,
       default: 'up'
-    }
+    },
+    itemHeight: Number
   },
   data () {
     return {
-      len: 0,
       timeId: null,
+      length: 0,
+      height: '',
       currentIndex: 0,
-      currentHeight: 0,
-      currentDuration: 0,
-      currentItemHeight: 0
+      noAnimate: false,
+      currenTranslateY: 0
+    }
+  },
+  computed: {
+    boxStyle () {
+      return {
+        transform: `translate3d(0, ${this.currenTranslateY}px, 0)`,
+        transition: `transform ${this.noAnimate ? 0 : this.duration}ms`
+      }
     }
   },
   watch: {
@@ -40,52 +49,66 @@ export default useName({
       this.$emit('on-index-change', val)
     }
   },
-  methods: {
-    setTransition (duration) {
-      const $marqueeBox = this.$refs.marqueeBox
-      $marqueeBox.style['transition-duration'] = `${duration}ms`
-    },
-    setTransform () {
-      const $marqueeBox = this.$refs.marqueeBox
-      if (this.direction === 'up') {
-        const offset = -this.currentItemHeight * (this.currentIndex + 1)
-        $marqueeBox.style.transform = `translate3d(0, ${offset}px, 0)`
-      }
-      if (this.direction === 'down') {
-        const offset = -this.currentItemHeight * (-this.currentIndex + 1 + this.len)
-        $marqueeBox.style.transform = `translate3d(0, ${offset}px, 0)`
-      }
-    },
-    play () {
-      this.setTransition(this.duration)
-      this.currentIndex++
-      this.setTransform()
-      if (this.currentIndex === this.len) {
-        setTimeout(() => {
-          this.setTransition(0)
-          this.currentIndex = 0
-          this.setTransform()
-        }, this.duration)
-      }
-    }
-  },
   mounted () {
-    const $marqueeBox = this.$refs.marqueeBox
-    const $children = this.$refs.marqueeBox.children
-    const $firstItem = $children[0]
-    const $lastItem = $marqueeBox.lastChild
-    this.len = $children.length
-    this.currentHeight = $marqueeBox.offsetHeight
-    this.currentItemHeight = $firstItem.offsetHeight
-    this.setTransform()
-    $marqueeBox.appendChild($firstItem.cloneNode(true))
-    $marqueeBox.insertBefore($lastItem.cloneNode(true), $firstItem)
-    this.timeId = setInterval(() => {
-      this.play()
-    }, this.interval)
+    this.init();
+    this.start();
   },
   beforeDestroy () {
     clearInterval(this.timeId)
+  },
+  methods: {
+    init () {
+      const firstItem = this.$refs.box.firstElementChild
+      if (!firstItem) {
+        return false
+      }
+
+      this.noAnimate = true
+      this.length = this.$refs.box.children.length
+      this.height = this.itemHeight || firstItem.offsetHeight
+
+      if (this.direction === 'up') {
+        this.cloneNode = firstItem.cloneNode(true)
+        this.$refs.box.appendChild(this.cloneNode)
+        this.currenTranslateY = -this.currentIndex * this.height
+      } else {
+        this.currenTranslateY = -this.height;
+        this.cloneNode = this.$refs.box.lastElementChild.cloneNode(true)
+        this.$refs.box.insertBefore(this.cloneNode, firstItem)
+      }
+      return true
+    },
+    start () {
+      this.timeId = setInterval(() => {
+        if (this.direction === 'up') {
+          this.currentIndex += 1
+          this.currenTranslateY = -this.currentIndex * this.height
+          if (this.currentIndex === this.length) {
+            setTimeout(() => {
+              this.noAnimate = true
+              this.currentIndex = 0
+              this.currenTranslateY = 0
+            }, this.duration)
+          } else {
+            this.noAnimate = false
+          }
+        } else {
+          this.noAnimate = false
+          this.currentIndex -= 1
+          this.currenTranslateY = -(this.currentIndex + 1) * this.height
+          console.log(this.currentIndex)
+          if (this.currentIndex === -1) {
+            setTimeout(() => {
+              this.noAnimate = true
+              this.currentIndex = this.length - 1
+              this.currenTranslateY = -(this.currentIndex + 1) * this.height
+            }, this.duration)
+          } else {
+            this.noAnimate = false
+          }
+        }
+      }, this.interval + this.duration)
+    }
   }
 })
 </script>
