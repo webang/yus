@@ -20,8 +20,10 @@
 </template>
 
 <script>
+import use from '../../src/utils/use'
+const [useName, useBem] = use('slider')
+
 export default {
-  name: 'ymu-slider',
   props: {
     value: {
       type: Number,

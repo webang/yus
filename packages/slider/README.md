@@ -1,5 +1,12 @@
 # Slider 滑块
 
+```js
+import Vue from 'vue'
+import { Slider } from 'ymu'
+
+Vue.use(Slider)
+```
+
 ## Props
 
 | 属性 | 描述 | 类型 | 可选值 | 默认值 | 版本说明 |
@@ -14,7 +21,6 @@
 | step | 滑动倍数 | Number | - | 1 | - |
 | disabled | 禁用状态 | Boolean | - | - | - |
 
-
 ## Slots
 
 | 名字 | 说明 |
@@ -22,13 +28,11 @@
 | start | start 插槽 |
 | end | end 插槽 |
 
-
 ## Events
 
 | 名字 | 说明 |
 | - | - |
 | input | - |
-
 
 ## Sass vars
 

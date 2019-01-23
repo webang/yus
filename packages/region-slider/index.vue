@@ -3,7 +3,11 @@
     <div class="ymu-slider__hd">
       <slot name="start"></slot>
     </div>
-    <div class="ymu-slider__bd" ref="content" :style="{ height: trackHeight + 'px'}">
+    <div
+      class="ymu-slider__bd"
+      ref="content"
+      :style="{ height: trackHeight + 'px'}"
+    >
       <div class="ymu-slider__runway" ref="runway"></div>
       <div class="ymu-slider__track" ref="track" :style="trackStyle"></div>
       <div
@@ -28,8 +32,10 @@
 </template>
 
 <script>
-export default {
-  name: 'ymu-slider',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('region-slider')
+
+export default useName({
   props: {
     value: Array,
     min: {
@@ -132,7 +138,7 @@ export default {
       this.startPoint = null
     }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>
