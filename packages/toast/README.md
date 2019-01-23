@@ -1,5 +1,12 @@
 # 轻提示 Toast
 
+```js
+import { Toast } from 'ymu'
+
+Toast({
+  message: '请勿重复提交订单'
+})
+```
 
 ## Props
 
@@ -13,7 +20,6 @@
 | speed | 动画时间 | Number | - | 400 | - |
 | auto-close | 是否自动关闭 | Boolean | - | true | - |
 
-
 ## Slots
 
 | 名字 | 说明 |
@@ -21,11 +27,9 @@
 | icon | icon 插槽 |
 | message | message 插槽 |
 
-
 ## Events
 
 无
-
 
 ## Sass vars
 

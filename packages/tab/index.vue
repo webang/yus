@@ -7,8 +7,10 @@
 </template>
 
 <script>
-export default {
-  name: 'ymu-tab',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('tab')
+
+export default useName({
   props: {
     title: String,
     disabled: Boolean
@@ -37,7 +39,7 @@ export default {
       }
     }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

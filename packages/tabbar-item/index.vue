@@ -28,8 +28,11 @@
 
 <script>
 import findParentMixin from '../../src/mixins/findParent'
-export default {
-  name: 'ymu-tabbar-item',
+import Tabbar from '../tabbar'
+import use from '../../src/utils/use'
+const [useName, useBem] = use('tabbar-item')
+
+export default useName({
   mixins: [findParentMixin],
   props: {
     title: String,
@@ -63,9 +66,9 @@ export default {
     }
   },
   created () {
-    this.findParent('ymu-tabbar')
+    this.findParent(Tabbar.name)
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

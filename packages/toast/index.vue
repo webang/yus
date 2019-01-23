@@ -1,13 +1,6 @@
 <template>
   <transition :name="transition">
-    <div
-      v-show="visible"
-      class="ymu-toast"
-      :class="[
-        'ymu-toast--'+type,
-        'ymu-toast--'+position
-      ]"
-    >
+    <div :class="toastCls" v-show="visible">
       <slot name="icon">
         <i class="ymu-toast__icon ymuicon" :class="iconName" v-if="hasIcon"></i>
       </slot>
@@ -19,7 +12,8 @@
 </template>
 
 <script>
-
+import use from '../../src/utils/use'
+const [useName, useBem] = use('toast')
 const iconTypeMap = {
   success: 'ios-checkmark',
   warn: 'ios-warning',
@@ -28,8 +22,7 @@ const iconTypeMap = {
   error: 'ios-close'
 }
 
-export default {
-  name: 'ymu-toast',
+export default useName({
   props: {
     value: Boolean,
     message: String,
@@ -60,6 +53,13 @@ export default {
     }
   },
   computed: {
+    toastCls () {
+      return [
+        'ymu-toast',
+        'ymu-toast--' + this.type,
+        'ymu-toast--' + this.position
+      ]
+    },
     transition () {
       return 'ymu-toast--' + this.position
     },
@@ -75,7 +75,7 @@ export default {
       this.visible = val
     }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

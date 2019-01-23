@@ -5,8 +5,10 @@
 </template>
 
 <script>
+import use from '../../src/utils/use'
+const [useName, useBem] = use('tabbar')
+
 export default {
-  name: 'ymu-tabbar',
   props: {
     value: {
       type: Number,
