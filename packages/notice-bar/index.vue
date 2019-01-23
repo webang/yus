@@ -2,7 +2,7 @@
   <div class="ymu-notice-bar" @click="$emit('click')">
     <div class="ymu-notice-bar__hd">
       <slot name="head">
-        <i class="iconfont icon-voice"></i>
+        <Icon name="ios-megaphone"></Icon>
       </slot>
     </div>
     <div class="ymu-notice-bar__bd" ref="barContent">
@@ -17,8 +17,14 @@
 </template>
 
 <script>
-export default {
-  name: 'ymu-notice-bar',
+import Icon from '../icon'
+import use from '../../src/utils/use'
+const [useName, useBem] = use('notice-bar')
+
+export default useName({
+  components: {
+    Icon
+  },
   data () {
     return {
       offset: 0,
@@ -78,7 +84,7 @@ export default {
   beforeDestroy () {
     clearTimeout(this.timeId)
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

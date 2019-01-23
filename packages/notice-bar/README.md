@@ -2,7 +2,7 @@
 
 ```JS
 import Vue from 'vue'
-import NoticeBar from 'ymu'
+import { NoticeBar } from 'ymu'
 
 Vue.use(NoticeBar)
 ```
@@ -15,7 +15,6 @@ Vue.use(NoticeBar)
 | frequence | 动画间隔时间 | Number | - | 40 | - |
 | loop | 是否循环 | Boolean | - | true | - |
 
-
 ## Slots
 
 | 名称 | 描述 |
@@ -23,7 +22,6 @@ Vue.use(NoticeBar)
 | defualt | title 插槽 |
 | head | head 插槽 |
 | foot | foot 插槽 |
-
 
 ## Events
 

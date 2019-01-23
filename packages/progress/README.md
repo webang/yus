@@ -2,7 +2,7 @@
 
 ```JS
 import Vue from 'vue'
-import Progress from 'ymu'
+import { Progress } from 'ymu'
 
 Vue.use(Progress)
 ```
@@ -13,7 +13,6 @@ Vue.use(Progress)
 | - | - | - | - | - | - |
 | percentage | 百分比 | Number | - | - | - |
 
-
 ## Slots
 
 | 名称 | 描述 |
@@ -21,13 +20,11 @@ Vue.use(Progress)
 | start | start 插槽 |
 | end | end 插槽 |
 
-
 ## Events
 
 | 名称 | 描述 |
 | :-: | :-: |
 | - | - |
-
 
 ## Sass vars
 

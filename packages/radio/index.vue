@@ -1,10 +1,6 @@
 <template>
   <label
-    class="ymu-radio"
-    :class="[{
-      'ymu-radio--checked': checked,
-      'ymu-radio--disabled': disabled
-    }]"
+    :class="radioCls"
     @click="$emit('click')"
   >
     <span class="ymu-radio__input" :style="inputStyle">
@@ -17,7 +13,7 @@
         :disabled="disabled"
       >
       <slot name="icon" :checked="checked">
-        <i class="ymuicon" :class="iconClass"></i>
+        <Icon :name="iconName"></Icon>
       </slot>
     </span>
     <span
@@ -33,8 +29,15 @@
 
 <script>
 import findParentMixin from '../../src/mixins/findParent'
-export default {
-  name: 'ymu-radio',
+import Icon from '../icon'
+import RadioGroup from '../radio-group'
+import use from '../../src/utils/use'
+const [useName, useBem] = use('radio')
+
+export default useName({
+  components: {
+    Icon
+  },
   mixins: [findParentMixin],
   props: {
     label: [String, Number, Boolean],
@@ -45,7 +48,14 @@ export default {
     checkedLabelStyle: Object
   },
   computed: {
-    iconClass () {
+    radioCls () {
+      return {
+        'ymu-radio': true,
+        'ymu-radio--checked': this.checked,
+        'ymu-radio--disabled': this.disabled
+      }
+    },
+    iconName () {
       return this.checked ? 'ios-checkmark-circle' : 'ios-radio-button-off'
     },
     currentValue: {
@@ -72,9 +82,9 @@ export default {
     }
   },
   mounted () {
-    this.findParent('ymu-radio-group')
+    this.findParent(RadioGroup.name)
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

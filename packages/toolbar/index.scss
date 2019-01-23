@@ -1,0 +1,42 @@
+@import '../../src/styles/variable.scss';
+@import '../../src/styles/mixin.scss';
+@import '../../src/styles/animate.scss';
+// $YMU_CUSTOM_VARS
+
+.ymu-toolbar {
+  position: relative;
+  display: flex;
+  height: 44px;
+  line-height: 44px;
+  font-size: 16px;
+  background-color: #fbf9fe;
+  &::after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: #d9d9d9;
+    transform: scaleY(.5);
+  }
+}
+
+.ymu-toolbar-title {
+  flex: 1;
+  text-align: center;
+}
+
+.ymu-toolbar-right,
+.ymu-toolbar-left {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.ymu-toolbar-left {
+  color: #828282;
+}
+
+.ymu-toolbar-right {
+  color: #FF9900;
+}

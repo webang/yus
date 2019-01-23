@@ -53,8 +53,8 @@ export default {
     return {
       list: [
         '构建用户界面体验Flutter',
-        '初始化项目如果遇到问题',
-        'RN与现有的原生app集成预备知识'
+        '构建用户界面体验ReactNative',
+        '构建用户界面体验Weex'
       ]
     }
   }
@@ -67,6 +67,7 @@ export default {
   height: 30px;
   padding: 0 12px;
   color: #ed6a0c;
+  font-size: 14px;
   line-height: 30px;
   background-color: #fffbe8;
   .ymuicon {

@@ -1,28 +1,29 @@
-# MarqueeItem 跑马灯slide
+# MarqueeItem 跑马灯Item
 
 ```JS
 import Vue from 'vue'
-import MarqueeItem from 'ymu'
+import { MarqueeItem } from 'ymu'
 
-Marquee .use(MarqueeItem)
+Vue.use(MarqueeItem)
 ```
 
 ## Props
 
-无
-
+| 属性 | 描述 | 类型 | 可选值 | 默认值 | 版本说明 |
+| - | - | - | - | - | - |
+| - | - | - | - | - | - |
 
 ## Slots
 
 | 名称 | 描述 |
 | :-: | :-: |
-| defualt | - |
-
+| default | - |
 
 ## Events
 
-无
-
+| 名称 | 描述 |
+| :-: | :-: |
+| - | - |
 
 ## Sass vars
 

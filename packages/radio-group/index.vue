@@ -1,16 +1,25 @@
 <template>
-  <div class="ymu-radio-group">
+  <div :class="radioGroupCls">
     <slot></slot>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'ymu-radio-group',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('radio-group')
+
+export default useName({
   props: {
     value: [String, Number, Boolean]
+  },
+  computed: {
+    radioGroupCls () {
+      return [
+        'ymu-radio-group'
+      ]
+    }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

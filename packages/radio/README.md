@@ -1,8 +1,10 @@
 # Radio 单选框
 
 ```JS
-import { Radio } from 'yum';
-Vue.use(Radio);
+import Vue from 'vue'
+import { Radio } from 'yum'
+
+Vue.use(Radio)
 ```
 
 ## Props
@@ -23,13 +25,11 @@ Vue.use(Radio);
 | default | 选项文字 |
 | icon | icon 插槽，方便自定义icon |
 
-
 ## Events
 
 | 名称 | 描述 |
 | :-: | :-: |
 | input | - |
-
 
 ## Sass vars
 

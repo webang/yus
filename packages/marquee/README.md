@@ -17,7 +17,9 @@ Vue.use(Marquee)
 
 ## Slots
 
-无
+| 名称 | 描述 |
+| :-: | :-: |
+| default | - |
 
 ## Events
 

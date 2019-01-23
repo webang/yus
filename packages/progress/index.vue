@@ -9,15 +9,17 @@
 </template>
 
 <script>
-export default {
-  name: 'ymu-progress',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('progress')
+
+export default useName({
   props: {
     percentage: {
       type: Number,
       default: 0
     }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

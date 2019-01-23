@@ -35,19 +35,19 @@
       <p style="margin-top: 10px">{{ radioValue3 }}</p>
     </div>
 
-    <CellGroup title="自定义选中图标">
+    <CellGroup title="自定义选中图标" class="demo-icon">
       <RadioGroup v-model="radioValue4">
         <Cell label="香港" clickable @click="radioValue4='香港'">
           <Radio slot="value" label="香港">
             <span slot-scope="labelProps" slot="icon">
-              <i class="ymu-icon" :class="{'icon-checkmark': labelProps.checked}"></i>
+              <Icon name="ios-checkmark" v-if="labelProps.checked"></Icon>
             </span>
           </Radio>
         </Cell>
         <Cell label="澳门" clickable @click="radioValue4='澳门'">
           <Radio slot="value" label="澳门" checked-color="red">
             <span slot-scope="labelProps" slot="icon">
-              <i class="ymu-icon" :class="{'icon-checkmark': labelProps.checked}"></i>
+              <Icon name="ios-checkmark" v-if="labelProps.checked"></Icon>
             </span>
           </Radio>
         </Cell>
@@ -60,10 +60,11 @@
 </template>
 
 <script>
-import { Toast, Cell, CellGroup, Button, Field, CheckboxGroup, Radio, RadioGroup } from 'ymu'
+import { Toast, Cell, CellGroup, Button, Field, CheckboxGroup, Radio, RadioGroup, Icon } from 'ymu'
 
 export default {
   components: {
+    Icon,
     Cell,
     Field,
     Button,
@@ -100,7 +101,6 @@ export default {
 
 
 <style lang="scss" scoped>
-
 .page-radio {
   /deep/ .ymu-cell-group__title {
     font-size: 16px;
@@ -111,6 +111,10 @@ export default {
   /deep/ .ymu-doc-block__bd .ymu-radio {
     display: flex;
     margin-bottom: 10px;
+  }
+  .demo-icon {
+    /deep/ .ymuicon {
+    }
   }
 }
 </style>

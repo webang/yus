@@ -33,7 +33,8 @@ export default useName({
       height: '',
       currentIndex: 0,
       noAnimate: false,
-      currenTranslateY: 0
+      currenTranslateY: 0,
+      currentDuration: 0
     }
   },
   computed: {

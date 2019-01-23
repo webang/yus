@@ -7,6 +7,15 @@
         v-show="value"
         :class="['ymu-popup--' + position]"
       >
+        <slot name="header" v-if="useHeader || $slots.header">
+          <Toolbar
+            :title="title"
+            :leftText="leftText"
+            :rightText="rightText"
+            @on-click-left="$emit('on-click-left')"
+            @on-click-right="$emit('on-click-right')"
+          />
+        </slot>
         <slot></slot>
       </div>
     </transition>
@@ -19,14 +28,22 @@
  * @props position 弹出的位置 bottom top left right
  * @props closeOnClickBackdrop 点击幕布关闭popup
  */
+import Toolbar from '../toolbar'
 import Backdrop from '../backdrop'
-export default {
-  name: 'ymu-popup',
+import use from '../../src/utils/use'
+const [useName, useBem] = use('popup')
+
+export default useName({
   components: {
+    Toolbar,
     Backdrop
   },
   props: {
     value: Boolean,
+    useHeader: Boolean,
+    title: String,
+    leftText: String,
+    rightText: String,
     position: {
       type: String,
       default: 'bottom'
@@ -49,7 +66,7 @@ export default {
       }
     }
   }
-}
+})
 </script>
 
 <style lang="scss" src="./index.scss"></style>

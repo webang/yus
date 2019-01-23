@@ -26,9 +26,10 @@
 <script>
 import Button from '../button'
 import Icon from '../icon'
+import use from '../../src/utils/use'
+const [useName, useBem] = use('navbar')
 
-export default {
-  name: 'ymu-navbar',
+export default useName({
   components: {
     Icon,
     Button
@@ -61,7 +62,7 @@ export default {
       this.$emit('on-click-right')
     }
   }
-}
+})
 </script>
 
 <style src="./index.scss" lang="scss"></style>
