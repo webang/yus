@@ -286,6 +286,14 @@ export default new Router({
       meta: {
         title: 'Backdrop 幕布'
       }
+    },
+    {
+      path: '/Clickable',
+      name: 'Clickable',
+      component: () => import('../views/Clickable'),
+      meta: {
+        title: 'Clickable'
+      }
     }
   ]
 });

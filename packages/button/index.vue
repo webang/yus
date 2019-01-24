@@ -1,24 +1,5 @@
 <template>
-  <button
-    class="ymu-button"
-    :class="[
-      'ymu-button--' + type,
-      'ymu-button--' + size,
-      {
-        'ymu-button--radius': radius,
-        'ymu-button--disabled': disabled,
-        'ymu-button--plain': plain,
-        'ymu-button--block': block,
-        'ymu-button--inline': !block && inline,
-        'ymu-button--round': round,
-        'ymu-button--clear': clear,
-        'ymu-button--unfeedback': !clickEffect,
-        'ymu-button--clickable': !disabled && clickable
-      }
-    ]"
-    :disabled="disabled"
-    @click="onClick"
-  >
+  <button :class="buttonCls" :disabled="disabled" @click="onClick" role="button">
     <i class="ymu-loading" v-if="showLoading"></i>
     <slot>
       <span class="yum-button-text">{{ text }}</span>
@@ -27,7 +8,6 @@
 </template>
 
 <script type="text/javascript">
-
 /**
  * @component ymu-button
  * @param { string } [type=light] - 表现为按钮的背景色 light primary danger
@@ -40,11 +20,14 @@
  * @param { string } 显示文本
  * @param { slot } - 默认插槽
  */
-
+import Clickable from '../clickable'
 import use from '../../src/utils/use'
 const [useName, useBem] = use('button')
 
 export default useName({
+  components: {
+    Clickable
+  },
   props: {
     type: {
       type: String,
@@ -78,6 +61,25 @@ export default useName({
     round: Boolean,
     full: Boolean,
     showLoading: Boolean
+  },
+  computed: {
+    buttonCls () {
+      return [
+        'ymu-button',
+        'ymu-button--' + this.type,
+        'ymu-button--' + this.size,
+        {
+          'ymu-button--radius': this.radius,
+          'ymu-button--disabled': this.disabled,
+          'ymu-button--plain': this.plain,
+          'ymu-button--block': this.block,
+          'ymu-button--inline': !this.block && this.inline,
+          'ymu-button--round': this.round,
+          'ymu-button--clear': this.clear,
+          'ymu-button--clickable': !this.disabled && this.clickable
+        }
+      ]
+    }
   },
   methods: {
     onClick (event) {
