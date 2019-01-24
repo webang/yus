@@ -9,6 +9,7 @@
           <Cell label="Button 按钮" is-link to="/Button"></Cell>
           <Cell label="ButtonTab 按钮组" is-link to="/ButtonTab"></Cell>
           <Cell label="Cell 单元格" is-link to="/Cell"></Cell>
+          <Cell label="Clickable 点击反馈" is-link to="/Clickable"></Cell>
           <Cell label="Clocker 时钟" is-link to="/Clocker"></Cell>
           <Cell label="CountdownNum 数字倒计时" is-link to="/CountdownNum"></Cell>
           <Cell label="CountdownDate 日期倒计时" is-link to="/CountdownDate"></Cell>
@@ -72,4 +73,3 @@ export default {
   }
 }
 </script>
-

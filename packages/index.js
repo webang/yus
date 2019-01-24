@@ -39,6 +39,7 @@ import ButtonTab from './button-tab/index'
 import Card from './card'
 import Tabs from './tabs'
 import Tab from './tab'
+import Clickable from './clickable'
 
 // Plugins
 import Toast from './toast'
@@ -84,5 +85,6 @@ export {
   ButtonTab,
   Card,
   Tabs,
-  Tab
+  Tab,
+  Clickable
 }
