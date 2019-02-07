@@ -23,20 +23,17 @@ Vue.use(Dialog)
 | dialogTransition | 弹窗动画效果 | String | - | ymu-dialog | - |
 | backdropTransition | 幕布动画效果 | String | - | ymu-backdrop | - |
 
-
 ## Slots
 
 | 名字 | 说明 |
 | - | - |
 | default | label 插槽 |
 
-
 ## Events
 
 | 名称 | 描述 |
 | :-: | :-: |
 | on-click-backdrop | 点击幕布 |
-
 
 ## Sass vars
 

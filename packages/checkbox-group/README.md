@@ -23,7 +23,9 @@ Vue.use(CheckboxGroup)
 
 ## Events
 
-无
+| 名字 | 说明 |
+| - | - |
+| - | - |
 
 ## Sass vars
 

@@ -17,12 +17,14 @@ Vue.use(CellGroup)
 
 | 名字 | 说明 |
 | :-: | :-: |
-| title | title 插槽 |
 | default | - |
+| title | title 插槽 |
 
 ## Events
 
-无
+| 名字 | 说明 |
+| :-: | :-: |
+| - | - |
 
 ## Sass vars
 

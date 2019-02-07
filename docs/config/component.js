@@ -1,0 +1,89 @@
+export default [{
+  name: 'button'
+}, {
+  name: 'actionsheet'
+}, {
+  name: 'alert'
+}, {
+  name: 'backdrop'
+}, {
+  name: 'backtop'
+}, {
+  name: 'badge'
+},{
+  name: 'button-tab'
+}, {
+  name: 'button-tabs'
+}, {
+  name: 'calender'
+}, {
+  name: 'card'
+}, {
+  name: 'cell'
+}, {
+  name: 'cell-group'
+}, {
+  name: 'checkbox'
+}, {
+  name: 'checkbox-group'
+}, {
+  name: 'clickable'
+}, {
+  name: 'clocker'
+}, {
+  name: 'collapse'
+}, {
+  name: 'collapse-item'
+}, {
+  name: 'confirm'
+}, {
+  name: 'countdown-date'
+}, {
+  name: 'countdown-num'
+}, {
+  name: 'dialog'
+}, {
+  name: 'field'
+}, {
+  name: 'flow'
+}, {
+  name: 'flow-item'
+}, {
+  name: 'icon'
+}, {
+  name: 'lazyload'
+}, {
+  name: 'marquee'
+}, {
+  name: 'marquee-item'
+}, {
+  name: 'navbar'
+}, {
+  name: 'notice-bar'
+}, {
+  name: 'popup'
+}, {
+  name: 'progress'
+}, {
+  name: 'radio'
+}, {
+  name: 'radio-group'
+}, {
+  name: 'region-slider'
+}, {
+  name: 'slider'
+}, {
+  name: 'switch'
+}, {
+  name: 'tab'
+}, {
+  name: 'tabbar'
+}, {
+  name: 'tabbar-item'
+}, {
+  name: 'tabs'
+}, {
+  name: 'toast'
+}, {
+  name: 'toolbar'
+}]

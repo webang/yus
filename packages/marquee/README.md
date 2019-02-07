@@ -13,7 +13,7 @@ Vue.use(Marquee)
 | - | - | - | - | - | - |
 | interval | 间隔时间 | Number | - | 2000 | - |
 | duration | 动画持续时间 | Number | - | 300 | - |
-| direction | 方向 | String | - | `up` / `down` | - |
+| direction | 方向 | String | - | up/down | - |
 
 ## Slots
 

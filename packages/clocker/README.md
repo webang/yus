@@ -19,11 +19,13 @@ Vue.use(Clocker)
 
 | 名字 | 说明 |
 | - | - |
-| default | Checkbox 组件列表 |
+| default | - |
 
 ## Events
 
-无
+| 名字 | 说明 |
+| - | - |
+| - | - |
 
 ## Sass vars
 

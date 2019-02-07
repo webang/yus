@@ -29,4 +29,5 @@ Vue.use(Progress)
 ## Sass vars
 
 ```
+// 无
 ```

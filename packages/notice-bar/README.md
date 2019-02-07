@@ -32,4 +32,5 @@ Vue.use(NoticeBar)
 ## Sass vars
 
 ```
+// 暂无
 ```
