@@ -17,7 +17,7 @@
         <router-view></router-view>
       </div>
       <div class="simulator-wrapper">
-        <iframe class="simulator" src="http://localhost:8090" frameborder="0"></iframe>
+        <iframe class="simulator" :src="mobileUrl" frameborder="0"></iframe>
       </div>
     </div>
   </div>
@@ -28,7 +28,8 @@ import componentConf from './config/component'
 export default {
   data () {
     return {
-      componentConf
+      componentConf,
+      mobileUrl: '/mobile.html'
     }
   }
 }
