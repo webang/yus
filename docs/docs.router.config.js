@@ -173,4 +173,14 @@ routerList.forEach(element => {
   element.title = `${element.title} camelize(element.name)`
 })
 
+const markdownRoutes = [
+  {
+
+  },
+  {
+    name: 'theme',
+    title: '定制主题'
+  }
+]
+
 export default routerList
