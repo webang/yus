@@ -1,9 +1,9 @@
-const camelizeReg = /-(\w)/g;
-const camelize = str => {
+const camelizeReg = /-(\w)/g
+const camelize = (str) => {
   return str
     .replace(camelizeReg, (_, c) => c.toUpperCase())
-    .replace(str.charAt(0), str.charAt(0).toUpperCase());
-};
+    .replace(str.charAt(0), str.charAt(0).toUpperCase())
+}
 
 const routerList = [
   {
@@ -167,10 +167,10 @@ const routerList = [
   // {
   //   name: 'toolbar'
   // }
-];
+]
 
 routerList.forEach(element => {
-  element.title = `${element.title} ${camelize(element.name)}`;
-});
+  element.title = `${element.title} camelize(element.name)`
+})
 
-export default routerList;
+export default routerList
