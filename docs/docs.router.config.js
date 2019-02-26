@@ -169,18 +169,39 @@ const routerList = [
   // }
 ]
 
-routerList.forEach(element => {
-  element.title = `${element.title} camelize(element.name)`
-})
-
 const markdownRoutes = [
   {
-
+    name: 'intro',
+    title: '介绍'
+  },
+  {
+    name: 'quickstart',
+    title: '快速上手'
+  },
+  {
+    name: 'changelog',
+    title: '更新日志'
   },
   {
     name: 'theme',
     title: '定制主题'
+  },
+  {
+    name: 'contribution',
+    title: '开发指南'
+  },
+  {
+    name: 'locale',
+    title: '国际化'
   }
-]
+];
+
+markdownRoutes.forEach(element => {
+  element.title = `${element.title} camelize(element.name)`;
+});
+
+routerList.forEach(element => {
+  element.title = `${element.title} camelize(element.name)`;
+});
 
 export default routerList
