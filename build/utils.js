@@ -44,15 +44,15 @@ exports.cssLoaders = function (options) {
     }
 
     // 在这里使用自定义主题
-    if (loader === 'sass') {
-      loaders.push({
-        loader: path.resolve(__dirname, '../ymu-sass-loader'),
-        options: {
-          // 自定义sass变量路径
-          customVars: path.resolve(__dirname, '../examples/theme/vars.scss')
-        }
-      });
-    }
+    // if (loader === 'sass') {
+    //   loaders.push({
+    //     loader: path.resolve(__dirname, '../ymu-sass-loader'),
+    //     options: {
+    //       // 自定义sass变量路径
+    //       customVars: path.resolve(__dirname, '../examples/theme/vars.scss')
+    //     }
+    //   });
+    // }
 
     // Extract CSS when that option is specified
     // (which is the case during production build)

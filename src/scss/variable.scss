@@ -1,0 +1,241 @@
+// Colors -----------------------------------------------------------------------
+$color-primary: #38f !default;
+$color-secondary: #32db64 !default;
+$color-danger: #e94f4f !default;
+$color-light:  #f4f4f4 !default;
+$color-dark:  #222 !default;
+
+
+// Common vars -------------------------------------------------------------------
+$click-active-bg-color: #e8e8e8 !default;
+$layout-herizontal-padding: 12px !default;
+$border-color: #e8e8e8 !default;
+
+
+// Button ------------------------------------------------------------------------
+$button-large-height: 50px !default;
+$button-large-font-size: 14px !default;
+$button-large-border-radius: 2px !default;
+$button-large-herizontal-padding: 18px !default;
+$button-large-herizontal-round-radius: 64px !default;
+$button-large-herizontal-round-padding: 30px !default;
+// size normal
+$button-normal-height: 44px !default;
+$button-normal-font-size: 14px !default;
+$button-normal-border-radius: 2px !default;
+$button-normal-herizontal-padding: 15px !default;
+$button-normal-herizontal-round-radius: 64px !default;
+$button-normal-herizontal-round-padding: 30px !default;
+// size small
+$button-small-height: 36px !default;
+$button-small-font-size: 14px !default;
+$button-small-border-radius: 2px !default;
+$button-small-herizontal-padding: 15px !default;
+$button-small-herizontal-round-radius: 40px !default;
+$button-small-herizontal-round-padding: 20px !default;
+// size mini
+$button-mini-height: 28px !default;
+$button-mini-font-size: 12px !default;
+$button-mini-border-radius: 2px !default;
+$button-mini-herizontal-padding: 12px !default;
+$button-mini-herizontal-round-radius: 30px !default;
+$button-mini-herizontal-round-padding: 15px !default;
+// type primary
+$button-primary-bg-color: $color-primary  !default !default;
+$button-primary-font-color: #fff !default;
+// type light
+$button-light-bg-color: #fff !default;
+$button-light-font-color: inherit !default;
+$button-light-border-color: #ddd !default;
+// type danger
+$button-danger-bg-color: #f44 !default;
+$button-danger-font-color: #fff !default;
+// type warn
+$button-warn-bg-color: #ff976a !default;
+$button-warn-font-color: #fff !default;
+// block state
+$button-block-font-size: 16px !default;
+// disabled state
+$button-disabled-opacity: 0.5 !default;
+// active state
+$button-active-opacity: 0.2 !default;
+
+
+// Backdrop -------------------------------------------------------------------------
+$backdrop-zindex: 1000 !default;
+$backdrop-bg: rgba(0, 0, 0, .6) !default;
+
+
+// Actionsheet ----------------------------------------------------------------------
+$actionsheet-content-bg: #efeff4 !default;
+$actionsheet-menu-font-size: 18px !default;
+$actionsheet-menu-disabled-color: #ccc !default;
+$actionsheet-cell-vertical-padding: 10px !default;
+$actionsheet-cancel-margin-top: 6px !default;
+
+
+// Cell -----------------------------------------------------------------------------
+$cell-media-margin-right: 5px !default;
+$cell-label-color: inherit !default;
+$cell-value-color: inherit !default;
+$cell-placeholder-color: inherit !default;
+$cell-font-size: 14px !default;
+$cell-herizontal-padding: $layout-herizontal-padding !default;
+$cell-line-height: 24px !default;
+
+
+// CellGroup
+$cell-group-herizontal-padding: $layout-herizontal-padding !default;
+$cell-group-title-font-size: 16px !default;
+$cell-group-title-color: inherit !default;
+
+
+// Checkbox ---------------------------------------------------------------------------
+$checkbox-default-icon-color: #969799 !default;
+$checkbox-checked-icon-color: $color-primary !default;
+$checkbox-disabled-opacity: 0.5 !default;
+$checkbox-label-font-size: 16px !default;
+$checkbox-label-line-height: 24px !default;
+$checkbox-label-margin-left: 8px !default;
+$checkbox-icon-font-size: 22px !default;
+$checkbox-cell-bg-color: #fff !default;
+$checkbox-cell-line-height: 24px !default;
+$checkbox-cell-vertical-padding: 10px !default;
+$checkbox-cell-horizontal-padding: 12px !default;
+
+
+// Radio -------------------------------------------------------------------------------
+$radio-default-icon-color: #969799 !default;
+$radio-checked-icon-color: $color-primary !default;
+$radio-disabled-opacity: 0.5 !default;
+$radio-label-font-size: 16px !default;
+$radio-label-line-height: 24px !default;
+$radio-label-margin-left: 8px !default;
+$radio-icon-font-size: 22px !default;
+
+
+// Collapse ----------------------------------------------------------------------------
+$collapse-item-herizontal-padding: $layout-herizontal-padding !default;
+$collapse-item-vertical-padding: 10px !default;
+$collapse-item-line-height: 24px !default;
+$collapse-item-content-padding-bottom: 16px !default;
+$collapse-item-transition-duration: 300ms !default;
+$collapse-item-bottom-border-color: $border-color !default;
+
+
+// Dialog ---------------------------------------------------------------------------
+$dialog-width: 80% !default;
+$dialog-max-width: 300px !default;
+$dialog-border-radius: 3px !default;
+
+$dialog-head-font-size: 16px !default;
+$dialog-head-font-weigth: 600 !default;
+$dialog-head-vertical-padding: 15px !default;
+$dialog-head-horizontal-padding: 15px !default;
+
+$dialog-body-min-height: 40px !default;
+$dialog-body-padding-top: 0 !default;
+$dialog-body-padding-bottom: 12px !default;
+$dialog-body-horizontal-padding: 24px !default;
+$dialog-body-font-size: 15px !default;
+$dialog-body-line-height: 1.5 !default;
+$dialog-body-font-color: #999 !default;
+
+$dialog-button-text-primary-color: #f90 !default;
+$dialog-button-text-default-color: #353535 !default;
+$dialog-button-text-warn-color: #E64340 !default;
+$dialog-button-text-error-color: #E64340 !default;
+$dialog-button-text-font-size: 16px !default;
+
+$dialog-foot-font-size: 16px !default;
+$dialog-foot-line-height: 48px !default;
+
+
+// Navbar ----------------------------------------------------------------------------
+$navbar-herizontal-padding: 15px !default;
+$navbar-font-size: 14px !default;
+$navbar-title-font-size: 16px !default;
+$navbar-line-height: 46px !default;
+$navbar-left-button-active-bg-color: #e8e8e8 !default;
+$navbar-left-arrow-color: #38f !default;
+
+
+// Progress --------------------------------------------------------------------------
+$progress-bar-bg-color: #EBEBEB !default;
+$progress-bar-hegiht: 30px !default;
+$progress-track-bg-color: #26a2ff !default;
+$progress-track-height: 4px !default;
+
+
+// Toast ------------------------------------------------------------------------------
+$toast-border-radius: 3px !default;
+$toast-line-heigth: 24px !default;
+$toast-font-color: #fff !default;
+$toast-bg-color: rgba(0, 0, 0, .7) !default;
+$toast-font-size: 13px !default;
+$toast-padding: 8px 12px !default;
+$toast-icon-font-size: 45px !default;
+$toast-speed: 350ms !default;
+$toast-middle-type-speed: 1000ms !default;
+
+
+// Backtop ----------------------------------------------------------------------------
+$backtop-position-bottom: 24px !default;
+$backtop-position-right: 12px !default;
+$backtop-icon-font-color: #666 !default;
+$backtop-icon-font-size: 32px !default;
+$backtop-text-font-color: #666 !default;
+$backtop-text-font-size: 10px !default;
+
+
+// Slider -----------------------------------------------------------------------------
+$slider-height: 24px !default;
+$slider-thumb-width: 24px !default;
+$slider-thumb-height: 24px !default;
+$slider-runway-height: 2px !default;
+$slider-runway-bg-color: #EBEBEB !default;
+$slider-track-bg-color: $color-primary !default;
+$slider-thumb-bg-color: #fff !default;
+$slider-disabled-opacity: .6 !default;
+
+
+// Switch ----------------------------------------------------------------------------
+$switch-font-size: 24px !default;
+$switch-width: 1.6em !default;
+$switch-height: 1em !default;
+$switch-active-color: $color-primary !default;
+$switch-default-clor: #fff !default;
+$switch-disabled-opacity: .6 !default;
+$switch-border-color: rgba(0, 0, 0, .1) !default;
+$switch-border-radius: 1em !default;
+$switch-node-width: 1em !default;
+$switch-node-height: 1em !default;
+$switch-node-color: #fff !default;
+
+
+// Tabbar ------------------------------------------------------------------------------
+$tabbar-height: 46px !default;
+$tabbar-bg-color: #fff !default;
+$tabbar-text-font-size: 12px !default;
+$tabbar-icon-margin-top: 0 !default;
+$tabbar-icon-width: 22px !default;
+$tabbar-icon-height: 22px !default;
+$tabbar-dot-width: 6px !default;
+$tabbar-dot-height: 6px !default;
+$tabbar-dot-bg-color: #ff5b05 !default;
+$tabbar-badge-height: 18px !default;
+$tabbar-badge-min-width: 9px !default;
+$tabbar-badge-font-size: 10px !default;
+$tabbar-badge-margin-left: 6px !default;
+$tabbar-badge-horizontal-padding: 5px !default;
+$tabbar-badge-font-color: #fff !default;
+$tabbar-badge-border-radius: 12px !default;
+$tabbar-badge-bg-color: #ff5b05 !default;
+
+
+// Range ---------------------------------------------------------------------------------
+$range-default-bg-color: #EBEBEB !default;
+$range-active-bg-color: #26a2ff !default;
+$range-height: 30px !default;
+$range-thumb-width: 30px !default;
+$range-thumb-height: 30px !default;

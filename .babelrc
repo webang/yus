@@ -10,15 +10,7 @@
   ],
   "plugins": [
     "transform-vue-jsx",
-    "transform-runtime",
-    [
-      "import",
-      {
-        "libraryName": "wui",
-        "libraryDirectory": "", // default: lib
-        "style": true
-      }
-    ]
+    "transform-runtime"
   ],
   "env": {
     "test": {
