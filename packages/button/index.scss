@@ -1,20 +1,20 @@
-@import '../../src/scss/variable.scss';
-@import '../../src/scss/mixin.scss';
-@import '../../src/scss/animate.scss';
+@import '../../src/scss/vars';
+@import '../../src/scss/mixins';
+@import '../../src/scss/animate';
 
 @mixin grayLoading {
   display: inline-block;
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  background-image: url(../../src/icons/loading-gray.svg);
+  // background-image: url("../../src/icons/loading-gray.svg");
   background-size: 100%;
   animation: ymuLoading 1s steps(12, end) infinite;
 }
 
 @mixin whiteLoading {
   @include grayLoading;
-  background-image: url(../../src/icons/loading-white.svg);
+  // background-image: url(../../src/icons/loading-white.svg);
 }
 
 .ymu-button {
