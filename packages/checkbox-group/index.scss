@@ -1,6 +1,6 @@
-@import '../../src/scss/variable.scss';
-@import '../../src/scss/mixin.scss';
-@import '../../src/scss/animate.scss';
+@import '../../src/scss/vars';
+@import '../../src/scss/mixins';
+@import '../../src/scss/animate';
 
 .ymu-checkbox-group {
   .ymu-checkbox-cell:last-child {

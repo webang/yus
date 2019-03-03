@@ -89,3 +89,5 @@ export default useName({
   }
 })
 </script>
+
+<style src="./index.scss" lang="scss"></style>

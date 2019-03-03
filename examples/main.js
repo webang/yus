@@ -5,10 +5,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import '../packages/index.scss'
 import './assets/main.scss'
 import './assets/global.scss'
 require('ymuicon/dist/style.css')
-import './theme/custom.scss'
 
 Vue.config.productionTip = false
 

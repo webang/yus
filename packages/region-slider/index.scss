@@ -1,6 +1,6 @@
-@import '../../src/scss/variable.scss';
-@import '../../src/scss/mixin.scss';
-@import '../../src/scss/animate.scss';
+@import '../../src/scss/vars';
+@import '../../src/scss/mixins';
+@import '../../src/scss/animate';
 
 @mixin slider-box-shadow {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
