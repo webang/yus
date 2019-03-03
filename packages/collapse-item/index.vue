@@ -106,4 +106,4 @@ export default useName({
 })
 </script>
 
-<style lang="scss" src="./index.scss"></style>
+index.scss

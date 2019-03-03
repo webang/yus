@@ -1,5 +1,5 @@
 // Colors -----------------------------------------------------------------------
-$color-primary: #38f;
+$color-primary: #38f !default;
 $color-secondary: #32db64;
 $color-danger: #e94f4f;
 $color-light:  #f4f4f4;
@@ -41,7 +41,7 @@ $button-mini-herizontal-padding: 12px;
 $button-mini-herizontal-round-radius: 30px;
 $button-mini-herizontal-round-padding: 15px;
 // type primary
-$button-primary-bg-color: #38f;
+$button-primary-bg-color: $color-primary !default;
 $button-primary-font-color: #fff;
 // type light
 $button-light-bg-color: #fff;

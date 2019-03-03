@@ -8,6 +8,7 @@ import router from './router'
 import './assets/main.scss'
 import './assets/global.scss'
 require('ymuicon/dist/style.css')
+import './theme/custom.scss'
 
 Vue.config.productionTip = false
 
