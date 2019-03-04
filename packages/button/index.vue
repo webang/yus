@@ -45,14 +45,6 @@ export default useName({
       type: Boolean,
       default: true
     },
-    'click-effect': {
-      type: Boolean,
-      default: true
-    },
-    clickable: {
-      type: Boolean,
-      default: true
-    },
     text: String,
     block: Boolean,
     disabled: Boolean,
@@ -76,7 +68,7 @@ export default useName({
           'ymu-button--inline': !this.block && this.inline,
           'ymu-button--round': this.round,
           'ymu-button--clear': this.clear,
-          'ymu-button--clickable': !this.disabled && this.clickable
+          'ymu-button--clickable': !this.disabled
         }
       ]
     }

@@ -117,13 +117,6 @@
     </div>
 
     <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">clickable</div>
-      <div class="ymu-doc-block__content list">
-        <Button class="btn" type="primary" plain text="点击无反馈" :clickable="false"></Button>
-      </div>
-    </div>
-
-    <div class="ymu-doc-block">
       <div class="ymu-doc-block__title">block + size</div>
       <div class="ymu-doc-block__content list">
         <Button class="btn" type="primary" size="mini" block text="mini"></Button>

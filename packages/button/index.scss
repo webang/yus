@@ -7,7 +7,7 @@
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  background-image: url("../src/icons/loading-gray.svg");
+  // background-image: url("../src/icons/loading-gray.svg");
   background-size: 100%;
   animation: ymuLoading 1s steps(12, end) infinite;
 }
@@ -156,7 +156,7 @@
   background-color: $button-warn-bg-color;
   border-color: transparent;
   .ymu-loading {
-    @include whiteLoading;
+    // @include whiteLoading;
   }
   &.ymu-button--plain {
     color: $button-warn-bg-color;
@@ -175,7 +175,7 @@
   background-color: $button-danger-bg-color;
   border-color: transparent;
   .ymu-loading {
-    @include whiteLoading;
+    // @include whiteLoading;
   }
   &.ymu-button--plain {
     color: $button-danger-bg-color;

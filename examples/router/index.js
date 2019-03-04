@@ -288,11 +288,11 @@ export default new Router({
       }
     },
     {
-      path: '/Clickable',
-      name: 'Clickable',
-      component: () => import('../views/Clickable'),
+      path: '/test',
+      name: 'test',
+      component: () => import('../views/Test'),
       meta: {
-        title: 'Clickable'
+        title: '测试页面'
       }
     }
   ]
