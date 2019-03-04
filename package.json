@@ -16,6 +16,11 @@
     "dev:docs": "webpack-dev-server --inline --progress --config build/webpack.docs.dev.conf.js --host 0.0.0.0 --watch"
   },
   "main": "src/index.js",
+  "files": [
+    "lib",
+    "packages",
+    "src"
+  ],
   "dependencies": {
     "clipboard": "^2.0.4",
     "vant": "^1.6.6",
