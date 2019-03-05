@@ -11,13 +11,12 @@
       <div class="ymu-doc-block__hd">triple-bounce</div>
       <div class="ymu-doc-block__bd">
         <loading type="triple-bounce"></loading>
-        <loading type="triple-bounce"></loading>
       </div>
 
       <div class="ymu-doc-block__hd">spinner</div>
       <div class="ymu-doc-block__bd">
         <loading type="spinner"></loading>
-        <loading type="spinner"></loading>
+        <loading type="spinner" color="white"></loading>
       </div>
     </div>
   </div>

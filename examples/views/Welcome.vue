@@ -18,6 +18,7 @@
           <Cell label="Tabs 标签页" is-link to="/Tabs"></Cell>
           <Cell label="Tabbar 标签栏" is-link to="/Tabbar"></Cell>
           <Cell label="Icon 内置图标" is-link to="/Icon"></Cell>
+          <Cell label="Loading 加载" is-link to="/Loading"></Cell>
         </CellGroup>
       </div>
     </div>

@@ -40,6 +40,7 @@ import Card from './card'
 import Tabs from './tabs'
 import Tab from './tab'
 import Clickable from './clickable'
+import Loading from './loading'
 
 // Plugins
 import Toast from './toast'
@@ -86,5 +87,6 @@ export {
   Card,
   Tabs,
   Tab,
-  Clickable
+  Clickable,
+  Loading
 }

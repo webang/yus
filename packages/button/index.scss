@@ -2,21 +2,6 @@
 @import '../../src/scss/mixins';
 @import '../../src/scss/animate';
 
-@mixin grayLoading {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
-  // background-image: url("../src/icons/loading-gray.svg");
-  background-size: 100%;
-  animation: ymuLoading 1s steps(12, end) infinite;
-}
-
-@mixin whiteLoading {
-  @include grayLoading;
-  // background-image: url(../../src/icons/loading-white.svg);
-}
-
 .ymu-button {
   position: relative;
   border: 0;
@@ -33,6 +18,11 @@
   }
   &:focus {
     outline: none;
+  }
+  .ymu-loading {
+    width: 20px;
+    height: 20px;
+    color: #fff;
   }
 }
 
@@ -118,7 +108,7 @@
   border-color: transparent;
   border: 1px solid $button-light-border-color;
   .ymu-loading {
-    @include grayLoading;
+    // @include grayLoading;
   }
   &.ymu-button--plain {
     color: $button-light-font-color;
@@ -136,9 +126,6 @@
   color: $button-primary-font-color;
   background-color: $button-primary-bg-color;
   border-color: transparent;
-  .ymu-loading {
-    @include whiteLoading;
-  }
   &.ymu-button--plain {
     color: $button-primary-bg-color;
     background: transparent;
@@ -155,9 +142,6 @@
   color: $button-warn-font-color;
   background-color: $button-warn-bg-color;
   border-color: transparent;
-  .ymu-loading {
-    // @include whiteLoading;
-  }
   &.ymu-button--plain {
     color: $button-warn-bg-color;
     background: transparent;

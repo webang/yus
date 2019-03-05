@@ -1,6 +1,7 @@
 <template>
-  <button :class="buttonCls" :disabled="disabled" @click="onClick" role="button">
-    <i class="ymu-loading" v-if="showLoading"></i>
+  <button :class="buttonCls" :disabled="disabled" @click="onClick">
+    <!-- <i class="ymu-loading" v-if="showLoading"></i> -->
+    <Loading v-show="showLoading"></Loading>
     <slot>
       <span class="yum-button-text">{{ text }}</span>
     </slot>
@@ -20,13 +21,13 @@
  * @param { string } 显示文本
  * @param { slot } - 默认插槽
  */
-import Clickable from '../clickable'
+import Loading from '../loading'
 import use from '../../src/utils/use'
 const [useName, useBem] = use('button')
 
 export default useName({
   components: {
-    Clickable
+    Loading
   },
   props: {
     type: {

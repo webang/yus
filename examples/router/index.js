@@ -294,6 +294,14 @@ export default new Router({
       meta: {
         title: '测试页面'
       }
+    },
+    {
+      path: '/loading',
+      name: 'loading',
+      component: () => import('../views/loading'),
+      meta: {
+        title: 'Loading 加载'
+      }
     }
   ]
 });

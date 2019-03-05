@@ -72,20 +72,15 @@
     <div class="ymu-doc-block">
       <div class="ymu-doc-block__title">加载状态</div>
       <div class="ymu-doc-block__content">
-        <Button class="btn" type="light" :showLoading="disabledOption.value1">
-          <span>提交</span>
-        </Button>
         <Button class="btn" type="primary" :showLoading="disabledOption.value1">
-          <span>提交</span>
+          <span>提交中...</span>
         </Button>
         <Button class="btn" type="danger" :showLoading="disabledOption.value1">
           <span>提交</span>
         </Button>
-        <div>
-          <Button class="btn" type="light" @click="disabledOption.value1=!disabledOption.value1">
-            <span>切换状态</span>
-          </Button>
-        </div>
+        <Button class="btn" type="primary" @click="disabledOption.value1=!disabledOption.value1">
+          <span>切换状态</span>
+        </Button>
       </div>
     </div>
 
