@@ -107,9 +107,6 @@
   background-color: $button-light-bg-color;
   border-color: transparent;
   border: 1px solid $button-light-border-color;
-  .ymu-loading {
-    // @include grayLoading;
-  }
   &.ymu-button--plain {
     color: $button-light-font-color;
     background: transparent;
@@ -138,6 +135,22 @@
   }
 }
 
+.ymu-button--info {
+  color: #fff;
+  background-color: $button-info-bg-color;
+  border-color: transparent;
+  &.ymu-button--plain {
+    color: $button-info-bg-color;
+    background: transparent;
+    border: 1px solid $button-info-bg-color;
+  }
+  &.ymu-button--clear {
+    color: $button-info-bg-color;
+    background: transparent;
+    border: none;
+  }
+}
+
 .ymu-button--warn {
   color: $button-warn-font-color;
   background-color: $button-warn-bg-color;
@@ -158,9 +171,6 @@
   color: $button-danger-font-color;
   background-color: $button-danger-bg-color;
   border-color: transparent;
-  .ymu-loading {
-    // @include whiteLoading;
-  }
   &.ymu-button--plain {
     color: $button-danger-bg-color;
     background: transparent;

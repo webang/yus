@@ -13,7 +13,7 @@ $border-color: #e8e8e8 !default;
 
 // Button ------------------------------------------------------------------------
 $button-large-height: 50px !default;
-$button-large-font-size: 14px !default;
+$button-large-font-size: 16px !default;
 $button-large-border-radius: 2px !default;
 $button-large-herizontal-padding: 18px !default;
 $button-large-herizontal-round-radius: 64px !default;
@@ -40,7 +40,7 @@ $button-mini-herizontal-padding: 12px !default;
 $button-mini-herizontal-round-radius: 30px !default;
 $button-mini-herizontal-round-padding: 15px !default;
 // type primary
-$button-primary-bg-color: $color-primary  !default !default;
+$button-primary-bg-color: $color-primary  !default;
 $button-primary-font-color: #fff !default;
 // type light
 $button-light-bg-color: #fff !default;
@@ -52,6 +52,9 @@ $button-danger-font-color: #fff !default;
 // type warn
 $button-warn-bg-color: #ff976a !default;
 $button-warn-font-color: #fff !default;
+// type info
+$button-info-bg-color: $color-info !default;
+$button-info-font-color: #fff !default;
 // block state
 $button-block-font-size: 16px !default;
 // disabled state

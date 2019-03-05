@@ -1,7 +1,6 @@
 <template>
   <button :class="buttonCls" :disabled="disabled" @click="onClick">
-    <!-- <i class="ymu-loading" v-if="showLoading"></i> -->
-    <Loading v-show="showLoading"></Loading>
+    <Loading v-if="loading"></Loading>
     <slot>
       <span class="yum-button-text">{{ text }}</span>
     </slot>
@@ -53,7 +52,7 @@ export default useName({
     clear: Boolean,
     round: Boolean,
     full: Boolean,
-    showLoading: Boolean
+    loading: Boolean
   },
   computed: {
     buttonCls () {

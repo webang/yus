@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 const Welcome = () => import('../views/Welcome')
-const Button = () => import('../views/Button')
+const Button = () => import('../../packages/button/demo')
 const Actionsheet = () => import('../views/Actionsheet')
 const Alert = () => import('../views/Alert')
 const Navbar = () => import('../views/Navbar')

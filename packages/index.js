@@ -45,6 +45,60 @@ import Loading from './loading'
 // Plugins
 import Toast from './toast'
 
+const components = [
+  Actionsheet,
+  Alert,
+  Backdrop,
+  Backtop,
+  Button,
+  Cell,
+  CellGroup,
+  Checkbox,
+  Confirm,
+  Collapse,
+  CollapseItem,
+  Dialog,
+  Field,
+  Flow,
+  FlowItem,
+  Marquee,
+  MarqueeItem,
+  NavBar,
+  NoticeBar,
+  Popup,
+  Progress,
+  Radio,
+  RegionSlider,
+  Slider,
+  Switch,
+  Tabbar,
+  TabbarItem,
+  Icon,
+  RadioGroup,
+  CheckboxGroup,
+  Badge,
+  Calender,
+  Clocker,
+  CountdownNum,
+  CountdownDate,
+  Toast,
+  ButtonTabs,
+  ButtonTab,
+  Card,
+  Tabs,
+  Tab,
+  Clickable,
+  Loading
+]
+
+const version = `1.0.0`
+
+const install = (Vue) => {
+  components.forEach(Component => {
+    Vue.use(Component)
+  })
+}
+
 export {
   Actionsheet,
   Alert,
@@ -90,3 +144,8 @@ export {
   Clickable,
   Loading
 }
+
+export default {
+  install,
+  version
+};
