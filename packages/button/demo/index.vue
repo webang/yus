@@ -1,5 +1,5 @@
 <template>
-  <div class="page-ymu-button">
+  <div class="demo-ymu-button">
     <div class="ymu-doc-block">
       <div class="ymu-doc-block__title">按钮类型: size</div>
       <div class="ymu-doc-block__content">
@@ -143,7 +143,7 @@ export default {
   padding: 10px 15px;
 }
 
-.page-ymu-button {
+.demo-ymu-button {
   /deep/ .ymu-button {
     margin-right: 10px;
     margin-bottom: 10px;

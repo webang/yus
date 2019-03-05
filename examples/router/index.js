@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 const Welcome = () => import('../views/Welcome')
-const Button = () => import('../../packages/button/demo')
 const Actionsheet = () => import('../views/Actionsheet')
 const Alert = () => import('../views/Alert')
 const Navbar = () => import('../views/Navbar')
@@ -234,7 +233,7 @@ export default new Router({
     {
       path: '/Button',
       name: 'Button',
-      component: Button,
+      component: () => import('../../packages/button/demo'),
       meta: {
         title: 'Button 按钮'
       }
@@ -282,7 +281,7 @@ export default new Router({
     {
       path: '/Backdrop',
       name: 'Backdrop',
-      component: () => import('../views/Backdrop'),
+      component: () => import('../../packages/backdrop/demo'),
       meta: {
         title: 'Backdrop 幕布'
       }

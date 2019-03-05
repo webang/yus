@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NavBar v-if="$route.name">{{ $route.meta.title }}</NavBar>
+    <NavBar v-if="showNavBar">{{ $route.meta.title }}</NavBar>
     <router-view/>
   </div>
 </template>
@@ -13,8 +13,10 @@ export default {
   components: {
     NavBar
   },
-  mounted () {
-    console.log(this.$route)
+  computed: {
+    showNavBar () {
+      return this.$route.path !== '/';
+    }
   }
 }
 </script>

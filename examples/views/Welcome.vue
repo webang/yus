@@ -1,76 +1,92 @@
 <template>
-  <div page="page-welcome">
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">基础组件</div>
-      <div class="ymu-doc-block__content">
-        <CellGroup>
-          <Cell label="Button 按钮" is-link to="/Button"></Cell>
-          <Cell label="Badge 徽章" is-link to="/Badge"></Cell>
-          <Cell label="Backdrop 幕布" is-link to="/Backdrop"></Cell>
-          <Cell label="ButtonTab 按钮组" is-link to="/ButtonTab"></Cell>
-          <Cell label="Cell 单元格" is-link to="/Cell"></Cell>
-          <Cell label="Clickable 点击反馈" is-link to="/Clickable"></Cell>
-          <Cell label="Clocker 时钟" is-link to="/Clocker"></Cell>
-          <Cell label="CountdownNum 数字倒计时" is-link to="/CountdownNum"></Cell>
-          <Cell label="CountdownDate 日期倒计时" is-link to="/CountdownDate"></Cell>
-          <Cell label="Progress 进度条" is-link to="/Progress"></Cell>
-          <Cell label="Navbar 导航" is-link to="/Navbar"></Cell>
-          <Cell label="Tabs 标签页" is-link to="/Tabs"></Cell>
-          <Cell label="Tabbar 标签栏" is-link to="/Tabbar"></Cell>
-          <Cell label="Icon 内置图标" is-link to="/Icon"></Cell>
-          <Cell label="Loading 加载" is-link to="/Loading"></Cell>
-        </CellGroup>
-      </div>
+  <div page="view-welcome">
+    <div class="my-desc">
+      <p class="name">Ymu</p>
+      <p>轻量/可靠/易扩展</p>
+      <p>都<span class="street">还未实现</span>的移动端 Vue 组件库</p>
+      <p>so, I want you. 发送邮箱到1056834607@qq.com</p>
+      <p>我们一起来完善它</p>
     </div>
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">数据展示</div>
-      <div class="ymu-doc-block__content">
-        <CellGroup>
-          <Cell label="Card 卡片" is-link to="/Card"></Cell>
-          <Cell label="Collapse 折叠面板" is-link to="/Collapse"></Cell>
-          <Cell label="Flow 步骤条" is-link to="/Flow"></Cell>
-          <Cell label="Marquee 跑马灯" is-link to="/Marquee"></Cell>
-          <Cell label="NoticeBar 通告栏" is-link to="/NoticeBar"></Cell>
-        </CellGroup>
-      </div>
-    </div>
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">表单组件</div>
-      <div class="ymu-doc-block__content">
-        <CellGroup>
-          <Cell label="Calender 日历" is-link to="/Calender"></Cell>
-          <Cell label="Checkbox 复选框" is-link to="/Checkbox"></Cell>
-          <Cell label="Field 输入框" is-link to="/Field"></Cell>
-          <Cell label="Radio 单选框" is-link to="/Radio"></Cell>
-          <Cell label="Switch 开关" is-link to="/Switch"></Cell>
-          <Cell label="Slider 滑块" is-link to="/Slider"></Cell>
-          <Cell label="RegionSlider 双向滑块" is-link to="/RegionSlider"></Cell>
-        </CellGroup>
-      </div>
-    </div>
-    <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">操作反馈</div>
-      <div class="ymu-doc-block__content">
-        <CellGroup>
-          <Cell label="Actionsheet 上拉菜单" is-link to="/Actionsheet"></Cell>
-          <Cell label="Alert 提示窗" is-link to="/Alert"></Cell>
-          <Cell label="Backtop 返回顶部" is-link to="/Backtop"></Cell>
-          <Cell label="Confirm 确认框" is-link to="/Confirm"></Cell>
-          <Cell label="Popup 弹出层" is-link to="/Popup"></Cell>
-          <Cell label="Toast 轻提示" is-link to="/Toast"></Cell>
-        </CellGroup>
-      </div>
-    </div>
+    <ymu-collapse class="group" accordion>
+      <ymu-collapse-item title="基础组件">
+        <ymu-cell label="Button 按钮" is-link to="/Button"></ymu-cell>
+        <ymu-cell label="Backdrop 幕布" is-link to="/Backdrop"></ymu-cell>
+        <ymu-cell label="Cell 单元格" is-link to="/Cell"></ymu-cell>
+        <ymu-cell label="Progress 进度条" is-link to="/Progress"></ymu-cell>
+        <ymu-cell label="Icon 内置图标" is-link to="/Icon"></ymu-cell>
+        <ymu-cell label="Loading 加载" is-link to="/Loading"></ymu-cell>
+      </ymu-collapse-item>
+      <ymu-collapse-item title="导航组件">
+        <ymu-cell label="Badge 徽章" is-link to="/Badge"></ymu-cell>
+        <ymu-cell label="Navbar 导航" is-link to="/Navbar"></ymu-cell>
+        <ymu-cell label="Tabbar 标签栏" is-link to="/Tabbar"></ymu-cell>
+        <ymu-cell label="Tabs 标签页" is-link to="/Tabs"></ymu-cell>
+      </ymu-collapse-item>
+      <ymu-collapse-item title="数据展示">
+        <ymu-cell label="Card 卡片" is-link to="/Card"></ymu-cell>
+        <ymu-cell label="Collapse 折叠面板" is-link to="/Collapse"></ymu-cell>
+        <ymu-cell label="Flow 步骤条" is-link to="/Flow"></ymu-cell>
+        <ymu-cell label="Marquee 跑马灯" is-link to="/Marquee"></ymu-cell>
+        <ymu-cell label="NoticeBar 通告栏" is-link to="/NoticeBar"></ymu-cell>
+      </ymu-collapse-item>
+      <ymu-collapse-item title="时间组件">
+        <ymu-cell label="Clocker 时钟" is-link to="/Clocker"></ymu-cell>
+        <ymu-cell label="CountdownNum 数字倒计时" is-link to="/CountdownNum"></ymu-cell>
+        <ymu-cell label="CountdownDate 日期倒计时" is-link to="/CountdownDate"></ymu-cell>
+      </ymu-collapse-item>
+      <ymu-collapse-item title="表单组件">
+        <ymu-cell label="Calender 日历" is-link to="/Calender"></ymu-cell>
+        <ymu-cell label="Checkbox 复选框" is-link to="/Checkbox"></ymu-cell>
+        <ymu-cell label="Field 输入框" is-link to="/Field"></ymu-cell>
+        <ymu-cell label="Radio 单选框" is-link to="/Radio"></ymu-cell>
+        <ymu-cell label="Switch 开关" is-link to="/Switch"></ymu-cell>
+        <ymu-cell label="Slider 滑块" is-link to="/Slider"></ymu-cell>
+        <ymu-cell label="RegionSlider 双向滑块" is-link to="/RegionSlider"></ymu-cell>
+      </ymu-collapse-item>
+      <ymu-collapse-item title="操作反馈">
+        <ymu-cell label="Actionsheet 上拉菜单" is-link to="/Actionsheet"></ymu-cell>
+        <ymu-cell label="Alert 提示窗" is-link to="/Alert"></ymu-cell>
+        <ymu-cell label="Backtop 返回顶部" is-link to="/Backtop"></ymu-cell>
+        <ymu-cell label="Confirm 确认框" is-link to="/Confirm"></ymu-cell>
+        <ymu-cell label="Popup 弹出层" is-link to="/Popup"></ymu-cell>
+        <ymu-cell label="Toast 轻提示" is-link to="/Toast"></ymu-cell>
+      </ymu-collapse-item>
+    </ymu-collapse>
   </div>
 </template>
 
 <script>
-import { Cell, CellGroup } from 'ymu'
-
 export default {
-  components: {
-    CellGroup,
-    Cell
-  }
 }
 </script>
+
+<style lang="scss" scoped>
+.view-welcome {
+  overflow: hidden;
+}
+
+.my-desc {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+  .name {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: fantasy;
+    font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  }
+  .street {
+    font-weight: 700;
+    color: #f44336;
+  }
+}
+
+.group {
+  margin: 0 24px;
+  padding-top: 5px;
+  /deep/ .ymu-cell__label {
+    font-size: 13px;
+  }
+}
+</style>

@@ -21,7 +21,7 @@
 // }
 
 import use from '../../src/utils/use'
-const [useName, useBem] = use('backdrop')
+const [useName, useBem] = use('backtop')
 
 export default useName({
   props: {
