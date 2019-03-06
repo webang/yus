@@ -12,7 +12,6 @@
         <ymu-cell label="Button 按钮" is-link to="/Button"></ymu-cell>
         <ymu-cell label="Backdrop 幕布" is-link to="/Backdrop"></ymu-cell>
         <ymu-cell label="Cell 单元格" is-link to="/Cell"></ymu-cell>
-        <ymu-cell label="Progress 进度条" is-link to="/Progress"></ymu-cell>
         <ymu-cell label="Icon 内置图标" is-link to="/Icon"></ymu-cell>
         <ymu-cell label="Loading 加载" is-link to="/Loading"></ymu-cell>
       </ymu-collapse-item>
@@ -28,6 +27,7 @@
         <ymu-cell label="Flow 步骤条" is-link to="/Flow"></ymu-cell>
         <ymu-cell label="Marquee 跑马灯" is-link to="/Marquee"></ymu-cell>
         <ymu-cell label="NoticeBar 通告栏" is-link to="/NoticeBar"></ymu-cell>
+        <ymu-cell label="Progress 进度条" is-link to="/Progress"></ymu-cell>
       </ymu-collapse-item>
       <ymu-collapse-item title="时间组件">
         <ymu-cell label="Clocker 时钟" is-link to="/Clocker"></ymu-cell>

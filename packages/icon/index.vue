@@ -8,10 +8,7 @@ const [useName, useBem] = use('icon')
 
 export default useName({
   props: {
-    name: String,
-    useDevice: false // todo
+    name: String
   }
 })
 </script>
-
-index.scss
