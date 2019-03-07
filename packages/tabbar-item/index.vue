@@ -3,7 +3,7 @@
     class="ymu-tabbar-item"
     :class="{'ymu-tabbar-item--active': isActive}"
     @click="handleClick"
-    :style="itemStyle"
+    :style="curStyle"
   >
     <slot>
       <div
@@ -53,7 +53,7 @@ export default useName({
     isActive () {
       return this.activeIndex === this.currentIndex
     },
-    itemStyle () {
+    curStyle () {
       return {
         color: this.isActive ? this.selectedColor : this.color
       }

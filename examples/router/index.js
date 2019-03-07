@@ -8,7 +8,6 @@ const Cell = () => import('../../packages/cell/demo')
 const Switch = () => import('../views/Switch')
 const Progress = () => import('../views/Progress')
 const Flow = () => import('../views/Flow')
-const Tabbar = () => import('../views/Tabbar')
 const Toast = () => import('../views/Toast')
 const Marquee = () => import('../views/Marquee')
 const NoticeBar = () => import('../views/NoticeBar')
@@ -206,7 +205,7 @@ export default new Router({
     {
       path: '/Tabbar',
       name: 'Tabbar',
-      component: Tabbar,
+      component: () => import('../../packages/tabbar/demo'),
       meta: {
         title: 'Tabbar 标签栏'
       }
