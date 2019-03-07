@@ -1,11 +1,5 @@
 <template>
-  <span
-    class="ymu-badge"
-    :class="{
-      'ymu-badge--dot': isDot,
-      'ymu-badge--single': isSingle
-    }"
-    v-text="text"></span>
+  <span class="ymu-badge" :class="curCls" v-text="text"></span>
 </template>
 
 <script>
@@ -22,9 +16,13 @@ export default useName({
     },
     isDot () {
       return (this.text && this.text.length === 0) || typeof this.text === 'undefined'
+    },
+    curCls () {
+      return {
+        'ymu-badge--dot': this.isDot,
+        'ymu-badge--single': this.isSingle
+      }
     }
   }
 })
 </script>
-
-index.scss

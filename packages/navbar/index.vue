@@ -17,7 +17,7 @@
     </div>
     <div class="ymu-navbar-right">
       <slot name="right">
-        <div class="ymu-navbar__right-button" @click="handleClickRight">{{ rightText }}</div>
+        <div class="ymu-navbar__right-button" @click="$emit('on-click-right')">{{ rightText }}</div>
       </slot>
     </div>
   </div>
@@ -38,7 +38,7 @@ export default useName({
     title: String,
     leftText: {
       type: String,
-      default: '返回'
+      default: ''
     },
     rightText: String,
     leftArrow: {
@@ -46,7 +46,7 @@ export default useName({
       default: true
     },
     fixed: Boolean,
-    goBack: {
+    back: {
       Boolean: Boolean,
       default: true
     }
@@ -54,12 +54,9 @@ export default useName({
   methods: {
     handleClickLeft () {
       this.$emit('on-click-left')
-      if (this.goBack) {
+      if (this.back) {
         this.$router.back()
       }
-    },
-    handleClickRight () {
-      this.$emit('on-click-right')
     }
   }
 })

@@ -59,6 +59,7 @@
       <div class="ymu-doc-block__content">
         <ymu-button class="btn" type="primary" :loading="disabledOption.value1" text="提交中"/>
         <ymu-button class="btn" type="danger" :loading="disabledOption.value1" text="提交中"/>
+        <ymu-button class="btn" type="primary" block :loading="disabledOption.value1" text="提交中"/>
       </div>
     </div>
 

@@ -4,12 +4,10 @@ import Router from 'vue-router'
 const Welcome = () => import('../views/Welcome')
 const Actionsheet = () => import('../views/Actionsheet')
 const Alert = () => import('../views/Alert')
-const Navbar = () => import('../views/Navbar')
 const Cell = () => import('../../packages/cell/demo')
 const Switch = () => import('../views/Switch')
 const Progress = () => import('../views/Progress')
 const Flow = () => import('../views/Flow')
-const Tabbar = () => import('../views/Tabbar')
 const Toast = () => import('../views/Toast')
 const Marquee = () => import('../views/Marquee')
 const NoticeBar = () => import('../views/NoticeBar')
@@ -22,8 +20,6 @@ const Radio = () => import('../views/Radio')
 const Confirm = () => import('../views/Confirm')
 const Backtop = () => import('../views/Backtop')
 const Collapse = () => import('../views/Collapse')
-const Icon = () => import('../views/Icon')
-const Badge = () => import('../views/Badge')
 
 Vue.use(Router)
 
@@ -97,7 +93,7 @@ export default new Router({
     {
       path: '/Badge',
       name: 'Badge',
-      component: Badge,
+      component: () => import('../../packages/badge/demo'),
       meta: {
         title: 'Badge 徽章'
       }
@@ -105,7 +101,7 @@ export default new Router({
     {
       path: '/Icon',
       name: 'Icon',
-      component: Icon,
+      component: () => import('../../packages/icon/demo'),
       meta: {
         title: 'Icon 内置图标'
       }
@@ -209,7 +205,7 @@ export default new Router({
     {
       path: '/Tabbar',
       name: 'Tabbar',
-      component: Tabbar,
+      component: () => import('../../packages/tabbar/demo'),
       meta: {
         title: 'Tabbar 标签栏'
       }
@@ -241,7 +237,7 @@ export default new Router({
     {
       path: '/Navbar',
       name: 'Navbar',
-      component: Navbar,
+      component: () => import('../../packages/navbar/demo'),
       meta: {
         title: 'Navbar 导航'
       }
@@ -297,9 +293,25 @@ export default new Router({
     {
       path: '/loading',
       name: 'loading',
-      component: () => import('../views/loading'),
+      component: () => import('../../packages/loading/demo'),
       meta: {
         title: 'Loading 加载'
+      }
+    },
+    {
+      path: '/spinner',
+      name: 'spinner',
+      component: () => import('../../packages/spinner/demo'),
+      meta: {
+        title: 'spinner 加载动画'
+      }
+    },
+    {
+      path: '/tab',
+      name: 'tab',
+      component: () => import('../../packages/tab/demo'),
+      meta: {
+        title: 'Tab 标签页'
       }
     }
   ]

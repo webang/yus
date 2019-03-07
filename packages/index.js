@@ -37,10 +37,11 @@ import CountdownDate from './countdown-date'
 import ButtonTabs from './button-tabs/index'
 import ButtonTab from './button-tab/index'
 import Card from './card'
-import Tabs from './tabs'
 import Tab from './tab'
+import TabItem from './tab-item'
 import Clickable from './clickable'
 import Loading from './loading'
+import Spinner from './spinner'
 
 // Plugins
 import Toast from './toast'
@@ -85,17 +86,17 @@ const components = [
   ButtonTabs,
   ButtonTab,
   Card,
-  Tabs,
   Tab,
   Clickable,
-  Loading
-]
+  Loading,
+  Spinner,
+  TabItem
+];
 
 const version = `1.0.0`
 
 const install = (Vue) => {
   components.forEach(component => {
-    console.log(component)
     if (component.props) {
       Vue.use(component)
     }
@@ -145,8 +146,10 @@ export {
   Tabs,
   Tab,
   Clickable,
-  Loading
-}
+  Loading,
+  Spinner,
+  TabItem
+};
 
 export default {
   install,

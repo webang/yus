@@ -8,7 +8,7 @@
 import use from '../../src/utils/use'
 const [useName, useBem] = use('tabbar')
 
-export default {
+export default useName({
   props: {
     value: {
       type: Number,
@@ -19,7 +19,7 @@ export default {
       default: false
     }
   }
-}
+})
 </script>
 
 <style src="./index.scss" lang="scss"></style>

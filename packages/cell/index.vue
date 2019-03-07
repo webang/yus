@@ -40,7 +40,7 @@ export default useName({
   computed: {
     cellCls () {
       return {
-        'ymu-cell--clickable': this.clickable || this.to || this.url
+        'ymu-cell--clickable': this.clickable || this.to || this.url || this.isLink
       }
     }
   },

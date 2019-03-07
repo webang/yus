@@ -13,13 +13,14 @@
         <ymu-cell label="Backdrop 幕布" is-link to="/Backdrop"></ymu-cell>
         <ymu-cell label="Cell 单元格" is-link to="/Cell"></ymu-cell>
         <ymu-cell label="Icon 内置图标" is-link to="/Icon"></ymu-cell>
-        <ymu-cell label="Loading 加载" is-link to="/Loading"></ymu-cell>
+        <ymu-cell label="Spinner 加载动画" is-link to="/Spinner"></ymu-cell>
+        <!-- <ymu-cell label="Loading 加载" is-link to="/Loading"></ymu-cell> -->
       </ymu-collapse-item>
       <ymu-collapse-item title="导航组件">
         <ymu-cell label="Badge 徽章" is-link to="/Badge"></ymu-cell>
         <ymu-cell label="Navbar 导航" is-link to="/Navbar"></ymu-cell>
         <ymu-cell label="Tabbar 标签栏" is-link to="/Tabbar"></ymu-cell>
-        <ymu-cell label="Tabs 标签页" is-link to="/Tabs"></ymu-cell>
+        <ymu-cell label="Tab 标签页" is-link to="/Tab"></ymu-cell>
       </ymu-collapse-item>
       <ymu-collapse-item title="数据展示">
         <ymu-cell label="Card 卡片" is-link to="/Card"></ymu-cell>
