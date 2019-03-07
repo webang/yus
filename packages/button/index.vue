@@ -1,6 +1,6 @@
 <template>
   <button :class="buttonCls" :disabled="disabled" @click="onClick">
-    <Loading v-if="loading"></Loading>
+    <Spinner v-if="loading"></Spinner>
     <slot>
       <span class="yum-button-text">{{ text }}</span>
     </slot>
@@ -21,12 +21,14 @@
  * @param { slot } - 默认插槽
  */
 import Loading from '../loading'
+import Spinner from '../spinner'
 import use from '../../src/utils/use'
 const [useName, useBem] = use('button')
 
 export default useName({
   components: {
-    Loading
+    Loading,
+    Spinner
   },
   props: {
     type: {

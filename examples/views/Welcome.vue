@@ -13,7 +13,8 @@
         <ymu-cell label="Backdrop 幕布" is-link to="/Backdrop"></ymu-cell>
         <ymu-cell label="Cell 单元格" is-link to="/Cell"></ymu-cell>
         <ymu-cell label="Icon 内置图标" is-link to="/Icon"></ymu-cell>
-        <ymu-cell label="Loading 加载" is-link to="/Loading"></ymu-cell>
+        <ymu-cell label="Spinner 加载动画" is-link to="/Spinner"></ymu-cell>
+        <!-- <ymu-cell label="Loading 加载" is-link to="/Loading"></ymu-cell> -->
       </ymu-collapse-item>
       <ymu-collapse-item title="导航组件">
         <ymu-cell label="Badge 徽章" is-link to="/Badge"></ymu-cell>

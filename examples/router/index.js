@@ -296,9 +296,17 @@ export default new Router({
     {
       path: '/loading',
       name: 'loading',
-      component: () => import('../views/loading'),
+      component: () => import('../../packages/loading/demo'),
       meta: {
         title: 'Loading 加载'
+      }
+    },
+    {
+      path: '/spinner',
+      name: 'spinner',
+      component: () => import('../../packages/spinner/demo'),
+      meta: {
+        title: 'spinner 加载动画'
       }
     }
   ]

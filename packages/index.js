@@ -41,6 +41,7 @@ import Tabs from './tabs'
 import Tab from './tab'
 import Clickable from './clickable'
 import Loading from './loading'
+import Spinner from './spinner';
 
 // Plugins
 import Toast from './toast'
@@ -88,8 +89,9 @@ const components = [
   Tabs,
   Tab,
   Clickable,
-  Loading
-]
+  Loading,
+  Spinner
+];
 
 const version = `1.0.0`
 
@@ -144,8 +146,9 @@ export {
   Tabs,
   Tab,
   Clickable,
-  Loading
-}
+  Loading,
+  Spinner
+};
 
 export default {
   install,
