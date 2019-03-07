@@ -45,7 +45,7 @@ export default new Router({
     {
       path: '/Card',
       name: 'Card',
-      component: () => import('../views/Card.vue'),
+      component: () => import('../../packages/card/demo'),
       meta: {
         title: 'Card'
       }

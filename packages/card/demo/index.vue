@@ -1,9 +1,9 @@
 <template>
-  <div class="page-badge">
+  <div class="demo-card">
     <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">基本用法</div>
+      <div class="ymu-doc-block__hd">基本用法</div>
       <div class="ymu-doc-block__bd">
-        <Card header="收货率报表">
+        <ymu-card header="收货率报表">
           <ul>
             <li>订单收货率报表</li>
             <li>订单收货率报表</li>
@@ -11,8 +11,8 @@
             <li>订单收货率报表</li>
             <li>订单收货率报表</li>
           </ul>
-        </Card>
-        <Card header="没有阴影" :shadow="false" style="margin-top: 10px">
+        </ymu-card>
+        <ymu-card header="没有阴影" :shadow="false" style="margin-top: 10px">
           <ul>
             <li>订单收货率报表</li>
             <li>订单收货率报表</li>
@@ -20,8 +20,18 @@
             <li>订单收货率报表</li>
             <li>订单收货率报表</li>
           </ul>
-        </Card>
-        <Card :shadow="false" style="margin-top: 10px">
+        </ymu-card>
+        <ymu-card :shadow="false" header="footer" style="margin-top: 10px">
+          <ul>
+            <li>订单收货率报表</li>
+            <li>订单收货率报表</li>
+            <li>订单收货率报表</li>
+            <li>订单收货率报表</li>
+            <li>订单收货率报表</li>
+          </ul>
+          <p slot="footer">下单之前请确认收货地址</p>
+        </ymu-card>
+        <ymu-card :shadow="false" style="margin-top: 10px">
           <h3 slot="header" style="margin: 0">自定义header</h3>
           <ul>
             <li>订单收货率报表</li>
@@ -30,28 +40,20 @@
             <li>订单收货率报表</li>
             <li>订单收货率报表</li>
           </ul>
-        </Card>
+        </ymu-card>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { Card } from 'ymu'
-export default {
-  components: {
-    Card
-  }
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
-.page-badge {
-  /deep/ .ymu-badge {
-    margin-left: 5px;
-  }
-  /deep/ .ymu-cell__value {
-    color: #999;
-  }
+.demo-card {
+  min-height: 100vh;
+  padding-bottom: 12px;
+  background: #f5f5f9;
 }
 </style>

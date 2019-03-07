@@ -6,6 +6,9 @@
     <div class="ymu-card__bd">
       <slot></slot>
     </div>
+    <div class="ymu-card__ft" v-if="$slots.footer">
+      <slot name="footer"></slot>
+    </div>
   </div>
 </template>
 

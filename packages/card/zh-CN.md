@@ -21,7 +21,7 @@ Vue.use(Card)
 | :-: | :-: |
 | default | - |
 | header | 标题 |
-
+| footer | 底部信息 |
 
 ## Events
 
