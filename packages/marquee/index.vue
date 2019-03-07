@@ -1,6 +1,9 @@
 <template>
   <div class="ymu-marquee" :style="{height: height + 'px'}">
-    <div class="ymu-marquee-box" ref="box" :style="boxStyle">
+    <div class="ymu-marquee__hd">
+      <slot name="header"></slot>
+    </div>
+    <div class="ymu-marquee__bd" ref="box" :style="boxStyle">
       <slot></slot>
     </div>
   </div>
@@ -113,5 +116,3 @@ export default useName({
   }
 })
 </script>
-
-index.scss

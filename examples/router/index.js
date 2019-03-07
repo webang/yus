@@ -9,7 +9,6 @@ const Switch = () => import('../views/Switch')
 const Progress = () => import('../views/Progress')
 const Flow = () => import('../views/Flow')
 const Toast = () => import('../views/Toast')
-const Marquee = () => import('../views/Marquee')
 const NoticeBar = () => import('../views/NoticeBar')
 const Field = () => import('../views/Field')
 const Popup = () => import('../views/Popup')
@@ -189,7 +188,7 @@ export default new Router({
     {
       path: '/Marquee',
       name: 'Marquee',
-      component: Marquee,
+      component: () => import('../../packages/marquee/demo'),
       meta: {
         title: 'Marquee 跑马灯'
       }

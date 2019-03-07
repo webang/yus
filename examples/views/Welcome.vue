@@ -24,8 +24,8 @@
       </ymu-collapse-item>
       <ymu-collapse-item title="数据展示">
         <ymu-cell label="Card 卡片" is-link to="/Card"></ymu-cell>
-        <ymu-cell label="Collapse 折叠面板" is-link to="/Collapse"></ymu-cell>
-        <ymu-cell label="Flow 步骤条" is-link to="/Flow"></ymu-cell>
+        <!-- <ymu-cell label="Collapse 折叠面板" is-link to="/Collapse"></ymu-cell> -->
+        <!-- <ymu-cell label="Flow 步骤条" is-link to="/Flow"></ymu-cell> -->
         <ymu-cell label="Marquee 跑马灯" is-link to="/Marquee"></ymu-cell>
         <ymu-cell label="NoticeBar 通告栏" is-link to="/NoticeBar"></ymu-cell>
         <ymu-cell label="Progress 进度条" is-link to="/Progress"></ymu-cell>
