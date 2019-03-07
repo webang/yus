@@ -95,7 +95,6 @@ const version = `1.0.0`
 
 const install = (Vue) => {
   components.forEach(component => {
-    console.log(component)
     if (component.props) {
       Vue.use(component)
     }

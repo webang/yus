@@ -22,7 +22,6 @@ const Radio = () => import('../views/Radio')
 const Confirm = () => import('../views/Confirm')
 const Backtop = () => import('../views/Backtop')
 const Collapse = () => import('../views/Collapse')
-const Icon = () => import('../views/Icon')
 const Badge = () => import('../views/Badge')
 
 Vue.use(Router)
@@ -105,7 +104,7 @@ export default new Router({
     {
       path: '/Icon',
       name: 'Icon',
-      component: Icon,
+      component: () => import('../../packages/icon/demo'),
       meta: {
         title: 'Icon 内置图标'
       }
