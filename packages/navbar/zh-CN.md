@@ -13,11 +13,11 @@ Marquee .use(MarqueeItem)
 | 属性 | 描述 | 类型 | 可选值 | 默认值 | 版本说明 |
 | - | - | - | - | - | - |
 | title | 显示标题 | String | - | - | - |
-| leftText | 左侧按钮文字 | String | - | 返回 | - |
+| leftText | 左侧按钮文字 | String | - | - | - |
 | rightText | 右侧按钮文字 | String | - | - | - |
 | leftArrow | 显示左侧返回icon | Boolean | - | true | - |
 | fixed | 是否顶部固定 | Boolean | - | - | - |
-| goBack | 点击左侧按钮是否返回 | Boolean | - | true | - |
+| back | 点击左侧按钮是否返回 | Boolean | - | true | - |
 
 
 ## Slots

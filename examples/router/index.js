@@ -4,7 +4,6 @@ import Router from 'vue-router'
 const Welcome = () => import('../views/Welcome')
 const Actionsheet = () => import('../views/Actionsheet')
 const Alert = () => import('../views/Alert')
-const Navbar = () => import('../views/Navbar')
 const Cell = () => import('../../packages/cell/demo')
 const Switch = () => import('../views/Switch')
 const Progress = () => import('../views/Progress')
@@ -22,7 +21,6 @@ const Radio = () => import('../views/Radio')
 const Confirm = () => import('../views/Confirm')
 const Backtop = () => import('../views/Backtop')
 const Collapse = () => import('../views/Collapse')
-const Badge = () => import('../views/Badge')
 
 Vue.use(Router)
 
@@ -96,7 +94,7 @@ export default new Router({
     {
       path: '/Badge',
       name: 'Badge',
-      component: Badge,
+      component: () => import('../../packages/badge/demo'),
       meta: {
         title: 'Badge 徽章'
       }
@@ -240,7 +238,7 @@ export default new Router({
     {
       path: '/Navbar',
       name: 'Navbar',
-      component: Navbar,
+      component: () => import('../../packages/navbar/demo'),
       meta: {
         title: 'Navbar 导航'
       }
