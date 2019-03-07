@@ -305,6 +305,14 @@ export default new Router({
       meta: {
         title: 'spinner 加载动画'
       }
+    },
+    {
+      path: '/tab',
+      name: 'tab',
+      component: () => import('../../packages/tab/demo'),
+      meta: {
+        title: 'Tab 标签页'
+      }
     }
   ]
 });

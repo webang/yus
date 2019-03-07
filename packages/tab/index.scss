@@ -2,10 +2,47 @@
 @import '../../src/scss/mixins';
 @import '../../src/scss/animate';
 
-.ymu-tab--active {
-  color: royalblue;
+.ymu-tab-wrapper {
+  position: relative;
+  height: 44px;
 }
 
-.ymu-tab--disabled {
-  color: #ccc;
+.ymu-tab-container {
+  height: 44px;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.ymu-tab {
+  position: relative;
+  display: flex;
+  height: 100%;
+  background-color: #fff;
+
+  &--scrollable {
+    overflow: hidden;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    box-sizing: content-box;
+    -webkit-overflow-scrolling: touch;
+    .ymu-tab-item {
+      flex: 0 0 22%;
+    }
+    .ymu-tab-line {
+      bottom: 15px;
+    }
+  }
+}
+
+.ymu-tab-line {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  text-align: center;
+  background-color: #FF9900;
+  transform: scaleX(.4);
+  transition: right 0.4s cubic-bezier(0.35, 0, 0.25, 1) 0.09s, left 0.4s cubic-bezier(0.35, 0, 0.25, 1);
 }

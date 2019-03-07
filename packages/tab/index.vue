@@ -1,8 +1,11 @@
 <template>
-  <div class="ymu-tab" :class="tabCls" @click="onClick">
-    <slot name="title">
-      <span v-text="title"></span>
-    </slot>
+  <div class="ymu-tab-wrapper">
+    <div class="ymu-tab-container">
+      <div class="ymu-tab" :class="tabCls">
+        <slot></slot>
+        <div class="ymu-tab-line" :style="barStyle" :data-barLeft="barLeft"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -11,35 +14,70 @@ import use from '../../src/utils/use'
 const [useName, useBem] = use('tab')
 
 export default useName({
+  data () {
+    return {
+      childLen: this.$children.length,
+      currentIndex: 0
+    }
+  },
   props: {
-    title: String,
-    disabled: Boolean
+    value: Number,
+    disabled: Boolean,
+    scrollable: {
+      type: Boolean,
+      default: false
+    },
+    lineWidth: {
+      type: Number,
+      default: 3
+    }
   },
   computed: {
-    parentValue () {
-      return this.$parent.value
+    barLeft () {
+      if (this.childLen === 0) return
+      const width = window.innerWidth
+      const itemWidth = this.$children[this.currentIndex].$el.getBoundingClientRect().width
+      const count = this.scrollable ? (width / itemWidth) : this.childLen
+      return `${this.currentIndex * (100 / count)}%`
     },
-    index () {
-      return this.$parent.$children.indexOf(this)
+    barRight () {
+      if (this.childLen === 0) return
+      const width = window.innerWidth
+      const itemWidth = this.$children[this.currentIndex].$el.getBoundingClientRect().width
+      const count = this.scrollable ? (width / itemWidth) : this.childLen
+      return `${(count - this.currentIndex - 1) * (100 / count)}%`
+    },
+    barStyle () {
+      const commonStyle = {
+        left: this.barLeft,
+        right: this.barRight,
+        height: this.lineWidth + 'px'
+      }
+      return commonStyle
     },
     isActive () {
       return this.index === this.parentValue
     },
     tabCls () {
       return {
-        'ymu-tab--active': this.isActive,
-        'ymu-tab--disabled': this.disabled
+        'ymu-tab--scrollable': this.scrollable
+      }
+    },
+    lineStyle () {
+      return {
+        width: (1 / this.childLen) * 100 + '%',
+        left: (this.value / this.childLen) * 100 + '%'
       }
     }
   },
-  methods: {
-    onClick () {
-      if (!this.disabled) {
-        this.$parent.toggleValue(this.index)
-      }
+  watch: {
+    value (val) {
+      this.currentIndex = val
     }
+  },
+  mounted () {
+    this.currentIndex = this.value
+    this.childLen = this.$children.length
   }
 })
 </script>
-
-index.scss

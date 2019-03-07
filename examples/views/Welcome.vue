@@ -20,7 +20,7 @@
         <ymu-cell label="Badge 徽章" is-link to="/Badge"></ymu-cell>
         <ymu-cell label="Navbar 导航" is-link to="/Navbar"></ymu-cell>
         <ymu-cell label="Tabbar 标签栏" is-link to="/Tabbar"></ymu-cell>
-        <ymu-cell label="Tabs 标签页" is-link to="/Tabs"></ymu-cell>
+        <ymu-cell label="Tab 标签页" is-link to="/Tab"></ymu-cell>
       </ymu-collapse-item>
       <ymu-collapse-item title="数据展示">
         <ymu-cell label="Card 卡片" is-link to="/Card"></ymu-cell>
