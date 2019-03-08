@@ -1,0 +1,9 @@
+@import '../../src/scss/vars';
+@import '../../src/scss/mixins';
+@import '../../src/scss/animate';
+
+.ymu-button-tabs {
+  display: flex;
+  align-items: center;
+  border: 1px solid #f5f5f5;
+}
