@@ -23,7 +23,7 @@
 import use from '../../src/utils/use'
 const [useName, useBem] = use('slider')
 
-export default {
+export default useName({
   props: {
     value: {
       type: Number,
@@ -121,7 +121,7 @@ export default {
       this.startPoint = null
     }
   }
-}
+})
 </script>
 
 index.scss

@@ -1,8 +1,8 @@
 <template>
   <div class="demo-badge">
     <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">基本用法</div>
-      <div class="ymu-doc-block__content">
+      <div class="ymu-doc-block__hd">基本用法</div>
+      <div class="ymu-doc-block__bd">
         <ymu-cell label="红点" is-link>
           <div slot="value">
             <span>新消息</span>

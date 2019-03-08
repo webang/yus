@@ -1,35 +1,35 @@
 <template>
-  <div class="page-checkbox">
+  <div class="demo-checkbox">
 
     <div class="checkbox-demo-01">
       <div class="ymu-doc-block__hd">基础用法</div>
       <div class="ymu-doc-block__bd">
-        <Checkbox label="深圳" v-model="checkboxGroupValue1"></Checkbox>
+        <ymu-checkbox label="深圳" v-model="checkboxGroupValue1"/>
       </div>
     </div>
 
     <div class="checkbox-demo-02">
       <div class="ymu-doc-block__hd">文字在左边</div>
       <div class="ymu-doc-block__bd">
-        <Checkbox label="深圳" :label-left="true" v-model="checkboxGroupValue1"></Checkbox>
+        <ymu-checkbox label="深圳" :label-left="true" v-model="checkboxGroupValue1"/>
       </div>
     </div>
 
     <div class="checkbox-demo-03">
       <div class="ymu-doc-block__hd">禁用状态</div>
       <div class="ymu-doc-block__bd">
-        <Checkbox label="深圳" :disabled="true" v-model="checkboxGroupValue4"></Checkbox>
-        <Checkbox label="深圳" :disabled="true" v-model="checkboxGroupValue5"></Checkbox>
+        <ymu-checkbox label="深圳" :disabled="true" v-model="checkboxGroupValue4"/>
+        <ymu-checkbox label="深圳" :disabled="true" v-model="checkboxGroupValue5"/>
       </div>
     </div>
 
     <div class="checkbox-demo-04">
       <div class="ymu-doc-block__hd">复选框组(最多选2个，最少选1个)</div>
       <div class="ymu-doc-block__bd">
-        <CheckboxGroup v-model="groupValue1" :min="1" :max="2">
-          <Checkbox label="深圳"></Checkbox>
-          <Checkbox label="珠海"></Checkbox>
-        </CheckboxGroup>
+        <ymu-checkbox-group v-model="groupValue1" :min="1" :max="2">
+          <ymu-checkbox label="深圳"/>
+          <ymu-checkbox label="珠海"/>
+        </ymu-checkbox-group>
         <p>{{ groupValue1 }}</p>
       </div>
     </div>
@@ -37,45 +37,35 @@
     <div class="checkbox-demo-05">
       <div class="ymu-doc-block__hd">使用useCell</div>
       <div class="ymu-doc-block__bd">
-        <CheckboxGroup v-model="groupValue5">
-          <Checkbox :use-cell="true" :label-left="true" label="香蕉" clickable></Checkbox>
-          <Checkbox :use-cell="true" :label-left="true" label="苹果" clickable></Checkbox>
-        </CheckboxGroup>
+        <ymu-checkbox-group v-model="groupValue5">
+          <ymu-checkbox :use-cell="true" :label-left="true" label="香蕉" clickable/>
+          <ymu-checkbox :use-cell="true" :label-left="true" label="苹果" clickable/>
+        </ymu-checkbox-group>
       </div>
     </div>
 
     <div class="checkbox-demo-06" style="margin-bottom: 10px">
       <div class="ymu-doc-block__hd">更改Icon</div>
       <div class="ymu-doc-block__bd">
-        <CheckboxGroup v-model="groupValue5">
-          <Checkbox :use-cell="true" :label-left="true" label="香蕉" clickable>
+        <ymu-checkbox-group v-model="groupValue5">
+          <ymu-checkbox :use-cell="true" :label-left="true" label="香蕉" clickable>
             <template slot="icon" slot-scope="{checked}">
               <i class="ymuicon ios-checkmark" v-if="checked" style="font-size: 32px"></i>
             </template>
-          </Checkbox>
-          <Checkbox :use-cell="true" :label-left="true" label="苹果" clickable>
+          </ymu-checkbox>
+          <ymu-checkbox :use-cell="true" :label-left="true" label="苹果" clickable>
             <template slot="icon" slot-scope="{checked}">
               <i class="ymuicon ios-checkmark" v-if="checked" style="font-size: 32px"></i>
             </template>
-          </Checkbox>
-        </CheckboxGroup>
+          </ymu-checkbox>
+        </ymu-checkbox-group>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { Toast, Cell, CellGroup, Button, Field, Checkbox, CheckboxGroup } from 'ymu'
-
 export default {
-  components: {
-    Cell,
-    Field,
-    Button,
-    Checkbox,
-    CellGroup,
-    CheckboxGroup
-  },
   data () {
     return {
       checkboxGroupValue1: true,
@@ -94,7 +84,7 @@ export default {
 
 <style lang="scss" scoped>
 
-.page-checkbox {
+.demo-checkbox {
   /deep/ .ymu-checkbox {
     display: flex;
     margin-bottom: 10px;

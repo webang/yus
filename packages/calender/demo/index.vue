@@ -1,55 +1,47 @@
 <template>
   <div class="page-calender">
     <div class="ymu-doc-block__title">基本用法</div>
-    <CellGroup>
-      <Cell label="单选" is-link>
+    <ymu-cell-group>
+      <ymu-cell label="单选" is-link>
         <div slot="value" @click="backdropVisible=!backdropVisible">
           <span v-if="dateValue" v-text="dateValue"></span>
           <span v-else>选择日期</span>
         </div>
-      </Cell>
-      <Cell label="多选" is-link>
+      </ymu-cell>
+      <ymu-cell label="多选" is-link>
         <div slot="value" @click="backdropVisible2=!backdropVisible2">
           <span v-if="dateValue2.length" v-text="dateValue2"></span>
           <span v-else>选择日期</span>
         </div>
-      </Cell>
-      <Cell label="禁用" is-link>
+      </ymu-cell>
+      <ymu-cell label="禁用" is-link>
         <div slot="value" @click="backdropVisible3=!backdropVisible3">
           <span v-if="dateValue3.length" v-text="dateValue3"></span>
           <span v-else>选择日期</span>
         </div>
-      </Cell>
-    </CellGroup>
-    <calender
+      </ymu-cell>
+    </ymu-cell-group>
+    <ymu-calender
       class="ymu-calender"
       :visible="backdropVisible"
       v-model="dateValue"
-      @on-click-backdrop="backdropVisible=false"></calender>
-    <calender
+      @on-click-backdrop="backdropVisible=false"/>
+    <ymu-calender
       class="ymu-calender"
       :visible="backdropVisible2"
       v-model="dateValue2"
-      @on-click-backdrop="backdropVisible2=false"
-      ></calender>
-    <calender
+      @on-click-backdrop="backdropVisible2=false"/>
+    <ymu-calender
       class="ymu-calender"
       :visible="backdropVisible3"
       v-model="dateValue3"
-      @on-click-backdrop="backdropVisible3=false"
-      :disabledFn="disabledFn"></calender>
+      :disabledFn="disabledFn"
+      @on-click-backdrop="backdropVisible3=false"/>
   </div>
 </template>
 
 <script>
-import { Calender, Backdrop, Cell, CellGroup } from 'ymu'
 export default {
-  components: {
-    Cell,
-    CellGroup,
-    Backdrop,
-    Calender
-  },
   data () {
     return {
       dateValue: '2017-01-1',
@@ -73,7 +65,7 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="scss" scoped>
 ul {
   padding: 0 12px;
 }

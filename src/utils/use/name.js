@@ -5,7 +5,6 @@ function install (Vue) {
 
 export default (name, originName) => component => {
   component.name = name
-  component.originName = originName
   component.install = install
   return component
 }

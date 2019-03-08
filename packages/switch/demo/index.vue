@@ -1,33 +1,26 @@
 <template>
-  <div class="page page-switch">
+  <div class="demo-switch">
     <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">基础用法</div>
-      <div class="ymu-doc-block__content">
-        <CellGroup>
-          <Cell label="简单用法">
-            <wSwitch v-model="s1" slot="value"></wSwitch>
-          </Cell>
-          <Cell label="禁用选项">
-            <wSwitch slot="value" v-model="s3" :disabled="true"></wSwitch>
-          </Cell>
-          <Cell label="禁用选项">
-            <wSwitch slot="value" v-model="s2" :disabled="true"></wSwitch>
-          </Cell>
-        </CellGroup>
+      <div class="ymu-doc-block__hd">基础用法</div>
+      <div class="ymu-doc-block__bd">
+        <ymu-cell-group>
+          <ymu-cell label="简单用法">
+            <ymu-switch v-model="s1" slot="value"/>
+          </ymu-cell>
+          <ymu-cell label="禁用选项">
+            <ymu-switch slot="value" v-model="s3" :disabled="true"/>
+          </ymu-cell>
+          <ymu-cell label="禁用选项">
+            <ymu-switch slot="value" v-model="s2" :disabled="true"/>
+          </ymu-cell>
+        </ymu-cell-group>
       </div>
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
-import { Cell, CellGroup, Switch as wSwitch } from 'ymu'
-
 export default {
-  components: {
-    wSwitch,
-    Cell,
-    CellGroup
-  },
   data () {
     return {
       s1: true,
@@ -86,13 +79,5 @@ export default {
   div {
     margin-left: 12px;
   }
-}
-
-.wui-scroll {
-  position: absolute;
-  top: 46px;
-  left: 0;
-  bottom: 0;
-  right: 0;
 }
 </style>

@@ -2,15 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 const Welcome = () => import('../views/Welcome')
-const Cell = () => import('../../packages/cell/demo')
-const Switch = () => import('../views/Switch')
 const Flow = () => import('../views/Flow')
 const Toast = () => import('../views/Toast')
-const Field = () => import('../views/Field')
-const Checkbox = () => import('../views/Checkbox')
-const Slider = () => import('../views/Slider')
 const RegionSlider = () => import('../views/RegionSlider')
-const Radio = () => import('../views/Radio')
 const Collapse = () => import('../views/Collapse')
 
 Vue.use(Router)
@@ -24,14 +18,6 @@ export default new Router({
       component: Welcome,
       meta: {
         title: 'ymu'
-      }
-    },
-    {
-      path: '/Tabs',
-      name: 'Tabs',
-      component: () => import('../views/Tabs.vue'),
-      meta: {
-        title: 'Tabs'
       }
     },
     {
@@ -53,7 +39,7 @@ export default new Router({
     {
       path: '/Calender',
       name: 'Calender',
-      component: () => import('../views/Calender.vue'),
+      component: () => import('../../packages/calender/demo'),
       meta: {
         title: 'Calender 日历'
       }
@@ -133,7 +119,7 @@ export default new Router({
     {
       path: '/Radio',
       name: 'Radio',
-      component: Radio,
+      component: () => import('../../packages/radio/demo'),
       meta: {
         title: 'Radio 单选框'
       }
@@ -141,7 +127,7 @@ export default new Router({
     {
       path: '/Slider',
       name: 'Slider',
-      component: Slider,
+      component: () => import('../../packages/slider/demo'),
       meta: {
         title: 'Slider 滑块'
       }
@@ -165,7 +151,7 @@ export default new Router({
     {
       path: '/Checkbox',
       name: 'Checkbox',
-      component: Checkbox,
+      component: () => import('../../packages/checkbox/demo'),
       meta: {
         title: 'Checkbox 复选框'
       }
@@ -173,7 +159,7 @@ export default new Router({
     {
       path: '/Field',
       name: 'Field',
-      component: Field,
+      component: () => import('../../packages/field/demo'),
       meta: {
         title: 'Field 输入框'
       }
@@ -261,7 +247,7 @@ export default new Router({
     {
       path: '/Cell',
       name: 'Cell',
-      component: Cell,
+      component: () => import('../../packages/cell/demo'),
       meta: {
         title: 'Cell 单元格'
       }
@@ -269,7 +255,7 @@ export default new Router({
     {
       path: '/Switch',
       name: 'Switch',
-      component: Switch,
+      component: () => import('../../packages/switch/demo'),
       meta: {
         title: 'Switch 开关'
       }
