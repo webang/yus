@@ -1,7 +1,7 @@
 <template>
   <div class="ymu-notice-bar" @click="$emit('click')">
     <div class="ymu-notice-bar__hd">
-      <slot name="head">
+      <slot name="header">
         <Icon name="ios-megaphone"></Icon>
       </slot>
     </div>
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="ymu-notice-bar__ft">
-      <slot name="foot"></slot>
+      <slot name="footer"></slot>
     </div>
   </div>
 </template>

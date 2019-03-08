@@ -2,22 +2,15 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 const Welcome = () => import('../views/Welcome')
-const Actionsheet = () => import('../views/Actionsheet')
-const Alert = () => import('../views/Alert')
 const Cell = () => import('../../packages/cell/demo')
 const Switch = () => import('../views/Switch')
-const Progress = () => import('../views/Progress')
 const Flow = () => import('../views/Flow')
 const Toast = () => import('../views/Toast')
-const NoticeBar = () => import('../views/NoticeBar')
 const Field = () => import('../views/Field')
-const Popup = () => import('../views/Popup')
 const Checkbox = () => import('../views/Checkbox')
 const Slider = () => import('../views/Slider')
 const RegionSlider = () => import('../views/RegionSlider')
 const Radio = () => import('../views/Radio')
-const Confirm = () => import('../views/Confirm')
-const Backtop = () => import('../views/Backtop')
 const Collapse = () => import('../views/Collapse')
 
 Vue.use(Router)
@@ -116,15 +109,23 @@ export default new Router({
     {
       path: '/Backtop',
       name: 'Backtop',
-      component: Backtop,
+      component: () => import('../../packages/backtop/demo'),
       meta: {
         title: 'Backtop 返回顶部'
       }
     },
     {
+      path: '/Backdrop',
+      name: 'Backdrop',
+      component: () => import('../../packages/backdrop/demo'),
+      meta: {
+        title: 'Backdrop 幕布'
+      }
+    },
+    {
       path: '/Confirm',
       name: 'Confirm',
-      component: Confirm,
+      component: () => import('../../packages/confirm/demo'),
       meta: {
         title: 'Confirm 确认框'
       }
@@ -156,7 +157,7 @@ export default new Router({
     {
       path: '/Popup',
       name: 'Popup',
-      component: Popup,
+      component: () => import('../../packages/popup/demo'),
       meta: {
         title: 'Popup 弹出层'
       }
@@ -180,7 +181,7 @@ export default new Router({
     {
       path: '/NoticeBar',
       name: 'NoticeBar',
-      component: NoticeBar,
+      component: () => import('../../packages/notice-bar/demo'),
       meta: {
         title: 'NoticeBar 通告栏'
       }
@@ -220,7 +221,7 @@ export default new Router({
     {
       path: '/Progress',
       name: 'Progress',
-      component: Progress,
+      component: () => import('../../packages/progress/demo'),
       meta: {
         title: 'Progress 进度条'
       }
@@ -244,7 +245,7 @@ export default new Router({
     {
       path: '/Actionsheet',
       name: 'Actionsheet',
-      component: Actionsheet,
+      component: () => import('../../packages/actionsheet/demo'),
       meta: {
         title: 'Actionsheet 上拉菜单'
       }
@@ -252,7 +253,7 @@ export default new Router({
     {
       path: '/Alert',
       name: 'Alert',
-      component: Alert,
+      component: () => import('../../packages/alert/demo'),
       meta: {
         title: 'Alert 提示窗'
       }
@@ -271,14 +272,6 @@ export default new Router({
       component: Switch,
       meta: {
         title: 'Switch 开关'
-      }
-    },
-    {
-      path: '/Backdrop',
-      name: 'Backdrop',
-      component: () => import('../../packages/backdrop/demo'),
-      meta: {
-        title: 'Backdrop 幕布'
       }
     },
     {

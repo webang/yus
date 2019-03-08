@@ -1,20 +1,16 @@
 <template>
-  <div class="page-backtop">
+  <div class="demo-backtop">
     <ul>
       <li v-for="(item, index) in list" :key="index">
         <p>hello world, 我是编号{{ index }}</p>
       </li>
     </ul>
-    <Backtop></Backtop>
+    <ymu-backtop></ymu-backtop>
   </div>
 </template>
 
 <script>
-import { Backtop } from 'ymu'
 export default {
-  components: {
-    Backtop
-  },
   data () {
     return {
       list: []

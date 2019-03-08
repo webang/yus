@@ -30,6 +30,16 @@
         <ymu-cell label="NoticeBar 通告栏" is-link to="/NoticeBar"></ymu-cell>
         <ymu-cell label="Progress 进度条" is-link to="/Progress"></ymu-cell>
       </ymu-collapse-item>
+
+      <ymu-collapse-item title="操作反馈">
+        <ymu-cell label="Actionsheet 上拉菜单" is-link to="/Actionsheet"></ymu-cell>
+        <ymu-cell label="Alert 提示窗" is-link to="/Alert"></ymu-cell>
+        <ymu-cell label="Backtop 返回顶部" is-link to="/Backtop"></ymu-cell>
+        <ymu-cell label="Confirm 确认框" is-link to="/Confirm"></ymu-cell>
+        <ymu-cell label="Popup 弹出层" is-link to="/Popup"></ymu-cell>
+        <ymu-cell label="Toast 轻提示" is-link to="/Toast"></ymu-cell>
+      </ymu-collapse-item>
+
       <ymu-collapse-item title="时间组件">
         <ymu-cell label="Clocker 时钟" is-link to="/Clocker"></ymu-cell>
         <ymu-cell label="CountdownNum 数字倒计时" is-link to="/CountdownNum"></ymu-cell>
@@ -43,14 +53,6 @@
         <ymu-cell label="Switch 开关" is-link to="/Switch"></ymu-cell>
         <ymu-cell label="Slider 滑块" is-link to="/Slider"></ymu-cell>
         <ymu-cell label="RegionSlider 双向滑块" is-link to="/RegionSlider"></ymu-cell>
-      </ymu-collapse-item>
-      <ymu-collapse-item title="操作反馈">
-        <ymu-cell label="Actionsheet 上拉菜单" is-link to="/Actionsheet"></ymu-cell>
-        <ymu-cell label="Alert 提示窗" is-link to="/Alert"></ymu-cell>
-        <ymu-cell label="Backtop 返回顶部" is-link to="/Backtop"></ymu-cell>
-        <ymu-cell label="Confirm 确认框" is-link to="/Confirm"></ymu-cell>
-        <ymu-cell label="Popup 弹出层" is-link to="/Popup"></ymu-cell>
-        <ymu-cell label="Toast 轻提示" is-link to="/Toast"></ymu-cell>
       </ymu-collapse-item>
     </ymu-collapse>
   </div>

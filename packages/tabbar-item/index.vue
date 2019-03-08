@@ -15,7 +15,7 @@
           <slot name="badge">{{ badge }}</slot>
         </span>
         <slot name="icon">
-          <img class="ymu-tabbar-icon" v-if="isActive" :src="selectedIcon">
+          <img class="ymu-tabbar-icon" v-if="isActive" :src="activeIcon">
           <img class="ymu-tabbar-icon" v-else :src="icon">
         </slot>
       </div>
@@ -39,8 +39,8 @@ export default useName({
     icon: String,
     dot: Boolean,
     color: String,
-    selectedIcon: String,
-    selectedColor: String,
+    activeIcon: String,
+    activeColor: String,
     badge: [Number, String]
   },
   computed: {
@@ -55,7 +55,7 @@ export default useName({
     },
     curStyle () {
       return {
-        color: this.isActive ? this.selectedColor : this.color
+        color: this.isActive ? this.activeColor : this.color
       }
     }
   },

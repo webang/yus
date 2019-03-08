@@ -1,38 +1,31 @@
 <template>
-  <div class="page-alert">
+  <div class="demo-alert">
     <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">基本用法</div>
-      <div class="ymu-doc-block__content list">
-        <CellGroup>
-          <Cell label="基本用法">
-            <YSwitch slot="value" v-model="option1.show"/>
-          </Cell>
-          <Cell label="基本用法">
-            <YSwitch slot="value" v-model="option2.show"/>
-          </Cell>
-        </CellGroup>
+      <div class="ymu-doc-block__hd">基本用法</div>
+      <div class="ymu-doc-block__bd">
+        <ymu-cell-group>
+          <ymu-cell label="基本用法">
+            <ymu-switch slot="value" v-model="option1.show"/>
+          </ymu-cell>
+          <ymu-cell label="基本用法">
+            <ymu-switch slot="value" v-model="option2.show"/>
+          </ymu-cell>
+        </ymu-cell-group>
       </div>
     </div>
-    <Alert v-model="option1.show" :title="option1.title">
+    <ymu-alert v-model="option1.show" :title="option1.title">
       <p slot="content">真的要离开我吗?</p>
-    </Alert>
-    <Alert v-model="option2.show" :title="option2.title">
+    </ymu-alert>
+    <ymu-alert v-model="option2.show" :title="option2.title">
       <div slot="title">自定义 title</div>
       <p slot="content">自定义 content</p>
       <div slot="footer" style="flex: 1" @click="option2.show=false">自定义 footer</div>
-    </Alert>
+    </ymu-alert>
   </div>
 </template>
 
 <script>
-import { Alert, Cell, CellGroup, Switch as YSwitch } from 'ymu'
 export default {
-  components: {
-    Alert,
-    Cell,
-    CellGroup,
-    YSwitch
-  },
   data () {
     return {
       option1: {
@@ -82,7 +75,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-
-</style>

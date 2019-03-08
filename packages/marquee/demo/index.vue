@@ -38,7 +38,7 @@
 
       <div class="ymu-doc-block__hd">设置高度itemHeight=60</div>
       <div class="ymu-doc-block__bd">
-        <div class="item">
+        <div class="item" style="height: 60px">
           <ymu-marquee direction="down">
             <ymu-icon name="ios-megaphone" slot="header"/>
             <ymu-marquee-item v-for="(item, index) in list" :key="index">

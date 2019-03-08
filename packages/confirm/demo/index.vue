@@ -1,22 +1,22 @@
 <template>
   <div class="page-alert">
     <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">基本用法</div>
-      <div class="ymu-doc-block__content list">
-        <CellGroup>
-          <Cell label="显示">
-            <XSwitch slot="value" v-model="demo1.show"></XSwitch>
-          </Cell>
-          <Cell label="输入框">
-            <XSwitch slot="value" v-model="demo2.show"></XSwitch>
-          </Cell>
-          <Cell label="点击幕布不关闭">
-            <XSwitch slot="value" v-model="demo3.show"></XSwitch>
-          </Cell>
-        </CellGroup>
+      <div class="ymu-doc-block__hd">基本用法</div>
+      <div class="ymu-doc-block__bd">
+        <ymu-cell-group>
+          <ymu-cell label="显示">
+            <ymu-switch slot="value" v-model="demo1.show"/>
+          </ymu-cell>
+          <ymu-cell label="输入框">
+            <ymu-switch slot="value" v-model="demo2.show"/>
+          </ymu-cell>
+          <ymu-cell label="点击幕布不关闭">
+            <ymu-switch slot="value" v-model="demo3.show"/>
+          </ymu-cell>
+        </ymu-cell-group>
       </div>
     </div>
-    <Confirm
+    <ymu-confirm
       v-model="demo3.show"
       :title="demo3.title"
       :closeOnClickBackdrop="false"
@@ -24,40 +24,32 @@
       @on-confirm="demo3.show=false"
     >
       <p>确认要退出登录吗？</p>
-    </Confirm>
-    <Confirm
+    </ymu-confirm>
+    <ymu-confirm
       v-model="demo1.show"
       :title="demo1.title"
       @on-cancel="onCancel"
-      @on-confirm="onConfirm"
+      @on-confirm="confirm"
     >
       <p>确认要退出登录吗？</p>
-    </Confirm>
-    <Confirm
+    </ymu-confirm>
+    <ymu-confirm
       v-model="demo2.show"
       :title="demo2.title"
       :show-input="true"
       @on-cancel="onCancel2"
-      @on-confirm="onConfirm2"
+      @on-confirm="confirm2"
       :placeholder="demo2.placeholder"
       :inputValue="demo2.inputValue"
       @on-input-change="onInputChange"
     >
       <p>确认要退出登录吗？</p>
-    </Confirm>
+    </ymu-confirm>
   </div>
 </template>
 
 <script>
-import { Alert, Cell, CellGroup, Confirm, Toast, Switch as XSwitch } from 'ymu'
 export default {
-  components: {
-    Alert,
-    Cell,
-    CellGroup,
-    Confirm,
-    XSwitch
-  },
   data () {
     return {
       demo1: {
@@ -79,27 +71,27 @@ export default {
   },
   methods: {
     onCancel () {
-      Toast({
-        message: '您选择了取消'
-      })
+      // Toast({
+      //   message: '您选择了取消'
+      // })
       this.demo1.show = false
     },
-    onConfirm () {
-      Toast({
-        message: '您选择了确定'
-      })
+    confirm () {
+      // Toast({
+      //   message: '您选择了确定'
+      // })
       this.demo1.show = false
     },
     onCancel2 () {
-      Toast({
-        message: '您选择了取消'
-      })
+      // Toast({
+      //   message: '您选择了取消'
+      // })
       this.demo2.show = false
     },
-    onConfirm2 () {
-      Toast({
-        message: `您填写了${this.demo2.inputValue}`
-      })
+    confirm2 () {
+      // Toast({
+      //   message: `您填写了${this.demo2.inputValue}`
+      // })
       this.demo2.show = false
     },
     onInputChange (val) {
@@ -108,7 +100,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

@@ -1,22 +1,22 @@
 <template>
-  <div class="page-actionsheet">
+  <div class="demo-actionsheet">
     <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">基本用法</div>
-      <div class="ymu-doc-block__content list">
-        <CellGroup>
-          <Cell label="警用选项">
-            <YSwitch slot="value" v-model="option2.show"/>
-          </Cell>
-          <Cell label="自定义标题">
-            <YSwitch slot="value" v-model="option3.show"/>
-          </Cell>
-          <Cell label="点击幕布不关闭">
-            <YSwitch slot="value" v-model="option1.show"/>
-          </Cell>
-        </CellGroup>
+      <div class="ymu-doc-block__hd">基本用法</div>
+      <div class="ymu-doc-block__bd">
+        <ymu-cell-group>
+          <ymu-cell label="警用选项">
+            <ymu-switch slot="value" v-model="option2.show"/>
+          </ymu-cell>
+          <ymu-cell label="自定义标题">
+            <ymu-switch slot="value" v-model="option3.show"/>
+          </ymu-cell>
+          <ymu-cell label="点击幕布不关闭">
+            <ymu-switch slot="value" v-model="option1.show"/>
+          </ymu-cell>
+        </ymu-cell-group>
       </div>
     </div>
-    <Actionsheet
+    <ymu-actionsheet
       v-model="option1.show"
       :menus="option1.menus"
       :title="option1.title"
@@ -26,15 +26,15 @@
       @on-click-menu="onMenuClick"
       @on-after-show="onAfterShow"
       @on-after-hide="onAfterHide"
-    ></Actionsheet>
-    <Actionsheet
+    />
+    <ymu-actionsheet
       v-model="option2.show"
       :menus="option2.menus"
       :title="option2.title"
       @on-click-menu="onMenuClick"
       :showCancel="option2.showCancel"
-    ></Actionsheet>
-    <Actionsheet
+    />
+    <ymu-actionsheet
       v-model="option3.show"
       :menus="option3.menus"
       :title="option3.title"
@@ -47,22 +47,12 @@
           <p>idiot</p>
         </div>
       </div>
-    </Actionsheet>
+    </ymu-actionsheet>
   </div>
 </template>
 
 <script>
-import { Cell, CellGroup, Actionsheet, Switch as YSwitch } from 'ymu'
-
-console.log(Actionsheet)
-
 export default {
-  components: {
-    Cell,
-    CellGroup,
-    Actionsheet,
-    YSwitch
-  },
   data () {
     return {
       option1: {

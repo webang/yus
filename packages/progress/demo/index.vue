@@ -1,62 +1,54 @@
 <template>
   <div class="page page-switch">
     <div class="ymu-doc-block">
-      <div class="ymu-doc-block__title">基础用法</div>
-      <div class="ymu-doc-block__content">
-        <CellGroup>
-          <Cell>
+      <div class="ymu-doc-block__hd">基础用法</div>
+      <div class="ymu-doc-block__bd">
+        <ymu-cell-group>
+          <ymu-cell>
             <div slot="label" class="ymu-ui-flex" style="width: 100%">
-              <Progress :percentage="10" style="width: 100%">
+              <ymu-progress :percentage="10" style="width: 100%">
                 <span slot="start" class="label">提升率</span>
-              </Progress>
+              </ymu-progress>
             </div>
-          </Cell>
-          <Cell>
+          </ymu-cell>
+          <ymu-cell>
             <div slot="label" class="ymu-ui-flex" style="width: 100%">
-              <Progress :percentage="50" style="width: 100%">
+              <ymu-progress :percentage="50" style="width: 100%">
                 <span slot="start" class="label">提升率</span>
                 <span slot="end" class="right">50%</span>
-              </Progress>
+              </ymu-progress>
             </div>
-          </Cell>
-          <Cell>
+          </ymu-cell>
+          <ymu-cell>
             <div slot="label" class="ymu-ui-flex" style="width: 100%">
-              <Progress :percentage="100" style="width: 100%">
+              <ymu-progress :percentage="100" style="width: 100%">
                 <span slot="start" class="label">提升率</span>
                 <span slot="end" class="right">100%</span>
-              </Progress>
+              </ymu-progress>
             </div>
-          </Cell>
-          <Cell>
+          </ymu-cell>
+          <ymu-cell>
             <div slot="label" class="ymu-ui-flex" style="width: 100%">
-              <Progress :percentage="percentage" style="width: 100%">
+              <ymu-progress :percentage="percentage" style="width: 100%">
                 <span slot="start" class="label">
-                  <Button size="mini" type="primary" plain @click="percentage-=10">-10</Button>
+                  <ymu-button size="mini" type="primary" plain @click="percentage-=10">-10</ymu-button>
                   <span>提升率</span>
                 </span>
                 <span slot="end" class="right">
                   <span>{{ percentage }}%</span>
-                  <Button size="mini" type="primary" plain @click="percentage+=10">+10</Button>
+                  <ymu-button size="mini" type="primary" plain @click="percentage+=10">+10</ymu-button>
                 </span>
-              </Progress>
+              </ymu-progress>
             </div>
-          </Cell>
-        </CellGroup>
+          </ymu-cell>
+        </ymu-cell-group>
       </div>
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
-import { Progress, Cell, CellGroup, Button, Switch as wSwitch } from 'ymu'
 export default {
-  components: {
-    wSwitch,
-    Cell,
-    CellGroup,
-    Progress,
-    Button
-  },
   data () {
     return {
       percentage: 10

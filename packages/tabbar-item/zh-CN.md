@@ -10,8 +10,8 @@
 | badge | 违章 | Number, String | - | - | - |
 | dot | 小圆点 | Boolean | - | - | - |
 | color | 颜色 | String | - | - | - |
-| selectedIcon | 选中状态时显示的icon | String | - | - | - |
-| selectedColor | 选中状态的颜色 | String | - | - | - |
+| activeIcon | 选中状态时显示的icon | String | - | - | - |
+| activeColor | 选中状态的颜色 | String | - | - | - |
 
 
 ## Slots
