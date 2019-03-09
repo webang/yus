@@ -4,8 +4,6 @@
       <p class="name">Ymu</p>
       <p>轻量/可靠/易扩展</p>
       <p>都<span class="street">还未实现</span>的移动端 Vue 组件库</p>
-      <p>so, I want you. 发送邮箱到1056834607@qq.com</p>
-      <p>我们一起来完善它</p>
     </div>
     <ymu-collapse class="group" accordion>
 

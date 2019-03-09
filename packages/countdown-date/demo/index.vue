@@ -1,12 +1,12 @@
 <template>
-  <div class="page-countdown-date">
-    <div class="ymu-doc-block__title">还未开始</div>
+  <div class="demo-countdown-date">
+    <div class="ymu-doc-block__hd">还未开始</div>
     <div class="ymu-doc-block__bd">
       <ul>
         <li>
           <p>开始时间：{{ convertToStr(getRelativeDay(2)) }}</p>
           <p>结束时间：{{ convertToStr(getRelativeDay(4)) }}</p>
-          <CountdownDate
+          <ymu-countdown-date
             :startTime="getRelativeDay(2)"
             :endTime="getRelativeDay(4)"
           />
@@ -14,13 +14,13 @@
       </ul>
     </div>
 
-    <div class="ymu-doc-block__title">已经开始</div>
+    <div class="ymu-doc-block__hd">已经开始</div>
     <div class="ymu-doc-block__bd">
       <ul>
         <li>
           <p>开始时间：{{ convertToStr(getRelativeDay(-1)) }}</p>
           <p>结束时间：{{ convertToStr(getRelativeDay(1)) }}</p>
-          <CountdownDate
+          <ymu-countdown-date
             :startTime="getRelativeDay(-1)"
             :endTime="getRelativeDay(1)"
           />
@@ -28,13 +28,13 @@
       </ul>
     </div>
 
-    <div class="ymu-doc-block__title">马上结束</div>
+    <div class="ymu-doc-block__hd">马上结束</div>
     <div class="ymu-doc-block__bd">
       <ul>
         <li>
           <p>开始时间：{{ convertToStr(getRelativeDay(-1)) }}</p>
           <p>结束时间：{{ convertToStr(willBeOvered()) }}</p>
-          <CountdownDate
+          <ymu-countdown-date
             :startTime="getRelativeDay(-1)"
             :endTime="willBeOvered()"
             @on-end="onEnd"
@@ -44,13 +44,13 @@
       </ul>
     </div>
 
-    <div class="ymu-doc-block__title">已经结束</div>
+    <div class="ymu-doc-block__hd">已经结束</div>
     <div class="ymu-doc-block__bd">
       <ul>
         <li>
           <p>开始时间：{{ convertToStr(getRelativeDay(-2)) }}</p>
           <p>结束时间：{{ convertToStr(getRelativeDay(-1)) }}</p>
-          <CountdownDate
+          <ymu-countdown-date
             :startTime="getRelativeDay(-2)"
             :endTime="getRelativeDay(-1)"
           />
@@ -58,19 +58,19 @@
       </ul>
     </div>
 
-    <div class="ymu-doc-block__title">马上结束</div>
+    <div class="ymu-doc-block__hd">马上结束</div>
     <div class="ymu-doc-block__bd">
       <ul>
         <li>
           <p>开始时间：{{ convertToStr(getRelativeDay(-1)) }}</p>
           <p>结束时间：{{ convertToStr(willBeOvered()) }}</p>
-          <CountdownDate
+          <ymu-countdown-date
             :startTime="getRelativeDay(-1)"
             :endTime="willBeOvered()">
             <template slot-scope="prop">
               {{ prop }}
             </template>
-          </CountdownDate>
+          </ymu-countdown-date>
         </li>
       </ul>
     </div>
@@ -78,11 +78,7 @@
 </template>
 
 <script>
-import { CountdownDate } from "ymu"
 export default {
-  components: {
-    CountdownDate
-  },
   data() {
     return {
       counter: 0
@@ -120,7 +116,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.page-countdown-date {
+.demo-countdown-date {
   padding-bottom: 20px;
 }
 </style>

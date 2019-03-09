@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const Welcome = () => import('../views/Welcome')
-const Flow = () => import('../views/Flow')
-
 Vue.use(Router)
 
 export default new Router({
@@ -12,9 +9,17 @@ export default new Router({
     {
       path: '/',
       name: 'Welcome',
-      component: Welcome,
+      component: () => import('../views/Welcome'),
       meta: {
         title: 'ymu'
+      }
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: () => import('../views/Test'),
+      meta: {
+        title: '测试页面'
       }
     },
     {
@@ -44,7 +49,7 @@ export default new Router({
     {
       path: '/CountdownNum',
       name: 'CountdownNum',
-      component: () => import('../views/CountdownNum.vue'),
+      component: () => import('../../packages/countdown-num/demo'),
       meta: {
         title: 'CountdownNum 计时器'
       }
@@ -52,7 +57,7 @@ export default new Router({
     {
       path: '/CountdownDate',
       name: 'CountdownDate',
-      component: () => import('../views/CountdownDate.vue'),
+      component: () => import('../../packages/countdown-date/demo'),
       meta: {
         title: 'CountdownDate 日期计时器'
       }
@@ -188,7 +193,7 @@ export default new Router({
     {
       path: '/Flow',
       name: 'Flow',
-      component: Flow,
+      component: () => import('../../packages/flow/demo'),
       meta: {
         title: 'Flow 步骤条'
       }
@@ -247,14 +252,6 @@ export default new Router({
       component: () => import('../../packages/switch/demo'),
       meta: {
         title: 'Switch 开关'
-      }
-    },
-    {
-      path: '/test',
-      name: 'test',
-      component: () => import('../views/Test'),
-      meta: {
-        title: '测试页面'
       }
     },
     {
