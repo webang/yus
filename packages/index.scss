@@ -4,8 +4,6 @@
 @import './backtop/index.scss';
 @import './badge/index.scss';
 @import './button/index.scss';
-@import './button-tab/index.scss';
-@import './button-tabs/index.scss';
 @import './calender/index.scss';
 @import './card/index.scss';
 @import './cell/index.scss';
@@ -45,3 +43,7 @@
 @import './toolbar/index.scss';
 @import './loading/index.scss';
 @import './spinner/index.scss';
+
+// 导航
+@import './segment/index.scss';
+@import './segment-item/index.scss';

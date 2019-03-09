@@ -34,8 +34,8 @@ import Calender from './calender'
 import Clocker from './clocker'
 import CountdownNum from './countdown-num'
 import CountdownDate from './countdown-date'
-import ButtonTabs from './button-tabs/index'
-import ButtonTab from './button-tab/index'
+import Segment from './segment'
+import SegmentItem from './segment-item'
 import Card from './card'
 import Tab from './tab'
 import TabItem from './tab-item'
@@ -83,8 +83,8 @@ const components = [
   CountdownNum,
   CountdownDate,
   Toast,
-  ButtonTabs,
-  ButtonTab,
+  Segment,
+  SegmentItem,
   Card,
   Tab,
   Clickable,
@@ -97,9 +97,6 @@ const version = `1.0.0`
 
 const install = (Vue) => {
   components.forEach(component => {
-    if (component.name && component.name.indexOf('marquee') !== -1) {
-      console.log(component)
-    }
     if (component.install) {
       Vue.use(component)
     }
@@ -143,8 +140,8 @@ export {
   CountdownNum,
   CountdownDate,
   Toast,
-  ButtonTabs,
-  ButtonTab,
+  Segment,
+  SegmentItem,
   Card,
   Tabs,
   Tab,

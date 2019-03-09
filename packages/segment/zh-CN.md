@@ -1,18 +1,17 @@
-# ButtonTab 按钮组
+# Segment 分段器
 
 ```JS
 import Vue from 'vue'
-import { ButtonTab } from 'yum'
+import { Segment } from 'yum'
 
-Vue.use(ButtonTab)
+Vue.use(Segment)
 ```
 
 ## Props
 
 | 属性 | 描述 | 类型 | 可选值 | 默认值 |
 | - | :-: | :- | :-: | :-: |
-| disabled | 禁用按钮 | Boolean | - | - |
-
+| v-model | 值(子项索引) | Number | - | - |
 
 ## Slots
 
@@ -20,13 +19,11 @@ Vue.use(ButtonTab)
 | :-: | :-: |
 | default | - |
 
-
 ## Events
 
 | 名称 | 描述 |
 | :-: | :-: |
-| on-click | - |
-
+| input | - |
 
 ## Sass vars
 

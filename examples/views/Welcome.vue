@@ -22,9 +22,12 @@
       <ymu-collapse-item title="导航组件">
         <ymu-cell label="Badge 徽章" is-link to="/Badge"/>
         <ymu-cell label="Navbar 导航" is-link to="/Navbar"/>
+        <!-- 样式还有问题 -->
+        <ymu-cell label="Segment 分段器" is-link to="/Segment"/>
         <ymu-cell label="Tabbar 标签栏" is-link to="/Tabbar"/>
         <!-- 还有问题 -->
         <ymu-cell label="Tab 标签页" is-link to="/Tab"/>
+
       </ymu-collapse-item>
 
       <ymu-collapse-item title="数据展示">

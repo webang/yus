@@ -77,5 +77,3 @@ export default useName({
   }
 })
 </script>
-
-index.scss

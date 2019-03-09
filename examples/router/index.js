@@ -3,7 +3,6 @@ import Router from 'vue-router'
 
 const Welcome = () => import('../views/Welcome')
 const Flow = () => import('../views/Flow')
-const Toast = () => import('../views/Toast')
 
 Vue.use(Router)
 
@@ -24,14 +23,6 @@ export default new Router({
       component: () => import('../../packages/card/demo'),
       meta: {
         title: 'Card'
-      }
-    },
-    {
-      path: '/ButtonTab',
-      name: 'ButtonTab',
-      component: () => import('../views/ButtonTab.vue'),
-      meta: {
-        title: 'ButtonTab 按钮组'
       }
     },
     {
@@ -181,7 +172,7 @@ export default new Router({
     {
       path: '/Toast',
       name: 'Toast',
-      component: Toast,
+      component: () => import('../../packages/toast/demo'),
       meta: {
         title: 'Toast 轻提示'
       }
@@ -288,6 +279,14 @@ export default new Router({
       component: () => import('../../packages/tab/demo'),
       meta: {
         title: 'Tab 标签页'
+      }
+    },
+    {
+      path: '/segment',
+      name: 'segment',
+      component: () => import('../../packages/segment/demo'),
+      meta: {
+        title: 'Segment 分段器'
       }
     }
   ]

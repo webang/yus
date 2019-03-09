@@ -1,59 +1,31 @@
 <template>
-  <div
-    class="ymu-button-tab"
-    :class="{
-      'ymu-button-tab--first': isFirstChild,
-      'ymu-button-tab--last': isLastChild,
-      'ymu-button-tab--middle': isMiddleChild,
-      'ymu-button-tab--active': isActive,
-      'ymu-button-tab--disabled': isDisabled
-    }"
-    @click="onClick"
-  >
+	<div class="ymu-segment">
     <slot></slot>
   </div>
 </template>
 
 <script>
 import use from '../../src/utils/use'
-const [useName, useBem] = use('button-tab')
+const [useName, useBem] = use('segment')
 
 export default useName({
   props: {
-    disabled: Boolean,
-    label: [Number, String]
+    value: Number
   },
   data () {
     return {
-      parent: null
+      childList: [],
+      currentIndex: this.value
     }
   },
-  computed: {
-    isActive () {
-      return this.$parent.value === this.index
-    },
-    isDisabled () {
-      return !!this.disabled
-    },
-    index () {
-      return this.$parent.childList.indexOf(this)
-    },
-    isFirstChild () {
-      return this.index === 0
-    },
-    isLastChild () {
-      return this.index === (this.$parent.childList.length - 1)
-    },
-    isMiddleChild () {
-      return !this.isFirstChild && !this.isLastChild
+  watch: {
+    value (val) {
+      this.currentIndex = val
     }
   },
   methods: {
-    onClick () {
-      if (!this.isDisabled && (this.$parent.value !== this.index)) {
-        this.$parent.toggleValue(this.index)
-      }
-      this.$emit('on-click')
+    toggleValue (activeIndex) {
+      this.$emit('input', activeIndex)
     }
   }
 })

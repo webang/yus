@@ -47,4 +47,10 @@ Toast.clear = (toast) => {
   }, toast.speed)
 }
 
+Toast.install = (toast) => {
+  Vue.use(ToastComponent);
+}
+
+Vue.prototype.$toast = Toast
+
 export default Toast
