@@ -36,7 +36,7 @@ export default new Router({
     {
       path: '/Clocker',
       name: 'Clocker',
-      component: () => import('../views/Clocker.vue'),
+      component: () => import('../../packages/clocker/demo'),
       meta: {
         title: 'Clocker 时钟'
       }

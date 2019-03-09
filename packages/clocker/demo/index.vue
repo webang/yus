@@ -57,18 +57,17 @@ export default {
     return {
       startTime: 0,
       endTime: 0
-    };
+    }
   },
   mounted() {
     const startTime =
       new Date(new Date().setFullYear(2018, 12, 12)).setHours(0, 0, 0, 0) /
-      1000;
+      1000
     const endTime =
       new Date(new Date().setFullYear(2019, 12, 12)).setHours(0, 0, 0, 0) /
-      1000;
-
-    this.endTime = endTime;
-    this.startTime = startTime;
+      1000
+    this.endTime = endTime
+    this.startTime = startTime
   }
 };
 </script>
