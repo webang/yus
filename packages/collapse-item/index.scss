@@ -38,20 +38,20 @@
   }
 
   &__content {
-    padding-bottom: $collapse-item-content-padding-bottom;
+    padding-bottom: 16px;
   }
 }
 
 .ymu-collapse-item--border {
   &::after {
-    content: ' ';
-    position: absolute;
-    pointer-events: none;
-    box-sizing: border-box;
-    left: $collapse-item-herizontal-padding;
-    right: 0;
-    bottom: 0;
-    transform: scaleY(0.5);
-    border-bottom: 1px solid $collapse-item-bottom-border-color;
+    // content: ' ';
+    // position: absolute;
+    // pointer-events: none;
+    // box-sizing: border-box;
+    // left: $collapse-item-herizontal-padding;
+    // right: 0;
+    // bottom: 0;
+    // transform: scaleY(0.5);
+    // border-bottom: 1px solid $collapse-item-bottom-border-color;
   }
 }

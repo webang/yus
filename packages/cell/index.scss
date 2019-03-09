@@ -12,17 +12,6 @@
   font-size: $cell-font-size;
   line-height:$cell-line-height;
   background-color: #fff;
-  &::after {
-    content: ' ';
-    position: absolute;
-    pointer-events: none;
-    box-sizing: border-box;
-    left: $cell-herizontal-padding;
-    right: 0;
-    bottom: 0;
-    transform: scaleY(0.5);
-    border-bottom: 1px solid $border-color;
-  }
   .ymu-icon-arrow-right {
     width: 12px;
     height: 12px;
@@ -59,5 +48,17 @@
     margin-right: -5px;
     margin-left: 4px;
     color: #969799;
+  }
+  &:not(:last-child)::after {
+      content: ' ';
+      position: absolute;
+      pointer-events: none;
+      box-sizing: border-box;
+      left: 12px;
+      right: 0;
+      bottom: 0;
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5);
+      border-bottom: 1px solid #ebedf0;
   }
 }

@@ -1,44 +1,63 @@
 <template>
-  <div page="view-welcome">
+  <div page="demo-welcome">
     <div class="my-desc">
       <p class="name">Ymu</p>
       <p>轻量/可靠/易扩展</p>
       <p>都<span class="street">还未实现</span>的移动端 Vue 组件库</p>
     </div>
-    <ymu-collapse class="group" accordion>
-
+    
+    <ymu-collapse class="group">
       <ymu-collapse-item title="基础组件">
         <ymu-cell label="Button 按钮" is-link to="/Button"/>
         <ymu-cell label="Backdrop 幕布" is-link to="/Backdrop"/>
         <ymu-cell label="Cell 单元格" is-link to="/Cell"/>
         <ymu-cell label="Icon 内置图标" is-link to="/Icon"/>
         <ymu-cell label="Spinner 加载动画" is-link to="/Spinner"/>
-        <!-- 还有问题 -->
-        <!-- <ymu-cell label="Loading 加载" is-link to="/Loading"/> -->
       </ymu-collapse-item>
+    </ymu-collapse>
 
-      <ymu-collapse-item title="导航组件">
-        <ymu-cell label="Badge 徽章" is-link to="/Badge"/>
-        <ymu-cell label="Navbar 导航" is-link to="/Navbar"/>
-        <!-- 样式还有问题 -->
-        <ymu-cell label="Segment 分段器" is-link to="/Segment"/>
-        <ymu-cell label="Tabbar 标签栏" is-link to="/Tabbar"/>
-        <!-- 还有问题 -->
-        <ymu-cell label="Tab 标签页" is-link to="/Tab"/>
-
-      </ymu-collapse-item>
-
+    <ymu-collapse class="group">
       <ymu-collapse-item title="数据展示">
         <ymu-cell label="Card 卡片" is-link to="/Card"/>
-        <!-- 还有问题 -->
         <ymu-cell label="Collapse 折叠面板" is-link to="/Collapse"/>
-        <!-- 还有问题 -->
-        <!-- <ymu-cell label="Flow 步骤条" is-link to="/Flow"/> -->
+        <ymu-cell label="Flow 步骤条" is-link to="/Flow"/>
         <ymu-cell label="Marquee 跑马灯" is-link to="/Marquee"/>
         <ymu-cell label="NoticeBar 通告栏" is-link to="/NoticeBar"/>
         <ymu-cell label="Progress 进度条" is-link to="/Progress"/>
       </ymu-collapse-item>
+    </ymu-collapse>
 
+    <ymu-collapse class="group">
+      <ymu-collapse-item title="导航组件">
+        <ymu-cell label="Badge 徽章" is-link to="/Badge"/>
+        <ymu-cell label="Navbar 导航" is-link to="/Navbar"/>
+        <ymu-cell label="Segment 分段器" is-link to="/Segment"/>
+        <ymu-cell label="Tabbar 标签栏" is-link to="/Tabbar"/>
+        <ymu-cell label="Tab 标签页" is-link to="/Tab"/>
+      </ymu-collapse-item>
+    </ymu-collapse>
+
+    <ymu-collapse class="group">
+      <ymu-collapse-item title="表单组件">
+        <ymu-cell label="Calender 日历" is-link to="/Calender"/>
+        <ymu-cell label="Checkbox 复选框" is-link to="/Checkbox"/>
+        <ymu-cell label="Field 输入框" is-link to="/Field"/>
+        <ymu-cell label="Radio 单选框" is-link to="/Radio"/>
+        <ymu-cell label="Switch 开关" is-link to="/Switch"/>
+        <ymu-cell label="Slider 滑块" is-link to="/Slider"/>
+        <ymu-cell label="RegionSlider 区间滑块" is-link to="/RegionSlider"/>
+      </ymu-collapse-item>
+    </ymu-collapse>
+
+    <ymu-collapse class="group">
+      <ymu-collapse-item title="时间组件">
+        <ymu-cell label="Clocker 时钟" is-link to="/Clocker"/>
+        <ymu-cell label="CountdownNum 数字倒计时" is-link to="/CountdownNum"/>
+        <ymu-cell label="CountdownDate 日期倒计时" is-link to="/CountdownDate"/>
+      </ymu-collapse-item>
+    </ymu-collapse>
+
+    <ymu-collapse class="group">
       <ymu-collapse-item title="操作反馈">
         <ymu-cell label="Actionsheet 上拉菜单" is-link to="/Actionsheet"/>
         <!-- 还有问题 -->
@@ -50,24 +69,6 @@
         <!-- 还有问题 -->
         <ymu-cell label="Toast 轻提示" is-link to="/Toast"/>
       </ymu-collapse-item>
-
-      <ymu-collapse-item title="表单组件">
-        <ymu-cell label="Calender 日历" is-link to="/Calender"/>
-        <ymu-cell label="Checkbox 复选框" is-link to="/Checkbox"/>
-        <ymu-cell label="Field 输入框" is-link to="/Field"/>
-        <!-- 还有问题 -->
-        <ymu-cell label="Radio 单选框" is-link to="/Radio"/>
-        <ymu-cell label="Switch 开关" is-link to="/Switch"/>
-        <ymu-cell label="Slider 滑块" is-link to="/Slider"/>
-        <ymu-cell label="RegionSlider 区间滑块" is-link to="/RegionSlider"/>
-      </ymu-collapse-item>
-
-      <ymu-collapse-item title="时间组件">
-        <ymu-cell label="Clocker 时钟" is-link to="/Clocker"/>
-        <ymu-cell label="CountdownNum 数字倒计时" is-link to="/CountdownNum"/>
-        <ymu-cell label="CountdownDate 日期倒计时" is-link to="/CountdownDate"/>
-      </ymu-collapse-item>
-
     </ymu-collapse>
   </div>
 </template>
@@ -78,8 +79,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.view-welcome {
+.demo-welcome {
   overflow: hidden;
+}
+
+/deep/ .ymu-collapse-item__content {
+  padding-bottom: 0;
+}
+
+/deep/ .ymu-collapse-item__hd {
+  font-size: 16px;
+  line-height: 32px;
+  border-radius: 4px;
+}
+
+.ymu-collapse-item__content {
+  padding-bottom: 0;
 }
 
 .my-desc {
@@ -101,7 +116,7 @@ export default {
 
 .group {
   margin: 0 24px;
-  padding-top: 5px;
+  padding-top: 10px;
   /deep/ .ymu-cell__label {
     font-size: 13px;
   }
