@@ -31,8 +31,8 @@
   }
 
   &__wrap {
-    // padding-left: $collapse-item-herizontal-padding;
-    // padding-right: $collapse-item-herizontal-padding;
+    padding-left: $collapse-item-herizontal-padding;
+    padding-right: $collapse-item-herizontal-padding;
     box-sizing: border-box;
     transition: height $collapse-item-transition-duration;
   }

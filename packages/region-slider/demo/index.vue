@@ -1,8 +1,8 @@
 <template>
   <div class="page page-progress">
-    <div class="ymu-doc-block__title">基础用法-{{ d1.value }}</div>
+    <div class="ymu-doc-block__hd">基础用法-{{ d1.value }}</div>
     <div class="ymu-doc-block__bd">
-      <RegionSlider
+      <ymu-region-slider
         v-model="d1.value"
         :track-height="d1.trackHeight"
         :max="d1.max"
@@ -10,9 +10,9 @@
       />
     </div>
 
-    <div class="ymu-doc-block__title">禁用状态-{{ d2.value }}</div>
+    <div class="ymu-doc-block__hd">禁用状态-{{ d2.value }}</div>
     <div class="ymu-doc-block__bd">
-      <RegionSlider
+      <ymu-region-slider
         v-model="d2.value"
         :track-height="d2.trackHeight"
         :max="d2.max"
@@ -21,9 +21,9 @@
       />
     </div>
 
-    <div class="ymu-doc-block__title">设置start和end-{{ d3.value }}</div>
+    <div class="ymu-doc-block__hd">设置start和end-{{ d3.value }}</div>
     <div class="ymu-doc-block__bd">
-      <RegionSlider
+      <ymu-region-slider
         v-model="d3.value"
         :track-height="d3.trackHeight"
         :max="d3.max"
@@ -32,12 +32,12 @@
       >
         <span class="number" slot="start">{{ d3.min }}</span>
         <span class="number" slot="end">{{ d3.max }}</span>
-      </RegionSlider>
+      </ymu-region-slider>
     </div>
 
-    <div class="ymu-doc-block__title">设置区间-{{ d4.value }}</div>
+    <div class="ymu-doc-block__hd">设置区间-{{ d4.value }}</div>
     <div class="ymu-doc-block__bd">
-      <RegionSlider
+      <ymu-region-slider
         v-model="d4.value"
         :track-height="d4.trackHeight"
         :max="d4.max"
@@ -46,17 +46,13 @@
       >
         <span class="number" slot="start">{{ d4.min }}</span>
         <span class="number" slot="end">{{ d4.max }}</span>
-      </RegionSlider>
+      </ymu-region-slider>
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
-import { RegionSlider } from 'ymu'
 export default {
-  components: {
-    RegionSlider
-  },
   data () {
     return {
       d1: {

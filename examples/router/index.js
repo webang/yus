@@ -4,8 +4,6 @@ import Router from 'vue-router'
 const Welcome = () => import('../views/Welcome')
 const Flow = () => import('../views/Flow')
 const Toast = () => import('../views/Toast')
-const RegionSlider = () => import('../views/RegionSlider')
-const Collapse = () => import('../views/Collapse')
 
 Vue.use(Router)
 
@@ -87,7 +85,7 @@ export default new Router({
     {
       path: '/Collapse',
       name: 'Collapse',
-      component: Collapse,
+      component: () => import('../../packages/collapse/demo'),
       meta: {
         title: 'Collapse 折叠面板'
       }
@@ -135,9 +133,9 @@ export default new Router({
     {
       path: '/RegionSlider',
       name: 'RegionSlider',
-      component: RegionSlider,
+      component: () => import('../../packages/region-slider/demo'),
       meta: {
-        title: 'RegionSlider 双向滑块'
+        title: 'RegionSlider 区间滑块'
       }
     },
     {
