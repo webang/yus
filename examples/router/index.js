@@ -285,6 +285,14 @@ export default new Router({
       meta: {
         title: 'Segment 分段器'
       }
+    },
+    {
+      path: '/lazyload',
+      name: 'lazyload',
+      component: () => import('../../packages/lazyload/demo'),
+      meta: {
+        title: 'Lazyload 懒加载'
+      }
     }
   ]
 });

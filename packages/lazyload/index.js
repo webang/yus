@@ -1,3 +1,3 @@
-import VueLazyload from 'vue-lazyload'
+import Lazyload from 'vue-lazyload'
 
-export default VueLazyload
+export default Lazyload

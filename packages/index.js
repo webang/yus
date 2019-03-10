@@ -46,6 +46,9 @@ import Spinner from './spinner'
 // Plugins
 import Toast from './toast'
 
+// Directives
+import Lazyload from './lazyload'
+
 const components = [
   Actionsheet,
   Alert,
@@ -90,7 +93,8 @@ const components = [
   Clickable,
   Loading,
   Spinner,
-  TabItem
+  TabItem,
+  Lazyload
 ];
 
 const version = `1.0.0`
@@ -148,7 +152,8 @@ export {
   Clickable,
   Loading,
   Spinner,
-  TabItem
+  TabItem,
+  Lazyload
 };
 
 export default {
