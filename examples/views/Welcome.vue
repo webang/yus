@@ -87,6 +87,11 @@ export default {
   padding-bottom: 0;
 }
 
+/deep/ .ymu-cell {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /deep/ .ymu-collapse-item__hd {
   font-size: 16px;
   line-height: 32px;
