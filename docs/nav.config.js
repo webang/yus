@@ -22,7 +22,7 @@ export default {
               path: '/theme'
             },
             {
-              title: '开发指南',
+              title: '参与贡献',
               path: '/contribution'
             },
             {

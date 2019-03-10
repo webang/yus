@@ -13,29 +13,16 @@
             <div
               class="menu__item menu__item-title"
               v-if="child.name"
-              :key="'j' + childIndex"
               v-text="child.name"
             ></div>
             <router-link
               class="menu__item"
               v-for="(kItem, kIndex) in child.list"
-              :key="'k'+ kIndex"
               :to="kItem.path"
               v-text="kItem.title"
             />
           </template>
         </div>
-        <!-- <div class="menu">
-          <div class="menu__title">组件</div>
-          <router-link
-            class="menu__item"
-            v-for="(item, index) in componentConf"
-            :to="'/'+item.name"
-            :key="index"
-          >
-            <span>{{ item.title ? item.title : item.name }}</span>
-          </router-link>
-        </div> -->
       </div>
       <div class="ymu-docs-main">
         <div class="markdown-wrapper">
@@ -73,7 +60,7 @@ export default {
 .header {
   height: 60px;
   line-height: 60px;
-  padding: 0 20px;
+  padding: 0 35px;
   border-bottom: 1px solid #f1f4f8;
   .text {
     font-size: 24px;
@@ -85,6 +72,7 @@ export default {
   float: left;
   width: 200px;
   font-size: 14px;
+  padding-left: 40px;
   padding-top: 10px;
   box-sizing: border-box;
   color: #455a64;
@@ -117,6 +105,7 @@ export default {
   padding-top: 20px;
   padding-right: 20px;
   padding-bottom: 100px;
+  font-size: 14px;
 }
 
 .simulator-wrapper {
