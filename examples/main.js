@@ -1,13 +1,10 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-
 import Vue from 'vue'
 import App from './App'
 import router from './router'
 import '../packages/index.scss'
 import './assets/main.scss'
 import './assets/global.scss'
-import ymu from '../packages';
+import ymu from '../packages'
 require('ymuicon/dist/style.css')
 
 ymu.install(Vue);
