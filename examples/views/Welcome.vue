@@ -24,6 +24,7 @@
         <ymu-cell label="Marquee 跑马灯" is-link to="/Marquee"/>
         <ymu-cell label="NoticeBar 通告栏" is-link to="/NoticeBar"/>
         <ymu-cell label="Progress 进度条" is-link to="/Progress"/>
+        <ymu-cell label="Swiper 轮播" is-link to="/Swiper"/>
       </ymu-collapse-item>
     </ymu-collapse>
 
