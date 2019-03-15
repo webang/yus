@@ -14,12 +14,14 @@
               class="menu__item menu__item-title"
               v-if="child.name"
               v-text="child.name"
+              :key=" index + '-' + childIndex"
             ></div>
             <router-link
               class="menu__item"
               v-for="(kItem, kIndex) in child.list"
               :to="kItem.path"
               v-text="kItem.title"
+              :key=" index + '-' + childIndex + '-' + kIndex"
             />
           </template>
         </div>

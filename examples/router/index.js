@@ -293,6 +293,14 @@ export default new Router({
       meta: {
         title: 'Lazyload 懒加载'
       }
+    },
+    {
+      path: '/swiper',
+      name: 'swiper',
+      component: () => import('../../packages/swiper/demo'),
+      meta: {
+        title: 'Swiper 轮播组件'
+      }
     }
   ]
-});
+})

@@ -42,6 +42,8 @@ import TabItem from './tab-item'
 import Clickable from './clickable'
 import Loading from './loading'
 import Spinner from './spinner'
+import Swiper from './swiper'
+import SwiperItem from './swiper-item'
 
 // Plugins
 import Toast from './toast'
@@ -94,7 +96,9 @@ const components = [
   Loading,
   Spinner,
   TabItem,
-  Lazyload
+  Lazyload,
+  Swiper,
+  SwiperItem
 ];
 
 const version = `1.0.0`
@@ -153,7 +157,9 @@ export {
   Loading,
   Spinner,
   TabItem,
-  Lazyload
+  Lazyload,
+  Swiper,
+  SwiperItem
 };
 
 export default {

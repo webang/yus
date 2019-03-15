@@ -1,0 +1,35 @@
+.ymu-swiper {
+  overflow: hidden;
+  position: relative;
+
+  &-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.ymu-swiper-indicators {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 4px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ymu-swiper-indicator {
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 4px;
+  margin: 0 3px;
+  border-radius: 1px;
+  background-color: #fff;
+  transition: all 600ms;
+}
+
+.ymu-swiper-indicator--active {
+  width: 14px;
+  background-color: red;
+}
