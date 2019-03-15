@@ -83,7 +83,7 @@ export default useName({
   },
   computed: {
     showClear () {
-      return this.clearable && this.value && !this.readonly
+      return this.clearable && (this.value !== '') && !this.readonly
     },
     isTextArea () {
       return this.type === 'textarea'
@@ -91,7 +91,7 @@ export default useName({
   },
   data () {
     return {
-      currentValue: ''
+      currentValue: this.value !== undefined ? this.value : ''
     }
   },
   watch: {
@@ -105,11 +105,6 @@ export default useName({
   },
   mounted () {
     this.$nextTick(this.adjustSize)
-  },
-  created () {
-    if (this.value) {
-      this.currentValue = this.value
-    }
   },
   methods: {
     onClear () {
@@ -139,16 +134,12 @@ export default useName({
       this.$emit('on-focus')
     },
     adjustSize() {
-      const { input } = this.$refs;
-
+      const { input } = this.$refs
       if (!this.isTextArea || !this.autosize || !input) {
         return
       }
-
       input.style.height = 'auto'
-
       let height = input.scrollHeight
-
       if (isPlainObject(this.autosize)) {
         const { maxHeight, minHeight } = this.autosize
         if (maxHeight) height = Math.min(height, maxHeight)
@@ -159,5 +150,3 @@ export default useName({
   }
 })
 </script>
-
-index.scss

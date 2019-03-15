@@ -2,36 +2,41 @@
   <div class="demo-swiper">
     <div class="ymu-doc-block__hd">基本用法</div>
     <div class="ymu-doc-block__bd">
-      <ymu-swiper class="swiper swiper-01" ref="swiper01" :autoplay="false">
-        <ymu-swiper-item>
-          <div class="item">1</div>
-        </ymu-swiper-item>
-        <ymu-swiper-item>
-          <div class="item">2</div>
-        </ymu-swiper-item>
-        <ymu-swiper-item>
-          <div class="item">3</div>
-        </ymu-swiper-item>
-      </ymu-swiper>
-      <div class="col">
-        <ymu-button size="small" type="primary" @click="onClick01SlideTo">slideTo</ymu-button>
-        <input type="text" v-model="v1">
-      </div>
-      <div class="col">
-        <ymu-button size="small" type="primary" @click="onClick01SlideNext">slideNext</ymu-button>
-        <ymu-button size="small" type="primary" @click="onClick01SlidePrev">slidePrev</ymu-button>
+      <div class="swiper-01">
+        <ymu-swiper class="swiper" ref="swiper01" :autoplay="false" :active="v1" @on-index-change="onIndexChange1">
+          <ymu-swiper-item>
+            <div class="item">1</div>
+          </ymu-swiper-item>
+          <ymu-swiper-item>
+            <div class="item">2</div>
+          </ymu-swiper-item>
+          <ymu-swiper-item>
+            <div class="item">3</div>
+          </ymu-swiper-item>
+        </ymu-swiper>
+        <div class="col">
+          <ymu-button size="small" type="primary" @click="onClick01SlideTo">slideTo</ymu-button>
+          <div class="input-wrap">
+            <ymu-field type="text" v-model="v1"/>
+          </div>
+        </div>
+        <div class="col">
+          <ymu-button size="small" type="primary" @click="onClick01SlideNext">slideNext</ymu-button>
+          <ymu-button size="small" type="primary" @click="onClick01SlidePrev">slidePrev</ymu-button>
+        </div>
       </div>
     </div>
+
     <div class="ymu-doc-block__hd">自定义指示器</div>
     <div class="ymu-doc-block__bd">
-      <ymu-swiper class="swiper swiper-02" ref="swiper02" :autoplay="false" :active="v2" @on-index-change="($event, index) => v2=index">
+      <ymu-swiper class="swiper swiper-02" ref="swiper02" :autoplay="false" :active="v2" @on-index-change="onIndexChange2">
         <ymu-swiper-item>
           <div class="item">1</div>
         </ymu-swiper-item>
         <ymu-swiper-item>
           <div class="item">2</div>
         </ymu-swiper-item>
-        <div slot="indictor"></div>
+        <div class="indicator" slot="indicator">{{ v2 + 1 }}/2</div>
       </ymu-swiper>
     </div>
   </div>
@@ -54,6 +59,12 @@ export default {
     },
     onClick01SlidePrev () {
       this.$refs.swiper01.slidePrev()
+    },
+    onIndexChange2 (index) {
+      this.v2 = index
+    },
+    onIndexChange1 (index) {
+      this.v1 = index
     }
   }
 }
@@ -65,7 +76,9 @@ export default {
 }
 
 .swiper-01 {
-  height: 130px;
+  .swiper {
+    height: 130px;
+  }
   .item {
     font-size: 30px;
     line-height: 130px;
@@ -81,14 +94,17 @@ export default {
     &:nth-child(3) {
       background: #00bcd4;
     }
+  }
+  .input-wrap {
+    display: inline-block;
   }
 }
 
 .swiper-02 {
-  height: 130px;
+  height: 150px;
   .item {
     font-size: 30px;
-    line-height: 130px;
+    line-height: 150px;
     text-align: center;
   }
   /deep/ .ymu-swiper-slide {
@@ -101,6 +117,16 @@ export default {
     &:nth-child(3) {
       background: #00bcd4;
     }
+  }
+  .indicator {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 3px 8px;
+    font-size: 12px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
   }
 }
 </style>
