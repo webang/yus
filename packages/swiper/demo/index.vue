@@ -77,11 +77,11 @@ export default {
 
 .swiper-01 {
   .swiper {
-    height: 130px;
+    height: 150px;
   }
   .item {
     font-size: 30px;
-    line-height: 130px;
+    line-height: 150px;
     text-align: center;
   }
   /deep/ .ymu-swiper-slide {

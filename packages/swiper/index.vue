@@ -40,7 +40,7 @@ export default useName({
     // 动画时长
     duration: {
       type: Number,
-      default: 500
+      default: 400
     },
     // 自动轮播间隔
     interval: {
@@ -118,7 +118,7 @@ export default useName({
   },
   mounted() {
     this.calcElSize()
-    this.autoPlay()
+    // this.autoPlay()
   },
   methods: {
     calcElSize() {
@@ -178,9 +178,9 @@ export default useName({
           throw 'invalid slide index'
         }
       }
-      if (this.animating) {
-        return
-      }
+      // if (this.animating) {
+      //   return
+      // }
       this.animating = true
       setTimeout(() => {
         this.animating = false
@@ -239,61 +239,102 @@ export default useName({
       }
     },
 
+    getTranslate () {
+      return getTranslate(
+        this.$refs.slides,
+        this.isVertical ? 'y' : 'x'
+      );
+    },
+
     /**
      * handle touchstart
      */
     _onTouchStart (event) {
-      const touch = event.changedTouches[0]
-      if (!touch) {
-        throw 'error'
-      }
-      
-      this.state.diff = 0
-      this.state.isTouchStarted = true
-      this.state.touchStartTime = now()
-      this.state.touchStartScreen = this.isVertical ? touch.pageY : touch.pageX
+      const touch = event.changedTouches[0];
+      if (!touch) throw 'error';
+
+      this.state.isTouchStarted = true;
+      this.state.touchStartTime = now();
+      this.state.touchStartPoint = touch;
+      this.state.touchStartTranslate = this.getTranslate();
     },
 
     /**
      * handle toucmove
      */
     _onTouchMove (event) {
-      const touch = event.changedTouches[0]
-      if (!touch) {
-        throw 'error'
-      }
+      const touch = event.changedTouches[0];
+      if (!touch) throw 'error';
 
-      const translate = getTranslate(this.$refs.slides, this.isVertical ? 'y' : 'x')
-      const curScreen =  this.isVertical ? touch.pageY : touch.pageX
-      let deltaTouch = 0
+      const translate = getTranslate(
+        this.$refs.slides,
+        this.isVertical ? 'y' : 'x'
+      );
+      let diffX = 0;
+      let diffY = 0;
+      let deltaX = 0;
+      let deltaY = 0;
 
-      if (this.state.touchMoveScreen) {
-        deltaTouch = curScreen - this.state.touchMoveScreen
+      deltaX = touch.pageX - this.state.touchStartPoint.pageX;
+      deltaY = touch.pageY - this.state.touchStartPoint.pageY;
+
+      if (this.isVertical) {
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+          return;
+        }
       } else {
-        deltaTouch = curScreen - this.state.touchStartScreen
+        if (Math.abs(deltaX) < Math.abs(deltaY)) {
+          return;
+        }
       }
+
+      if (this.state.touchMovePoint) {
+        diffX = touch.pageX - this.state.touchMovePoint.pageX;
+        diffY = touch.pageY - this.state.touchMovePoint.pageY;
+      } else {
+        diffX = touch.pageX - this.state.touchStartPoint.pageX;
+        diffY = touch.pageY - this.state.touchStartPoint.pageY;
+      }
+
+      let diff = this.isVertical ? diffY : diffX;
 
       // valid max translate
-      let newTranslate = translate + deltaTouch
+      let newTranslate = translate + diff;
       if (newTranslate > 0) {
         if (this.loop && this.swipes.length > 1) {
-          this.swipes[this.swipes.length - 1].translate = -this.swipes.length * this.calcWidth
+          this.swipes[this.swipes.length - 1].translate = -this.swipes.length * this.calcWidth;
+        } else {
+          // 阻尼函数
         }
       }
 
       // valid min translate
       if (newTranslate < -(this.slideLen - 1) * this.calcWidth) {
         if (this.loop && this.swipes.length > 1) {
-          this.swipes[0].translate = this.swipes.length * this.calcWidth
+          this.swipes[0].translate = this.swipes.length * this.calcWidth;
+        } else {
+          // 阻尼函数
         }
       }
 
       // update state
-      this.translate = newTranslate
-      this.useAnimation = false
-      this.state.isTouchMoved = true
-      this.state.touchMoveScreen = curScreen
-      this.state.diff = curScreen - this.state.touchStartScreen
+      this.translate = newTranslate;
+      this.useAnimation = false;
+      this.state.isTouchMoved = true;
+      this.state.touchMovePoint = touch;
+      this.state.diffX = diffX;
+      this.state.diffY = diffY;
+      this.state.deltaX = deltaX;
+      this.state.deltaY = deltaY;
+
+      if (this.isVertical) {
+        this.state.diff = touch.pageY - this.state.touchStartPoint.pageY;
+      } else {
+        this.state.diff = touch.pageX - this.state.touchStartPoint.pageX;
+      }
+
+      // 滑动角度的判断
+      if (Math.abs(diffY) > Math.abs(diffX)) return;
       this.updateSlideStl()
     },
 
@@ -301,6 +342,20 @@ export default useName({
      * handle toucend
      */
     _onTouchEnd (event) {
+      if (
+        this.state.deltaX === undefined ||
+        this.state.deltaY === undefined) {
+          return;
+      }
+      if (this.isVertical) {
+        if (Math.abs(this.state.deltaX) > Math.abs(this.state.deltaY)) {
+          return;
+        }
+      } else {
+        if (Math.abs(this.state.deltaX) < Math.abs(this.state.deltaY)) {
+          return;
+        }
+      }
       let size = this.isVertical ? this.calcHeight : this.calcWidth
       // 按下到释放之间的时间
       let diffTime = now() - this.state.touchStartTime
@@ -319,11 +374,13 @@ export default useName({
       }
       this.slideTo(index)
       this.state.touchStartTime = undefined
-      this.state.touchStartScreen = undefined
-      this.state.touchMoveScreen = undefined
+      this.state.touchStartPoint = undefined
+      this.state.touchMovePoint = undefined
       this.state.isTouchStarted = false
       this.state.isTouchMoved = false
       this.state.diff = 0
+      this.state.deltaX = undefined
+      this.state.deltaY = undefined
     }
   }
 })
