@@ -7,7 +7,7 @@ import './assets/global.scss'
 import ymu from '../packages'
 require('ymuicon/dist/style.css')
 
-ymu.install(Vue);
+ymu.install(Vue)
 
 Vue.config.productionTip = false
 

@@ -301,6 +301,14 @@ export default new Router({
       meta: {
         title: 'Swiper 轮播组件'
       }
+    },
+    {
+      path: '/pullRefresh',
+      name: 'pullRefresh',
+      component: () => import('../../packages/pull-refresh/demo'),
+      meta: {
+        title: 'pullRefresh 下拉刷新'
+      }
     }
   ]
 })

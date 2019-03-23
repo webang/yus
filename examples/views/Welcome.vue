@@ -71,6 +71,12 @@
         <ymu-cell label="Toast 轻提示" is-link to="/Toast"/>
       </ymu-collapse-item>
     </ymu-collapse>
+
+    <ymu-collapse class="group">
+      <ymu-collapse-item title="手势">
+        <ymu-cell label="PullRefresh 下拉刷新" is-link to="/PullRefresh"/>
+      </ymu-collapse-item>
+    </ymu-collapse>
   </div>
 </template>
 

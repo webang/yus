@@ -44,7 +44,7 @@ import Loading from './loading'
 import Spinner from './spinner'
 import Swiper from './swiper'
 import SwiperItem from './swiper-item'
-
+import pullRefresh from './pull-refresh'
 // Plugins
 import Toast from './toast'
 
@@ -98,7 +98,8 @@ const components = [
   TabItem,
   Lazyload,
   Swiper,
-  SwiperItem
+  SwiperItem,
+  pullRefresh
 ];
 
 const version = `1.0.0`
@@ -159,7 +160,8 @@ export {
   TabItem,
   Lazyload,
   Swiper,
-  SwiperItem
+  SwiperItem,
+  pullRefresh
 };
 
 export default {
