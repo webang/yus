@@ -1,19 +1,21 @@
 <template>
   <div class="demo-pull-refresh">
-    <ymu-pull-refresh @on-refresh="handleRefresh">
-      <div
-        v-infinite-scroll="loadMore"
-        :infinite-scroll-disabled="busy || allLoaded"
-        infinite-scroll-distance="10"
-        :infinite-scroll-immediate-check="false"
-      >
-        <ul class="list">
-          <li v-for="(item, index) in list" :key="index">哈哈，我是{{ index }}</li>
-          <li class="no-more" v-if="allLoaded">我是有底线的</li>
-          <li class="no-more" v-if="busy">加载中...</li>
-        </ul>
+    <div
+      v-infinite-scroll="loadMore"
+      :infinite-scroll-disabled="busy || allLoaded"
+      infinite-scroll-distance="10"
+      :infinite-scroll-immediate-check="false"
+    >
+      <div>
+        <ymu-pull-refresh :on-refresh="handleRefresh">
+          <ul class="list">
+            <li v-for="(item, index) in list" :key="index">哈哈，我是{{ index }}</li>
+            <li class="no-more" v-if="!allLoaded" :style="noMoreStl">加载中...</li>
+            <li class="no-more" v-if="allLoaded && !this.busy">我是有底线的</li>
+          </ul>
+        </ymu-pull-refresh>
       </div>
-    </ymu-pull-refresh>
+    </div>
   </div>
 </template>
 
@@ -30,15 +32,27 @@ export default {
       allLoaded: false
     }
   },
+  computed: {
+    noMoreStl () {
+      if (!this.busy) {
+        return {
+          visibility: 'hidden'
+        }
+      }
+    }
+  },
   methods: {
     handleRefresh (down) {
       setTimeout(() => {
         this.getData(true)
         down()
-      }, 2000)
+      }, 1500)
     },
     loadMore () {
       if (this.allLoaded) {
+        return
+      }
+      if (this.busy) {
         return
       }
       this.busy = true
@@ -65,7 +79,6 @@ export default {
 
 <style lang="scss" scoped>
 .list {
-  padding: 0 12px;
   padding-top: 0px;
   line-height: 30px;
   font-size: 14px;
@@ -73,13 +86,12 @@ export default {
 }
 
 li {
-  padding: 12px 0;
+  padding: 20px 12px;
   line-height: 20px;
-  border-bottom: 1px solid #e8eef2;
+  border-bottom: 1px solid #e2e5e6;
 }
 
 .no-more {
   text-align: center;
-  background-color: #e2e5e6;
 }
 </style>

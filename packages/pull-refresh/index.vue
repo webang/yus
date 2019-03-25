@@ -1,14 +1,6 @@
 <template>
   <div class="ymu-pull-refresh-wrapper" ref="wrapper">
-    <div
-      class="ymu-pull-refresh-container"
-      @touchstart="_onTouchStart"
-      @touchmove="_onTouchMove"
-      @touchend="_onTouchEnd"
-      @touchcancel="_touchCancel"
-      ref="container"
-      :style="containerStl"
-    >
+    <div class="ymu-pull-refresh-container" ref="container" :style="containerStl">
       <div class="ymu-pull-refresh-indictor">
         <div>加载中..</div>
       </div>
@@ -23,105 +15,140 @@ const [useName, useBem] = use('pull-refresh')
 import { getTranslate, setTranslate } from './util'
 
 export default useName({
+  props: {
+    onRefresh: Function,
+    topPullDistance: {
+      typeof: Number,
+      default: 50
+    }
+  },
   data () {
     return {
       touches: [],
       translate: 0,
-      wrapperHeight: 0,
       $wrapper: null,
       $container: null,
-      $offsetParent: document.documentElement,
-      offsetParentHeight: 0
+      delta: 0,
+      diff: 0,
+      useAnimation: false
     }
   },
   computed: {
     containerStl () {
       return {
-        transform: `translateY(${this.translate}px)`
+        transform: `translateY(${this.translate}px)`,
+        'transition-duration': this.useAnimation ? '300ms' : `0ms`
       }
     }
   },
   methods: {
-    $init () {
-      this.$wrapper = this.$refs.wrapper
-      this.$container = this.$refs.container
-      this.wrapperHeight = this.$wrapper.offsetHeight
-      this.$offsetParent = document.documentElement
-      this.offsetParentHeight = this.$offsetParent.offsetHeight
-    },
-    _onTouchStart (event) {
-      const touch = event.changedTouches[0]
-      if (!touch) {
-        return
+    init () {
+      this.$scrollTarget = this.getScrollTarget(this.$el)
+      if (typeof this.onRefresh === 'function') {
+        this.bindTouchEvents()
       }
-      this.touches = [touch]
     },
-    _onTouchMove (event) {
-      const touch = event.changedTouches[0]
-      if (!touch) {
-        return
-      }
-      /**
-       * 获取当前的偏移量，这里为什么不直接从data中获取呢？
-       * 但是dom的实际偏移与data中的translate不同步
-       */
-      const translate = getTranslate(this.$container, 'y')
 
-      /**
-       * 起始点与结束点之间的距离
-       */
-      const delta = touch.pageY - this.touches[0].pageY
+    /**
+     * 初始化 touch 事件
+     */
+    bindTouchEvents () {
+      this.$el.addEventListener('touchstart', this.handleTouchStart)
+      this.$el.addEventListener('touchmove', this.handleTouchMove)
+      this.$el.addEventListener('touchend', this.handleTouchEnd)
+      this.$el.addEventListener('touchend', this.handleTouchCancel)
+    },
 
-      /**
-       * 相邻两点之间距离的区别，注意它和(起始点与结束点之间的距离)之间的区别
-       */
-      const diff = touch.pageY - this.touches[this.touches.length - 1].pageY
-
-      /**
-       * 当前scroll 偏移大小
-       */
-      const scrollTop = this.$offsetParent.scrollTop
-      
-      if (diff > 0) {
-        // 往下拉
-        if (scrollTop === 0) {
-          this.translate = Math.pow(delta, .85)
+    /**
+     * 查找 scroll event target
+     */
+    getScrollTarget (element) {
+      let currentElement = element
+      while ( currentElement && ['HTML', 'BODY'].indexOf(currentElement.tagName) === -1) {
+        let overflow = document.defaultView.getComputedStyle(currentElement).overflowY
+        if (['scroll', 'auto'].indexOf(overflow) !== -1) {
+          return currentElement
         }
+        currentElement = currentElement.parentNode
       }
-      if (diff < 0) {
-        // 往上拉
-        if (this.translate > 0) {
-          this.translate = translate + diff
-          // 防止拖动外层
-          event.preventDefault()
-        }
-      }
-      this.touches.push(touch)
+      return window
     },
-    _onTouchEnd (event) {
-      if (this.translate > 40) {
-        this.translate = 40
-        this.$emit('on-refresh', this.stopPullRefresh)
+
+    /**
+     * 获取 scroll top
+     */
+    getScrollTop (element) {
+      if (element === window) {
+        return Math.max(window.pageYOffset || 0, document.documentElement.scrollTop);
       } else {
-        this.translate = 0
+        return element.scrollTop
       }
     },
-    _touchCancel (event) {
-      if (this.translate > 40) {
-        this.translate = 40
-        this.$emit('on-refresh', this.stopPullRefresh)
-      } else {
-        this.translate = 0
+
+    // 手指按下
+    handleTouchStart (event) {
+      const touch = event.changedTouches[0];
+      this.touches = [touch];
+      this.useAnimation = false;
+      this.touchStartScreenY = touch.clientY;
+      this.touchStartTranslateY = this.translate;
+      this.startScrollTop = this.getScrollTop(this.$scrollTarget);
+    },
+
+    // 手指移动
+    handleTouchMove (event) {
+      const touch = event.changedTouches[0];
+      let delta =  (touch.clientY - this.touchStartScreenY) / 2;
+
+      this.touches.push(touch);
+      this.currentScreenY = touch.clientY;
+      this.direction = delta > 0 ? 'down' : 'up';
+      this.delta = delta
+
+      if (
+        typeof this.onRefresh === 'function' &&
+        this.direction === 'down' &&
+        this.getScrollTop(this.$scrollTarget) === 0 && !this.loading
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.translate = this.touchStartTranslateY + delta
+      }
+      this.$emit('on-translate-change', this.translate);
+    },
+
+    // 手指拿起
+    handleTouchEnd () {
+      if (!this.delta) {
+        // 未发生移动
+        return;
+      }
+      if (
+        this.direction === 'down' &&
+        this.getScrollTop(this.$scrollTarget) === 0 &&
+        this.translate > this.topPullDistance
+      ) {
+        this.loading = true;
+        this.useAnimation = true;
+        this.translate = this.topPullDistance;
+        this.onRefresh(this.stopPullRefresh);
       }
     },
-    isCanTriggerRefresh () {
+
+    // 手指移出屏幕外
+    handleTouchCancel () {
+      this.handleTouchEnd();
     },
-    stopPullRefresh (event) {
-      this.translate = 0
+
+    // 结束
+    stopPullRefresh () {
+      this.translate = 0;
+      this.loading = false;
+      this.useAnimation = false;
     }
   },
   mounted () {
-    this.$init()
+    this.init()
   }
 })
 </script>

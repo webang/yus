@@ -1,10 +1,17 @@
 .ymu-pull-refresh-indictor {
-  margin-top: -25px;
-  color: grey;
+  height: 30px;
+  font-size: 14px;
+  margin-top: -30px;
+  color: #999;
   text-align: center;
-  height: 25px;
 }
 
 .ymu-pull-refresh-wrapper {
   overflow: hidden;
+  // overflow: scroll;
+  // touch-action: none;
+}
+
+.ymu-pull-refresh-container {
+  transition-property: transform;
 }
