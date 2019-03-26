@@ -1,9 +1,11 @@
 <template>
   <div class="ymu-pull-refresh-wrapper" ref="wrapper">
     <div class="ymu-pull-refresh-container" ref="container" :style="containerStl">
-      <div class="ymu-pull-refresh-indictor">
-        <div>加载中..</div>
-      </div>
+      <slot name="indicator">
+        <div class="ymu-pull-refresh-indictor">
+          <div>{{ topText }}</div>
+        </div>
+      </slot>
       <slot></slot>
     </div>
   </div>
@@ -11,26 +13,47 @@
 
 <script>
 import use from '../../src/utils/use'
-const [useName, useBem] = use('pull-refresh')
+const [useName, useBem] = use('pull-to-refresh')
 import { getTranslate, setTranslate } from './util'
+
+/**
+ * 整个拖动过程可以分为3个状态
+ * 1. 下拉未到阀值
+ * 2. 下拉已到达阀值
+ * 3. 处于释放后的加载状态
+ */
 
 export default useName({
   props: {
     onRefresh: Function,
     topPullDistance: {
-      typeof: Number,
+      type: Number,
       default: 50
+    },
+    loadingText: {
+      type: String,
+      default: '加载中...'
+    },
+    pullText: {
+      type: String,
+      default: '下拉刷新'
+    },
+    looseText: {
+      type: String,
+      default: '释放刷新'
     }
   },
   data () {
     return {
+      // touch 与 touch 之间的距离
+      diff: 0,
+      // start 与 当前点之间的距离
+      delta: 0,
+      // touch list
       touches: [],
       translate: 0,
-      $wrapper: null,
-      $container: null,
-      delta: 0,
-      diff: 0,
-      useAnimation: false
+      useAnimation: false,
+      loading: false
     }
   },
   computed: {
@@ -38,6 +61,15 @@ export default useName({
       return {
         transform: `translateY(${this.translate}px)`,
         'transition-duration': this.useAnimation ? '300ms' : `0ms`
+      }
+    },
+    topText () {
+      if (this.loading) {
+        return '正在刷新...';
+      } else if (this.translate >= this.topPullDistance) {
+        return '释放刷新';
+      } else if (this.translate < this.topPullDistance) {
+        return '下拉刷新';
       }
     }
   },
@@ -98,23 +130,28 @@ export default useName({
     // 手指移动
     handleTouchMove (event) {
       const touch = event.changedTouches[0];
-      let delta =  (touch.clientY - this.touchStartScreenY) / 2;
+      let delta =  Math.pow((touch.clientY - this.touchStartScreenY), 0.85);
+      let diff =  touch.clientY - this.touches[this.touches.length - 1].clientY;
+      let direction = diff > 0 ? 'down' : 'up';
 
-      this.touches.push(touch);
       this.currentScreenY = touch.clientY;
       this.direction = delta > 0 ? 'down' : 'up';
-      this.delta = delta
+      this.delta = delta;
+      this.diff = diff;
 
       if (
         typeof this.onRefresh === 'function' &&
         this.direction === 'down' &&
-        this.getScrollTop(this.$scrollTarget) === 0 && !this.loading
+        this.getScrollTop(this.$scrollTarget) === 0
       ) {
+        // 滑动方向总体是向下的
         event.preventDefault();
         event.stopPropagation();
         this.translate = this.touchStartTranslateY + delta
       }
+
       this.$emit('on-translate-change', this.translate);
+      this.touches.push(touch);
     },
 
     // 手指拿起
@@ -152,10 +189,3 @@ export default useName({
   }
 })
 </script>
-
-<style lang="scss">
-#app {
-  height: 100vh;
-  // overflow: scroll;
-}
-</style>
