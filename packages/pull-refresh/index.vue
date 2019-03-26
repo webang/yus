@@ -41,6 +41,10 @@ export default useName({
     looseText: {
       type: String,
       default: '释放刷新'
+    },
+    topMaxPullDistance: {
+      type: Number,
+      default: 80
     }
   },
   data () {
@@ -147,7 +151,12 @@ export default useName({
         // 滑动方向总体是向下的
         event.preventDefault();
         event.stopPropagation();
-        this.translate = this.touchStartTranslateY + delta
+        
+        let newTranslate = this.touchStartTranslateY + delta
+        if (newTranslate > this.topMaxPullDistance) {
+          newTranslate = this.topMaxPullDistance
+        }
+        this.translate = newTranslate
       }
 
       this.$emit('on-translate-change', this.translate);
@@ -163,12 +172,18 @@ export default useName({
       if (
         this.direction === 'down' &&
         this.getScrollTop(this.$scrollTarget) === 0 &&
-        this.translate > this.topPullDistance
+        this.translate >= this.topPullDistance
       ) {
+        // 满足触发刷新的条件
         this.loading = true;
         this.useAnimation = true;
         this.translate = this.topPullDistance;
         this.onRefresh(this.stopPullRefresh);
+      }
+      if (this.translate < this.topPullDistance && !this.loading) {
+        // 不满足触发刷新的条件
+        this.useAnimation = true;
+        this.translate = 0;
       }
     },
 
