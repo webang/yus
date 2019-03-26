@@ -13,7 +13,7 @@
 
 <script>
 import use from '../../src/utils/use'
-const [useName, useBem] = use('pull-to-refresh')
+const [useName, useBem] = use('pull-refresh')
 import { getTranslate, setTranslate } from './util'
 
 /**

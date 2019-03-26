@@ -74,7 +74,7 @@
 
     <ymu-collapse class="group">
       <ymu-collapse-item title="手势">
-        <ymu-cell label="PullToRefresh 下拉刷新" is-link to="/PullToRefresh"/>
+        <ymu-cell label="PullRefresh 下拉刷新" is-link to="/PullRefresh"/>
       </ymu-collapse-item>
     </ymu-collapse>
   </div>

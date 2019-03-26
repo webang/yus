@@ -7,13 +7,13 @@
       :infinite-scroll-immediate-check="false"
     >
       <div>
-        <ymu-pull-to-refresh :on-refresh="handleRefresh">
+        <ymu-pull-refresh :on-refresh="handleRefresh">
           <ul class="list">
             <li v-for="(item, index) in list" :key="index">哈哈，我是{{ index }}</li>
             <li class="no-more" v-if="!allLoaded" :style="noMoreStl">加载中...</li>
             <li class="no-more" v-if="allLoaded && !this.busy">我是有底线的</li>
           </ul>
-        </ymu-pull-to-refresh>
+        </ymu-pull-refresh>
       </div>
     </div>
   </div>
