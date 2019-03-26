@@ -25,18 +25,25 @@ export default useName({
     'prevent-on-touchmove': {
       type: Boolean,
       default: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
     handleClick () {
-      this.$emit('click')
+      this.$emit('click');
+      if (!this.disabled) {
+        this.$emit('input', false);
+      }
     },
     onTouchMove (event) {
       if (this.preventOnTouchmove) {
-        event.preventDefault()
+        event.preventDefault();
       }
-      this.$emit('touchmove')
+      this.$emit('touchmove');
     }
   }
-})
+});
 </script>

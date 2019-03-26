@@ -309,6 +309,14 @@ export default new Router({
       meta: {
         title: 'pullRefresh 下拉刷新'
       }
+    },
+    {
+      path: '/popover',
+      name: 'popover',
+      component: () => import('../../packages/popover/demo'),
+      meta: {
+        title: 'popover 气泡'
+      }
     }
   ]
 })

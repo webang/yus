@@ -45,6 +45,7 @@ import Spinner from './spinner'
 import Swiper from './swiper'
 import SwiperItem from './swiper-item'
 import pullRefresh from './pull-refresh'
+import Popover from './popover'
 // Plugins
 import Toast from './toast'
 
@@ -99,7 +100,8 @@ const components = [
   Lazyload,
   Swiper,
   SwiperItem,
-  pullRefresh
+  pullRefresh,
+  Popover
 ];
 
 const version = `1.0.0`
@@ -161,7 +163,8 @@ export {
   Lazyload,
   Swiper,
   SwiperItem,
-  pullRefresh
+  pullRefresh,
+  Popover
 };
 
 export default {
