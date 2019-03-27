@@ -47,6 +47,7 @@ import SwiperItem from './swiper-item'
 import pullRefresh from './pull-refresh'
 import Popover from './popover'
 import InfinitePicker from './infinite-picker'
+import Pagination from './pagination'
 // Plugins
 import Toast from './toast'
 
@@ -103,7 +104,8 @@ const components = [
   SwiperItem,
   pullRefresh,
   Popover,
-  InfinitePicker
+  InfinitePicker,
+  Pagination
 ];
 
 const version = `1.0.0`
@@ -166,7 +168,8 @@ export {
   SwiperItem,
   pullRefresh,
   Popover,
-  InfinitePicker
+  InfinitePicker,
+  Pagination
 };
 
 export default {

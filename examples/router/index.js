@@ -325,6 +325,14 @@ export default new Router({
       meta: {
         title: 'InfinitePicker 无限层级选择器'
       }
+    },
+    {
+      path: '/pagination',
+      name: 'pagination',
+      component: () => import('../../packages/pagination/demo'),
+      meta: {
+        title: 'Pagination 分页器'
+      }
     }
   ]
 })

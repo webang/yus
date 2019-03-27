@@ -1,0 +1,15 @@
+@import '../../src/scss/vars';
+@import '../../src/scss/mixins';
+@import '../../src/scss/animate';
+
+.ymu-pagination-item {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.ymu-pagination-item--active {
+  color: $color-primary;
+}
