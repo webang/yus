@@ -48,6 +48,7 @@
         <ymu-cell label="Switch 开关" is-link to="/Switch"/>
         <ymu-cell label="Slider 滑块" is-link to="/Slider"/>
         <ymu-cell label="RegionSlider 区间滑块" is-link to="/RegionSlider"/>
+        <ymu-cell label="InfinitePicker 无限级选择器" is-link to="/InfinitePicker"/>
       </ymu-collapse-item>
     </ymu-collapse>
 

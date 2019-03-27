@@ -1,10 +1,10 @@
 <template>
   <div class="ymu-popup">
-    <Backdrop v-model="value" @click="onClickBackdrop"></Backdrop>
+    <Backdrop v-model="show" @click="onClickBackdrop"></Backdrop>
     <transition :name="transition">
       <div
         class="ymu-popup-content"
-        v-show="value"
+        v-show="show"
         :class="['ymu-popup--' + position]"
       >
         <slot name="header" v-if="useHeader || $slots.header">
@@ -53,9 +53,22 @@ export default useName({
       default: true
     }
   },
+  data () {
+    return {
+      show: this.value
+    }
+  },
   computed: {
     transition () {
       return 'ymu-popup--' + this.position
+    }
+  },
+  watch: {
+    value (val) {
+      this.show = val;
+    },
+    show (val) {
+      this.$emit('input', val);
     }
   },
   methods: {

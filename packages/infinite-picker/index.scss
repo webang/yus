@@ -1,0 +1,66 @@
+@import '../../src/scss/vars';
+@import '../../src/scss/mixins';
+@import '../../src/scss/animate';
+
+.ymu-infinite-picker {
+  width: 100%;
+  height: auto;
+  font-size: 14px;
+  background: #fff;
+}
+
+.ymu-infinite-picker-header {
+  height: 48px;
+  line-height: 48px;
+  color: #39405099;
+  text-align: center;
+  border-bottom: 1px solid #e8eaee;
+}
+
+.ymu-infinite-picker-body {
+  overflow: auto;
+  height: 248px;
+  color: #5f6874;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ymu-infinite-picker-value {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  height: 44px;
+  line-height: 44px;
+  color: #5f6874;
+  border-bottom: 1px solid #e8eaee;
+  span {
+    position: relative;
+    height: 100%;
+    margin-right: 10px;
+  }
+  .is-active::after {
+    position: absolute;
+    bottom: -1px;
+    left: 0%;
+    content: " ";
+    width: 100%;
+    height: 3px;
+    background: #579de7;
+    transform: scaleX(.6);
+  }
+}
+
+.ymu-infinite-picker-column {
+  padding: 0 12px;
+}
+
+.ymu-infinite-picker-item {
+  line-height: 40px;
+  border-bottom: 1px solid #e8eaee;
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.ymu-infinite-picker-columns {
+  height: calc(100% + 1px);
+}

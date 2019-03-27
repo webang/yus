@@ -317,6 +317,14 @@ export default new Router({
       meta: {
         title: 'popover 气泡'
       }
+    },
+    {
+      path: '/infinitePicker',
+      name: 'infinitePicker',
+      component: () => import('../../packages/infinite-picker/demo'),
+      meta: {
+        title: 'InfinitePicker 无限层级选择器'
+      }
     }
   ]
 })
