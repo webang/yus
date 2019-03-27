@@ -9,9 +9,13 @@
       v-show="visible"
       ref="popover"
       :style="popoverStyle"
+      :class="['ymu-popover--' + placement]"
     >
       <div class="ymu-popover-content">
-        <slot name="content"></slot>
+        <div class="ymu-popover-arrow"></div>
+        <div class="ymu-popover-inner">
+          <slot name="content"></slot>
+        </div>
       </div>
     </div>
   </div>
@@ -33,11 +37,15 @@ export default useName({
     },
     placement: {
       type: String,
-      default: 'bottom' // top left right bottom
+      default: 'bottom-right'
     },
     gutter: {
       type: Number,
       default: 5
+    },
+    value: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -50,45 +58,67 @@ export default useName({
       popoverStyle: {}
     };
   },
+  watch: {
+    value (val) {
+      this.visible = val;
+    },
+    visible (val) {
+      this.$emit('input', val);
+      this.$nextTick(() => {
+        this.init();
+      });
+    }
+  },
   mounted () {
+    this.visible = this.value;
     this.$nextTick(() => {
-      this.init()
-      window.addEventListener('resize', this.reset)
+      this.init();
+      window.addEventListener('resize', this.reset);
     })
   },
   beforeDestroy () {
-    window.removeEventListener('resize', this.reset)
+    window.removeEventListener('resize', this.reset);
   },
   methods: {
-    toggle () {
+    toggle ($event) {
       this.visible = !this.visible;
       if (this.visible) {
         this.$nextTick(() => {
-          this.init(true);
+          this.init();
         })
       }
     },
     init () {
-      const trigger = this.$refs.trigger.children[0]
-      const popover = this.$refs.popover
+      const popover = this.$refs.popover;
+      const trigger = this.$refs.trigger.children[0];
+
       switch (this.placement) {
         case 'top' :
-          this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2
-          this.position.top = trigger.getBoundingClientRect().top - popover.offsetHeight - this.gutter
+          this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2;
+          this.position.top = trigger.getBoundingClientRect().top - popover.offsetHeight - this.gutter;
           break
         case 'left':
           this.position.left = trigger.offsetLeft - popover.offsetWidth - this.gutter
-          this.position.top = trigger.getBoundingClientRect().top + trigger.offsetHeight / 2 - popover.offsetHeight / 2
-          break
+          this.position.top = trigger.getBoundingClientRect().top + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
+          break;
         case 'right':
-          this.position.left = trigger.offsetLeft + trigger.offsetWidth + this.gutter
-          this.position.top = trigger.getBoundingClientRect().top + trigger.offsetHeight / 2 - popover.offsetHeight / 2
-          break
+          this.position.left = trigger.offsetLeft + trigger.offsetWidth + this.gutter;
+          this.position.top = trigger.getBoundingClientRect().top + trigger.offsetHeight / 2 - popover.offsetHeight / 2;
+          break;
         case 'bottom':
-          console.log(trigger.offsetLeft, trigger.offsetWidth, popover.offsetWidth)
-          const left = trigger.offsetLeft + trigger.offsetWidth - popover.offsetWidth
-          this.position.left = left
-          this.position.top = trigger.getBoundingClientRect().top + trigger.offsetHeight + this.gutter
+          // 底部中间位置对齐
+          this.position.left = trigger.getBoundingClientRect().left + trigger.offsetWidth / 2 - popover.offsetWidth / 2;
+          this.position.top = trigger.getBoundingClientRect().top + trigger.offsetHeight + this.gutter;
+          break;
+        case 'bottom-left':
+          // 底部左对齐
+          this.position.left = trigger.getBoundingClientRect().left;
+          this.position.top = trigger.getBoundingClientRect().top + trigger.offsetHeight + this.gutter;
+          break
+        case 'bottom-right':
+          // 底部右对齐
+          this.position.left = trigger.getBoundingClientRect().left + trigger.offsetWidth - popover.offsetWidth;
+          this.position.top = trigger.getBoundingClientRect().top + trigger.offsetHeight + this.gutter;
           break
         default:
           console.warn('Wrong placement prop')
@@ -96,9 +126,10 @@ export default useName({
       this.popoverStyle = {
         top: this.position.top + 'px',
         left: this.position.left + 'px'
-        // display: isReset ? this.popoverStyle.display : 'none'
       }
-      // console.log(popoverStyle);
+    },
+    reset () {
+      this.init()
     }
   }
 });

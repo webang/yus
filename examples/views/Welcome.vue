@@ -32,6 +32,7 @@
       <ymu-collapse-item title="导航组件">
         <ymu-cell label="Badge 徽章" is-link to="/Badge"/>
         <ymu-cell label="Navbar 导航" is-link to="/Navbar"/>
+        <ymu-cell label="Popover 气泡" is-link to="/Popover"/>
         <ymu-cell label="Segment 分段器" is-link to="/Segment"/>
         <ymu-cell label="Tabbar 标签栏" is-link to="/Tabbar"/>
         <ymu-cell label="Tab 标签页" is-link to="/Tab"/>

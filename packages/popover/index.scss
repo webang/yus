@@ -9,3 +9,36 @@
   left: 50px;
   border-radius: 2px;
 }
+
+.ymu-popover-arrow {
+  z-index: 0;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 1px;
+  background-color: #fff;
+  transform: rotate(45deg);
+  box-shadow: 0 0 2px rgba(0,0,0,.21);
+}
+
+.ymu-popover--bottom {
+  .ymu-popover-arrow {
+    top: -3.5px;
+    left: 50%;
+    margin-left: - 4px;
+  }
+}
+
+.ymu-popover--bottom-left {
+  .ymu-popover-arrow {
+    top: -3.5px;
+    left: 8px;
+  }
+}
+
+.ymu-popover--bottom-right {
+  .ymu-popover-arrow {
+    top: -3.5px;
+    right: 8px;
+  }
+}
