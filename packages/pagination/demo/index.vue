@@ -2,7 +2,7 @@
   <div class="demo-pagination">
     <div class="ymu-doc-block__hd">默认</div>
     <div class="ymu-doc-block__bd">
-      <ymu-pagination :total=30 :pageIndex=2 :pageSize=5 />
+      <ymu-pagination :total=30 :pageIndex=pageIndex :pageSize=5 @on-index-change=onIndexChange />
     </div>
   </div>
 </template>
@@ -11,7 +11,13 @@
 export default {
   data () {
     return {
-      v4: false
+      v4: false,
+      pageIndex: 2
+    }
+  },
+  methods: {
+    onIndexChange (index) {
+      this.pageIndex = index;
     }
   }
 }

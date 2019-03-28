@@ -1,12 +1,21 @@
 <template>
   <div class="ymu-pagination">
+    <a
+      class="ymu-pagination-item"
+      href="javascript:;void(0)"
+      :class="{'ymu-pagination-item--disabled': pageIndex <= 1}">上一页</a>
     <div
       class="ymu-pagination-item"
       :class="{'ymu-pagination-item--active': item===pageIndex}"
       v-for="item in count" :key="item"
+      @click="handleClick(item)"
     >
       <span> {{ item }}</span>
     </div>
+    <a
+      class="ymu-pagination-item"
+      href="javascript:;void(0)"
+      :class="{'ymu-pagination-item--disabled': pageIndex >= count}">下一页</a>
   </div>
 </template>
 
@@ -17,7 +26,7 @@ const [useName, useBem] = use('pagination');
 export default useName({
   props: {
     // 总记录数
-    pageTotal: {
+    total: {
       type: Number,
       default: 0
     },
@@ -49,12 +58,14 @@ export default useName({
   },
   computed: {
     count () {
-      return this.pageTotal / this.pageSize
+      return this.total / this.pageSize
+    }
+  },
+  methods: {
+    handleClick (index) {
+      console.log(index);
+      this.$emit('on-index-change', index);
     }
   }
 })
 </script>
-
-<style lang="scss">
-
-</style>

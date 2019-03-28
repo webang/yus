@@ -8,8 +8,15 @@
   line-height: 30px;
   min-width: 20px;
   text-align: center;
+  color: inherit;
+  text-decoration: none;
 }
 
 .ymu-pagination-item--active {
   color: $color-primary;
+}
+
+.ymu-pagination-item--disabled {
+  color: #ccc;
+  // background: #ccc;
 }
