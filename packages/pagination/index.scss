@@ -2,13 +2,19 @@
 @import '../../src/scss/mixins';
 @import '../../src/scss/animate';
 
+.ymu-pagination {
+  display: inline-block;
+}
+
 .ymu-pagination-item {
   display: inline-block;
   height: 30px;
   line-height: 30px;
-  min-width: 20px;
+  min-width: 14px;
+  margin: 0 4px;
   text-align: center;
   color: inherit;
+  font-size: 13px;
   text-decoration: none;
 }
 
@@ -18,5 +24,4 @@
 
 .ymu-pagination-item--disabled {
   color: #ccc;
-  // background: #ccc;
 }
