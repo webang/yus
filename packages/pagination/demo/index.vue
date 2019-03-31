@@ -1,12 +1,36 @@
 <template>
   <div class="demo-pagination">
-    <div class="ymu-doc-block__hd">默认</div>
+    <div class="ymu-doc-block__hd">show-break-view=true</div>
     <div class="ymu-doc-block__bd">
       <ymu-pagination
-        :total=300
-        :pageIndex=pageIndex
-        :pageSize=5
-        :perSize=5
+        :total-items=300
+        :page-index=pageIndex
+        :page-size=5
+        :page-range=5
+        @on-index-change=onIndexChange />
+    </div>
+
+    <div class="ymu-doc-block__hd">show-break-view=true</div>
+    <div class="ymu-doc-block__bd">
+      <ymu-pagination
+        :total-items=300
+        :page-index=pageIndex
+        :page-size=5
+        :page-range=5
+        :show-break-view="true"
+        :marginPages=0
+        @on-index-change=onIndexChange />
+    </div>
+
+    <div class="ymu-doc-block__hd">marginPages=1</div>
+    <div class="ymu-doc-block__bd">
+      <ymu-pagination
+        :total-items=300
+        :page-index=pageIndex
+        :page-size=5
+        :page-range=5
+        :show-break-view="true"
+        :marginPages=1
         @on-index-change=onIndexChange />
     </div>
   </div>
@@ -30,7 +54,7 @@ export default {
 
 <style lang="scss" scoped>
 .ymu-doc-block__bd {
-  background: #fff;
+  text-align: center;
 }
 /deep/ .ymu-pagination {
   margin: 0 auto;

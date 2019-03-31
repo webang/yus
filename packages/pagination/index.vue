@@ -1,43 +1,27 @@
 <template>
   <div class="ymu-pagination">
-    <a
-      class="ymu-pagination-item"
-      href="javascript:;void(0)"
-      @click="updateIndex(pageIndex - 1)"
-      :class="{'ymu-pagination-item--disabled': pageIndex <= 1}">&lt;</a>
-    <a
-      v-if="showPrevDot"
-      class="ymu-pagination-item"
-      href="javascript:;void(0)"
-      @click="updateIndex(1)">1</a>
-    <a
-      v-if="showPrevDot"
-      class="ymu-pagination-item"
-      href="javascript:;void(0)"
-      @click="updateIndex(pageIndex - perSize)">...</a>
-    <div
-      class="ymu-pagination-item"
-      :class="{'ymu-pagination-item--active': item===pageIndex}"
-      v-for="item in curList" :key="item"
-      @click="updateIndex(item)"
+    <!-- 上一页 -->
+    <li
+      v-if="!hidePrevNext"
+      class="ymu-pagination-item ymu-pagination-prev"
+      :class="{'ymu-pagination-item--disabled': pageIndex <= 1}"
+      @click="updateIndex(pageIndex - 1)">上一页</li>
+    <!-- 页码 -->
+    <li
+      class="ymu-pagination-item ymu-pagination-page"
+      :class="{'ymu-pagination-item--active': page.index + 1 === pageIndex}"
+      v-for="(page, index) in pages" :key="index"
+      @click="updateIndex(page.index + 1)"
     >
-      <span> {{ item }}</span>
-    </div>
-    <a
-      v-if="showNextDot"
-      class="ymu-pagination-item"
-      href="javascript:;void(0)"
-      @click="updateIndex(pageIndex + perSize)">...</a>
-    <a
-      v-if="pageIndex <= pageNum - perSize"
-      class="ymu-pagination-item"
-      href="javascript:;void(0)"
-      @click="updateIndex(pageNum)">{{ pageNum }}</a>
-    <a
-      class="ymu-pagination-item"
-      href="javascript:;void(0)"
+      <span v-if="page.breakView">...</span>
+      <span v-else>{{ page.index + 1 }}</span>
+    </li>
+    <!-- 下一页 -->
+    <li
+      v-if="!hidePrevNext"
+      class="ymu-pagination-item ymu-pagination-next"
       @click="updateIndex(pageIndex + 1)"
-      :class="{'ymu-pagination-item--disabled': pageIndex >= pageNum}">&gt;</a>
+      :class="{'ymu-pagination-item--disabled': pageIndex >= pageCount}">下一页</li>
   </div>
 </template>
 
@@ -48,7 +32,7 @@ const [useName, useBem] = use('pagination');
 export default useName({
   props: {
     // 总记录数
-    total: {
+    totalItems: {
       type: Number,
       default: 0
     },
@@ -72,77 +56,119 @@ export default useName({
       type: String,
       default: '下一页'
     },
-    // 显示的页码格式
-    perSize: {
+    // 显示的页码大小
+    pageRange: {
       type: Number,
       default: 5
+    },
+    // 是否隐藏上下翻页
+    hidePrevNext: {
+      type: Boolean,
+      default: false
+    },
+    // 两侧边缘显示的数量
+    marginPages: {
+      type: Number,
+      default: 0
+    },
+    showBreakView: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
-    showNextDot () {
-      return this.pageIndex + this.perSize <= this.pageNum;
+    isFirstSelected () {
+      return this.pageIndex === 1;
     },
-    showPrevDot () {
-      return this.pageIndex >= this.perSize;
+    pageCount () {
+      return this.totalItems / this.pageSize;
     },
-    pageNum () {
-      return this.total / this.pageSize;
-    },
-    curList () {
-      if (this.pageNum <= this.perSize) {
+    pages () {
+      let items = {};
+      if (this.pageCount <= this.pageRange) {
         /**
          * 当总页数小于分组大小时，展示所有的页码
-         * @example pageNum = 3 perSize = 5 return [1, 2, 3]
+         * @example pageCount = 3 pageRange = 5 return [1, 2, 3]
          */
-        const list = [];
-        for (let index = 0; index < this.pageNum; index++) {
-          list.push(index + 1);
+        for (let index = 0; index < this.pageCount; index++) {
+          let page = {
+            index: index,
+            content: index + 1,
+            selected: index === (this.selected - 1)
+          }
+          items[index] = page
         }
-        return list;
       } else {
-       /**
-         * 当总页数小于大于大小
-         * @example pageNum = 20 perSize = 5
+        const halfPageRange = Math.floor(this.pageRange / 2);
+        /**
+         * 当总页数大于分组大小
+         * @example pageCount = 30 pageRange = 5
          */
-        if (this.pageIndex <= (this.perSize - 1) / 2) {
-          /**
-           * 当前索引不大于分组大小的一半
-           * @example perSize = 5 pageIndex = 1 2 => [1, 2, 3, 4, 5]
-           */
-          const list = [];
-          for (let index = 0; index < this.perSize; index++) {
-            if (index + 1 <= this.pageNum) {
-              list.push(index + 1);
-            }
+
+        let setPageItem = index => {
+          let page = {
+            index: index,
+            content: index + 1,
+            selected: index === (this.selected - 1)
+          };
+          items[index] = page;
+        };
+
+        let setBreakView = (index, value) => {
+          let breakView = {
+            disabled: true,
+            breakView: true,
+            index: value
+          };
+          items[index] = breakView;
+        };
+
+        for (let index = 0; index < this.marginPages; index++) {
+          setPageItem(index);
+        }
+
+        // 计算左侧边界
+        let lowRange = 0;
+        if (this.pageIndex - halfPageRange > 0) {
+          lowRange = this.pageIndex - 1 - halfPageRange;
+        }
+
+        // 计算右侧边界
+        let highRange = lowRange + this.pageRange - 1;
+        if (highRange >= this.pageCount) {
+          highRange = this.pageCount - 1;
+          lowRange = highRange - this.pageRange + 1;
+        }
+
+        for (let index = lowRange; index <= highRange && index <= this.pageCount - 1; index++) {
+          setPageItem(index);
+        }
+
+        if (this.showBreakView) {
+          if (lowRange > this.marginPages) {
+            setBreakView(lowRange - 1, this.pageIndex - 1 - this.pageRange)
           }
-          return list;
-        } else if (this.pageIndex + (this.perSize - 1) / 2 >= this.pageNum) {
-          const list = [];
-          for (let index = 0; index < this.perSize; index++) {
-            list.push(this.pageNum - this.perSize + index + 1);
+          if (highRange + 1 < this.pageCount - this.marginPages) {
+            setBreakView(highRange + 1, this.pageIndex - 1 + this.pageRange)
           }
-          return list;          
-        } else {
-          const list = [this.pageIndex];
-          for (let index = 0; index < (this.perSize - 1) / 2; index++) {
-            if (this.pageIndex + index + 1 <= this.pageNum) {
-              list.push(this.pageIndex + index + 1);
-            }
-          }
-          for (let index = 0; index < (this.perSize - 1) / 2; index++) {
-            list.unshift(this.pageIndex - (index + 1));
-          }
-          return list;    
+        }
+
+        for (let i = this.pageCount - 1; i >= this.pageCount - this.marginPages; i--) {
+          setPageItem(i);
         }
       }
+      return items;
     }
   },
   methods: {
-    handleClick (index) {
-      console.log(index);
-    },
-    updateIndex (value) {
-      this.$emit('on-index-change', value);
+    updateIndex (index) {
+      if (index < 1) {
+        index = 1
+      }
+      if (index > this.pageCount) {
+        index = this.pageCount
+      }
+      this.$emit('on-index-change', index);
     }
   }
 })

@@ -1,2 +1,0 @@
-webpackJsonp([57],{Z0As:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var s={render:function(){this.$createElement;this._self._c;return this._m(0)},staticRenderFns:[function(){var e=this.$createElement,t=this._self._c||e;return t("section",[t("h2",[this._v("国际化")])])}]},r=n("C7Lr")(null,s,!1,null,null,null);t.default=r.exports},veFB:function(e,t,n){e.exports=n("Z0As")}});
-//# sourceMappingURL=57.43a4d515344eb027d677.js.map

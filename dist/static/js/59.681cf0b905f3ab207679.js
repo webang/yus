@@ -1,0 +1,2 @@
+webpackJsonp([59],{LZoV:function(e,t,n){e.exports=n("hrc9")},hrc9:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r={render:function(){this.$createElement;this._self._c;return this._m(0)},staticRenderFns:[function(){var e=this.$createElement,t=this._self._c||e;return t("section",[t("h2",[this._v("特性")])])}]},s=n("VU/8")(null,r,!1,null,null,null);t.default=s.exports}});
+//# sourceMappingURL=59.681cf0b905f3ab207679.js.map
