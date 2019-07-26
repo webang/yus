@@ -1,0 +1,77 @@
+.yus-toast {
+  z-index: 1000;
+  position: fixed;
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 24px;
+  color: #fff;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.75);
+  transform: translate3d(-50%, -50%, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .yus-toast__icon {
+    font-size: 70px;
+  }
+
+  .yus-toast__icon + span {
+    margin-top: 10px;
+  }
+}
+
+.yus-toast {
+
+  &--middle {
+    top: 50%;
+    left: 50%;
+  }
+
+  //  bottom
+  &--bottom {
+    bottom: 24px;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+
+    &-enter-active,
+    &-leave-active {
+      transition: transform 250ms ease-out;
+    }
+
+    &-enter,
+    &-leave-to {
+      transform: translate3d(-50%, 200%, 0);
+    }
+  }
+
+  &--middle {
+    &-enter-active,
+    &-leave-active {
+      transition: opacity 250ms ease-out;
+    }
+
+    &-enter,
+    &-leave-to {
+      opacity: 0;
+    }
+  }
+
+  //  top
+  &--top {
+    top: 24px;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+
+    &-enter-active,
+    &-leave-active {
+      transition: transform 250ms ease-out;
+    }
+
+    &-enter,
+    &-leave-to {
+      transform: translate3d(-50%, -200%, 0);
+    }
+  }
+}

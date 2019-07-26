@@ -1,0 +1,34 @@
+# NoticeBar 通告栏
+
+```JS
+import Vue from 'vue';
+import { NoticeBar } from 'f6-vue';
+
+Vue.use(NoticeBar);
+```
+
+## Props
+
+| 属性 | 描述 | 类型 | 可选值 | 默认值 | 版本说明 |
+| - | - | - | - | - | - |
+| delay | 首次移动等待事件 | Number | - | 1000 | - |
+| wait | 循环间隔时间 | Number | - | 2000 | - |
+| loop | 是否循环 | Boolean | - | true | - |
+| frequence | 动画间隔时间 | Number | - | 40 | - |
+| show-header | 是否显示header | Boolean | - | true | - |
+| show-footer | 是否显示footer | Boolean | - | true | - |
+
+## Slots
+
+| 名称 | 描述 |
+| - | - |
+| defualt | - |
+| header | - |
+| footer | - |
+
+## Events
+
+| 名称 | 描述 |
+| - | - |
+| click-header | - |
+| click-footer | - |

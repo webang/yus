@@ -1,0 +1,140 @@
+@import '../style/variable';
+
+.yus-button {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0;
+  text-align: center;
+  border: 0;
+  outline: none;
+  appearance: none;
+  text-size-adjust: 100%;
+
+  &__loading {
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  &__text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--radius {
+    border-radius: 2px;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+  }
+
+  &--normal {
+    height: @button-normal-height;
+    padding-right: 15px;
+    padding-left: 15px;
+    font-size: @button-normal-font-size;
+    line-height: @button-normal-height - 2px;
+    &.yus-button--round {
+      border-radius: 20px;
+    }
+  }
+
+  &--large {
+    height: @button-large-height;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: @button-large-font-size;
+    line-height: @button-large-height - 2px;
+
+    &.yus-button--round {
+      border-radius: 30px;
+    }
+  }
+
+  &--small {
+    height: @button-small-height;
+    padding-right: 12px;
+    padding-left: 12px;
+    font-size: @button-small-font-size;
+    line-height: @button-small-height - 2px;
+
+    &.yus-button--round {
+      border-radius: 20px;
+    }
+  }
+
+  &--mini {
+    height: @button-mini-height;
+    padding-right: 6px;
+    padding-left: 6px;
+    font-size: @button-mini-font-size;
+    line-height: @button-mini-height - 2px;
+
+    &.yus-button--round {
+      border-radius: 15px;
+    }
+  }
+
+  &--light {
+    color: #333;
+    background: #fff;
+    border: 1px solid @border-color;
+
+    &.yus-button--plain {
+      color: #333;
+      background: #fff;
+      border: 1px solid #333;
+    }
+  }
+
+  &--primary {
+    color: #fff;
+    background: @color-primary;
+    border: 1px solid @color-primary;
+
+    &.yus-button--plain {
+      color: @color-primary;
+      background: #fff;
+    }
+  }
+
+  &--info {
+    color: #fff;
+    background: @color-info;
+    border: 1px solid @color-info;
+
+    &.yus-button--plain {
+      color: @color-info;
+      background: #fff;
+    }
+  }
+
+  &--warn {
+    color: #fff;
+    background: @color-warn;
+    border: 1px solid @color-warn;
+
+    &.yus-button--plain {
+      color: @color-warn;
+      background: #fff;
+    }
+  }
+
+  &--danger {
+    color: #fff;
+    background: @color-danger;
+    border: 1px solid @color-danger;
+
+    &.yus-button--plain {
+      color: @color-danger;
+      background: #fff;
+    }
+  }
+}

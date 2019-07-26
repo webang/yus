@@ -1,0 +1,41 @@
+@import '../style/variable';
+
+.yus-cell {
+  position: relative;
+  line-height: 24px;
+  padding: 10px 12px;
+  font-size: 14px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__title,
+  &__value {
+    display: flex;
+    align-items: center;
+  }
+
+  &__media {
+    display: flex;
+    margin-right: 4px;
+  }
+
+  .yus-cell__icon-link {
+    font-size: 18px;
+    margin-right: -6px;
+    margin-left: 2px;
+  }
+
+  &--border::after {
+    content: " ";
+    position: absolute;
+    pointer-events: none;
+    box-sizing: border-box;
+    left: 12px;
+    right: 0;
+    bottom: 0;
+    transform: scaleY(.5);
+    border-bottom: 1px solid #ebedf0;
+  }
+}

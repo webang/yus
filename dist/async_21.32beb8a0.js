@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[21],{46:function(e,t,n){"use strict";n.r(t);var i=function(){var e=this.$createElement;return(this._self._c||e)("section")};i._withStripped=!0;var s=n(5),a=Object(s.a)({},i,[],!1,null,null,null);a.options.__file="packages/marquee/zh-CN.md";t.default=a.exports}}]);

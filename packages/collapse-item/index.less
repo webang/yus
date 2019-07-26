@@ -1,0 +1,32 @@
+.yus-collapse-item {
+  background: #fff;
+  &__header {
+    position: relative;
+    padding: 12px;
+    padding-right: 24px;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  &__body {
+    overflow: hidden;
+    transition: height 3s;
+  }
+
+  &__content {
+    padding: 12px;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .yus-collapse-item__arrow {
+    position: absolute;
+    right: 4px;
+    top: 12px;
+    font-size: 18px;
+    color: #666;
+    transition-property: transform;
+  }
+
+  &--disabled {
+    color: rgba(0,0,0,0.25);
+  }
+}

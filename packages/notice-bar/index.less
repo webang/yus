@@ -1,0 +1,51 @@
+.yus-notice-bar {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  font-size: 14px;
+  line-height: 36px;
+  color: #ed6a0c;
+  background-color: #fffbe8;
+
+  &__hd {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 6px;
+    & + div {
+      margin-left: 6px;
+    }
+  }
+
+  &__bd {
+    overflow: hidden;
+    position: relative;
+    flex: 1;
+    height: 100%;
+    margin: auto 10px;
+  }
+
+  &__icon-left {
+    font-size: 18px;
+  }
+  
+  &__icon-right {
+    font-size: 28px;
+    padding-right: 4px;
+  }
+
+  &__marquee-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    padding-right: 10px;
+  }
+
+  &__ft {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}
