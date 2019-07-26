@@ -1,0 +1,42 @@
+@import '../style/variable';
+
+.yus-popover {
+  z-index: 10000;
+  position: fixed;
+  background: #fff;
+  left: 50px;
+  border-radius: 2px;
+
+  &__arrow {
+    z-index: 0;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 1px;
+    background-color: #fff;
+    transform: rotate(45deg);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.21);
+  }
+}
+
+.yus-popover--bottom {
+  .yus-popover__arrow {
+    top: -3.5px;
+    left: 50%;
+    margin-left: -4px;
+  }
+}
+
+.yus-popover--bottom-left {
+  .yus-popover__arrow {
+    top: -3.5px;
+    left: 8px;
+  }
+}
+
+.yus-popover--bottom-right {
+  .yus-popover__arrow {
+    top: -3.5px;
+    right: 8px;
+  }
+}

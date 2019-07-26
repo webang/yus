@@ -1,0 +1,34 @@
+.yus-swiper {
+  overflow: hidden;
+  position: relative;
+
+  &__slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition-timing-function: ease-in-out;
+  }
+
+  &__indicators {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 4px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__indicator {
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 4px;
+    margin: 0 3px;
+    border-radius: 1px;
+    background-color: #fff;
+    transition: all 600ms;
+    &--active {
+      background-color: #00bcd4;
+    }
+  }
+}

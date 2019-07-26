@@ -135,52 +135,68 @@ h2, h3 {
 }
 
 .main-header {
-  z-index: 10;
-  position: relative;
+  position: fixed;
+  left: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
-  max-width: 100%;
   padding: 0 30px;
-  font-size: 20px;
-  color: #fff;
-  background: #001938;
+  height: 60px;
+  z-index: 10;
+  max-width: 100%;
+  background: #fff;
+  -webkit-box-shadow: 0 2px 8px #f0f1f2;
   box-shadow: 0 2px 8px #f0f1f2;
-}
-
-.main-header__right {
-  display: flex;
-  align-items: center;
-}
-
-.main-header__right .version {
-  position: relative;
-  display: block;
-  font-size: 16px;
-  font-weight: 400;
-  margin-right: 10px;
-  padding: 0 7px;
-  font-size: 14px;
-  line-height: 24px;
-  border-radius: 2px;
-  cursor: pointer;
-  color: #fff;
-  text-align: center;
-  border: 1px solid hsla(0, 0%, 100%, 0.7);
-  font-family: Helvetica Neue, Arial, sans-serif;
-  transition: 0.3s ease-in-out;
+  font-family: cursive;
+  box-sizing: border-box;
+  &__right {
+    display: flex;
+    align-items: center;
+    color: #333;
+  }
+  .title {
+    font-size: 38px;
+    margin-top: -10px;
+  }
+  .version {
+    position: relative;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 10px;
+    padding: 0 7px;
+    font-size: 14px;
+    line-height: 24px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid hsla(0, 0%, 100%, 0.7);
+    font-family: Helvetica Neue, Arial, sans-serif;
+    transition: 0.3s ease-in-out;
+  }
+  .github {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background: #333;
+  }
 }
 
 .main-content {
   display: flex;
-  padding-top: 30px;
+  padding-top: 80px;
 }
 
 .yus-doc-nav {
   box-sizing: border-box;
-  width: 200px;
+  width: 240px;
   padding: 20px;
+  padding-left: 30px;
+  padding-top: 4px;
   background: #fff;
   box-shadow: 0 8px 12px #ebedf0;
   border-right: 1px solid #f1f4f8;
@@ -239,6 +255,7 @@ h2, h3 {
   height: 667px;
   margin-top: 38px;
   margin-left: 30px;
+  margin-right: 50px;
   background: #fafafa;
   border-radius: 6px;
   box-shadow: 0 4px 12px #ebedf0;

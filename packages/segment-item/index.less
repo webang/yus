@@ -1,0 +1,32 @@
+@import '../style/variable';
+
+.yus-segment-item {
+  flex: 1;
+  height: 36px;
+  font-size: 12px;
+  line-height: 36px;
+  text-align: center;
+  color: @color-primary;
+  background-color: #fff;
+  border: 1px solid @color-primary;
+  box-sizing: border-box;
+  border-left-width: 0;
+  &:first-child {
+    border-left-width: 1px;
+    border-radius: 5px 0 0 5px;    
+  }
+  &:last-child {
+    border-right-width: 1px;
+    border-radius: 0 5px 5px 0px;
+  }
+}
+
+.yus-segment-item--active {
+  color: #fff;
+  font-weight: bold;
+  background-color: @color-primary;
+}
+
+.yus-segment-item--disabled {
+  opacity: .4;
+}

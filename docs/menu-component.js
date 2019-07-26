@@ -46,15 +46,15 @@ export default [
       {
         name: 'notice-bar',
         cName: '通告栏'
+      },
+      {
+        name: 'progress',
+        cName: '进度条'
+      },
+      {
+        name: 'swiper',
+        cName: '轮播'
       }
-      // {
-      //   name: 'progress',
-      //   cName: '进度条'
-      // },
-      // {
-      //   name: 'swiper',
-      //   cName: '轮播'
-      // }
     ]
   },
   {
@@ -63,6 +63,31 @@ export default [
       {
         name: 'switch',
         cName: '开关'
+      },
+      {
+        name: 'picker',
+        cName: '选择器'
+      }
+    ]
+  },
+  {
+    groupName: '导航组件',
+    list: [
+      {
+        name: 'nav-bar',
+        cName: '导航栏'
+      },
+      {
+        name: 'popover',
+        cName: '气泡'
+      },
+      {
+        name: 'segment',
+        cName: '分段器'
+      },
+      {
+        name: 'tab',
+        cName: '标签页'
       }
     ]
   },
@@ -76,23 +101,23 @@ export default [
       {
         name: 'backtop',
         cName: '返回顶部'
-      }
+      },
       // {
       //   name: 'dialog',
       //   cName: '对话框'
       // },
-      // {
-      //   name: 'popup',
-      //   cName: '弹出层'
-      // },
-      // {
-      //   name: 'pull-refresh',
-      //   cName: '下拉刷新'
-      // },
-      // {
-      //   name: 'toast',
-      //   cName: '轻提示'
-      // }
+      {
+        name: 'popup',
+        cName: '弹出层'
+      },
+      {
+        name: 'pull-refresh',
+        cName: '下拉刷新'
+      },
+      {
+        name: 'toast',
+        cName: '轻提示'
+      }
     ]
   }
 ];

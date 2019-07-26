@@ -16,8 +16,20 @@ import Marquee from './marquee';
 import MarqueeItem from './marquee-item';
 import NavBar from './nav-bar';
 import NoticeBar from './notice-bar';
+import Picker from './picker';
+import PickerColumn from './picker-column';
+import Popover from './popover';
+import Popup from './popup';
+import Progress from './progress';
+import PullRefresh from './pull-refresh';
+import Segment from './segment';
+import SegmentItem from './segment-item';
 import Spinner from './spinner';
+import Swiper from './swiper';
+import SwiperItem from './swiper-item';
 import Switch from './switch';
+import Tab from './tab';
+import TabItem from './tab-item';
 import Toast from './toast';
 
 const version = '1.0.3';
@@ -38,8 +50,20 @@ const components = [
   MarqueeItem,
   NavBar,
   NoticeBar,
+  Picker,
+  PickerColumn,
+  Popover,
+  Popup,
+  Progress,
+  PullRefresh,
+  Segment,
+  SegmentItem,
   Spinner,
+  Swiper,
+  SwiperItem,
   Switch,
+  Tab,
+  TabItem,
   Toast
 ];
 
@@ -68,8 +92,20 @@ export {
   MarqueeItem,
   NavBar,
   NoticeBar,
+  Picker,
+  PickerColumn,
+  Popover,
+  Popup,
+  Progress,
+  PullRefresh,
+  Segment,
+  SegmentItem,
   Spinner,
+  Swiper,
+  SwiperItem,
   Switch,
+  Tab,
+  TabItem,
   Toast
 };
 
