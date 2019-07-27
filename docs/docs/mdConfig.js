@@ -27,7 +27,6 @@ export default [
     path: `/changelog`,
     name: 'changelog',
     cName: '更新日志',
-    // component: () => import('./markdown/changelog')
     component: () => import('./markdown/changelog.md')
   }
 ];

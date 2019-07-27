@@ -1,11 +1,11 @@
 <template>
   <div id="yus-demo">
-    <!-- <yus-nav-bar
+    <yus-nav-bar
       v-if="$route.meta.title"
       :title="$route.meta.title"
       left-text="返回"
       @click-left="$router.go(-1)"
-    ></yus-nav-bar> -->
+    ></yus-nav-bar>
     <router-view></router-view>
   </div>
 </template>

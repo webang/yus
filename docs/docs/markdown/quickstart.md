@@ -7,13 +7,13 @@ npm install -g @vue/cli
 # 创建一个项目
 vue create hello-world
 
-# 安装 yus-vue
-npm i yus-vue -S
+# 安装 yus
+npm i yus -S
 ```
 
 ## 引入组件
 
-yus-vue 支持多种引入方式。
+yus 支持多种引入方式。
 
 ### 按需导入
 
@@ -29,32 +29,32 @@ babel 配置:
 module.exports = {
   plugins: [
     ['import', {
-      libraryName: 'yus-vue',
+      libraryName: 'yus',
       libraryDirectory: 'es',
       style: true
-    }, 'yus-vue']
+    }, 'yus']
   ]
 };
 
-// 接着你可以在代码中直接引入 yus-vue 组件
-import { Button } from 'yus-vue';
+// 接着你可以在代码中直接引入 yus 组件
+import { Button } from 'yus';
 ```
 
 ### 手动按需导入
 
 ```js
-import Button from 'yus-vue/lib/button';
-import 'yus-vue/lib/button/style';
+import Button from 'yus/lib/button';
+import 'yus/lib/button/style';
 ```
 
 ### 导入所有组件
 
-yus-vue 支持一次性导入所有组件，引入所有组件会增加代码包体积，因此不推荐这种做法
+yus 支持一次性导入所有组件，引入所有组件会增加代码包体积，因此不推荐这种做法
 
 ```js
 import Vue from 'vue';
-import yus from 'yus-vue';
-import 'yus-vue/lib/index.css';
+import yus from 'yus';
+import 'yus/lib/index.css';
 
 Vue.use(yus);
 ```

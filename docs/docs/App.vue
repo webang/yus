@@ -24,25 +24,24 @@
         </a>
       </div>
     </header>
-    <div class="main-content">
-      <div class="yus-doc-nav">
-        <div class="yus-doc-nav__group">
-          <div class="yus-doc-nav__group-title">开发指南</div>
-          <router-link
-            class="yus-doc-nav__subitem"
-            v-for="(item, index) in mdConfig"
-            :key="index"
-            :to="item.name"
-          >{{ item.cName }}</router-link>
-        </div>
-
-        <div class="yus-doc-nav__group" v-for="(item, index) in menuComponent" :key="index">
-          <div class="yus-doc-nav__group-title">{{ item.groupName }}</div>
-          <div class="yus-doc-nav__subitem" v-for="item in item.list" :key="item.name">
-            <router-link :to="item.name">{{ uppercamelize(item.name) }} {{ item.cName }}</router-link>
-          </div>
+    <div class="yus-doc-nav">
+      <div class="yus-doc-nav__group">
+        <div class="yus-doc-nav__group-title">开发指南</div>
+        <router-link
+          class="yus-doc-nav__subitem"
+          v-for="(item, index) in mdConfig"
+          :key="index"
+          :to="item.name"
+        >{{ item.cName }}</router-link>
+      </div>
+      <div class="yus-doc-nav__group" v-for="(item, index) in menuComponent" :key="index">
+        <div class="yus-doc-nav__group-title">{{ item.groupName }}</div>
+        <div class="yus-doc-nav__subitem" v-for="item in item.list" :key="item.name">
+          <router-link :to="item.name">{{ uppercamelize(item.name) }} {{ item.cName }}</router-link>
         </div>
       </div>
+    </div>
+    <div class="main-content">
       <div class="yus-doc-view">
         <router-view></router-view>
       </div>

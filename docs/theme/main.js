@@ -4,7 +4,7 @@ import Router from 'vue-router';
 import { install } from '../../packages/index';
 import menuConfig from '../menu-component';
 import mdConfig from './mdConfig';
-import './main.scss';
+import './assets/styles/main.less';
 
 Vue.use(Router);
 install(Vue);

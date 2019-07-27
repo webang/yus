@@ -146,8 +146,7 @@ h2, h3 {
   z-index: 10;
   max-width: 100%;
   background: #fff;
-  -webkit-box-shadow: 0 2px 8px #f0f1f2;
-  box-shadow: 0 2px 8px #f0f1f2;
+  box-shadow: 0 2px 8px #e2e4e6;
   font-family: cursive;
   box-sizing: border-box;
   &__right {
@@ -192,6 +191,11 @@ h2, h3 {
 }
 
 .yus-doc-nav {
+  overflow: auto;
+  height: calc(100vh - 60px);
+  position: fixed;
+  left: 0;
+  top: 80px;
   box-sizing: border-box;
   width: 240px;
   padding: 20px;
@@ -201,6 +205,10 @@ h2, h3 {
   box-shadow: 0 8px 12px #ebedf0;
   border-right: 1px solid #f1f4f8;
   margin-right: 30px;
+}
+
+.main-content {
+  padding-left: 280px;
 }
 
 .yus-doc-nav__group-title {
