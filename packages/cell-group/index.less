@@ -1,0 +1,33 @@
+@import '../style/variable';
+.yus-cell-group {
+  position: relative;
+  .yus-cell:last-child,
+  .yus-field:last-child {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.yus-cell-group__bd {
+  position: relative;
+  background-color: #fff;
+  &::after,
+  &::before {
+    content: " ";
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 0;
+    border-top: 1px solid @border-color;
+    transform: translateY(0.5);
+    transform-origin: 0 0;
+  }
+  &::after {
+    bottom: 0;
+  }
+  &::before {
+    top: 0;
+  }
+}

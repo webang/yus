@@ -75,7 +75,11 @@ export default [
       {
         name: 'picker',
         cName: '选择器'
-      }
+      },
+      {
+        name: 'slider',
+        cName: '选择器'
+      },
     ]
   },
   {

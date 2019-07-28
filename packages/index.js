@@ -8,6 +8,7 @@ import Button from './button';
 import Calender from './calender';
 import Card from './card';
 import Cell from './cell';
+import CellGroup from './cell-group';
 import Collapse from './collapse';
 import CollapseItem from './collapse-item';
 import Dialog from './dialog';
@@ -26,6 +27,7 @@ import Progress from './progress';
 import PullRefresh from './pull-refresh';
 import Segment from './segment';
 import SegmentItem from './segment-item';
+import Slider from './slider';
 import Spinner from './spinner';
 import Swiper from './swiper';
 import SwiperItem from './swiper-item';
@@ -44,6 +46,7 @@ const components = [
   Calender,
   Card,
   Cell,
+  CellGroup,
   Collapse,
   CollapseItem,
   Dialog,
@@ -62,6 +65,7 @@ const components = [
   PullRefresh,
   Segment,
   SegmentItem,
+  Slider,
   Spinner,
   Swiper,
   SwiperItem,
@@ -88,6 +92,7 @@ export {
   Calender,
   Card,
   Cell,
+  CellGroup,
   Collapse,
   CollapseItem,
   Dialog,
@@ -106,6 +111,7 @@ export {
   PullRefresh,
   Segment,
   SegmentItem,
+  Slider,
   Spinner,
   Swiper,
   SwiperItem,
