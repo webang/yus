@@ -11,6 +11,10 @@ export default [
         cName: '按钮'
       },
       {
+        name: 'badge',
+        cName: '徽章'
+      },
+      {
         name: 'cell',
         cName: '单元格'
       },
@@ -60,6 +64,10 @@ export default [
   {
     groupName: '数据输入',
     list: [
+      {
+        name: 'calender',
+        cName: '日历'
+      },
       {
         name: 'switch',
         cName: '开关'

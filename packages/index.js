@@ -3,7 +3,9 @@
 import ActionSheet from './action-sheet';
 import Backdrop from './backdrop';
 import Backtop from './backtop';
+import Badge from './badge';
 import Button from './button';
+import Calender from './calender';
 import Card from './card';
 import Cell from './cell';
 import Collapse from './collapse';
@@ -37,7 +39,9 @@ const components = [
   ActionSheet,
   Backdrop,
   Backtop,
+  Badge,
   Button,
+  Calender,
   Card,
   Cell,
   Collapse,
@@ -79,7 +83,9 @@ export {
   ActionSheet,
   Backdrop,
   Backtop,
+  Badge,
   Button,
+  Calender,
   Card,
   Cell,
   Collapse,
