@@ -80,6 +80,10 @@ export default [
         name: 'slider',
         cName: '选择器'
       },
+      {
+        name: 'region-slider',
+        cName: '区间选择'
+      }
     ]
   },
   {

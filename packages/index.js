@@ -25,6 +25,7 @@ import Popover from './popover';
 import Popup from './popup';
 import Progress from './progress';
 import PullRefresh from './pull-refresh';
+import RegionSlider from './region-slider';
 import Segment from './segment';
 import SegmentItem from './segment-item';
 import Slider from './slider';
@@ -65,6 +66,7 @@ const components = [
   Popup,
   Progress,
   PullRefresh,
+  RegionSlider,
   Segment,
   SegmentItem,
   Slider,
@@ -113,6 +115,7 @@ export {
   Popup,
   Progress,
   PullRefresh,
+  RegionSlider,
   Segment,
   SegmentItem,
   Slider,
