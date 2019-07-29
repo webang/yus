@@ -1,0 +1,52 @@
+@import '../style/variable';
+
+.ymu-tabbar-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  font-size: @tabbar-text-font-size;
+  text-align: center;
+}
+
+.ymu-tabbar-item__icon {
+  position: relative;
+}
+
+.ymu-tabbar-item__text {
+  margin-top: @tabbar-icon-margin-top;
+}
+
+.ymu-tabbar-icon {
+  width: @tabbar-icon-width;
+  height: @tabbar-icon-height;
+}
+
+.ymu-tabbar-item__text {
+  line-height: 1;
+}
+
+.ymu-tabbar-item__icon--dot {
+  &::after {
+    content: " ";
+    position: absolute;
+    width: @tabbar-dot-width;
+    height: @tabbar-dot-height;
+    background-color: @tabbar-dot-bg-color;
+    border-radius: 50%;
+  }
+}
+
+.ymu-tabbar-item__badge {
+  position: absolute;
+  height: @tabbar-badge-height;
+  line-height: @tabbar-badge-height;
+  min-width: @tabbar-badge-min-width;
+  padding: 0 @tabbar-badge-horizontal-padding;
+  margin-left: @tabbar-badge-margin-left;
+  font-size: @tabbar-badge-font-size;
+  color: @tabbar-badge-font-color;
+  background-color: @tabbar-badge-bg-color;
+  border-radius: @tabbar-badge-border-radius;
+  transform: translateX(50%);
+}
