@@ -34,6 +34,8 @@ import SwiperItem from './swiper-item';
 import Switch from './switch';
 import Tab from './tab';
 import TabItem from './tab-item';
+import Tabbar from './tabbar';
+import TabbarItem from './tabbar-item';
 import Toast from './toast';
 
 const version = '1.0.3';
@@ -72,6 +74,8 @@ const components = [
   Switch,
   Tab,
   TabItem,
+  Tabbar,
+  TabbarItem,
   Toast
 ];
 
@@ -118,6 +122,8 @@ export {
   Switch,
   Tab,
   TabItem,
+  Tabbar,
+  TabbarItem,
   Toast
 };
 

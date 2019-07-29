@@ -100,6 +100,10 @@ export default [
       {
         name: 'tab',
         cName: '标签页'
+      },
+      {
+        name: 'tabbar',
+        cName: '标签页'
       }
     ]
   },

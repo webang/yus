@@ -1,5 +1,5 @@
 <template>
-  <div class="ymu-tabbar" :class="{'ymu-tabbar--fixed': fixed}">
+  <div class="yus-tabbar" :class="{'yus-tabbar--fixed': fixed}">
     <slot></slot>
   </div>
 </template>
@@ -21,5 +21,3 @@ export default useName({
   }
 })
 </script>
-
-<style src="./index.scss" lang="scss"></style>
