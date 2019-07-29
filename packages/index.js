@@ -15,6 +15,7 @@ import Dialog from './dialog';
 import Flow from './flow';
 import FlowItem from './flow-item';
 import Icon from './icon';
+import InfinitePicker from './infinite-picker';
 import Marquee from './marquee';
 import MarqueeItem from './marquee-item';
 import NavBar from './nav-bar';
@@ -56,6 +57,7 @@ const components = [
   Flow,
   FlowItem,
   Icon,
+  InfinitePicker,
   Marquee,
   MarqueeItem,
   NavBar,
@@ -105,6 +107,7 @@ export {
   Flow,
   FlowItem,
   Icon,
+  InfinitePicker,
   Marquee,
   MarqueeItem,
   NavBar,

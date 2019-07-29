@@ -83,6 +83,10 @@ export default [
       {
         name: 'region-slider',
         cName: '区间选择'
+      },
+      {
+        name: 'infinite-picker',
+        cName: '无限选择'
       }
     ]
   },
