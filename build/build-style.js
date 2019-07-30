@@ -1,7 +1,7 @@
 /**
- * compile sass 文件
+ * @documention 编译css文件
+ * @note 部分代码参考有赞
  */
-
 const path = require('path');
 const fs = require('fs-extra');
 const glob = require('fast-glob');
@@ -10,7 +10,6 @@ const less = require('less');
 const postcss = require('postcss');
 const postcssrc = require('postcss-load-config');
 // const sass = require('node-sass');
-
 // async function compileSass(codes, paths) {
 //   const outputs = await Promise.all(
 //     codes.map((source, index) => {

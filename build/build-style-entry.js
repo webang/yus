@@ -1,8 +1,7 @@
 /**
- * 为按需加载模式创建css入口文件
- * @example ../es/button/style/index.css
+ * @documention 为按需加载模式创建css入口文件
+ * @note 部分代码参考有赞
  */
-
 const fs = require('fs-extra');
 const path = require('path');
 const components = require('./get-components')();

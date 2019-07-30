@@ -1,19 +1,18 @@
 /**
- * compile Vue Component
- * @example ../package/button/index.js
+ * @documention 编译vue组件
+ * @note 部分代码参考有赞
  */
 const fs = require('fs-extra');
-const { join } = require('path');
+const join = require('path').join;
 const babel = require('@babel/core');
 
 const esDir = join(__dirname, '../es');
 const libDir = join(__dirname, '../lib');
 const srcDir = join(__dirname, '../packages');
-const babelConfig = {
-  configFile: join(__dirname, '../babel.config.js')
-};
 
-const scriptRegExp = /\.(js|ts|tsx)$/;
+const babelConfigFile = join(__dirname, '../babel.config.js')
+
+const scriptRegExp = /\.(js)$/;
 const isDir = dir => fs.lstatSync(dir).isDirectory();
 const isCode = path => !/(demo|test|\.md)$/.test(path);
 const isScript = path => scriptRegExp.test(path);
@@ -36,7 +35,9 @@ function compile(dir) {
 
     // compile js
     if (isScript(file)) {
-      const { code } = babel.transformFileSync(filePath, babelConfig);
+      const { code } = babel.transformFileSync(filePath, {
+        configFile: babelConfigFile
+      });
       fs.removeSync(filePath);
       fs.outputFileSync(filePath.replace(scriptRegExp, '.js'), code);
     }

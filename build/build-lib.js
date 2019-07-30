@@ -1,7 +1,7 @@
 /**
- * Build npm lib
+ * @documention 构建release版本
+ * @note 部分代码参考有赞
  */
-
 const shell = require('shelljs');
 const signale = require('signale');
 
