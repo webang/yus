@@ -21,7 +21,7 @@ export default useName({
       valueList: [],
       cityList: [],
       show: this.value
-    }
+    };
   },
   watch: {
     value(val) {
@@ -40,7 +40,6 @@ export default useName({
       this.cityList = [].concat(this.cityList);
     },
     handleClick(item, index) {
-
       this.valueList[this.column] = item;
       this.indexList[this.column] = index;
 
@@ -66,36 +65,36 @@ export default useName({
     const getValueRow = (item, index) => {
       const cls = [];
       if (index === this.column) {
-        cls.push('is-active')
+        cls.push('is-active');
       }
       return (
-        <span
-          key={index}
-          class={cls}
-          vOn: click={() => this.toggleIndex(index)}>{item.name}</span>
-      )
-    }
+        <span key={index} class={cls} vOn:click={() => this.toggleIndex(index)}>
+          {item.name}
+        </span>
+      );
+    };
 
     const getPickerColumn = () => {
       const cls1 = 'yus-infinite-picker-column';
-      const cls2 = "yus-infinite-picker-item"
-      console.log(this.cityList)
+      const cls2 = 'yus-infinite-picker-item';
       return this.cityList.map((jItem, jIndex) => {
         return (
           <div class={cls1} key={jIndex} vShow={jIndex === this.column}>
-            {/* {
-              jItem.map((item, index) => {
-                return (
-                  <div class={cls2} key={index} vOn:click={() => this.handleClick(item, index)}>
-                    <span>{item.name}</span>
-                  </div>
-                )
-              })
-            } */}
+            {jItem.map((item, index) => {
+              return (
+                <div
+                  class={cls2}
+                  key={index}
+                  vOn:click={() => this.handleClick(item, index)}
+                >
+                  <span>{item.name}</span>
+                </div>
+              );
+            })}
           </div>
-        )
-      })
-    }
+        );
+      });
+    };
 
     return (
       <Popup v-model={this.show}>
@@ -108,12 +107,10 @@ export default useName({
             {this.hasNext ? <span class="is-active">请选择</span> : null}
           </div>
           <div class="yus-infinite-picker-body">
-            <div class="yus-infinite-picker-columns">
-              {getPickerColumn()}
-            </div>
+            <div class="yus-infinite-picker-columns">{getPickerColumn()}</div>
           </div>
         </div>
       </Popup>
-    )
+    );
   }
-})
+});
