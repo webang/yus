@@ -1,0 +1,90 @@
+@import '../style/variable';
+
+.yus-checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.yus-checkbox__input {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.yus-checkbox__control {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+}
+
+.yus-checkbox__icon {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: @checkbox-icon-font-size;
+  color:  @checkbox-default-icon-color;
+}
+
+.yus-checkbox__label {
+  display: inline-block;
+  margin-left: @checkbox-label-margin-left;
+  font-size: @checkbox-label-font-size;
+}
+
+.yus-checkbox--disabled {
+  opacity: .5;
+}
+
+.yus-checkbox--checked {
+  .yus-checkbox__icon {
+    color: @checkbox-checked-icon-color;
+  }
+}
+
+.yus-radio--disabled {
+  .icon-radio-outline,
+  .icon-radio-fill {
+    opacity: @checkbox-disabled-opacity;
+  }
+}
+
+.yus-checkbox--label-left {
+  flex-direction: row-reverse;
+  .yus-checkbox__label {
+    margin-left: 0;
+  }
+  .yus-checkbox__input {
+    margin-left: @checkbox-label-margin-left;
+  }
+}
+
+.yus-checkbox--cell {
+  display: flex;
+  justify-content: space-between;
+  padding: @checkbox-cell-vertical-padding @checkbox-cell-horizontal-padding;
+  line-height: @checkbox-cell-line-height;
+  background: @checkbox-cell-bg-color;
+  &::after {
+    content: ' ';
+    position: absolute;
+    pointer-events: none;
+    box-sizing: border-box;
+    left: 12px;
+    right: 0;
+    bottom: 0;
+    transform: scaleY(0.5);
+    border-bottom: 1px solid @border-color;
+  }
+}
+
+.yus-checkbox--clickable:active {
+  background: @click-active-bg-color;
+}

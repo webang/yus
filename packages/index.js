@@ -9,9 +9,12 @@ import Calender from './calender';
 import Card from './card';
 import Cell from './cell';
 import CellGroup from './cell-group';
+import Checkbox from './checkbox';
+import CheckboxGroup from './checkbox-group';
 import Collapse from './collapse';
 import CollapseItem from './collapse-item';
 import Dialog from './dialog';
+import Field from './field';
 import Flow from './flow';
 import FlowItem from './flow-item';
 import Icon from './icon';
@@ -51,9 +54,12 @@ const components = [
   Card,
   Cell,
   CellGroup,
+  Checkbox,
+  CheckboxGroup,
   Collapse,
   CollapseItem,
   Dialog,
+  Field,
   Flow,
   FlowItem,
   Icon,
@@ -101,9 +107,12 @@ export {
   Card,
   Cell,
   CellGroup,
+  Checkbox,
+  CheckboxGroup,
   Collapse,
   CollapseItem,
   Dialog,
+  Field,
   Flow,
   FlowItem,
   Icon,

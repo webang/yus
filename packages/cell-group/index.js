@@ -8,8 +8,8 @@ export default useName({
   },
   render() {
     return (
-      <div class="ymu-cell-group">
-        <div class="ymu-cell-group__bd">
+      <div class="yus-cell-group">
+        <div class="yus-cell-group__bd">
           {this.$slots.default}
         </div>
       </div>
