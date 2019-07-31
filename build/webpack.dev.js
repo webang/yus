@@ -6,9 +6,9 @@ const { VueLoaderPlugin } = require('vue-loader');
 module.exports = {
   mode: 'development',
   entry: {
-    'f6-docs': './docs/docs/main.js',
-    'f6-mobile': './docs/mobile/main.js',
-    'f6-theme': './docs/theme/main.js'
+    'docs': './docs/docs/main.js',
+    'mobile': './docs/mobile/main.js',
+    'theme': './docs/theme/main.js'
   },
   output: {
     path: path.join(__dirname, '../dist'),
@@ -55,7 +55,7 @@ module.exports = {
     }
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', '.vue', '.css']
+    extensions: ['.js', '.vue', '.css']
   },
   module: {
     rules: [
@@ -106,13 +106,6 @@ module.exports = {
             options: {
               sourceMap: true
             }
-          },
-          {
-            loader: path.resolve(__dirname, './dynamic-import-theme'),
-            options: {
-              matchFile: '// F6-CSS-VARS-SLOT',
-              appendVariables: path.resolve(__dirname, './vars.scss')
-            }
           }
         ]
       },
@@ -141,19 +134,19 @@ module.exports = {
     new VueLoaderPlugin(),
     new ProgressBarPlugin(),
     new HtmlWebpackPlugin({
-      chunks: ['f6-docs'],
+      chunks: ['docs'],
       template: 'docs/docs/index.html',
       filename: 'index.html',
       inject: true
     }),
     new HtmlWebpackPlugin({
-      chunks: ['f6-mobile'],
+      chunks: ['mobile'],
       template: 'docs/mobile/index.html',
       filename: 'mobile.html',
       inject: true
     }),
     new HtmlWebpackPlugin({
-      chunks: ['f6-theme'],
+      chunks: ['theme'],
       template: 'docs/theme/index.html',
       filename: 'theme.html',
       inject: true

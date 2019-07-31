@@ -8,11 +8,11 @@ delete config.serve;
 module.exports = Object.assign(baseConfig, {
   mode: 'production',
   entry: {
-    'f6-vue': './es/index.js'
+    yus: './es/index.js'
   },
   output: {
     path: path.join(__dirname, '../lib'),
-    library: 'f6-vue',
+    library: 'yus',
     libraryTarget: 'umd',
     filename: isMinify ? '[name].min.js' : '[name].js',
     umdNamedDefine: true,

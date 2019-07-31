@@ -34,6 +34,10 @@ import Segment from './segment';
 import SegmentItem from './segment-item';
 import Slider from './slider';
 import Spinner from './spinner';
+import SpinnerBubbles from './spinner-bubbles';
+import SpinnerCircles from './spinner-circles';
+import SpinnerCrescent from './spinner-crescent';
+import SpinnerDots from './spinner-dots';
 import Swiper from './swiper';
 import SwiperItem from './swiper-item';
 import Switch from './switch';
@@ -79,6 +83,10 @@ const components = [
   SegmentItem,
   Slider,
   Spinner,
+  SpinnerBubbles,
+  SpinnerCircles,
+  SpinnerCrescent,
+  SpinnerDots,
   Swiper,
   SwiperItem,
   Switch,
@@ -132,6 +140,10 @@ export {
   SegmentItem,
   Slider,
   Spinner,
+  SpinnerBubbles,
+  SpinnerCircles,
+  SpinnerCrescent,
+  SpinnerDots,
   Swiper,
   SwiperItem,
   Switch,
