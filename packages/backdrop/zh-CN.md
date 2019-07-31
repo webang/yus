@@ -1,4 +1,4 @@
-# Backdrop 幕布
+# Backdrop 幕布【已完成】
 
 ```JS
 import Vue from 'vue';
@@ -9,9 +9,10 @@ Vue.use(Backdrop);
 
 ## Props
 
-| 属性 | 描述 | 类型 | 可选值 | 默认值 |
+| 名称 | 描述 | 类型 | 默认值 |
 | - | - | - | - | - |
-| value | 显示幕布 | Boolean | - | - |
+| value | 显示幕布 | Boolean | `false` |
+| stopPropagation | 阻止冒泡 |  Boolean | `true` |
 
 ## Slots
 

@@ -6,20 +6,28 @@ export default useName({
     value: {
       type: Boolean,
       default: false
+    },
+    stopPropagation: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {
     handleClick(event) {
+      if (this.stopPropagation) {
+        event.stopPropagation();
+      }
       this.$emit('click', event);
     }
   },
   render() {
     const cls = bem();
-    const backdrop = (
-      <div vShow={this.value} class={cls} onClick={this.handleClick}>
-        {this.$slots.default}
-      </div>
+    return (
+      <transition name="fade">
+        <div vShow={this.value} class={cls} onClick={this.handleClick}>
+          {this.$slots.default}
+        </div>
+      </transition>
     );
-    return <transition name="fade">{backdrop}</transition>;
   }
 });

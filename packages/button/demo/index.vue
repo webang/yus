@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="yus-demo-block">
-      <div class="yus-demo-block__hd">圆角按钮</div>
+      <div class="yus-demo-block__hd">圆形按钮</div>
       <div class="yus-demo-block__bd">
         <div class="yus-demo-row">
           <yus-button type="primary" size="mini" round text="迷你按钮"/>

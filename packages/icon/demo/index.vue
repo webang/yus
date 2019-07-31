@@ -8,7 +8,8 @@
         :key="index"
         :data-clipboard-text="item"
       >
-        <yus-icon :name="item"></yus-icon>
+        <yus-icon class="icon" :name="item"/>
+        <div class="name">{{ item }}</div>
       </div>
     </div>
   </div>
@@ -42,12 +43,14 @@ export default {
 <style lang="scss">
 .icon-wrapper {
   float: left;
+  width: 50%;
+  height: 80px;
   padding: 5px;
   box-sizing: border-box;
   font-size: 24px;
   color: burlywood;
-
-  &__name {
+  text-align: center;
+  .name {
     font-size: 12px;
   }
 }

@@ -13,17 +13,27 @@ export default useName({
       type: String,
       default: ''
     },
+    // 图标
+    icon: {
+      type: String,
+      default: ''
+    },
     // 右侧文字，复杂的样式布局请使用slot
     value: {
       type: String,
       default: ''
     },
-    // a 标签链接
+    // 标题下方的描述信息
+    label: {
+      type: String,
+      default: ''
+    },
+    // 设置a标签链接
     url: {
       type: String,
       default: ''
     },
-    // 是否为链接
+    // 是否展示链接图标
     isLink: {
       type: Boolean,
       default: false
@@ -37,6 +47,11 @@ export default useName({
     border: {
       type: Boolean,
       default: false
+    },
+    // 设置箭头方向 right up down
+    arrowDirection: {
+      type: String,
+      default: 'right'
     }
   },
   methods: {
@@ -58,43 +73,59 @@ export default useName({
       }
     ]);
 
+    let media = null;
+
+    if (this.$slots.icon) {
+      media = <span class={bem('media')}>{this.$slots.icon}</span>;
+    } else if (this.icon) {
+      media = (
+        <span class={bem('media')}>
+          <img src={this.icon} alt="" />
+        </span>
+      );
+    }
+
     const title = [];
     if (this.$slots.title) {
       title.push(this.$slots.title);
     } else {
       title.push(
         <div class={bem('title')}>
-          <div class={bem('media')}>{this.$slots.icon ? this.$slots.icon : null}</div>
           <span>{this.title}</span>
+          {this.label ? <div class={bem('subtitle')}>{this.label}</div> : null}
         </div>
       );
     }
 
-    const link = <icon class={bem('icon-link')} name="ios-arrow-forward" />;
+    const link = (
+      <icon class={bem('icon-link', this.arrowDirection)} name="ios-arrow-forward" />
+    );
 
     const value = (
       <div class={bem('value')}>
         {this.$slots.value ? this.$slots.value : <span>{this.value}</span>}
-        {this.isLink ? link : null}
       </div>
     );
 
-    let content;
-    if (!this.url) {
-      content = (
-        <div class={cls} onClick={this.handleClick}>
-          {title}
-          {value}
-        </div>
-      );
-    } else {
-      content = (
-        <a class={cls} onClick={this.handleClick} href={this.url}>
-          {title}
-          {value}
-        </a>
-      );
-    }
-    return content;
+    let content = [
+      <div class={bem('hd')}>
+        {media}
+        {title}
+      </div>,
+      <div class={bem('bd')}>
+        {value}
+        {this.isLink ? link : null}
+      </div>
+    ];
+
+    return this.url ? (
+      <a class={cls} onClick={this.handleClick} href={this.url}>
+        {content}
+      </a>
+    ) : (
+      <div class={cls} onClick={this.handleClick}>
+        {content}
+      </div>
+    );
   }
 });

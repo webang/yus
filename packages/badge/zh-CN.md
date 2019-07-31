@@ -1,30 +1,14 @@
-# Badge 徽章
+# Badge 徽章 【已完成】
 
 ```JS
 import Vue from 'vue'
-import { Badge } from 'yum'
+import { Badge } from 'yus'
 
 Vue.use(Badge)
 ```
 
 ## Props
 
-| 属性 | 描述 | 类型 | 可选值 | 默认值 |
-| - | :-: | :- | :-: | :-: |
-| text | 显示文本 | String | - | - |
-
-## Slots
-
-| 名称 | 描述 |
-| :-: | :-: |
-| - | - |
-
-## Events
-
-| 名称 | 描述 |
-| :-: | :-: |
-| - | - |
-
-## Sass
-
-无
+| 属性 | 描述 | 类型 | 可选值 |
+| - | - | - | - | - |
+| text | 显示的文本 | String | - |

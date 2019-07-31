@@ -4,7 +4,7 @@ body {
   min-width: 1200px;
   padding-bottom: 20px;
   overflow-x: auto;
-  background-color: #f0f3yus;
+  background-color: #f0f3f6;
   -webkit-font-smoothing: antialiased;
   font-family: PingFang SC, Helvetica Neue, Arial, sans-serif;
 }
@@ -124,7 +124,8 @@ h1 {
   margin-bottom: 20px;
 }
 
-h2, h3 {
+h2,
+h3 {
   font-size: 16px;
   margin: 20px 0;
 }
@@ -195,12 +196,12 @@ h2, h3 {
   height: calc(100vh - 60px);
   position: fixed;
   left: 0;
-  top: 80px;
+  top: 60px;
   box-sizing: border-box;
   width: 240px;
   padding: 20px;
   padding-left: 30px;
-  padding-top: 4px;
+  padding-top: 30px;
   background: #fff;
   box-shadow: 0 8px 12px #ebedf0;
   border-right: 1px solid #f1f4f8;
@@ -229,20 +230,20 @@ h2, h3 {
 
 .yus-doc-view table {
   box-sizing: border-box;
-  width: 100%;
+  min-width: 60%;
   margin-top: 12px;
   padding: 20px;
   font-size: 13px;
   line-height: 1.5;
-  border-radius: 6px;
   border-collapse: collapse;
   color: #34495e;
   background: #fff;
+  border-radius: 6px;
 }
 
 .yus-doc-view td,
 .yus-doc-view th {
-  padding: 8px;
+  padding: 12px 10px;
   text-align: left;
   border-top: 1px solid #f1f4f8;
 }
@@ -315,16 +316,26 @@ h2, h3 {
   color: #1889f9;
 }
 
-ul, li {
+ul,
+li {
   margin-left: 10px;
   list-style: square;
   line-height: 24px;
 }
 
-table, p {
+table,
+p {
   margin-bottom: 10px;
 }
 
 pre {
   margin-bottom: 10px;
+}
+
+table code {
+  display: inline;
+  padding: 4px 6px;
+  background-color: #fff5f5;
+  color: #ff502c;
+  font-family: Menlo, Monaco, Consolas, Courier New, monospace;
 }

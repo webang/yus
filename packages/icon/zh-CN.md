@@ -1,4 +1,4 @@
-# Icon 图标
+# Icon 图标【已完成】
 
 ```JS
 import Vue from 'vue';
@@ -9,15 +9,9 @@ Vue.use(Icon);
 
 ## Props
 
-| 属性 | 描述 | 类型 | 可选值 | 默认值 |
+| 属性 | 描述 | 类型 | 可选值 |
 | - | - | - | - | - |
-| name | 图标名字 | String | - | - |
-
-## Slots
-
-| 名称 | 描述 |
-| - | - |
-| default | - |
+| name | 图标名字 | String | - |
 
 ## Events
 
