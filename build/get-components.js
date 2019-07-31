@@ -1,6 +1,9 @@
+/**
+ * @documention 获取组件入口
+ * @note 部分代码参考有赞
+ */
 const fs = require('fs');
 const path = require('path');
-
 const excludes = [
   'index.js',
   'index.less',

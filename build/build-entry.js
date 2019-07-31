@@ -1,9 +1,7 @@
 /**
- * 自动生成入口文件
- * ../package/index.js
- * ../package/index.scss
+ * @documention 生成入口文件
+ * @note 部分代码参考有赞
  */
-
 const fs = require('fs-extra');
 const path = require('path');
 const uppercamelize = require('uppercamelcase');
