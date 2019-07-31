@@ -2,26 +2,14 @@
 
 ```JS
 import Vue from 'vue';
-import { Spinner } from 'f6-vue';
+import { Spinner } from 'yus';
 
 Vue.use(Spinner);
 ```
 
 ## Props
 
-| 属性 | 描述 | 类型 | 可选值 | 默认值 |
+| 属性 | 描述 | 类型 | 默认值 |
 | - | - | - | - | - |
-| type | 动画类型 | String | - | crescent |
-| color | 颜色 | String | - | currentColor |
-
-## Slots
-
-| 名称 | 描述 |
-| - | - |
-| - | - |
-
-## Events
-
-| 名称 | 描述 |
-| - | - |
-| - | - |
+| type | 动画类型，可选值为 `crescent` | String | `crescent` |
+| color | 背景颜色 | String | `currentColor` |

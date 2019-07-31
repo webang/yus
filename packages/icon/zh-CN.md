@@ -1,8 +1,8 @@
-# Icon 图标【已完成】
+# Icon 图标
 
 ```JS
 import Vue from 'vue';
-import { Icon } from 'f6-vue';
+import { Icon } from 'yus';
 
 Vue.use(Icon);
 ```

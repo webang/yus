@@ -1,4 +1,4 @@
-# Badge 徽章 【已完成】
+# Badge 徽章
 
 ```JS
 import Vue from 'vue'

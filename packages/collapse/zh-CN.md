@@ -2,16 +2,17 @@
 
 ```JS
 import Vue from 'vue';
-import { Collapse, Collapse } from 'f6-vue';
+import { Collapse, CollapseItem } from 'yus';
 
-Vue.use(Collapse).use(Collapse);
+Vue.use(Collapse);
+Vue.use(CollapseItem);
 ```
 
 ## Collapse Props
 
-| 属性 | 描述 | 类型 | 可选值 | 默认值 |
-| - | :- | :- | :- | :- |
-| accordion | 手风琴模式 | Boolean | - | - |
+| 属性 | 描述 | 类型 | 默认值 |
+| - | - | - | - |
+| accordion | 手风琴模式 | Boolean | `false` |
 
 ## Collapse Slots
 

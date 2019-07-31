@@ -1,4 +1,4 @@
-# Cell 单元格【完成】
+# Cell 单元格
 
 ```JS
 import Vue from 'vue';

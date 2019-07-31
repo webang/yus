@@ -3,6 +3,7 @@ const [useName, bem] = use('collapse');
 
 export default useName({
   props: {
+    // 是否为手风琴模式
     accordion: {
       type: Boolean,
       default: false

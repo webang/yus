@@ -9,18 +9,12 @@ yus 严格遵循 Semantic Versioning 2.0.0 语义化版本规范。
 - 次版本号：每月发布一个带有新特性的向下兼容的版本。
 - 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
-### 1.0.0
+## 1.0.0
 
-- 新增组件
-  - Backdrop 幕布
-  - Button 按钮
-  - Card 卡片
-  - Cell 单元格
-  - Collapse 折叠面板
-  - Flow 步骤条
-  - Icon 内置图标
-  - NavBar 导航栏
-  - Picker 选择器
-  - Popup 弹出层
-  - Spinner 加载动画
-  - Switch 切换开关
+- Backdrop 幕布 2019-07-31
+- Button 按钮 2019-07-31
+- Cell 单元格 2019-07-31
+- Badge 徽章 2019-07-31
+- Icon 图标 2019-07-31
+- Spinner 加载动画 2019-07-31
+- Card 卡片 2019-07-31

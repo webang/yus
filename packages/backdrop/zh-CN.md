@@ -1,4 +1,4 @@
-# Backdrop 幕布【已完成】
+# Backdrop 幕布
 
 ```JS
 import Vue from 'vue';

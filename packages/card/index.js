@@ -3,14 +3,17 @@ const [useName, bem] = use('card');
 
 export default useName({
   props: {
+    // 标题
     title: {
       type: String,
       default: ''
     },
+    // 页脚
     footer: {
       type: String,
       default: ''
     },
+    // 是否设置阴影
     shadow: {
       type: Boolean,
       default: false
@@ -22,10 +25,10 @@ export default useName({
     }]);
 
     let title;
-    if (this.$slots.title || this.title) {
+    if (this.$slots.header || this.title) {
       title = (
         <div class={ bem('header') }>
-          { this.$slots.title ? this.$slots.title : this.title }
+          { this.$slots.header ? this.$slots.header : this.title }
         </div>
       );
     }    
@@ -41,7 +44,7 @@ export default useName({
 
     let body = (
       <div class={ bem('body') }>
-        { this.$slots.default }
+        { this.$slots.body }
       </div>
     );
 

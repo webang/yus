@@ -1,4 +1,4 @@
-# Button 按钮【已完成】
+# Button 按钮
 
 ```JS
 import Vue from 'vue';
