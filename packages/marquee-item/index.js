@@ -1,28 +1,16 @@
 import { use } from '../utils/use';
 import Marquee from '../marquee';
-import findParent from '../mixins/findParent';
+import { ChildrenMixin } from '../mixins/connection';
+
 const [useName, bem] = use('marquee-item');
 
 export default useName({
-  mixins: [findParent],
+  mixins: [ChildrenMixin(Marquee.name)],
   computed: {
     stl() {
       return {
-        height: this.$parent.height
+        height: this.parent.height
       };
-    }
-  },
-  created() {
-    this.findParent(Marquee.name);
-    const { children } = this.parent;
-    if (Array.isArray(children)) {
-      children.push(this);
-    }
-  },
-  destroyed() {
-    const { children } = this.parent;
-    if (Array.isArray(children)) {
-      children.splice(children.indexOf(this), 1);
     }
   },
   render() {

@@ -1,11 +1,16 @@
 import { use } from '../utils/use';
+import { ParentMixin } from '../mixins/connection';
 import Icon from '../icon';
+
 const [useName, bem] = use('marquee');
 
 export default useName({
+  mixins: [ParentMixin()],
+
   components: {
     Icon
   },
+
   props: {
     delay: {
       type: Number,
@@ -13,7 +18,7 @@ export default useName({
     },
     interval: {
       type: Number,
-      default: 1000
+      default: 2000
     },
     duration: {
       type: Number,
@@ -23,37 +28,42 @@ export default useName({
       type: String,
       default: 'up'
     },
-    'show-header': {
+    showHeader: {
       type: Boolean,
-      default: true
+      default: false
     },
     itemHeight: Number
   },
+
   data() {
     return {
-      children: [],
-      timeId: null,
-      length: 0,
-      height: '',
-      currentIndex: 0,
-      noAnimate: false,
-      currenTranslateY: 0,
-      currentDuration: 0
+      curY: 0,
+      curIndex: 0,
+      height: null,
+      curDuration: 0,
+      noAnimate: false
     };
   },
+
   computed: {
-    boxStyle() {
+    length() {
+      return this.children.length;
+    },
+
+    boxStl() {
       return {
-        transform: `translate3d(0, ${this.currenTranslateY}px, 0)`,
+        transform: `translateY(${this.curY}px)`,
         transition: `transform ${this.noAnimate ? 0 : this.duration}ms`
       };
     }
   },
+
   watch: {
-    currentIndex(val) {
+    curIndex(val) {
       this.$emit('index-change', val);
     }
   },
+
   mounted() {
     this.timeId = setTimeout(() => {
       if (this.children.length > 1) {
@@ -62,53 +72,54 @@ export default useName({
       }
     }, this.delay);
   },
+
   beforeDestroy() {
     clearInterval(this.timeId);
   },
+
   methods: {
     init() {
       const firstItem = this.$refs.box.firstElementChild;
       if (!firstItem) {
         return false;
       }
-
       this.noAnimate = true;
-      this.length = this.$refs.box.children.length;
       this.height = this.itemHeight || firstItem.offsetHeight;
 
       if (this.direction === 'up') {
         this.cloneNode = firstItem.cloneNode(true);
         this.$refs.box.appendChild(this.cloneNode);
-        this.currenTranslateY = -this.currentIndex * this.height;
+        this.curY = -this.curIndex * this.height;
       } else {
-        this.currenTranslateY = -this.height;
+        this.curY = -this.height;
         this.cloneNode = this.$refs.box.lastElementChild.cloneNode(true);
         this.$refs.box.insertBefore(this.cloneNode, firstItem);
       }
     },
+
     start() {
       this.timeId = setInterval(() => {
         if (this.direction === 'up') {
-          this.currentIndex += 1;
-          this.currenTranslateY = -this.currentIndex * this.height;
-          if (this.currentIndex === this.length) {
+          this.curIndex += 1;
+          this.curY = -this.curIndex * this.height;
+          if (this.curIndex === this.length) {
             setTimeout(() => {
               this.noAnimate = true;
-              this.currentIndex = 0;
-              this.currenTranslateY = 0;
+              this.curIndex = 0;
+              this.curY = 0;
             }, this.duration);
           } else {
             this.noAnimate = false;
           }
         } else {
           this.noAnimate = false;
-          this.currentIndex -= 1;
-          this.currenTranslateY = -(this.currentIndex + 1) * this.height;
-          if (this.currentIndex === -1) {
+          this.curIndex -= 1;
+          this.curY = -(this.curIndex + 1) * this.height;
+          if (this.curIndex === -1) {
             setTimeout(() => {
               this.noAnimate = true;
-              this.currentIndex = this.length - 1;
-              this.currenTranslateY = -(this.currentIndex + 1) * this.height;
+              this.curIndex = this.length - 1;
+              this.curY = -(this.curIndex + 1) * this.height;
             }, this.duration);
           } else {
             this.noAnimate = false;
@@ -117,6 +128,7 @@ export default useName({
       }, this.interval + this.duration);
     }
   },
+
   render() {
     return (
       <div class={bem()} style={{ height: this.height + 'px' }}>
@@ -125,11 +137,11 @@ export default useName({
             {this.$slots.header ? (
               this.$slots.header
             ) : (
-              <Icon class={bem('icon')} name="ios-megaphone" slot="header" />
-            )}
+                <Icon class={bem('icon')} name="ios-megaphone" slot="header" />
+              )}
           </div>
         ) : null}
-        <div class={bem('bd')} ref="box" style={this.boxStyle}>
+        <div class={bem('bd')} ref="box" style={this.boxStl}>
           {this.$slots.default}
         </div>
       </div>
