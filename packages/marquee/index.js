@@ -1,4 +1,5 @@
 import { use } from '../utils/use';
+import { isDef } from '../utils/isType';
 import { ParentMixin } from '../mixins/connection';
 import Icon from '../icon';
 
@@ -16,22 +17,27 @@ export default useName({
       type: Number,
       default: 1000
     },
+
     interval: {
       type: Number,
       default: 2000
     },
+
     duration: {
       type: Number,
       default: 300
     },
+
     direction: {
       type: String,
       default: 'up'
     },
+
     showHeader: {
       type: Boolean,
       default: false
     },
+
     itemHeight: Number
   },
 
@@ -48,6 +54,10 @@ export default useName({
   computed: {
     length() {
       return this.children.length;
+    },
+
+    isDown() {
+      return this.direction === 'up';
     },
 
     boxStl() {
@@ -79,27 +89,28 @@ export default useName({
 
   methods: {
     init() {
-      const firstItem = this.$refs.box.firstElementChild;
-      if (!firstItem) {
+      const { box } = this.$refs;
+      const firstEl = box.firstElementChild;
+      if (!firstEl) {
         return false;
       }
       this.noAnimate = true;
-      this.height = this.itemHeight || firstItem.offsetHeight;
+      this.height = isDef(this.itemHeight) ? this.itemHeight : firstEl.offsetHeight;
 
-      if (this.direction === 'up') {
-        this.cloneNode = firstItem.cloneNode(true);
-        this.$refs.box.appendChild(this.cloneNode);
+      if (!this.isDown) {
+        this.cloneNode = firstEl.cloneNode(true);
+        box.appendChild(this.cloneNode);
         this.curY = -this.curIndex * this.height;
       } else {
         this.curY = -this.height;
-        this.cloneNode = this.$refs.box.lastElementChild.cloneNode(true);
-        this.$refs.box.insertBefore(this.cloneNode, firstItem);
+        this.cloneNode = box.lastElementChild.cloneNode(true);
+        box.insertBefore(this.cloneNode, firstEl);
       }
     },
 
     start() {
       this.timeId = setInterval(() => {
-        if (this.direction === 'up') {
+        if (!this.isDown) {
           this.curIndex += 1;
           this.curY = -this.curIndex * this.height;
           if (this.curIndex === this.length) {
