@@ -47,7 +47,7 @@ export default useName({
       curIndex: 0,
       height: null,
       curDuration: 0,
-      noAnimate: false
+      noAnimate: true
     };
   },
 
@@ -91,10 +91,6 @@ export default useName({
     init() {
       const { box } = this.$refs;
       const firstEl = box.firstElementChild;
-      if (!firstEl) {
-        return false;
-      }
-      this.noAnimate = true;
       this.height = isDef(this.itemHeight) ? this.itemHeight : firstEl.offsetHeight;
 
       if (!this.isDown) {
