@@ -1,35 +1,32 @@
 import { use } from '../utils/use';
-import findParent from '../mixins/findParent';
+import { ChildrenMixin } from '../mixins/connection';
 import Icon from '../icon';
 import Flow from '../flow';
 
 const [useName, bem] = use('flow-item');
 
 export default useName({
-  mixins: [findParent],
+  mixins: [ChildrenMixin(Flow.name)],
   components: {
     Icon
   },
   computed: {
-    index () {
-      return this.parent.$children.indexOf(this);
-    },
-    activeIndex () {
+    activeIndex() {
       return this.parent.activeIndex;
     },
-    direction () {
+    direction() {
       return this.parent.direction;
     },
-    isFinish () {
+    isFinish() {
       return this.index < this.activeIndex;
     },
-    isProcess () {
+    isProcess() {
       return this.index === this.activeIndex;
     },
-    isWaiting () {
+    isWaiting() {
       return this.index > this.activeIndex;
     },
-    status () {
+    status() {
       if (this.index < this.activeIndex) {
         return 'finish';
       } else if (this.index === this.activeIndex) {
@@ -38,18 +35,15 @@ export default useName({
         return 'waiting';
       }
     },
-    finishIconProp () {
+    finishIconProp() {
       return this.parent.finishIcon;
     },
-    processIconProp () {
+    processIconProp() {
       return this.parent.processIcon;
     },
-    waitingIconProp () {
+    waitingIconProp() {
       return this.parent.waitingIcon;
     }
-  },
-  created() {
-    this.findParent(Flow.name);
   },
   render() {
     const cls = bem([
@@ -61,34 +55,34 @@ export default useName({
 
     if (this.isFinish) {
       if (this.finishIconProp) {
-        icon = <img src={ this.finishIconProp }/>
+        icon = <img src={this.finishIconProp} />
       } else {
-        icon = <Icon name="ios-checkmark-circle"/>
+        icon = <Icon name="ios-checkmark-circle" />
       }
     } else if (this.isProcess) {
       if (this.processIconProp) {
-        icon = <img src={ this.processIconProp }/>
+        icon = <img src={this.processIconProp} />
       } else {
-        icon = <Icon name="ios-checkmark-circle"/>
+        icon = <Icon name="ios-checkmark-circle" />
       }
     } else {
       if (this.waitingIconProp) {
-        icon = <img src={ this.waitingIconProp }/>
+        icon = <img src={this.waitingIconProp} />
       } else {
-        icon = <Icon name="ios-radio-button-off"/>
-      } 
+        icon = <Icon name="ios-radio-button-off" />
+      }
     }
 
     return (
-      <div class={ cls }>
-        <div class= { bem('head') }>
-          <div class={ bem('icon') }>
-            { this.$slots.icon ? this.$slots.icon : icon }
+      <div class={cls}>
+        <div class={bem('head')}>
+          <div class={bem('icon')}>
+            {this.$slots.icon ? this.$slots.icon : icon}
           </div>
-          <div class={ bem('line') }></div>
+          <div class={bem('line')}></div>
         </div>
-        <div class={ bem('main') }>
-          { this.$slots.default }
+        <div class={bem('main')}>
+          {this.$slots.default}
         </div>
       </div>
     );

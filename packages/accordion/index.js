@@ -11,7 +11,7 @@ export default useName({
       type: Boolean,
       default: false
     },
-    // 当前激活面板名字
+    // 当前激活面板
     value: [String, Number, Array]
   },
   methods: {

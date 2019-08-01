@@ -40,10 +40,6 @@ export default [
         cName: '卡片'
       },
       {
-        name: 'collapse',
-        cName: '折叠面板'
-      },
-      {
         name: 'flow',
         cName: '步骤条'
       },

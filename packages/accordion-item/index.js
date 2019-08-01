@@ -138,7 +138,6 @@ export default useName({
           name="ios-arrow-forward"
           style={{
             color: this.arrowColor,
-            transform: `rotate(${this.rotate}deg)`,
             transitionDuration: `${this.duration}ms`
           }}
         />
@@ -163,7 +162,7 @@ export default useName({
         class={bem({
           accordion: this.accordion,
           disabled: this.disabled,
-          active: this.visible
+          active: this.isActive
         })}
         onClick={() => this.$emit('click')}
       >
