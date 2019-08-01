@@ -1,6 +1,4 @@
 export function ChildrenMixin(parent, options = {}) {
-  const indexKey = options.indexKey || 'index';
-
   return {
     inject: {
       [parent]: {
@@ -12,8 +10,7 @@ export function ChildrenMixin(parent, options = {}) {
       parent() {
         return this[parent];
       },
-
-      [indexKey]() {
+      index() {
         this.bindRelation();
         return this.parent.children.indexOf(this);
       }
@@ -58,7 +55,6 @@ export function ParentMixin(parent) {
         [parent]: this
       };
     },
-
     data() {
       return {
         children: []

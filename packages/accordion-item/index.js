@@ -1,17 +1,19 @@
 import { use } from '../utils/use';
 import { raf } from '../utils/raf';
 import { isDef } from '../utils/isType';
+import { ChildrenMixin } from '../mixins/connection';
 import Icon from '../icon';
 import Accordion from '../accordion';
-import findParent from '../mixins/findParent';
 
 const [useName, bem] = use('accordion-item');
 
 export default useName({
-  mixins: [findParent],
+  mixins: [ChildrenMixin(Accordion.name)],
+
   comments: {
     Icon
   },
+
   props: {
     // 唯一key
     name: [Number, String],
@@ -36,91 +38,97 @@ export default useName({
       default: 300
     }
   },
+
   data() {
     return {
       rotate: 0,
-      currentValue: false,
-      bodyStyle: {},
-      show: null,
-      inited: null
+      inited: null,
+      visible: false,
+      isActive: false
     };
   },
+
   computed: {
-    index() {
-      return this.parent.children.indexOf(this);
-    },
-    currentName() {
+    curName() {
       return isDef(this.name) ? this.name : this.index;
     },
-    expanded() {
+    calcActive() {
       if (!this.parent) {
         return null;
       }
       const { value } = this.parent;
       return this.parent.accordion
-        ? value === this.currentName
-        : value.some(name => name === this.currentName);
+        ? value === this.curName
+        : value.some(name => name === this.curName);
     }
   },
+
+  watch: {
+    isActive(nVal, oVal) {
+      if (nVal) {
+        this.visible = true;
+        this.inited = true;
+      }
+      raf(() => {
+        const { content, body } = this.$refs;
+        if (!content || !body) {
+          return;
+        }
+
+        const { clientHeight } = content;
+        if (clientHeight) {
+          const contentHeight = `${clientHeight}px`;
+          body.style.height = nVal ? 0 : contentHeight;
+          /**
+           * 在不支持 requestAnimationFrame API
+           * 的浏览器上可能会有异常(当第一次切换时)
+           */
+          raf(() => {
+            body.style.height = nVal ? contentHeight : 0;
+          });
+        }
+      });
+    },
+    calcActive(val) {
+      this.isActive = val;
+    }
+  },
+
   created() {
-    this.findParent(Accordion.name);
-    this.show = this.expanded;
-    this.inited = this.expanded;
-    if (this.parent) {
-      this.currentValue = this.parent.value === this.currentName;
-    }
-    this.rotate = this.currentValue ? 90 : 0;
+    this.inited = this.calcActive;
+    this.visible = this.calcActive;
   },
+
   methods: {
     handleClick() {
       if (this.disabled) {
         return;
       }
 
-      const { parent } = this;
+      const { parent, curName } = this;
+      const value = parent.accordion && curName === parent.value ? '' : curName;
+      this.parent.switch(value, !this.isActive, curName);
+    },
 
-      if (!this.disabled) {
-        if (this.parent) {
-          this.parent.toggleValue(this.index);
-        } else {
-          this.toggleValue();
-        }
+    handleTransitionEnd() {
+      if (!this.isActive) {
+        this.visible = false;
       }
     },
-    toggleValue() {
-      const { content } = this.$refs;
-      const nextValue = !this.currentValue;
 
-      if (nextValue) {
-        this.rotate = 90;
-        this.currentValue = nextValue;
-        raf(() => {
-          let { clientHeight } = content;
-          this.bodyStyle = {
-            height: `0px`,
-            transitionDuration: `${this.duration}ms`
-          };
-          setTimeout(() => {
-            this.bodyStyle = {
-              height: `${clientHeight}px`,
-              transitionDuration: `${this.duration}ms`
-            };
-          }, 16);
-        });
-      } else {
-        this.rotate = 0;
-        this.bodyStyle = {
-          height: `0px`,
-          transitionDuration: `${this.duration}ms`
-        };
-        raf(() => {
-          setTimeout(() => {
-            this.currentValue = nextValue;
-          }, this.duration);
-        });
-      }
+    toggleVisible() {
+      this.isActive = !this.isActive;
+    },
+
+    show() {
+      this.isActive = true;
+    },
+
+    close() {
+      this.isActive = false;
     }
   },
+
   render() {
     const header = (
       <div class={bem('header')} onClick={this.handleClick}>
@@ -136,12 +144,13 @@ export default useName({
         />
       </div>
     );
-    const body = (
+
+    const body = this.inited && (
       <div
         class={bem('body')}
-        v-show={this.currentValue}
+        v-show={this.visible}
         ref="body"
-        style={this.bodyStyle}
+        v-on:transitionend={this.handleTransitionEnd}
       >
         <div class={bem('content')} ref="content">
           {this.$slots.default}
@@ -154,7 +163,7 @@ export default useName({
         class={bem({
           accordion: this.accordion,
           disabled: this.disabled,
-          active: this.currentValue
+          active: this.visible
         })}
         onClick={() => this.$emit('click')}
       >
