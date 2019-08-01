@@ -1,25 +1,29 @@
-export const objectPrototypeTostring = Object.prototype.toString
+export const objToStr = Object.prototype.toString;
 
-export const isType = (name, type) => {
-  return objectPrototypeTostring(name) === `[object ${type}]`
+export function isType(name, type) {
+  return objToStr(name) === `[object ${type}]`;
 }
 
-export const isUndefined = (argv) => {
-  return objectPrototypeTostring.call(argv) === '[object Undefined]'
+export function isUndefined(value) {
+  return objToStr.call(value) === '[object Undefined]';
 }
 
-export const isString = (argv) => {
-  return objectPrototypeTostring.call(argv) === '[object String]'
+export function isString(value) {
+  return objToStr.call(value) === '[object String]';
 }
 
-export const isPlainObject = (argv) => {
-  return objectPrototypeTostring.call(argv) === '[object Object]'
+export function isPlainObject(value) {
+  return objToStr.call(value) === '[object Object]';
 }
 
-export const isArray = (argv) => {
-  return objectPrototypeTostring.call(argv) === '[object Array]'
+export function isArray(value) {
+  return objToStr.call(value) === '[object Array]';
 }
 
-export const isFunction = (argv) => {
-  return objectPrototypeTostring.call(argv) === '[object Function]'
+export function isFunction(value) {
+  return objToStr.call(value) === '[object Function]';
+}
+
+export function isDef(value) {
+  return value !== undefined && value !== null;
 }

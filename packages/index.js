@@ -1,5 +1,7 @@
 /* eslint-disable */
 // This file is auto gererated by build/build-entry.js
+import Accordion from './accordion';
+import AccordionItem from './accordion-item';
 import ActionSheet from './action-sheet';
 import Backdrop from './backdrop';
 import Backtop from './backtop';
@@ -49,6 +51,8 @@ import Toast from './toast';
 
 const version = '1.0.3';
 const components = [
+  Accordion,
+  AccordionItem,
   ActionSheet,
   Backdrop,
   Backtop,
@@ -106,6 +110,8 @@ const install = (Vue) => {
 export {
   install,
   version,
+  Accordion,
+  AccordionItem,
   ActionSheet,
   Backdrop,
   Backtop,

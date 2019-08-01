@@ -8,6 +8,7 @@ export default useName({
       type: Boolean,
       default: false
     },
+    // 当前激活 tab 面板的 key
     value: [String, Number]
   },
   data() {
@@ -19,7 +20,6 @@ export default useName({
     toggleValue(index) {
       const children = this.$children;
       const nextValue = !children[index].currentValue;
-
       if (this.accordion) {
         if (nextValue) {
           children.forEach((element, eleIndex) => {

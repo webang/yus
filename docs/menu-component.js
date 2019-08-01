@@ -32,6 +32,10 @@ export default [
     groupName: '数据展示',
     list: [
       {
+        name: 'accordion',
+        cName: '手风琴'
+      },
+      {
         name: 'card',
         cName: '卡片'
       },
