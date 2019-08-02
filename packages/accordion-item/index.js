@@ -43,8 +43,8 @@ export default useName({
     return {
       rotate: 0,
       inited: null,
-      visible: false,
-      isActive: false
+      visible: null,
+      isActive: null
     };
   },
 
@@ -56,6 +56,7 @@ export default useName({
       if (!this.parent) {
         return null;
       }
+
       const { value } = this.parent;
       return this.parent.accordion
         ? value === this.curName
@@ -65,10 +66,16 @@ export default useName({
 
   watch: {
     isActive(nVal, oVal) {
+      if (oVal === null) {
+        // 初始化时不需要动画效果
+        return;
+      }
+
       if (nVal) {
         this.visible = true;
         this.inited = true;
       }
+
       raf(() => {
         const { content, body } = this.$refs;
         if (!content || !body) {
