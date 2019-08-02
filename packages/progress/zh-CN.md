@@ -2,17 +2,19 @@
 
 ```JS
 import Vue from 'vue';
-import { Progress } from 'f6-vue';
+import { Progress } from 'yus';
 
 Vue.use(Progress);
 ```
 
 ## Props
 
-| 属性 | 描述 | 类型 | 可选值 | 默认值 | 版本说明 |
+| 属性 | 描述 | 类型 | 可选值 |
 | - | - | - | - | - | - |
-| percentage | 百分比 | Number | - | - | - |
-| bar-height | 高度 | Number | - | - | - |
+| percent | 百分比 | Number | `0` |
+| barHeight | 线条高度 | String | `4px` |
+| barColor | 线条背景色 | String | - |
+| trackColor | 高亮颜色 | String | - |
 
 ## Slots
 
@@ -20,9 +22,3 @@ Vue.use(Progress);
 | - | - |
 | start | start 插槽 |
 | end | end 插槽 |
-
-## Events
-
-| 名称 | 描述 |
-| - | - |
-| - | - |

@@ -13,31 +13,37 @@ export default useName({
   },
 
   props: {
+    // 启动轮播的延时时间
     delay: {
       type: Number,
       default: 1000
     },
 
+    // 轮播间隔时间
     interval: {
       type: Number,
       default: 2000
     },
 
+    // 一次轮播消耗的时间
     duration: {
       type: Number,
       default: 300
     },
 
+    // 轮播方向
     direction: {
       type: String,
-      default: 'up'
+      default: 'up' // down up
     },
 
+    // 是否显示左侧图标
     showHeader: {
       type: Boolean,
       default: false
     },
 
+    // 轮播子项高度
     itemHeight: Number
   },
 
@@ -57,7 +63,7 @@ export default useName({
     },
 
     isDown() {
-      return this.direction === 'up';
+      return this.direction === 'down';
     },
 
     boxStl() {
@@ -119,7 +125,6 @@ export default useName({
             this.noAnimate = false;
           }
         } else {
-          this.noAnimate = false;
           this.curIndex -= 1;
           this.curY = -(this.curIndex + 1) * this.height;
           if (this.curIndex === -1) {
@@ -144,8 +149,8 @@ export default useName({
             {this.$slots.header ? (
               this.$slots.header
             ) : (
-                <Icon class={bem('icon')} name="ios-megaphone" slot="header" />
-              )}
+              <Icon class={bem('icon')} name="ios-megaphone" slot="header" />
+            )}
           </div>
         ) : null}
         <div class={bem('bd')} ref="box" style={this.boxStl}>

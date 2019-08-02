@@ -3,21 +3,62 @@ const [useName, bem] = use('progress');
 
 export default useName({
   props: {
-    percentage: {
+    // 百分比例
+    percent: {
       type: Number,
       default: 0
     },
-    'bar-height': {
-      type: Number,
-      default: 4
+
+    // 线条高度
+    barHeight: {
+      type: String,
+      default: '4px'
+    },
+
+    // 线条背景色
+    barColor: {
+      type: String,
+      default: ''
+    },
+
+    // 高亮颜色
+    trackColor: {
+      type: String,
+      default: ''
+    }
+  },
+
+  computed: {
+    barStl() {
+      const stl = {
+        height: this.barHeight
+      };
+
+      if (this.barColor) {
+        stl['backgroundColor'] = this.barColor;
+      }
+
+      return stl;
+    },
+
+    trackStl() {
+      const stl = {
+        width: this.percent + '%'
+      };
+
+      if (this.trackColor) {
+        stl['backgroundColor'] = this.trackColor;
+      }
+
+      return stl;
     }
   },
   render() {
     return (
       <div class={bem()}>
         {this.$slots.start}
-        <div class={bem('bar')} style={{ height: this.barHeight + 'px' || 'auto' }}>
-          <div class={bem('track')} style={{ width: this.percentage + '%' }} />
+        <div class={bem('bar')} style={this.barStl}>
+          <div class={bem('track')} style={this.trackStl} />
         </div>
         {this.$slots.end}
       </div>
