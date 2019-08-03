@@ -1,43 +1,5 @@
 <template>
   <div class="yus-demo yus-demo-swiper">
-    <yus-swiper class="swiper-4">
-      <yus-swiper-item>
-        <img
-          src="//imgcps.jd.com/ling4/7143389/5Lqs6YCJ5aW96LSn/5L2g5YC85b6X5oul5pyJ/p-5c131e9282acdd181da661ad/25266b31/cr_1125x549_0_72/s1125x690/q70.jpg"
-          alt
-        >
-      </yus-swiper-item>
-      <yus-swiper-item>
-        <img
-          src="//m.360buyimg.com/mobilecms/s750x366_jfs/t1/71917/4/1285/156394/5cf7b0d6E268cad13/143569fc13207d3c.jpg!cr_1125x549_0_72!q70.jpg.dpg"
-          alt
-        >
-      </yus-swiper-item>
-      <yus-swiper-item>
-        <img
-          src="//m.360buyimg.com/mobilecms/s750x366_jfs/t1/67682/18/2272/272049/5d08b596Eb01cb76c/61ac551b76a65fbf.jpg!cr_1125x549_0_72!q70.jpg.dpg"
-          alt
-        >
-      </yus-swiper-item>
-    </yus-swiper>
-
-    <div class="yus-demo-block__hd">基本用法</div>
-    <div class="yus-demo-block__bd">
-      <div class="swiper-01">
-        <yus-swiper class="swiper" ref="swiper01" :active="v4" :auto-play="false" :loop="false">
-          <yus-swiper-item>
-            <div class="item">1</div>
-          </yus-swiper-item>
-          <yus-swiper-item>
-            <div class="item">2</div>
-          </yus-swiper-item>
-          <yus-swiper-item>
-            <div class="item">3</div>
-          </yus-swiper-item>
-        </yus-swiper>
-      </div>
-    </div>
-
     <div class="yus-demo-block__hd">基本用法</div>
     <div class="yus-demo-block__bd">
       <div class="swiper-01">

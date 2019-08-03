@@ -5,15 +5,18 @@ const [useName, bem] = use('accordion');
 
 export default useName({
   mixins: [ParentMixin()],
+
   props: {
     // 是否为手风琴模式
     accordion: {
       type: Boolean,
       default: false
     },
+
     // 当前激活面板
     value: [String, Number, Array]
   },
+
   methods: {
     switch(name, isActive, curName) {
       this.children.forEach(child => {
@@ -41,6 +44,7 @@ export default useName({
       this.$emit('change', name);
     }
   },
+
   render() {
     const cls = bem({
       accordion: this.accordion

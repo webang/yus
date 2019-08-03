@@ -1,58 +1,70 @@
 import { use } from '../utils/use';
+import { ParentMixin } from '../mixins/connection';
 
 const now = () => +new Date();
 const [useName, bem] = use('swiper');
 
 export default useName({
+  mixins: [ParentMixin()],
+
   props: {
     // 容器宽度
     width: Number,
+
     // 容器高度
     height: Number,
+
     // 轮播方向
     direction: {
       default: 'horizontal',
-      validator: function(value) {
+      validator: function (value) {
         return ['horizontal', 'vertical'].indexOf(value) !== -1;
       }
     },
+
     // 动画时长
     duration: {
       type: Number,
       default: 300
     },
+
     // 自动轮播间隔
     interval: {
       type: Number,
       default: 4000
     },
+
     // 是否自动播放
     autoPlay: {
       type: Boolean,
       default: true
     },
+
     // 是否开启循环播放
     loop: {
       type: Boolean,
       default: true
     },
+
     // 初始位置索引值
     active: {
       type: Number,
       default: 0
     },
+
+    // 长按时长
     longTouch: {
       type: Number,
       default: 300
     }
   },
+
   data() {
     return {
-      children: [],
       wrapperStl: {},
       slideStl: {},
-      calcWidth: undefined,
-      calcHeight: undefined,
+      calcWidth: null,
+      calcHeight: null,
       currentIndex: this.active,
       useAnimation: false,
       translate: 0,
@@ -66,77 +78,78 @@ export default useName({
       }
     };
   },
+
   computed: {
     isVertical() {
       return this.direction === 'vertical';
     },
+
     isLoopMode() {
       return this.loop && this.children.length > 1;
     },
+
     size() {
       return this.isVertical ? this.calcHeight : this.calcWidth;
     }
   },
+
   watch: {
     currentIndex(val) {
       this.$emit('index-change', val);
     },
+
     active(val) {
       this.currentIndex = val;
     }
   },
+
   mounted() {
-    this._initRectSize();
+    this._initElRectSize();
+    this._updateSlideStl();
     this._createAutoPlay();
   },
+
   methods: {
-    /**
-     * 初始化wrapper容器的大小
-     */
-    _initRectSize() {
-      const rect = this.$refs.wrapper.getBoundingClientRect();
+    // 初始化wrapper容器的大小
+    _initElRectSize() {
+      const { wrapper } = this.$refs;
+      const rect = wrapper.getBoundingClientRect();
+
       this.calcWidth = this.width || rect.width;
       this.calcHeight = this.height || rect.height;
+
       this.wrapperStl = {
         width: `${this.calcWidth}px`,
         height: `${this.calcHeight}px`
       };
-      this._updateSlideStl();
     },
 
-    /**
-     * 更新container容器样式
-     */
+    // 更新container容器样式
     _updateSlideStl() {
-      const result = {
+      const stl = {
         transform: `translate${this.isVertical ? 'Y' : 'X'}(${this.translate}px)`,
         transitionDuration: `${this.useAnimation ? this.duration : 0}ms`,
         width: `${this.calcWidth}px`,
         height: `${this.calcHeight}px`
       };
+
       if (this.isVertical) {
-        result.height = `${this.calcHeight * this.children.length}px`;
+        stl.height = `${this.calcHeight * this.children.length}px`;
       } else {
-        result.width = `${this.calcWidth * this.children.length}px`;
+        stl.width = `${this.calcWidth * this.children.length}px`;
       }
-      this.slideStl = result;
+      this.slideStl = stl;
     },
 
-    /**
-     * 创建自动播放
-     */
+    // 创建自动播放
     _createAutoPlay() {
-      if (!this.autoPlay || this.children.length < 1) {
+      if (!this.autoPlay || this.children.length < 2) {
         return;
       }
-      this.autoPlayTimeId = setInterval(() => {
-        this.slideNext();
-      }, this.interval);
+      // this.autoPlayTimeId = setInterval(this.slideNext, this.interval);
     },
 
-    /**
-     * 销毁自动播放
-     */
+    // 销毁自动播放
     _destoryAutoPlay() {
       clearInterval(this.autoPlayTimeId);
     },
@@ -148,13 +161,12 @@ export default useName({
      */
     _validDirection(deltaX, deltaY) {
       const abs = Math.abs;
-      return this.isVertical ? abs(deltaX) < abs(deltaY) : abs(deltaX) > abs(deltaY);
+      return this.isVertical 
+      ? abs(deltaX) < abs(deltaY)
+      : abs(deltaX) > abs(deltaY);
     },
 
-    /**
-     * @desc touch start handler
-     * @param {Event} event
-     */
+    // handle touchstart
     _onTouchStart(event) {
       const touch = event.changedTouches[0];
       this._destoryAutoPlay();
@@ -164,10 +176,7 @@ export default useName({
       this.touchData.touchStartTranslate = this.translate;
     },
 
-    /**
-     * @desc touchmove handler
-     * @param {TouchEvent} event
-     */
+    // handle touchmove
     _onTouchMove(event) {
       const { children } = this;
       const touch = event.changedTouches[0];
@@ -233,12 +242,9 @@ export default useName({
       this._updateSlideStl();
     },
 
-    /**
-     * @desc touchend handler
-     * @param {TouchEvent} event
-     */
+    // handle touchend
     _onTouchEnd(event) {
-      const touchData = this.touchData;
+      const { touchData } = this;
       // 判断是否有 touchmove 被触发, 包括了判断滑动方向的判断
       if (touchData.validDirection === undefined) {
         return;
@@ -343,7 +349,7 @@ export default useName({
     },
 
     /**
-     * 以当前的索引为参数，向右滑动一个单位
+     * @desc 以当前的索引为参数，向右滑动一个单位
      */
     slideNext() {
       const { children } = this;
@@ -359,7 +365,7 @@ export default useName({
     },
 
     /**
-     * 以当前的索引为参数，向左滑动一个单位
+     * @desc 以当前的索引为参数，向左滑动一个单位
      */
     slidePrev() {
       const { children } = this;
@@ -372,7 +378,23 @@ export default useName({
       }
     }
   },
+
   render() {
+    const indicators = (
+      <div class={bem('indicators')}>
+        {this.children.map((element, index) => {
+          return (
+            <span
+              class={bem('indicator', {
+                active: this.currentIndex === index
+              })}
+              key={index}
+            />
+          );
+        })}
+      </div>
+    )
+
     return (
       <div
         class={bem([this.direction])}
@@ -385,22 +407,7 @@ export default useName({
         <div class={bem('slides')} style={this.slideStl} ref="slides">
           {this.$slots.default}
         </div>
-        {this.$slots.indicator ? (
-          this.$slots.indicator
-        ) : (
-          <div class={bem('indicators')}>
-            {this.children.map((element, index) => {
-              return (
-                <span
-                  class={bem('indicator', {
-                    active: this.currentIndex === index
-                  })}
-                  key={index}
-                />
-              );
-            })}
-          </div>
-        )}
+        {this.$slots.indicator ? this.$slots.indicator : indicators}
       </div>
     );
   }
