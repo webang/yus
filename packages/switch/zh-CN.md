@@ -2,25 +2,19 @@
 
 ```JS
 import Vue from 'vue';
-import { Switch } from 'f6-vue';
+import { Switch } from 'yus';
 
 Vue.use(Switch);
 ```
 
 ## Props
 
-| 属性 | 描述 | 类型 | 可选值 | 默认值 |
-| - | - | - | - | - |
-| value | 显示幕布 | Boolean | - | - |
-
-## Slots
-
-| 名称 | 描述 |
-| - | - |
-| default | - |
+| 属性 | 描述 | 类型 | 默认值 |
+| - | - | - | - |
+| value | 显示幕布 | Boolean | `false` |
 
 ## Events
 
 | 名称 | 描述 |
 | - | - |
-| click | - |
+| click | 点击时触发 |

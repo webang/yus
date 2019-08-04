@@ -1,6 +1,7 @@
 import Icon from '../icon'
 import Popup from '../popup'
 import Backdrop from '../backdrop'
+
 import { addZero } from '../utils'
 import { dateReg, dayMap } from '../utils/date'
 import { use } from '../utils/use';
@@ -13,6 +14,7 @@ export default useName({
     Popup,
     Backdrop
   },
+
   data() {
     return {
       dayMap: dayMap,
@@ -23,25 +25,34 @@ export default useName({
       nextShowDateList: [] // 右补全
     }
   },
+
   props: {
     visible: {
       type: Boolean,
       default: false
     },
-    value: [String, Array], // 字符串为标准时间(2018-12-12)
+
+    // 字符串为标准时间(2018-12-12)
+    value: [String, Array],
+
+    // 字符串为标准时间(2018-12-12), Number为时间戳
+    currentDate: [String, Number],
+
     useFormatNum: {
       type: Boolean,
       default: true
     },
+
     disabledFn: {
       type: Function
     },
+
     closeOnClickBackdrop: {
       type: Boolean,
       default: true
-    },
-    currentDate: [String, Number] // 字符串为标准时间(2018-12-12), Number为时间戳
+    }
   },
+
   watch: {
     visible(val) {
       if (val) {
@@ -49,6 +60,7 @@ export default useName({
       }
     }
   },
+
   computed: {
     curDateObj() {
       const dateObj = new Date();
@@ -58,32 +70,39 @@ export default useName({
         date: dateObj.getDate()
       }
     },
+
     isToday(year, month, date) {
       const curDateObj = this.curDateObj
       return year === curDateObj.year && month === curDateObj.month & date === curDateObj.date
     },
+
     dateList() {
       return this.prevShowDateList.concat(this.curMonthShowDateList)
     },
+
     dateRows() {
       return Math.ceil(this.dateList.length / 7)
     },
+
     getDateRow() {
-      const list = new Array(this.dateRows);
-      return list;
+      return new Array(this.dateRows);
     }
   },
+
   methods: {
     addZero,
+
     dateCls(date) {
       return {
         'is-selected': this.isSelected(date),
         'is-disabled': this.disabledFn ? this.disabledFn(date) : false
       }
     },
+
     onClickBackdrop() {
       this.$emit('on-click-backdrop')
     },
+
     onClickNextMonth() {
       let year = this.showYear
       let month = this.showMonth + 1
@@ -93,6 +112,7 @@ export default useName({
       }
       this.getShowDateList(year, month)
     },
+
     onClickPrevMonth() {
       let year = this.showYear
       let month = this.showMonth - 1
@@ -102,18 +122,26 @@ export default useName({
       }
       this.getShowDateList(year, month)
     },
+
     onClickNextYear() {
       let year = this.showYear + 1
       this.getShowDateList(year, this.showMonth)
     },
+
     onClickPrevYear() {
       let year = this.showYear - 1
       this.getShowDateList(year, this.showMonth)
     },
+
     onClickDate(date) {
-      if (!date) return
+      if (!date) {
+        return
+      };
+
       // 禁用选项
-      if (this.disabledFn && this.disabledFn(date)) return
+      if (this.disabledFn && this.disabledFn(date)) {
+        return;
+      }
 
       const formatDate = `${date.year}-${addZero(date.month)}-${addZero(date.date)}`
 
@@ -130,6 +158,7 @@ export default useName({
         }
       }
     },
+
     isSelected(date) {
       if (!this.value) return false
       if (date && date.type === 'current') {
@@ -147,16 +176,13 @@ export default useName({
         }
       }
     },
+
     getShowDateList(year, month, date) {
-      /**
-       * 获取当前月份的天数
-       */
+      // 获取当前月份的天数
       const stamp = new Date().setFullYear(year, month, 0)
       const days = new Date(stamp).getDate()
 
-      /**
-       * 创建当前选择月份对应的日前列表
-       */
+      // 创建当前选择月份对应的日前列表
       const curMonthShowDateList = []
       for (let index = 0; index < days; index++) {
         curMonthShowDateList.push({
@@ -168,10 +194,7 @@ export default useName({
         })
       }
 
-      /**
-       * 1. 获取当前月份第一天是星期几
-       * 2. 左侧补全数据
-       */
+      // 获取当前月份第一天是星期几 左侧补全数据
       const curMonthFirstDay = new Date(new Date().setFullYear(year, month - 1, 1)).getDay()
       const prevShowDateList = []
       for (let index = 0; index < curMonthFirstDay; index++) {
@@ -180,9 +203,7 @@ export default useName({
         })
       }
 
-      /**
-       * 右侧补全数据
-       */
+      // 右侧补全数据
       const remain = 42 - curMonthShowDateList.length - prevShowDateList.length
       const nextShowDateList = []
       {
@@ -195,7 +216,6 @@ export default useName({
 
         const year = dateObj.getFullYear()
         const month = dateObj.getMonth()
-        const date = dateObj.getDate()
 
         for (let index = 0; index < remain; index++) {
           nextShowDateList.push({
@@ -212,6 +232,7 @@ export default useName({
       this.nextShowDateList = nextShowDateList
       this.curMonthShowDateList = curMonthShowDateList
     },
+
     initData() {
       if (this.value) {
         /**
@@ -233,80 +254,88 @@ export default useName({
         this.getShowDateList(year, month, date)
       }
     },
+
+    renderDataRows() {
+
+    },
+
     getDateRows() {
       const groups = []
       const array7 = new Array()
       const dateList = this.dateList;
+
       for (let index = 0; index < this.dateRows; index++) {
         groups.push({})
       }
+
       for (let index = 0; index < 7; index++) {
         array7.push({})
       }
-      const rows = groups.map((row, rowIndex) => {
+
+      return groups.map((row, rowIndex) => {
         return (
           <div class="yus-calender__row" key={rowIndex}>
-            {
-              array7.map((dateItem, dateIndex) => {
-                const flag = dateList[rowIndex * 7 + dateIndex] && dateList[rowIndex * 7 + dateIndex].type === 'current'
-                const clsObj = this.dateCls(dateList[rowIndex*7+dateIndex])
-                const cls = ['yus-calender__col']
-                Object.keys(clsObj).forEach(key => {
-                  if (clsObj[key]) {
-                    cls.push(key)
-                  }
-                })
-                return (
-                  <div class={cls} key={dateIndex} v-on:click={() => {
-                    this.onClickDate(dateList[rowIndex*7+dateIndex])
-                  }}>
-                    {flag ? <span>{dateList[rowIndex * 7 + dateIndex].date}</span> : null}
-                  </div>
-                )
+            {array7.map((dateItem, dateIndex) => {
+              const flag = dateList[rowIndex * 7 + dateIndex] && dateList[rowIndex * 7 + dateIndex].type === 'current'
+              const clsObj = this.dateCls(dateList[rowIndex * 7 + dateIndex])
+              const cls = ['yus-calender__col']
+
+              Object.keys(clsObj).forEach(key => {
+                if (clsObj[key]) {
+                  cls.push(key);
+                }
               })
-            }
+
+              return (
+                <div class={cls} key={dateIndex} v-on: click={() => {
+                  this.onClickDate(dateList[rowIndex * 7 + dateIndex])
+                }}>
+                  {flag ? <span>{dateList[rowIndex * 7 + dateIndex].date}</span> : null}
           </div>
         )
       })
-      console.log(rows);
-      return rows
+    }
+          </div>
+        )
+      })
     }
   },
-  mounted() {
-    this.initData()
-  },
-  render() {
-    const value1 = this.addZero(this.showMonth);
-    return (
-      <div class="v-dom">
-        <Popup v-model={this.visible} close-on-click-backdrop={false} vOn: click-backdrop={this.onClickBackdrop}>
+
+mounted() {
+  this.initData()
+},
+
+render() {
+  return (
+    <div class="v-dom">
+      <Popup v-model={this.visible} close-on-click-backdrop={false} vOn: click-backdrop={this.onClickBackdrop}>
           <div class="yus-calender">
-          {/* header */}
-          <div class="yus-calender__hd">
-            <div class="yus-calender__year">
-              <Icon name="ios-arrow-back" v-on: click={this.onClickPrevYear}/>
+        {/* header */}
+        <div class="yus-calender__hd">
+          <div class="yus-calender__year">
+            <Icon name="ios-arrow-back" v-on: click={this.onClickPrevYear}/>
                 <span>{this.showYear}</span>
-              <Icon name="ios-arrow-forward" vOn: click={this.onClickNextYear}/>
+            <Icon name="ios-arrow-forward" vOn: click={this.onClickNextYear}/>
               </div>
-            <div class="yus-calender__month">
-              <Icon name="ios-arrow-back" vOn: click={this.onClickPrevMonth}/>
-                <span>{value1}</span>
-              <Icon name="ios-arrow-forward" vOn: click={this.onClickNextMonth}/>
+          <div class="yus-calender__month">
+            <Icon name="ios-arrow-back" vOn: click={this.onClickPrevMonth}/>
+                <span>{this.addZero(this.showMonth)}</span>
+            <Icon name="ios-arrow-forward" vOn: click={this.onClickNextMonth}/>
               </div>
-          </div>
         </div>
-        <div class="yus-calender__bd">
-          <div class="yus-calender__row">
-            {
-              this.dayMap.map(item => {
-                return <div class="yus-calender__col" key={item}>{item}</div>
-              })
-            }
-          </div>
-          {this.getDateRows()}
+      </div>
+      <div class="yus-calender__bd">
+        <div class="yus-calender__row">
+          {
+            this.dayMap.map(item => {
+              return <div class="yus-calender__col" key={item}>{item}</div>
+            })
+          }
         </div>
+        {this.getDateRows()}
+      </div>
         </Popup>
       </div >
     )
-  }
+}
 });

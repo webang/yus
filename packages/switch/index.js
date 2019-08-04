@@ -7,11 +7,13 @@ export default useName({
       type: Boolean,
       default: false
     },
+
     disabled: {
       type: Boolean,
       default: false
     }
   },
+
   methods: {
     handleClick() {
       if (!this.disabled) {
@@ -20,6 +22,7 @@ export default useName({
       }
     }
   },
+
   render() {
     const cls = bem([
       {
@@ -27,6 +30,7 @@ export default useName({
         disabled: this.disabled
       }
     ]);
+
     return (
       <div class={cls} onClick={this.handleClick}>
         <div class={bem('node')} />

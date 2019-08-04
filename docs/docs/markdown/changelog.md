@@ -23,3 +23,7 @@ yus 严格遵循 Semantic Versioning 2.0.0 语义化版本规范。
 - Marquee 跑马灯 2019-08-02
 - NoticeBar 通告栏 2019-08-02
 - Progress 进度条 2019-08-02
+
+### 表单组件
+
+- Switch
