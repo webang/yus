@@ -138,7 +138,7 @@ export default useName({
 
     _calculateIndex(translate) {
       const firstEl = this.$refs.items['children'][0];
-      const itemHeight = this.itemHeight || firstEl.offsetHeight;
+      const itemHeight = this.itemHeight || (firstEl ? firstEl.offsetHeight : 0);
 
       if (translate > 0) {
         translate = 0;
@@ -157,7 +157,7 @@ export default useName({
     // set index
     setIndex(index, useAnimate = true) {
       const firstEl = this.$refs.items['children'][0];
-      const itemHeight = this.itemHeight || firstEl.offsetHeight;
+      const itemHeight = this.itemHeight || (firstEl ? firstEl.offsetHeight : 0);
 
       this.isScrolling = true;
       this.useAnimate = useAnimate;

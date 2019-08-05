@@ -25,7 +25,7 @@ export default useName({
 
   data() {
     return {
-      show: this.value
+      visible: this.value
     };
   },
 
@@ -37,10 +37,10 @@ export default useName({
 
   watch: {
     value(val) {
-      this.show = val;
+      this.visible = val;
     },
 
-    show(val) {
+    visible(val) {
       this.$emit('input', val);
     }
   },
@@ -55,9 +55,9 @@ export default useName({
   render() {
     return (
       <div class={bem() + '-wrapper'}>
-        <Backdrop vModel={this.show} vOn:click={this.onClickBackdrop} />
+        <Backdrop vModel={this.visible} vOn:click={this.onClickBackdrop} />
         <transition name={this.transition}>
-          <div class={bem([this.position])} vShow={this.show}>
+          <div class={bem([this.position])} vShow={this.visible}>
             {this.$slots.default}
           </div>
         </transition>
