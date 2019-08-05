@@ -51,11 +51,11 @@ export default useName({
     },
 
     _handleConfirm() {
-      this.$emit('on-confirm', this, this.getValues(), this.getIndexs());
+      this.$emit('confirm', this, this.getValues(), this.getIndexs());
     },
 
     _handleCancel() {
-      this.$emit('on-cancel');
+      this.$emit('cancel');
     },
 
     /**

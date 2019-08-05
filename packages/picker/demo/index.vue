@@ -22,9 +22,9 @@
             popup
             v-model="visible2"
             :columns="list1"
-            @on-confirm="handleConfirm1"
-            @on-cancel="handleCcancel1"
-            @on-column-change="handleColumnChange1"
+            @confirm="handleConfirm1"
+            @cancel="handleCcancel1"
+            @column-change="handleColumnChange1"
           />
         </div>
       </div>
@@ -44,9 +44,9 @@
             v-model="cityVisible"
             labelKey="areaName"
             :columns="cityColumns"
-            @on-confirm="handleConfirm2"
-            @on-cancel="handleCcancel2"
-            @on-column-change="handleColumnChange2"
+            @confirm="handleConfirm2"
+            @cancel="handleCcancel2"
+            @column-change="handleColumnChange2"
           />
         </div>
       </div>

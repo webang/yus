@@ -50,7 +50,7 @@ export default useName({
   watch: {
     currentIndex(val) {
       this.parent.$emit(
-        'on-column-change',
+        'column-change',
         this.parent,
         this.parent.children.indexOf(this),
         val
