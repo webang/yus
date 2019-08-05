@@ -26,4 +26,5 @@ yus 严格遵循 Semantic Versioning 2.0.0 语义化版本规范。
 
 ### 表单组件
 
+- Picker
 - Switch

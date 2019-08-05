@@ -23,7 +23,7 @@
             v-model="visible2"
             :columns="list1"
             @confirm="handleConfirm1"
-            @cancel="handleCcancel1"
+            @cancel="handleCancel1"
             @column-change="handleColumnChange1"
           />
         </div>
@@ -45,7 +45,7 @@
             labelKey="areaName"
             :columns="cityColumns"
             @confirm="handleConfirm2"
-            @cancel="handleCcancel2"
+            @cancel="handleCancel2"
             @column-change="handleColumnChange2"
           />
         </div>
@@ -108,7 +108,7 @@ export default {
       this.visible2 = false;
     },
 
-    handleCcancel1() {
+    handleCancel1() {
       this.visible2 = false;
     },
 
@@ -121,7 +121,7 @@ export default {
       this.cityVisible = false;
     },
 
-    handleCcancel2() {
+    handleCancel2() {
       this.cityVisible = false;
     },
 
