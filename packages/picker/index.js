@@ -1,14 +1,18 @@
 import { use } from '../utils/use';
-import PickerColumn from '../picker-column';
+import { ParentMixin } from '../mixins/connection';
 import Popup from '../popup';
+import PickerColumn from '../picker-column';
 
 const [useName, bem] = use('picker');
 
 export default useName({
+  mixins: [ParentMixin()],
+
   components: {
     Popup,
     PickerColumn
   },
+
   props: {
     columnList: {
       type: Array,
@@ -26,6 +30,10 @@ export default useName({
       type: Boolean,
       default: true
     },
+    labelKey: {
+      type: String,
+      default: ''
+    },
     cancelText: {
       type: String,
       default: '取消'
@@ -35,11 +43,7 @@ export default useName({
       default: '确认'
     }
   },
-  data() {
-    return {
-      children: []
-    };
-  },
+
   methods: {
     _handleClickBackdrop() {
       this.$emit('input', false);
@@ -157,19 +161,27 @@ export default useName({
 
     const basicPicker = (
       <div class={cls}>
-        { this.header ? header : null }
+        {this.header ? header : null}
         <div class={bem('body')}>
           {this.columnList.map((item, index) => {
-            return <PickerColumn values={item.values} key={index} />;
+            return (
+              <PickerColumn
+                values={item.values}
+                key={index}
+                labelKey={this.labelKey}
+              />
+            );
           })}
         </div>
       </div>
     );
+
     const popupPicker = (
-      <Popup value={this.value} vOn:click-backdrop={ this._handleClickBackdrop }>
-        { basicPicker }
+      <Popup value={this.value} vOn:click-backdrop={this._handleClickBackdrop}>
+        {basicPicker}
       </Popup>
     );
+
     return this.popup ? popupPicker : basicPicker;
   }
 });

@@ -1,21 +1,23 @@
 import { use } from '../utils/use';
-import findParent from '../mixins/findParent';
-import Picker from '../picker';
+import { ChildrenMixin } from '../mixins/connection';
 
 const [useName, bem] = use('picker-column');
+
+const radio = 1;
 const duration = 300;
 const longTouchTime = 300;
-const radio = 1;
 
 export default useName({
-  mixins: [findParent],
+  mixins: [ChildrenMixin('yus-picker')],
+
   props: {
     values: {
       type: Array,
       default: () => []
     },
-    valueKey: String
+    labelKey: String
   },
+
   data() {
     return {
       currentIndex: 0,
@@ -29,6 +31,7 @@ export default useName({
       touches: []
     };
   },
+
   computed: {
     containerStyle() {
       return {
@@ -37,37 +40,36 @@ export default useName({
       };
     }
   },
+
   watch: {
     currentIndex(val) {
-      this.parent.$emit('on-column-change', this.parent, this.parent.children.indexOf(this), val);
+      this.parent.$emit(
+        'on-column-change',
+        this.parent,
+        this.parent.children.indexOf(this),
+        val
+      );
     }
   },
-  created() {
-    this.findParent(Picker.name);
-    const { children } = this.parent;
-    if (Array.isArray(children)) {
-      children.push(this);
-    }
-  },
-  destroyed() {
-    const { children } = this.parent;
-    if (Array.isArray(children)) {
-      children.splice(children.indexOf(this), 1);
-    }
-  },
+
   mounted() {
-    const { wrapper } = this.$refs;
-    if ('ontouchstart' in document.documentElement) {
-      wrapper.addEventListener('touchstart', this._handleTouchStart.bind(this));
-      wrapper.addEventListener('touchmove', this._handleTouchMove.bind(this));
-      wrapper.addEventListener('touchend', this._handleTouchEnd.bind(this));
-    } else {
-      wrapper.addEventListener('mousedown', this._handleTouchStart.bind(this));
-      wrapper.addEventListener('mousemove', this._handleTouchMove.bind(this));
-      wrapper.addEventListener('mouseup', this._handleTouchEnd.bind(this));
-    }
+    this._initEvents();
   },
+
   methods: {
+    _initEvents() {
+      const { wrapper } = this.$refs;
+      if ('ontouchstart' in document.documentElement) {
+        wrapper.addEventListener('touchstart', this._handleTouchStart.bind(this));
+        wrapper.addEventListener('touchmove', this._handleTouchMove.bind(this));
+        wrapper.addEventListener('touchend', this._handleTouchEnd.bind(this));
+      } else {
+        wrapper.addEventListener('mousedown', this._handleTouchStart.bind(this));
+        wrapper.addEventListener('mousemove', this._handleTouchMove.bind(this));
+        wrapper.addEventListener('mouseup', this._handleTouchEnd.bind(this));
+      }
+    },
+
     _handleTouchStart(event) {
       let touch;
       if (event.changedTouches) {
@@ -106,7 +108,7 @@ export default useName({
       event.preventDefault();
     },
 
-    _handleTouchEnd(event) {
+    _handleTouchEnd() {
       if (this.touches.length === 1) {
         return;
       }
@@ -185,9 +187,10 @@ export default useName({
       this.values = values;
     }
   },
+
   render() {
     const cls = bem();
-    const { valueKey } = this;
+    const { labelKey } = this;
 
     return (
       <div class={cls} ref="wrapper">
@@ -201,7 +204,7 @@ export default useName({
                   active: index === this.currentIndex
                 })}
               >
-                <span>{valueKey === undefined ? item : item[valueKey]}</span>
+                <span>{labelKey ? item[labelKey] : item}</span>
               </div>
             );
           })}
