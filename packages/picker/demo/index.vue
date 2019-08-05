@@ -43,7 +43,7 @@
             popup
             v-model="cityVisible"
             labelKey="areaName"
-            :column-list="cityColumns"
+            :columns="cityColumns"
             @on-confirm="handleConfirm2"
             @on-cancel="handleCcancel2"
             @on-column-change="handleColumnChange2"
@@ -64,9 +64,11 @@ export default {
       visible2: false,
       list1: [
         {
-          values: ['苹果', '香蕉', '荔枝', '雪梨', '桂圆', '桔子']
+          values: ['苹果', '香蕉', '荔枝', '雪梨', '桂圆', '桔子'],
+          defaultIndex: 0
         }
       ],
+      
       cityValue: [],
       cityColumns: [],
       cityVisible: true,
@@ -76,7 +78,7 @@ export default {
 
   computed: {
     cityName () {
-      return this.cityValue.map(item => item.areaName).join('');
+      return this.cityValue.filter(item => item).map(item => item.areaName).join('');
     }
   },
 
@@ -86,13 +88,16 @@ export default {
     const aList = cList[0].children.map(element => element);
     this.cityColumns = [
       {
-        values: pList
+        values: pList,
+        defaultIndex: 0
       },
       {
-        values: cList
+        values: cList,
+        defaultIndex: 0
       },
       {
-        values: aList
+        values: aList,
+        defaultIndex: 4
       }
     ];
   },
@@ -133,7 +138,7 @@ export default {
       } else if (column === 1) {
         const [pIndex, cIndex, aIndex] = picker.getIndexs();
         const aList = cityList[pIndex]['children'][cIndex]['children'] || [];
-        
+
         this.cityColumns[2]['values'] = aList;
         picker.setColumnIndex(2, 0);
       }

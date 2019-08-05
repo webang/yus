@@ -14,7 +14,7 @@ export default useName({
   },
 
   props: {
-    columnList: {
+    columns: {
       type: Array,
       default: () => []
     },
@@ -41,7 +41,8 @@ export default useName({
     confirmText: {
       type: String,
       default: '确认'
-    }
+    },
+    itemHeight: [Number]
   },
 
   methods: {
@@ -163,12 +164,14 @@ export default useName({
       <div class={cls}>
         {this.header ? header : null}
         <div class={bem('body')}>
-          {this.columnList.map((item, index) => {
+          {this.columns.map((item, index) => {
             return (
               <PickerColumn
                 values={item.values}
                 key={index}
                 labelKey={this.labelKey}
+                defaultIndex={item.defaultIndex}
+                itemHeight={this.itemHeight}
               />
             );
           })}

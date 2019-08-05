@@ -1,5 +1,6 @@
 import { use } from '../utils/use';
 import { ChildrenMixin } from '../mixins/connection';
+import { TouchMixin } from '../mixins/touch';
 
 const [useName, bem] = use('picker-column');
 
@@ -8,26 +9,31 @@ const duration = 300;
 const longTouchTime = 300;
 
 export default useName({
-  mixins: [ChildrenMixin('yus-picker')],
+  mixins: [ChildrenMixin('yus-picker'), TouchMixin()],
 
   props: {
     values: {
       type: Array,
       default: () => []
     },
-    labelKey: String
+    defaultIndex: {
+      type: Number,
+      default: 0
+    },
+    labelKey: String,
+    itemHeight: [Number]
   },
 
   data() {
     return {
-      currentIndex: 0,
+      currentIndex: this.defaultIndex,
       currentTranslate: 0,
-      touchStartTime: undefined,
-      touchStartScreen: undefined,
-      touchStartTranslate: undefined,
+      startTime: undefined,
+      startY: undefined,
+      startTranslateY: undefined,
       isTouched: false,
       useAnimate: false,
-      itemHeight: 36,
+      computedItemHeight: 36,
       touches: []
     };
   },
@@ -54,6 +60,7 @@ export default useName({
 
   mounted() {
     this._initEvents();
+    this.setIndex(this.currentIndex, false);
   },
 
   methods: {
@@ -83,9 +90,9 @@ export default useName({
 
       this.isTouched = true;
       this.useAnimate = false;
-      this.touchStartTime = +new Date();
-      this.touchStartScreen = touch.clientY;
-      this.touchStartTranslate = this.currentTranslate;
+      this.startTime = +new Date();
+      this.startY = touch.clientY;
+      this.startTranslateY = this.currentTranslate;
       this.touches.push(touch);
     },
 
@@ -102,8 +109,8 @@ export default useName({
           clientY: event.clientY
         };
       }
-      const delta = touch.clientY - this.touchStartScreen;
-      this.currentTranslate = delta + this.touchStartTranslate;
+      const delta = touch.clientY - this.startY;
+      this.currentTranslate = delta + this.startTranslateY;
       this.touches.push(touch);
       event.preventDefault();
     },
@@ -114,7 +121,7 @@ export default useName({
       }
       this.isTouched = false;
       let endTime = +new Date();
-      let deltaTime = endTime - this.touchStartTime;
+      let deltaTime = endTime - this.startTime;
       if (deltaTime >= longTouchTime) {
         let index = this._calculateIndex(this.currentTranslate);
         this.setIndex(index);
@@ -130,13 +137,16 @@ export default useName({
     },
 
     _calculateIndex(translate) {
+      const firstEl = this.$refs.items['children'][0];
+      const itemHeight = this.itemHeight || firstEl.offsetHeight;
+
       if (translate > 0) {
         translate = 0;
       }
-      if (translate < -(this.values.length - 1) * this.itemHeight) {
-        translate = -(this.values.length - 1) * this.itemHeight;
+      if (translate < -(this.values.length - 1) * itemHeight) {
+        translate = -(this.values.length - 1) * itemHeight;
       }
-      return Math.abs(Math.round(translate / this.itemHeight));
+      return Math.abs(Math.round(translate / itemHeight));
     },
 
     // get index
@@ -146,9 +156,12 @@ export default useName({
 
     // set index
     setIndex(index, useAnimate = true) {
+      const firstEl = this.$refs.items['children'][0];
+      const itemHeight = this.itemHeight || firstEl.offsetHeight;
+
       this.isScrolling = true;
       this.useAnimate = useAnimate;
-      this.currentTranslate = -index * this.itemHeight;
+      this.currentTranslate = -index * itemHeight;
 
       setTimeout(
         () => {
