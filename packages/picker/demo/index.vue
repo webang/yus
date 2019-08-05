@@ -4,7 +4,7 @@
       <div class="yus-demo-block__hd">基本用法</div>
       <div class="yus-demo-block__bd">
         <div class="yus-demo-row">
-          <yus-picker :column-list="list1" :header="false"></yus-picker>
+          <yus-picker :columns="list1" :header="false"></yus-picker>
         </div>
       </div>
 
@@ -21,7 +21,7 @@
           <yus-picker
             popup
             v-model="visible2"
-            :column-list="list1"
+            :columns="list1"
             @on-confirm="handleConfirm1"
             @on-cancel="handleCcancel1"
             @on-column-change="handleColumnChange1"
@@ -68,10 +68,10 @@ export default {
           defaultIndex: 0
         }
       ],
-      
+
       cityValue: [],
       cityColumns: [],
-      cityVisible: true,
+      cityVisible: false,
       cityList: cityList
     };
   },
