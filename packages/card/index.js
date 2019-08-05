@@ -8,17 +8,20 @@ export default useName({
       type: String,
       default: ''
     },
+
     // 页脚
     footer: {
       type: String,
       default: ''
     },
+
     // 是否设置阴影
     shadow: {
       type: Boolean,
       default: false
     }
   },
+
   render() {
     const cls = bem([{
       shadow: this.shadow
@@ -31,7 +34,7 @@ export default useName({
           { this.$slots.header ? this.$slots.header : this.title }
         </div>
       );
-    }    
+    }
 
     let footer;
     if (this.$slots.footer || this.footer) {
@@ -50,6 +53,6 @@ export default useName({
 
     return (
       <div class={ cls } onClick={ this.$emit('click') }>{ [title, body, footer] }</div>
-    )
+    );
   }
 });
