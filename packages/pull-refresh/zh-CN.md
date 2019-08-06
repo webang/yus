@@ -2,7 +2,7 @@
 
 ```JS
 import Vue from 'vue';
-import { PullRefresh } from 'f6-vue';
+import { PullRefresh } from 'yus';
 
 Vue.use(PullRefresh);
 ```

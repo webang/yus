@@ -2,7 +2,7 @@
 
 ```JS
 import Vue from 'vue';
-import { Popover } from 'f6-vue';
+import { Popover } from 'yus';
 
 Vue.use(Popover);
 ```
