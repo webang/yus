@@ -2,7 +2,7 @@
 
 ```JS
 import Vue from 'vue';
-import { Backtop } from 'f6-vue';
+import { Backtop } from 'yus';
 
 Vue.use(Backtop)
 ```

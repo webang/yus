@@ -14,6 +14,7 @@
             :key="index"
             :title="uppercamelize(item.name) + ' ' + item.cName"
             is-link
+            border
             @click="switchPage(item.name)"
           />
         </yus-accordion-item>

@@ -7,10 +7,11 @@ export default useName({
   components: {
     Backdrop
   },
+
   props: {
     value: {
       type: Boolean,
-      default: true
+      default: false
     },
     title: {
       type: String,
@@ -35,48 +36,37 @@ export default useName({
     menu: {
       type: Array,
       default: () => []
-    },
-    clickMenu: {
-      type: Function,
-      default: () => {}
     }
   },
+
   data() {
     return {
-      show: false,
       hasHeaderSlot: false
     };
   },
-  watch: {
-    value: {
-      handler: function(val) {
-        this.show = val;
-      },
-      immediate: true
-    }
-  },
+
   methods: {
     handleClickMenu(index) {
       if (index === -1) {
-        this.clickMenu(index);
+        return this.$emit('click-menu', index);
+      }
+      if (!this.menu[index].disabled) {
         this.$emit('click-menu', index);
-      } else {
-        if (!this.menu[index].disabled) {
-          this.clickMenu(index);
-          this.$emit('click-menu', index);
-        }
       }
     },
+
     handleClickBackdrop(event) {
       this.$emit('click-backdrop', event);
       if (this.closeOnClickBackdrop) {
         this.close();
       }
     },
+
     close() {
       this.$emit('input', false);
     }
   },
+  
   render() {
     const title = (
       <div class={bem('header')}>

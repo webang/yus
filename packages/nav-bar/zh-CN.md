@@ -2,7 +2,7 @@
 
 ```JS
 import Vue from 'vue';
-import { NavBar } from 'f6-vue';
+import { NavBar } from 'yus';
 
 Vue.use(NavBar);
 ```

@@ -8,20 +8,21 @@
         <yus-switch slot="value" v-model="visible2"></yus-switch>
       </yus-cell>
     </div>
+
     <yus-action-sheet
       v-model="visible1"
       title="选择收款方式"
       :menu="menu1"
-      :clickMenu="handleClickMenu1"
+      @click-menu="handleClickMenu1"
       :close-on-click-backdrop="false"
       @click-backdrop="handleClickBackdrop"
     />
+
     <yus-action-sheet
       v-model="visible2"
       title="选择收款方式"
       :menu="menu2"
-      :clickMenu="handleClickMenu2"
-      :close-on-click-backdrop="true"
+      @click-menu="handleClickMenu2"
       @click-backdrop="handleClickBackdrop"
     />
   </div>
@@ -66,6 +67,7 @@ export default {
   },
   methods: {
     handleClickMenu1(index) {
+      console.log(index)
       if (index === -1) {
         this.visible1 = false;
       } else {
