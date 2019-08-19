@@ -2,7 +2,7 @@
 
 ```JS
 import Vue from 'vue';
-import { Segment, SegmentItem } from 'f6-vue';
+import { Segment, SegmentItem } from 'yus';
 Vue.use(Segment).use(SegmentItem);
 ```
 

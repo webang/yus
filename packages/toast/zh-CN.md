@@ -1,7 +1,7 @@
 # 轻提示 Toast
 
 ```js
-import { Toast } from 'f6-vue'
+import { Toast } from 'yus'
 
 Toast({
   message: '请勿重复提交订单'

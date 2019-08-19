@@ -7,6 +7,7 @@ export default useName({
   components: {
     Backdrop
   },
+
   props: {
     value: {
       type: Boolean,
@@ -21,36 +22,42 @@ export default useName({
       default: true
     }
   },
+
   data() {
     return {
-      show: false
+      visible: this.value
     };
   },
+
   computed: {
     transition() {
       return bem() + '--' + this.position;
     }
   },
+
   watch: {
     value(val) {
-      this.show = val;
+      this.visible = val;
     },
-    show(val) {
+
+    visible(val) {
       this.$emit('input', val);
     }
   },
+
   methods: {
     onClickBackdrop(event) {
       this.closeOnClickBackdrop && this.$emit('input', false);
       this.$emit('click-backdrop', event);
     }
   },
+
   render() {
     return (
       <div class={bem() + '-wrapper'}>
-        <Backdrop vModel={this.show} vOn:click={this.onClickBackdrop} />
+        <Backdrop vModel={this.visible} vOn:click={this.onClickBackdrop} />
         <transition name={this.transition}>
-          <div class={bem([this.position])} vShow={this.show}>
+          <div class={bem([this.position])} vShow={this.visible}>
             {this.$slots.default}
           </div>
         </transition>

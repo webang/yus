@@ -1,7 +1,7 @@
 # 对话框 Dialog
 
 ```js
-import { Dialog } from 'f6-vue'
+import { Dialog } from 'yus'
 
 Dialog({
   message: '请勿重复提交订单'

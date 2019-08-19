@@ -2,22 +2,22 @@
 
 ```JS
 import Vue from 'vue';
-import { Picker, PickerColumn } from 'f6-vue';
+import { Picker, PickerColumn } from 'yus';
 
 Vue.use(Picker).use(PickerColumn);
 ```
 
 ## Picker Props
 
-| 属性 | 描述 | 类型 | 可选值 | 默认值 |
-| - | :- | :- | :- | :- |
-| column-list | picker每一项配置列表 | Array | - | - |
-| popup | 使用弹出模式 | Boolean | - | - |
-| value | 使用弹出模式是否显示 | Boolean | - | - |
-| header | 是否展示 header | Boolean | - | - |
-| title | 标题 | String | - | - |
-| cancel-text | 取消文字 | String | - | 取消 |
-| confirm-text | 确认文字 | String | - | 确认 |
+| 属性 | 描述 | 类型 | 默认值 |
+| - | - | - | - | - |
+| columns | picker每一项配置列表 | Array | - |
+| popup | 使用弹出模式 | Boolean | `false` |
+| value | 使用弹出模式是否显示 | Boolean | `false` |
+| title | 标题 | String | - |
+| header | 是否展示 header | Boolean | `false` |
+| cancel-text | 取消文字 | String | `取消` |
+| confirm-text | 确认文字 | String | `确认` |
 
 ## Picker Slots
 
@@ -29,8 +29,8 @@ Vue.use(Picker).use(PickerColumn);
 
 | 名称 | 描述 |
 | - | - |
-| on-cancel | 取消 |
-| on-confirm | 确认 |
+| cancel | 取消 |
+| confirm | 确认 |
 
 ## Picker Apis
 

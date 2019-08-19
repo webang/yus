@@ -1,7 +1,7 @@
 import { use } from '../utils/use';
+import { ParentMixin } from '../mixins/connection';
 import Popup from '../popup';
 import PickerColumn from '../picker-column';
-import { ParentMixin } from '../mixins/connection';
 
 const [useName, bem] = use('picker');
 
@@ -14,7 +14,7 @@ export default useName({
   },
 
   props: {
-    columnList: {
+    columns: {
       type: Array,
       default: () => []
     },
@@ -34,6 +34,11 @@ export default useName({
       default: true
     },
 
+    labelKey: {
+      type: String,
+      default: ''
+    },
+
     cancelText: {
       type: String,
       default: '取消'
@@ -42,7 +47,9 @@ export default useName({
     confirmText: {
       type: String,
       default: '确认'
-    }
+    },
+    
+    itemHeight: [Number]
   },
 
   methods: {
@@ -51,11 +58,11 @@ export default useName({
     },
 
     _handleConfirm() {
-      this.$emit('on-confirm', this, this.getValues(), this.getIndexs());
+      this.$emit('confirm', this, this.getValues(), this.getIndexs());
     },
 
     _handleCancel() {
-      this.$emit('on-cancel');
+      this.$emit('cancel');
     },
 
     /**
@@ -162,18 +169,26 @@ export default useName({
 
     const basicPicker = (
       <div class={cls}>
-        { this.header ? header : null }
+        {this.header ? header : null}
         <div class={bem('body')}>
-          {this.columnList.map((item, index) => {
-            return <PickerColumn values={item.values} key={index} />;
+          {this.columns.map((item, index) => {
+            return (
+              <PickerColumn
+                values={item.values}
+                key={index}
+                labelKey={this.labelKey}
+                defaultIndex={item.defaultIndex}
+                itemHeight={this.itemHeight}
+              />
+            );
           })}
         </div>
       </div>
     );
 
     const popupPicker = (
-      <Popup value={this.value} vOn:click-backdrop={ this._handleClickBackdrop }>
-        { basicPicker }
+      <Popup value={this.value} vOn:click-backdrop={this._handleClickBackdrop}>
+        {basicPicker}
       </Popup>
     );
 

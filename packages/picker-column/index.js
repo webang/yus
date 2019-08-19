@@ -1,34 +1,43 @@
 import { use } from '../utils/use';
-import findParent from '../mixins/findParent';
-import Picker from '../picker';
+import { ChildrenMixin } from '../mixins/connection';
+import { TouchMixin } from '../mixins/touch';
 
 const [useName, bem] = use('picker-column');
+
+const radio = 1;
 const duration = 300;
 const longTouchTime = 300;
-const radio = 1;
 
 export default useName({
-  mixins: [findParent],
+  mixins: [ChildrenMixin('yus-picker'), TouchMixin()],
+
   props: {
     values: {
       type: Array,
       default: () => []
     },
-    valueKey: String
+    defaultIndex: {
+      type: Number,
+      default: 0
+    },
+    labelKey: String,
+    itemHeight: [Number]
   },
+
   data() {
     return {
-      currentIndex: 0,
+      currentIndex: this.defaultIndex,
       currentTranslate: 0,
-      touchStartTime: undefined,
-      touchStartScreen: undefined,
-      touchStartTranslate: undefined,
+      startTime: undefined,
+      startY: undefined,
+      startTranslateY: undefined,
       isTouched: false,
       useAnimate: false,
-      itemHeight: 36,
+      computedItemHeight: 36,
       touches: []
     };
   },
+
   computed: {
     containerStyle() {
       return {
@@ -37,37 +46,37 @@ export default useName({
       };
     }
   },
+
   watch: {
     currentIndex(val) {
-      this.parent.$emit('on-column-change', this.parent, this.parent.children.indexOf(this), val);
+      this.parent.$emit(
+        'column-change',
+        this.parent,
+        this.parent.children.indexOf(this),
+        val
+      );
     }
   },
-  created() {
-    this.findParent(Picker.name);
-    const { children } = this.parent;
-    if (Array.isArray(children)) {
-      children.push(this);
-    }
-  },
-  destroyed() {
-    const { children } = this.parent;
-    if (Array.isArray(children)) {
-      children.splice(children.indexOf(this), 1);
-    }
-  },
+
   mounted() {
-    const { wrapper } = this.$refs;
-    if ('ontouchstart' in document.documentElement) {
-      wrapper.addEventListener('touchstart', this._handleTouchStart.bind(this));
-      wrapper.addEventListener('touchmove', this._handleTouchMove.bind(this));
-      wrapper.addEventListener('touchend', this._handleTouchEnd.bind(this));
-    } else {
-      wrapper.addEventListener('mousedown', this._handleTouchStart.bind(this));
-      wrapper.addEventListener('mousemove', this._handleTouchMove.bind(this));
-      wrapper.addEventListener('mouseup', this._handleTouchEnd.bind(this));
-    }
+    this._initEvents();
+    this.setIndex(this.currentIndex, false);
   },
+
   methods: {
+    _initEvents() {
+      const { wrapper } = this.$refs;
+      if ('ontouchstart' in document.documentElement) {
+        wrapper.addEventListener('touchstart', this._handleTouchStart.bind(this));
+        wrapper.addEventListener('touchmove', this._handleTouchMove.bind(this));
+        wrapper.addEventListener('touchend', this._handleTouchEnd.bind(this));
+      } else {
+        wrapper.addEventListener('mousedown', this._handleTouchStart.bind(this));
+        wrapper.addEventListener('mousemove', this._handleTouchMove.bind(this));
+        wrapper.addEventListener('mouseup', this._handleTouchEnd.bind(this));
+      }
+    },
+
     _handleTouchStart(event) {
       let touch;
       if (event.changedTouches) {
@@ -81,9 +90,9 @@ export default useName({
 
       this.isTouched = true;
       this.useAnimate = false;
-      this.touchStartTime = +new Date();
-      this.touchStartScreen = touch.clientY;
-      this.touchStartTranslate = this.currentTranslate;
+      this.startTime = +new Date();
+      this.startY = touch.clientY;
+      this.startTranslateY = this.currentTranslate;
       this.touches.push(touch);
     },
 
@@ -100,19 +109,19 @@ export default useName({
           clientY: event.clientY
         };
       }
-      const delta = touch.clientY - this.touchStartScreen;
-      this.currentTranslate = delta + this.touchStartTranslate;
+      const delta = touch.clientY - this.startY;
+      this.currentTranslate = delta + this.startTranslateY;
       this.touches.push(touch);
       event.preventDefault();
     },
 
-    _handleTouchEnd(event) {
+    _handleTouchEnd() {
       if (this.touches.length === 1) {
         return;
       }
       this.isTouched = false;
       let endTime = +new Date();
-      let deltaTime = endTime - this.touchStartTime;
+      let deltaTime = endTime - this.startTime;
       if (deltaTime >= longTouchTime) {
         let index = this._calculateIndex(this.currentTranslate);
         this.setIndex(index);
@@ -128,13 +137,16 @@ export default useName({
     },
 
     _calculateIndex(translate) {
+      const firstEl = this.$refs.items['children'][0];
+      const itemHeight = this.itemHeight || (firstEl ? firstEl.offsetHeight : 0);
+
       if (translate > 0) {
         translate = 0;
       }
-      if (translate < -(this.values.length - 1) * this.itemHeight) {
-        translate = -(this.values.length - 1) * this.itemHeight;
+      if (translate < -(this.values.length - 1) * itemHeight) {
+        translate = -(this.values.length - 1) * itemHeight;
       }
-      return Math.abs(Math.round(translate / this.itemHeight));
+      return Math.abs(Math.round(translate / itemHeight));
     },
 
     // get index
@@ -144,9 +156,12 @@ export default useName({
 
     // set index
     setIndex(index, useAnimate = true) {
+      const firstEl = this.$refs.items['children'][0];
+      const itemHeight = this.itemHeight || (firstEl ? firstEl.offsetHeight : 0);
+
       this.isScrolling = true;
       this.useAnimate = useAnimate;
-      this.currentTranslate = -index * this.itemHeight;
+      this.currentTranslate = -index * itemHeight;
 
       setTimeout(
         () => {
@@ -185,9 +200,10 @@ export default useName({
       this.values = values;
     }
   },
+
   render() {
     const cls = bem();
-    const { valueKey } = this;
+    const { labelKey } = this;
 
     return (
       <div class={cls} ref="wrapper">
@@ -201,7 +217,7 @@ export default useName({
                   active: index === this.currentIndex
                 })}
               >
-                <span>{valueKey === undefined ? item : item[valueKey]}</span>
+                <span>{labelKey ? item[labelKey] : item}</span>
               </div>
             );
           })}

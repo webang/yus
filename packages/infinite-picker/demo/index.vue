@@ -1,8 +1,8 @@
 <template>
   <div class="demo-infinite-picker">
     <div class="yus-demo-block">
-      <div class="yus-demo-block__hd"></div>
-      <div class="yus-demo-block__bd full">
+      <div class="yus-demo-block__hd">基本用法</div>
+      <div class="yus-demo-block__bd">
         <yus-cell title="取件地址">
           <yus-switch slot="value" v-model="v1"></yus-switch>
         </yus-cell>
@@ -27,6 +27,7 @@ export default {
       valueList01: []
     };
   },
+
   methods: {
     handleConfirm(value) {
       this.valueList01 = value;

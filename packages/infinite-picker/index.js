@@ -6,39 +6,50 @@ export default useName({
   components: {
     Popup
   },
+
   props: {
+    // 选项列表
     list: Array,
+    // 是否显示
     value: {
       type: Boolean,
       default: false
     }
   },
+
   data() {
     return {
+      // 当前是否可见
+      visible: this.value,
+      // 当前选择Tab索引
       column: 0,
       hasNext: true,
       indexList: [],
       valueList: [],
-      cityList: [],
-      show: this.value
+      // 当前展示的选项
+      optionColumn: []
     };
   },
+
   watch: {
     value(val) {
-      this.show = val;
+      this.visible = val;
     },
-    show(val) {
+    visible(val) {
       this.$emit('input', val);
     }
   },
+
   mounted() {
     this.init();
   },
+
   methods: {
     init() {
-      this.cityList[0] = this.list;
-      this.cityList = [].concat(this.cityList);
+      this.optionColumn[0] = this.list;
+      this.optionColumn = [].concat(this.optionColumn);
     },
+
     handleClick(item, index) {
       this.valueList[this.column] = item;
       this.indexList[this.column] = index;
@@ -47,8 +58,8 @@ export default useName({
       this.indexList = this.indexList.splice(0, this.column + 1);
 
       if (item.children && item.children.length) {
-        this.cityList[this.column + 1] = item.children;
-        this.cityList = this.cityList.splice(0, this.column + 2);
+        this.optionColumn[this.column + 1] = item.children;
+        this.optionColumn = this.optionColumn.splice(0, this.column + 2);
         this.column++;
         this.hasNext = true;
       } else {
@@ -57,10 +68,12 @@ export default useName({
         this.$emit('on-confirm', [].concat(this.valueList));
       }
     },
+
     toggleIndex(index) {
       this.column = index;
     }
   },
+
   render() {
     const getValueRow = (item, index) => {
       const cls = [];
@@ -77,7 +90,7 @@ export default useName({
     const getPickerColumn = () => {
       const cls1 = 'yus-infinite-picker-column';
       const cls2 = 'yus-infinite-picker-item';
-      return this.cityList.map((jItem, jIndex) => {
+      return this.optionColumn.map((jItem, jIndex) => {
         return (
           <div class={cls1} key={jIndex} vShow={jIndex === this.column}>
             {jItem.map((item, index) => {
@@ -96,12 +109,18 @@ export default useName({
       });
     };
 
+    const getHeader = () => (
+      <div class="yus-infinite-picker-header">
+        <div class="yus-infinite-picker-cancel">取消</div>
+        <span>取件地址</span>
+        <div class="yus-infinite-picker-confirm">确认</div>
+      </div>
+    );
+
     return (
-      <Popup v-model={this.show}>
+      <Popup v-model={this.visible}>
         <div class="yus-infinite-picker">
-          <div class="yus-infinite-picker-header">
-            <span>取件地址</span>
-          </div>
+          {getHeader()}
           <div class="yus-infinite-picker-value">
             {this.valueList.map(getValueRow)}
             {this.hasNext ? <span class="is-active">请选择</span> : null}
