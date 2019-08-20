@@ -38,7 +38,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:gaollard/f6-vue.git"
+    "url": "git@github.com:Webang/yus.git"
   },
   "keywords": [
     "vue",
@@ -46,9 +46,9 @@
   ],
   "author": "gaollard",
   "bugs": {
-    "url": "https://github.com/Webang/f6-vue/issues"
+    "url": "git@github.com:Webang/yus.git/issues"
   },
-  "homepage": "https://github.com/Webang/f6-vue#readme",
+  "homepage": "git@github.com:Webang/yus.git#readme",
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.4.5",
