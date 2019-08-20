@@ -1,6 +1,6 @@
 {
   "name": "yus",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Mobile UI Components based on Vue",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -18,7 +18,8 @@
     "build:entry": "node build/build-entry.js",
     "build:lib": "node build/build-lib.js",
     "build:doc": "webpack --config build/webpack.doc.js",
-    "build:f6": "cross-env NODE_ENV=production webpack -p --color --config build/webpack.build.js"
+    "build:f6": "cross-env NODE_ENV=production webpack -p --color --config build/webpack.build.js",
+    "build:font": "webpack --config build/webpack.font.conf.js"
   },
   "husky": {
     "hooks": {
@@ -90,6 +91,7 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.2.2",
+    "extract-text-webpack-plugin": "^3.0.2",
     "fast-glob": "^2.2.7",
     "file-loader": "^4.0.0",
     "fs-extra": "^8.0.1",
@@ -102,6 +104,7 @@
     "less-loader": "^5.0.0",
     "lint-staged": "^8.1.7",
     "markdown-vetur": "0.0.5",
+    "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
     "postcss": "^7.0.16",
     "postcss-loader": "^3.0.0",
