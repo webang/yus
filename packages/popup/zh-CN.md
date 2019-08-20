@@ -9,11 +9,11 @@ Vue.use(Popup);
 
 ## Props
 
-| 属性 | 描述 | 类型 | 可选值 | 默认值 |
+| 属性 | 描述 | 类型 | 默认值 |
 | - | - | - | - | - |
-| position | 弹出位置 | String | - | bottom |
-| v-model | 是否显示 | Boolean | - | - |
-| closeOnClickBackdrop | 点击幕布时关闭 | Boolean | - | true |
+| v-model | 是否显示 | Boolean | `false` |
+| position | 弹出方向，可选值为 `bottom/top/left/righgt` | String | `bottom` |
+| closeOnClickBackdrop | 点击幕布时是否触发关闭 | Boolean | `true` |
 
 ## Slots
 

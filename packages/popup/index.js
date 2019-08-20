@@ -9,14 +9,19 @@ export default useName({
   },
 
   props: {
+    // 是否显示
     value: {
       type: Boolean,
       default: false
     },
+
+    // 弹出方向
     position: {
       type: String,
       default: 'bottom'
     },
+    
+    // 点击幕布时是否触发关闭
     closeOnClickBackdrop: {
       type: Boolean,
       default: true

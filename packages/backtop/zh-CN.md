@@ -9,23 +9,13 @@ Vue.use(Backtop)
 
 ## Props
 
-| 属性 | 描述 | 类型 | 可选值 | 默认值 |
+| 属性 | 描述 | 类型 | 默认值 |
 | - | - | - | - | - |
-| value | 是否显示 | Boolean | - | true |
-| text | 显示文本 | String | - | - |
-
-## Slots
-
-| 名称 | 描述 |
-| - | - |
-| - | - |
+| value | 是否显示 | Boolean | `true` |
+| text | 显示的文本 | String | - |
 
 ## Events
 
 | 名称 | 描述 |
 | - | - |
-| click | - |
-
-## Sass
-
-暂无数据
+| click | 点击时触发 |
