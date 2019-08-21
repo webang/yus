@@ -4,20 +4,25 @@
  */
 const fs = require('fs-extra');
 const path = require('path');
+
 const components = require('./get-components')();
 const dependencyTree = require('dependency-tree');
 const dir = path.join(__dirname, '../es');
+
 const whiteList = require('../config').baseComponent;
+
+const delimiterize = (str) => str.replace(/\\/g, '/');
 
 function destEntryFile(component, filename, ext = '') {
   const deps = analyzeDependencies(component).map(dep =>
     getStyleRelativePath(component, dep, ext)
   );
-  console.log(deps)
+
   const esEntry = path.join(dir, component, `style/${filename}`);
   const libEntry = path.join(__dirname, '../lib', component, `style/${filename}`);
-  const esContent = deps.map(dep => `import '${dep}';`).join('\n');
-  const libContent = deps.map(dep => `require('${dep}');`).join('\n');
+  
+  const esContent = deps.map(dep => delimiterize(`import '${dep}';`)).join('\n');
+  const libContent = deps.map(dep => delimiterize(`require('${dep}');`)).join('\n');
 
   fs.outputFileSync(esEntry, esContent);
   fs.outputFileSync(libEntry, libContent);
