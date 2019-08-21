@@ -7,6 +7,7 @@ export default useName({
   components: {
     spinner
   },
+
   props: {
     // 文本内容
     text: {
@@ -69,11 +70,13 @@ export default useName({
       default: 'crescent'
     }
   },
+
   methods: {
     handleClick() {
       this.$emit('click');
     }
   },
+
   render() {
     const cls = bem([
       this.size,
@@ -92,10 +95,12 @@ export default useName({
         {this.$slots.default ? this.$slots.default : this.text}
       </span>
     );
+
     const loadingStl = {
       width: this.loadingSize,
       height: this.loadingSize
     };
+
     const loading = (
       <spinner
         class={bem('loading')}
@@ -106,6 +111,7 @@ export default useName({
     );
 
     const content = [text];
+
     if (this.loading) {
       content.unshift(loading);
     }

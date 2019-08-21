@@ -7,12 +7,10 @@ const signale = require('signale');
 
 const { Signale } = signale;
 const tasks = [
-  // 'npm run lint',
   'npm run build:entry',
   'node build/build-components.js --color',
   'node build/build-style.js',
   'node build/build-style-entry.js',
-  // 'node build/build-fonts.js',
   'npm run build:doc',
   'cross-env NODE_ENV=production webpack -p --color --config build/webpack.build.js'
 ];
