@@ -1,7 +1,12 @@
 import { use } from '../utils/use';
 import Icon from '../icon';
-
+import {
+  Tween,
+  animation
+} from '../utils/tween';
 const [useName, bem] = use('backtop');
+
+console.log(Tween);
 
 /*
  * t: current time（当前时间）；
@@ -37,8 +42,11 @@ export default useName({
 
   methods: {
     handleClick() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      animation(scrollTop, 0, function (value) {
+        document.body.scrollTop = value;
+        document.documentElement.scrollTop = value;
+      }, 'Quart.easeOut', 300);
       this.$emit('click');
     }
   },

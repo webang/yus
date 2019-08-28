@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[69],{54:function(t,e,n){"use strict";n.r(e);var i=function(){var t=this.$createElement;return(this._self._c||t)("section")};i._withStripped=!0;var s=n(13),a=Object(s.a)({},i,[],!1,null,null,null);a.options.__file="packages/tab/zh-CN.md";e.default=a.exports}}]);
