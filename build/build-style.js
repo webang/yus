@@ -9,6 +9,10 @@ const csso = require('csso');
 const less = require('less');
 const postcss = require('postcss');
 const postcssrc = require('postcss-load-config');
+
+/**
+ * 后面可能要接入 sass
+ */
 // const sass = require('node-sass');
 // async function compileSass(codes, paths) {
 //   const outputs = await Promise.all(

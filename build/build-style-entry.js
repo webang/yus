@@ -11,7 +11,7 @@ const dir = path.join(__dirname, '../es');
 
 const whiteList = require('../config').baseComponent;
 
-const delimiterize = (str) => str.replace(/\\/g, '/');
+const delimiterize = str => str.replace(/\\/g, '/');
 
 function destEntryFile(component, filename, ext = '') {
   const deps = analyzeDependencies(component).map(dep =>
@@ -20,7 +20,7 @@ function destEntryFile(component, filename, ext = '') {
 
   const esEntry = path.join(dir, component, `style/${filename}`);
   const libEntry = path.join(__dirname, '../lib', component, `style/${filename}`);
-  
+
   const esContent = deps.map(dep => delimiterize(`import '${dep}';`)).join('\n');
   const libContent = deps.map(dep => delimiterize(`require('${dep}');`)).join('\n');
 

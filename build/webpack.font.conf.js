@@ -1,3 +1,6 @@
+/**
+ * @documention 生成内联的字体文件，避免引入时 url 错误
+ */
 const path = require('path');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -30,7 +33,7 @@ module.exports = {
           'css-loader',
           'postcss-loader',
           'less-loader'
-        ],
+        ]
       },
       {
         test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
