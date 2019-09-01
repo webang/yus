@@ -1,31 +1,23 @@
 {
-  "name": "ymuicon",
-  "version": "2.0.3",
+  "name": "yus-icon",
+  "version": "1.0.0",
   "description": "",
-  "main": "dist/style.css",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:data": "node build/build-data"
+    "build": "node build/build-json.js"
   },
-  "files": [
-    "dist",
-    "lib",
-    "resource"
-  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Webang/ymuicon.git"
+    "url": "git+https://github.com/Webang/yus-icon.git"
   },
-  "author": "gaollard",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Webang/ymuicon/issues"
+    "url": "https://github.com/Webang/yus-icon/issues"
   },
-  "homepage": "https://github.com/Webang/ymuicon#readme",
-  "devDependencies": {
-    "fs-extra": "^7.0.1"
-  },
-  "__npminstall_done": "Thu Jul 25 2019 15:52:42 GMT+0800 (GMT+08:00)",
-  "_from": "ymuicon@2.0.3",
-  "_resolved": "https://registry.npm.taobao.org/ymuicon/download/ymuicon-2.0.3.tgz"
+  "homepage": "https://github.com/Webang/yus-icon#readme"
 }

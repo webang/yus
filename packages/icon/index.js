@@ -10,6 +10,6 @@ export default useName({
   },
   render() {
     const cls = bem();
-    return <i class={[cls, this.name]} onClick={() => this.$emit('click')} />;
+    return <i class={[cls, cls + '-' + this.name]} onClick={() => this.$emit('click')} />;
   }
 });

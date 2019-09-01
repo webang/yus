@@ -95,7 +95,7 @@ export default useName({
             {this.$slots.header ? (
               this.$slots.header
             ) : (
-              <Icon class={bem('icon-left')} name="ios-megaphone" />
+              <Icon class={bem('icon-left')} name="megaphone" />
             )}
           </div>
         ) : null}
@@ -109,7 +109,7 @@ export default useName({
             {this.$slots.footer ? (
               this.$slots.footer
             ) : (
-              <Icon class={bem('icon-right')} name="ios-close" />
+              <Icon class={bem('icon-right')} name="cross" />
             )}
           </div>
         ) : null}

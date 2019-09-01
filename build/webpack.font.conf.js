@@ -11,7 +11,7 @@ module.exports = {
     children: false
   },
   entry: {
-    app: path.resolve(__dirname, '../packages/font/dist/style.less')
+    app: path.resolve(__dirname, '../packages/font/src/iconfont.css')
   },
   output: {
     path: path.resolve(__dirname, '../packages/font/')
@@ -22,7 +22,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(less|less)$/,
+        test: /\.(css|less|less)$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,

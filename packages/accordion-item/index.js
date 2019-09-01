@@ -142,7 +142,7 @@ export default useName({
         {this.$slots.header ? this.$slots.header : <span>{this.header}</span>}
         <Icon
           class={bem('arrow')}
-          name="ios-arrow-forward"
+          name="arrow-right"
           style={{
             color: this.arrowColor,
             transitionDuration: `${this.duration}ms`

@@ -45,7 +45,7 @@ export default useName({
       list.push(this.$slots.left);
     } else {
       if (this.leftArrow) {
-        list.push(<icon class={bem('icon-back')} name="ios-arrow-back" />);
+        list.push(<icon class={bem('icon-back')} name="arrow-left" />);
       }
       list.push(<span class={bem('left-text')}>{this.leftText}</span>);
     }

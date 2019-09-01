@@ -98,7 +98,7 @@ export default useName({
     }
 
     const link = (
-      <icon class={bem('icon-link', this.arrowDirection)} name="ios-arrow-forward" />
+      <icon class={bem('icon-link', this.arrowDirection)} name="arrow-right" />
     );
 
     const value = (

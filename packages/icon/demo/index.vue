@@ -3,12 +3,12 @@
     <div class="yus-demo-block__hd">图标组件</div>
     <div class="yus-demo-block__bd">
       <div
-        class="icon-wrapper"
+        class="icon-item"
         v-for="(item, index) in icons"
         :key="index"
         :data-clipboard-text="item"
       >
-        <yus-icon class="icon" :name="item"/>
+        <yus-icon class="icon" :name="item" />
         <div class="name">{{ item }}</div>
       </div>
     </div>
@@ -17,7 +17,7 @@
 
 <script>
 import ClipboardJS from 'clipboard';
-import icons from 'ymuicon/lib';
+import icons from '../../font/lib/data.json';
 
 export default {
   data() {
@@ -41,17 +41,22 @@ export default {
 </script>
 
 <style lang="scss">
-.icon-wrapper {
+.icon-item {
   float: left;
   width: 50%;
-  height: 80px;
-  padding: 5px;
+  height: 90px;
   box-sizing: border-box;
   font-size: 24px;
-  color: burlywood;
   text-align: center;
-  .name {
-    font-size: 12px;
-  }
+}
+
+.icon {
+  display: block;
+  font-size: 30px;
+}
+
+.name {
+  font-size: 12px;
+  margin-top: 4px;
 }
 </style>
