@@ -49,7 +49,7 @@ import Tabbar from './tabbar';
 import TabbarItem from './tabbar-item';
 import Toast from './toast';
 
-const version = '1.0.5';
+const version = '1.0.6';
 const components = [
   Accordion,
   AccordionItem,

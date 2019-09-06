@@ -9,7 +9,7 @@
           type="primary"
           plain
           @click="toastFromBottom"
-          text="显示Toast"
+          text="底部弹出"
         />
       </yus-cell>
       <yus-cell title="从中间弹出">
@@ -19,7 +19,7 @@
           type="primary"
           plain
           @click="toastFromMiddle"
-          text="显示Toast"
+          text="中间弹出"
         />
       </yus-cell>
       <yus-cell title="从顶部弹出">
@@ -29,7 +29,7 @@
           type="primary"
           plain
           @click="toastFromTop"
-          text="显示Toast"
+          text="顶部弹出"
         />
       </yus-cell>
       <yus-cell title="loading">
@@ -38,8 +38,8 @@
           size="mini"
           type="primary"
           plain
-          @click="toast({ type: 'loading', message: '加载中...' })"
-          text="显示Toast"
+          @click="loadingToast"
+          text="加载提示"
         />
       </yus-cell>
       <yus-cell title="success">
@@ -48,50 +48,24 @@
           size="mini"
           type="primary"
           plain
-          @click="toast({ type: 'success', message: '' })"
-          text="显示Toast"
+          @click="successToast"
+          text="成功提示"
         />
       </yus-cell>
       <yus-cell title="fail">
-        <yus-button
-          slot="value"
-          size="mini"
-          type="primary"
-          plain
-          @click="toast({ type: 'fail', message: '' })"
-          text="显示Toast"
-        />
+        <yus-button slot="value" size="mini" type="primary" plain @click="failToast" text="失败提示" />
       </yus-cell>
       <yus-cell title="warn">
-        <yus-button
-          slot="value"
-          size="mini"
-          type="primary"
-          plain
-          @click="toast({ type: 'warn', message: '' })"
-          text="显示Toast"
-        />
+        <yus-button slot="value" size="mini" type="primary" plain @click="warnToast" text="警告提示" />
       </yus-cell>
     </div>
-    <div class="yus-demo-block__hd">使用遮罩</div>
+    <div class="yus-demo-block__hd">使用幕布</div>
     <div class="yus-demo-block__bd">
       <div class="yus-demo-row">
-        <yus-button
-          block
-          slot="value"
-          type="primary"
-          @click="toast({ type: 'loading', message: '加载中...', backdrop: true, transparent: false })"
-          text="显示Toast(幕布不透明)"
-        />
+        <yus-button block slot="value" type="primary" @click="toast1" text="幕布不透明" />
       </div>
       <div class="yus-demo-row">
-        <yus-button
-          block
-          slot="value"
-          type="primary"
-          @click="toast({ type: 'loading', message: '加载中...', backdrop: true, transparent: true })"
-          text="显示Toast(幕布透明色)"
-        />
+        <yus-button block slot="value" type="primary" @click="toast2" text="幕布透明加载" />
       </div>
     </div>
   </div>
@@ -102,40 +76,86 @@ import Toast from '../index';
 export default {
   methods: {
     toastFromBottom() {
-      const t = Toast({
+      Toast({
         message: '发送短信成功',
-        position: 'bottom'
+        position: 'bottom',
+        duration: 10000
       });
-      setTimeout(() => {
-        t.clear();
-      }, 1000);
     },
+
+    toast1() {
+      Toast({
+        type: 'loading',
+        message: '加载中...',
+        backdrop: true,
+        transparent: false
+      });
+    },
+
+    toast2() {
+      Toast({
+        type: 'loading',
+        message: '加载中...',
+        backdrop: true,
+        transparent: true
+      });
+    },
+
+    successToast() {
+      Toast({
+        type: 'success',
+        message: '下单成功',
+        duration: 20000,
+        className: 'ui-success-toast'
+      });
+    },
+
+    loadingToast() {
+      Toast({
+        type: 'loading',
+        message: '加载中...',
+        duration: 2000
+      });
+    },
+
+    failToast() {
+      Toast({
+        type: 'fail',
+        message: '登录失败',
+        duration: 2000
+      });
+    },
+
+    warnToast() {
+      Toast({
+        type: 'fail',
+        message: '登录失败',
+        duration: 2000
+      });
+    },
+
     toastFromTop() {
-      const t = Toast({
+      Toast({
         message: '发送短信成功',
-        position: 'top'
+        position: 'top',
+        duration: 1000
       });
-      setTimeout(() => {
-        t.clear();
-      }, 1000);
     },
+
     toastFromMiddle() {
       const t = Toast({
-        message: '发送短信成功'
+        message: '发送短信成功',
+        duration: 1000
       });
-      setTimeout(() => {
-        t.clear();
-      }, 1000);
     },
+
     toastLoading() {
       const t = Toast({
         message: '加载中...',
         type: 'loading'
       });
-      setTimeout(() => {
-        t.clear();
-      }, 1000);
     },
+
     toast(option) {
       const t = Toast(option);
       setTimeout(() => {

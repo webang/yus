@@ -8,7 +8,7 @@ let defaultOptions = {
   type: 'text',
   message: '',
   speed: 400,
-  duration: 0,
+  duration: 1000,
   autoClose: true,
   position: 'middle'
 };
@@ -24,13 +24,11 @@ function createInstance() {
 
 function Toast(options = {}) {
   const toast = createInstance();
-
   if (typeof options === 'string') {
     options = {
       message: options
     };
   }
-
   const props = {
     ...defaultOptions,
     ...options,
@@ -45,6 +43,7 @@ function Toast(options = {}) {
       }, this.speed);
     }
   };
+
   Object.assign(toast, props);
 
   if (options.duration > 0) {
@@ -57,7 +56,7 @@ function Toast(options = {}) {
 }
 
 // 关闭所有的 toast
-Toast.clear = function(all) {
+Toast.clear = function (all) {
   if (!all) {
     queue.shift().clear();
   } else {
