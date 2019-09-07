@@ -41,14 +41,23 @@ export default useName({
 
   data() {
     return {
-      hasHeaderSlot: false
+      visible: this.value
     };
+  },
+
+  watch: {
+    visible(nVal) {
+      this.$emit('input', nVal);
+    },
+    value(nVal) {
+      this.visible = nVal;
+    }
   },
 
   methods: {
     handleClickMenu(index) {
       if (index === -1) {
-        return this.$emit('click-menu', index);
+        return this.close();
       }
       if (!this.menu[index].disabled) {
         this.$emit('click-menu', index);
@@ -63,10 +72,10 @@ export default useName({
     },
 
     close() {
-      this.$emit('input', false);
+      this.visible = false;
     }
   },
-  
+
   render() {
     const title = (
       <div class={bem('header')}>
@@ -82,9 +91,9 @@ export default useName({
 
     return (
       <div class={bem() + '-wrapper'}>
-        <Backdrop value={this.value} vOn:click={this.handleClickBackdrop} />
+        <Backdrop value={this.visible} vOn:click={this.handleClickBackdrop} />
         <transition name={bem()}>
-          <div class={bem()} vShow={this.value}>
+          <div class={bem()} vShow={this.visible}>
             {title}
             {this.menu.map((element, index) => {
               return (

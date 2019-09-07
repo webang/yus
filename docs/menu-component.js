@@ -139,12 +139,12 @@ export default [
         cName: '弹出层'
       },
       {
-        name: 'pull-refresh',
-        cName: '下拉刷新'
-      },
-      {
         name: 'toast',
         cName: '轻提示'
+      },
+      {
+        name: 'pull-refresh',
+        cName: '下拉刷新'
       }
     ]
   }

@@ -7,6 +7,9 @@
       <yus-cell title="禁用选项">
         <yus-switch slot="value" v-model="visible2"></yus-switch>
       </yus-cell>
+      <yus-cell title="点击幕布不可关闭">
+        <yus-switch slot="value" v-model="visible3"></yus-switch>
+      </yus-cell>
     </div>
 
     <yus-action-sheet
@@ -14,8 +17,6 @@
       title="选择收款方式"
       :menu="menu1"
       @click-menu="handleClickMenu1"
-      :close-on-click-backdrop="false"
-      @click-backdrop="handleClickBackdrop"
     />
 
     <yus-action-sheet
@@ -23,18 +24,27 @@
       title="选择收款方式"
       :menu="menu2"
       @click-menu="handleClickMenu2"
-      @click-backdrop="handleClickBackdrop"
+    />
+
+    <yus-action-sheet
+      v-model="visible3"
+      title="选择收款方式"
+      :menu="menu2"
+      :close-on-click-backdrop="false"
+      @click-menu="handleClickMenu2"
     />
   </div>
 </template>
 
 <script>
 import Toast from '../../toast';
+
 export default {
   data() {
     return {
       visible1: false,
       visible2: false,
+      visible3: false,
       menu1: [
         {
           text: '支付宝收款',
@@ -65,9 +75,10 @@ export default {
       ]
     };
   },
+
   methods: {
     handleClickMenu1(index) {
-      console.log(index)
+      console.log(index);
       if (index === -1) {
         this.visible1 = false;
       } else {
@@ -86,9 +97,6 @@ export default {
           duration: 1000
         });
       }
-    },
-    handleClickBackdrop(event) {
-      console.log(event);
     }
   }
 };
