@@ -42,7 +42,7 @@ export default useName({
   render() {
     return (
       <div class={bem()} vShow={this.value} onClick={this.handleClick}>
-        <Icon class={bem('icon')} name="ios-backtop-outline" />
+        <Icon class={bem('icon')} name="backtop" />
         <span class={bem('text')}>{this.text}</span>
       </div>
     );

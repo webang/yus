@@ -17,7 +17,7 @@
 
 <script>
 import ClipboardJS from 'clipboard';
-import icons from '../../font/lib';
+import icons from '../../font/lib/data.json';
 
 export default {
   data() {
