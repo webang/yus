@@ -1,6 +1,7 @@
 <template>
   <div class="yus-demo yus-demo-swiper">
-    <iframe src="http://static.airtlab.com"></iframe>
+    <a href="http://static.airtlab.com">立即前往</a>
+    <!-- <iframe src="http://static.airtlab.com"></iframe> -->
     <!-- <div class="yus-demo-block__hd">基本用法</div>
     <div class="yus-demo-block__bd">
       <div class="swiper-01">
