@@ -20,6 +20,6 @@ fs.readFile(svgDir, 'utf8', (err, data) => {
   let svgJsonStr = `[${svgJsonList.join(',')}]`
 
   fs.writeFile(path.resolve(__dirname, '../lib/data.json'), svgJsonStr, (err, data) => {
-    console.log(data);
+    console.log(svgJsonStr);
   })
 })

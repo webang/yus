@@ -40,6 +40,7 @@ import SpinnerBubbles from './spinner-bubbles';
 import SpinnerCircles from './spinner-circles';
 import SpinnerCrescent from './spinner-crescent';
 import SpinnerDots from './spinner-dots';
+import Sticky from './sticky';
 import Swiper from './swiper';
 import SwiperItem from './swiper-item';
 import Switch from './switch';
@@ -91,6 +92,7 @@ const components = [
   SpinnerCircles,
   SpinnerCrescent,
   SpinnerDots,
+  Sticky,
   Swiper,
   SwiperItem,
   Switch,
@@ -150,6 +152,7 @@ export {
   SpinnerCircles,
   SpinnerCrescent,
   SpinnerDots,
+  Sticky,
   Swiper,
   SwiperItem,
   Switch,

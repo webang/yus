@@ -1,6 +1,7 @@
 <template>
   <div class="yus-demo yus-demo-swiper">
-    <div class="yus-demo-block__hd">基本用法</div>
+    <iframe src="http://static.airtlab.com"></iframe>
+    <!-- <div class="yus-demo-block__hd">基本用法</div>
     <div class="yus-demo-block__bd">
       <div class="swiper-01">
         <yus-swiper
@@ -66,7 +67,7 @@
         </yus-swiper-item>
         <div class="indicator" slot="indicator">{{ v3 + 1 }}/2</div>
       </yus-swiper>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -197,5 +198,14 @@ export default {
     background: rgba(0, 0, 0, 0.1);
     border-radius: 3px;
   }
+}
+
+.yus-demo {
+  height: 100vh;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
 }
 </style>
